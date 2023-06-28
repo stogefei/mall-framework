@@ -1,0 +1,132 @@
+@import '~@amaz/theme/presets/pc/index.less';
+@bb-combobox: .bb-combobox;
+
+@{bb-combobox} {
+  display: inline-block;
+  position: relative;
+  line-height: 1.5;
+
+  &__selection {
+    height: @bb-btn-height-base;
+    background: @bb-option-hover-color;
+    border: 1px solid @bb-btn-default-border;
+    border-radius: @bb-border-radius-base;
+    outline: none;
+    transition: background 0.3s;
+    position: relative;
+    display: block;
+    cursor: pointer;
+
+    >i {
+      color: @bb-black-4;
+    }
+
+    svg {
+      transition: transform 0.3s;
+    }
+  }
+
+  &__label-wrap {
+    margin-right: 15px;
+    margin-left: 11px;
+    line-height: 30px;
+  }
+
+  &__placeholder {
+    color: @bb-black-4;
+  }
+
+  &__label,
+  &__placeholder {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__selection:hover {
+    background: #fff;
+  }
+
+  &__popup {
+    position: absolute;
+    background: #fff;
+    height: auto;
+    box-shadow: @bb-shadow-normal;
+    border-radius: @bb-border-radius-base;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+  }
+
+  &__popup::after {
+    content: ' ';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 6px solid transparent;
+
+  }
+
+  &__popup.bottom-right::after {
+    top: -12px;
+    right: 8px;
+    border-bottom-color: #fff;
+  }
+
+  &__popup.top-right::after {
+    right: 8px;
+    bottom: -12px;
+    border-top-color: #fff;
+  }
+
+  &__popup.bottom-left::after {
+    top: -12px;
+    left: 8px;
+    border-bottom-color: #fff;
+  }
+
+  &__popup.top-left::after {
+    left: 8px;
+    bottom: -12px;
+    border-top-color: #fff;
+  }
+
+
+}
+
+@{bb-combobox}-disabled {
+  @{bb-combobox}__selection {
+    cursor: not-allowed;
+    background: @bb-btn-disable-bg;
+    border-color: @bb-btn-disable-border;
+  }
+}
+
+@{bb-combobox}-sm {
+  @{bb-combobox}__selection {
+    height: 24px;
+  }
+
+  @{bb-combobox}__label-wrap {
+    margin-right: 12px;
+    margin-left: 7px;
+    line-height: 22px;
+  }
+
+  .ant-select-arrow {
+    right: 8px;
+  }
+}
+
+@popup-slide-fade: .popup-slide-fade;
+
+@{popup-slide-fade}-enter-active,
+@{popup-slide-fade}-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@{popup-slide-fade}-enter,
+@{popup-slide-fade}-leave-to {
+  opacity: 0;
+  transform: scaleY(0.8);
+}

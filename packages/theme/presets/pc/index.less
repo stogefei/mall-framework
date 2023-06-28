@@ -1,0 +1,495 @@
+@import '../../core/index.less';
+// -------- 预设九种颜色色板基色 -----------
+@bb-blue: #315efb; // 蓝色
+@bb-red: #ff3640; // 红色
+@bb-yellow: #ffaf06; // 黄色
+@bb-green: #0abf5b; // 绿色
+@bb-orange: #ff9d00; // 橘色
+@bb-pink: #ed3198; // 粉色
+@bb-purple: #7d32e6; // 紫色
+@bb-polar-green: #52c41a; //极绿
+@bb-light-blue: #23b7ff; //亮蓝
+
+@bb-gray: @bb-black-6; // 二级黑色(灰色)
+//  -------- 预设八种应用颜色 -----------
+
+@bb-golden-purple: #8c25b1; // 金紫色
+@bb-light-purple: #887ced; // 亮紫色
+@bb-dust-red: #fb6a85; // 粉红色
+@bb-volcano-orange: #ffa632; // 火山橙
+@bb-geek-blue: #3a67d7; // 极客蓝
+@bb-cyan: #0cc8c8; // 青色
+@bb-bluish-green: #56cd69; // 蓝绿色
+@bb-daybreak-blue: #2dbef7; // 拂晓蓝
+
+@bb-blue-1: color(~`colorPalette('@{bb-blue-6}', 1) `);
+@bb-blue-2: color(~`colorPalette('@{bb-blue-6}', 2) `);
+@bb-blue-3: color(~`colorPalette('@{bb-blue-6}', 3) `);
+@bb-blue-4: color(~`colorPalette('@{bb-blue-6}', 4) `);
+@bb-blue-5: color(~`colorPalette('@{bb-blue-6}', 5) `);
+@bb-blue-6: @bb-blue;
+@bb-blue-7: color(~`colorPalette('@{bb-blue-6}', 7) `);
+@bb-blue-8: color(~`colorPalette('@{bb-blue-6}', 8) `);
+@bb-blue-9: color(~`colorPalette('@{bb-blue-6}', 9) `);
+@bb-blue-10: color(~`colorPalette('@{bb-blue-6}', 10) `);
+
+@bb-green-1: color(~`colorPalette('@{bb-green-6}', 1) `);
+@bb-green-2: color(~`colorPalette('@{bb-green-6}', 2) `);
+@bb-green-3: color(~`colorPalette('@{bb-green-6}', 3) `);
+@bb-green-4: color(~`colorPalette('@{bb-green-6}', 4) `);
+@bb-green-5: color(~`colorPalette('@{bb-green-6}', 5) `);
+@bb-green-6: @bb-green;
+@bb-green-7: color(~`colorPalette('@{bb-green-6}', 7) `);
+@bb-green-8: color(~`colorPalette('@{bb-green-6}', 8) `);
+@bb-green-9: color(~`colorPalette('@{bb-green-6}', 9) `);
+@bb-green-10: color(~`colorPalette('@{bb-green-6}', 10) `);
+
+@bb-red-1: color(~`colorPalette('@{bb-red-6}', 1) `);
+@bb-red-2: color(~`colorPalette('@{bb-red-6}', 2) `);
+@bb-red-3: color(~`colorPalette('@{bb-red-6}', 3) `);
+@bb-red-4: color(~`colorPalette('@{bb-red-6}', 4) `);
+@bb-red-5: color(~`colorPalette('@{bb-red-6}', 5) `);
+@bb-red-6: @bb-red;
+@bb-red-7: color(~`colorPalette('@{bb-red-6}', 7) `);
+@bb-red-8: color(~`colorPalette('@{bb-red-6}', 8) `);
+@bb-red-9: color(~`colorPalette('@{bb-red-6}', 9) `);
+@bb-red-10: color(~`colorPalette('@{bb-red-6}', 10) `);
+
+@bb-yellow-1: color(~`colorPalette('@{bb-yellow-6}', 1) `);
+@bb-yellow-2: color(~`colorPalette('@{bb-yellow-6}', 2) `);
+@bb-yellow-3: color(~`colorPalette('@{bb-yellow-6}', 3) `);
+@bb-yellow-4: color(~`colorPalette('@{bb-yellow-6}', 4) `);
+@bb-yellow-5: color(~`colorPalette('@{bb-yellow-6}', 5) `);
+@bb-yellow-6: @bb-yellow;
+@bb-yellow-7: color(~`colorPalette('@{bb-yellow-6}', 7) `);
+@bb-yellow-8: color(~`colorPalette('@{bb-yellow-6}', 8) `);
+@bb-yellow-9: color(~`colorPalette('@{bb-yellow-6}', 9) `);
+@bb-yellow-10: color(~`colorPalette('@{bb-yellow-6}', 10) `);
+
+@bb-purple-1: color(~`colorPalette('@{bb-purple-6}', 1) `);
+@bb-purple-2: color(~`colorPalette('@{bb-purple-6}', 2) `);
+@bb-purple-3: color(~`colorPalette('@{bb-purple-6}', 3) `);
+@bb-purple-4: color(~`colorPalette('@{bb-purple-6}', 4) `);
+@bb-purple-5: color(~`colorPalette('@{bb-purple-6}', 5) `);
+@bb-purple-6: @bb-purple;
+@bb-purple-7: color(~`colorPalette('@{bb-purple-6}', 7) `);
+@bb-purple-8: color(~`colorPalette('@{bb-purple-6}', 8) `);
+@bb-purple-9: color(~`colorPalette('@{bb-purple-6}', 9) `);
+@bb-purple-10: color(~`colorPalette('@{bb-purple-6}', 10) `);
+
+@bb-orange-1: color(~`colorPalette('@{bb-orange-6}', 1) `);
+@bb-orange-2: color(~`colorPalette('@{bb-orange-6}', 2) `);
+@bb-orange-3: color(~`colorPalette('@{bb-orange-6}', 3) `);
+@bb-orange-4: color(~`colorPalette('@{bb-orange-6}', 4) `);
+@bb-orange-5: color(~`colorPalette('@{bb-orange-6}', 5) `);
+@bb-orange-6: @bb-orange;
+@bb-orange-7: color(~`colorPalette('@{bb-orange-6}', 7) `);
+@bb-orange-8: color(~`colorPalette('@{bb-orange-6}', 8) `);
+@bb-orange-9: color(~`colorPalette('@{bb-orange-6}', 9) `);
+@bb-orange-10: color(~`colorPalette('@{bb-orange-6}', 10) `);
+
+@bb-pink-1: color(~`colorPalette('@{bb-pink-6}', 1) `);
+@bb-pink-2: color(~`colorPalette('@{bb-pink-6}', 2) `);
+@bb-pink-3: color(~`colorPalette('@{bb-pink-6}', 3) `);
+@bb-pink-4: color(~`colorPalette('@{bb-pink-6}', 4) `);
+@bb-pink-5: color(~`colorPalette('@{bb-pink-6}', 5) `);
+@bb-pink-6: @bb-pink;
+@bb-pink-7: color(~`colorPalette('@{bb-pink-6}', 7) `);
+@bb-pink-8: color(~`colorPalette('@{bb-pink-6}', 8) `);
+@bb-pink-9: color(~`colorPalette('@{bb-pink-6}', 9) `);
+@bb-pink-10: color(~`colorPalette('@{bb-pink-6}', 10) `);
+
+@bb-polar-green-1: color(~`colorPalette('@{bb-polar-green-6}', 1) `);
+@bb-polar-green-2: color(~`colorPalette('@{bb-polar-green-6}', 2) `);
+@bb-polar-green-3: color(~`colorPalette('@{bb-polar-green-6}', 3) `);
+@bb-polar-green-4: color(~`colorPalette('@{bb-polar-green-6}', 4) `);
+@bb-polar-green-5: color(~`colorPalette('@{bb-polar-green-6}', 5) `);
+@bb-polar-green-6: @bb-polar-green;
+@bb-polar-green-7: color(~`colorPalette('@{bb-polar-green-6}', 7) `);
+@bb-polar-green-8: color(~`colorPalette('@{bb-polar-green-6}', 8) `);
+@bb-polar-green-9: color(~`colorPalette('@{bb-polar-green-6}', 9) `);
+@bb-polar-green-10: color(~`colorPalette('@{bb-polar-green-6}', 10) `);
+
+@bb-light-blue-1: color(~`colorPalette('@{bb-light-blue-6}', 1) `);
+@bb-light-blue-2: color(~`colorPalette('@{bb-light-blue-6}', 2) `);
+@bb-light-blue-3: color(~`colorPalette('@{bb-light-blue-6}', 3) `);
+@bb-light-blue-4: color(~`colorPalette('@{bb-light-blue-6}', 4) `);
+@bb-light-blue-5: color(~`colorPalette('@{bb-light-blue-6}', 5) `);
+@bb-light-blue-6: @bb-light-blue;
+@bb-light-blue-7: color(~`colorPalette('@{bb-light-blue-6}', 7) `);
+@bb-light-blue-8: color(~`colorPalette('@{bb-light-blue-6}', 8) `);
+@bb-light-blue-9: color(~`colorPalette('@{bb-light-blue-6}', 9) `);
+@bb-light-blue-10: color(~`colorPalette('@{bb-light-blue-6}', 10) `);
+
+@bb-volcano-orange-1: color(~`colorPalette('@{bb-volcano-orange-6}', 1) `);
+@bb-volcano-orange-2: color(~`colorPalette('@{bb-volcano-orange-6}', 2) `);
+@bb-volcano-orange-3: color(~`colorPalette('@{bb-volcano-orange-6}', 3) `);
+@bb-volcano-orange-4: color(~`colorPalette('@{bb-volcano-orange-6}', 4) `);
+@bb-volcano-orange-5: color(~`colorPalette('@{bb-volcano-orange-6}', 5) `);
+@bb-volcano-orange-6: @bb-volcano-orange;
+@bb-volcano-orange-7: color(~`colorPalette('@{bb-volcano-orange-6}', 7) `);
+@bb-volcano-orange-8: color(~`colorPalette('@{bb-volcano-orange-6}', 8) `);
+@bb-volcano-orange-9: color(~`colorPalette('@{bb-volcano-orange-6}', 9) `);
+@bb-volcano-orange-10: color(~`colorPalette('@{bb-volcano-orange-6}', 10) `);
+
+@bb-daybreak-blue-1: color(~`colorPalette('@{bb-daybreak-blue-6}', 1) `);
+@bb-daybreak-blue-2: color(~`colorPalette('@{bb-daybreak-blue-6}', 2) `);
+@bb-daybreak-blue-3: color(~`colorPalette('@{bb-daybreak-blue-6}', 3) `);
+@bb-daybreak-blue-4: color(~`colorPalette('@{bb-daybreak-blue-6}', 4) `);
+@bb-daybreak-blue-5: color(~`colorPalette('@{bb-daybreak-blue-6}', 5) `);
+@bb-daybreak-blue-6: @bb-daybreak-blue;
+@bb-daybreak-blue-7: color(~`colorPalette('@{bb-daybreak-blue-6}', 7) `);
+@bb-daybreak-blue-8: color(~`colorPalette('@{bb-daybreak-blue-6}', 8) `);
+@bb-daybreak-blue-9: color(~`colorPalette('@{bb-daybreak-blue-6}', 9) `);
+@bb-daybreak-blue-10: color(~`colorPalette('@{bb-daybreak-blue-6}', 10) `);
+
+@bb-cyan-1: color(~`colorPalette('@{bb-cyan-6}', 1) `);
+@bb-cyan-2: color(~`colorPalette('@{bb-cyan-6}', 2) `);
+@bb-cyan-3: color(~`colorPalette('@{bb-cyan-6}', 3) `);
+@bb-cyan-4: color(~`colorPalette('@{bb-cyan-6}', 4) `);
+@bb-cyan-5: color(~`colorPalette('@{bb-cyan-6}', 5) `);
+@bb-cyan-6: @bb-cyan;
+@bb-cyan-7: color(~`colorPalette('@{bb-cyan-6}', 7) `);
+@bb-cyan-8: color(~`colorPalette('@{bb-cyan-6}', 8) `);
+@bb-cyan-9: color(~`colorPalette('@{bb-cyan-6}', 9) `);
+@bb-cyan-10: color(~`colorPalette('@{bb-cyan-6}', 10) `);
+
+@bb-volcano-orange-1: color(~`colorPalette('@{bb-volcano-orange-6}', 1) `);
+@bb-volcano-orange-2: color(~`colorPalette('@{bb-volcano-orange-6}', 2) `);
+@bb-volcano-orange-3: color(~`colorPalette('@{bb-volcano-orange-6}', 3) `);
+@bb-volcano-orange-4: color(~`colorPalette('@{bb-volcano-orange-6}', 4) `);
+@bb-volcano-orange-5: color(~`colorPalette('@{bb-volcano-orange-6}', 5) `);
+@bb-volcano-orange-6: @bb-volcano-orange;
+@bb-volcano-orange-7: color(~`colorPalette('@{bb-volcano-orange-6}', 7) `);
+@bb-volcano-orange-8: color(~`colorPalette('@{bb-volcano-orange-6}', 8) `);
+@bb-volcano-orange-9: color(~`colorPalette('@{bb-volcano-orange-6}', 9) `);
+@bb-volcano-orange-10: color(~`colorPalette('@{bb-volcano-orange-6}', 10) `);
+
+@bb-daybreak-blue-1: color(~`colorPalette('@{bb-daybreak-blue-6}', 1) `);
+@bb-daybreak-blue-2: color(~`colorPalette('@{bb-daybreak-blue-6}', 2) `);
+@bb-daybreak-blue-3: color(~`colorPalette('@{bb-daybreak-blue-6}', 3) `);
+@bb-daybreak-blue-4: color(~`colorPalette('@{bb-daybreak-blue-6}', 4) `);
+@bb-daybreak-blue-5: color(~`colorPalette('@{bb-daybreak-blue-6}', 5) `);
+@bb-daybreak-blue-6: @bb-daybreak-blue;
+@bb-daybreak-blue-7: color(~`colorPalette('@{bb-daybreak-blue-6}', 7) `);
+@bb-daybreak-blue-8: color(~`colorPalette('@{bb-daybreak-blue-6}', 8) `);
+@bb-daybreak-blue-9: color(~`colorPalette('@{bb-daybreak-blue-6}', 9) `);
+@bb-daybreak-blue-10: color(~`colorPalette('@{bb-daybreak-blue-6}', 10) `);
+
+@bb-cyan-1: color(~`colorPalette('@{bb-cyan-6}', 1) `);
+@bb-cyan-2: color(~`colorPalette('@{bb-cyan-6}', 2) `);
+@bb-cyan-3: color(~`colorPalette('@{bb-cyan-6}', 3) `);
+@bb-cyan-4: color(~`colorPalette('@{bb-cyan-6}', 4) `);
+@bb-cyan-5: color(~`colorPalette('@{bb-cyan-6}', 5) `);
+@bb-cyan-6: @bb-cyan;
+@bb-cyan-7: color(~`colorPalette('@{bb-cyan-6}', 7) `);
+@bb-cyan-8: color(~`colorPalette('@{bb-cyan-6}', 8) `);
+@bb-cyan-9: color(~`colorPalette('@{bb-cyan-6}', 9) `);
+@bb-cyan-10: color(~`colorPalette('@{bb-cyan-6}', 10) `);
+
+@bb-golden-purple-1: color(~`colorPalette('@{bb-golden-purple-6}', 1) `);
+@bb-golden-purple-2: color(~`colorPalette('@{bb-golden-purple-6}', 2) `);
+@bb-golden-purple-3: color(~`colorPalette('@{bb-golden-purple-6}', 3) `);
+@bb-golden-purple-4: color(~`colorPalette('@{bb-golden-purple-6}', 4) `);
+@bb-golden-purple-5: color(~`colorPalette('@{bb-golden-purple-6}', 5) `);
+@bb-golden-purple-6: @bb-golden-purple;
+@bb-golden-purple-7: color(~`colorPalette('@{bb-golden-purple-6}', 7) `);
+@bb-golden-purple-8: color(~`colorPalette('@{bb-golden-purple-6}', 8) `);
+@bb-golden-purple-9: color(~`colorPalette('@{bb-golden-purple-6}', 9) `);
+@bb-golden-purple-10: color(~`colorPalette('@{bb-golden-purple-6}', 10) `);
+
+@bb-light-purple-1: color(~`colorPalette('@{bb-light-purple-6}', 1) `);
+@bb-light-purple-2: color(~`colorPalette('@{bb-light-purple-6}', 2) `);
+@bb-light-purple-3: color(~`colorPalette('@{bb-light-purple-6}', 3) `);
+@bb-light-purple-4: color(~`colorPalette('@{bb-light-purple-6}', 4) `);
+@bb-light-purple-5: color(~`colorPalette('@{bb-light-purple-6}', 5) `);
+@bb-light-purple-6: @bb-light-purple;
+@bb-light-purple-7: color(~`colorPalette('@{bb-light-purple-6}', 7) `);
+@bb-light-purple-8: color(~`colorPalette('@{bb-light-purple-6}', 8) `);
+@bb-light-purple-9: color(~`colorPalette('@{bb-light-purple-6}', 9) `);
+@bb-light-purple-10: color(~`colorPalette('@{bb-light-purple-6}', 10) `);
+
+@bb-dust-red-1: color(~`colorPalette('@{bb-dust-red-6}', 1) `);
+@bb-dust-red-2: color(~`colorPalette('@{bb-dust-red-6}', 2) `);
+@bb-dust-red-3: color(~`colorPalette('@{bb-dust-red-6}', 3) `);
+@bb-dust-red-4: color(~`colorPalette('@{bb-dust-red-6}', 4) `);
+@bb-dust-red-5: color(~`colorPalette('@{bb-dust-red-6}', 5) `);
+@bb-dust-red-6: @bb-dust-red;
+@bb-dust-red-7: color(~`colorPalette('@{bb-dust-red-6}', 7) `);
+@bb-dust-red-8: color(~`colorPalette('@{bb-dust-red-6}', 8) `);
+@bb-dust-red-9: color(~`colorPalette('@{bb-dust-red-6}', 9) `);
+@bb-dust-red-10: color(~`colorPalette('@{bb-dust-red-6}', 10) `);
+
+@bb-bluish-green-1: color(~`colorPalette('@{bb-bluish-green-6}', 1) `);
+@bb-bluish-green-2: color(~`colorPalette('@{bb-bluish-green-6}', 2) `);
+@bb-bluish-green-3: color(~`colorPalette('@{bb-bluish-green-6}', 3) `);
+@bb-bluish-green-4: color(~`colorPalette('@{bb-bluish-green-6}', 4) `);
+@bb-bluish-green-5: color(~`colorPalette('@{bb-bluish-green-6}', 5) `);
+@bb-bluish-green-6: @bb-bluish-green;
+@bb-bluish-green-7: color(~`colorPalette('@{bb-bluish-green-6}', 7) `);
+@bb-bluish-green-8: color(~`colorPalette('@{bb-bluish-green-6}', 8) `);
+@bb-bluish-green-9: color(~`colorPalette('@{bb-bluish-green-6}', 9) `);
+@bb-bluish-green-10: color(~`colorPalette('@{bb-bluish-green-6}', 10) `);
+
+@bb-geek-blue-1: color(~`colorPalette('@{bb-geek-blue-6}', 1) `);
+@bb-geek-blue-2: color(~`colorPalette('@{bb-geek-blue-6}', 2) `);
+@bb-geek-blue-3: color(~`colorPalette('@{bb-geek-blue-6}', 3) `);
+@bb-geek-blue-4: color(~`colorPalette('@{bb-geek-blue-6}', 4) `);
+@bb-geek-blue-5: color(~`colorPalette('@{bb-geek-blue-6}', 5) `);
+@bb-geek-blue-6: @bb-geek-blue;
+@bb-geek-blue-7: color(~`colorPalette('@{bb-geek-blue-6}', 7) `);
+@bb-geek-blue-8: color(~`colorPalette('@{bb-geek-blue-6}', 8) `);
+@bb-geek-blue-9: color(~`colorPalette('@{bb-geek-blue-6}', 9) `);
+@bb-geek-blue-10: color(~`colorPalette('@{bb-geek-blue-6}', 10) `);
+
+// -------- 黑色 -----------
+@bb-black-1: #ecf0f6; // hover 色
+@bb-black-2: #e3e6ec; // 分割线颜色
+@bb-black-3: #ced4dd;
+@bb-black-4: #bbbeca; // 蓝湖自定义三级黑
+@bb-black-5: #8e96a4;
+@bb-black-6: #707481; // 蓝湖自定义二级黑
+@bb-black-7: #121933; // 蓝湖自定义一级黑色
+@bb-black-8: #000; // 极致黑
+@bb-black-9: #000; // 极致黑
+@bb-black-10: #000; // 极致黑
+
+// -------- 十一种渐变色 -----------
+@bb-gradual-blue: linear-gradient(
+  45deg,
+  @bb-blue 0%,
+  @bb-blue-4 100%
+); // 渐变蓝色
+@bb-gradual-red: linear-gradient(45deg, @bb-red 0%, @bb-red-4 100%); // 渐变红色
+@bb-gradual-green: linear-gradient(
+  45deg,
+  @bb-green 0%,
+  @bb-green-4 100%
+); // 渐变绿色
+@bb-gradual-orange: linear-gradient(
+  45deg,
+  @bb-orange 0%,
+  @bb-orange-4 100%
+); // 渐变橘色
+@bb-gradual-yellow: linear-gradient(
+  45deg,
+  @bb-yellow 0%,
+  @bb-yellow-4 100%
+); // 渐变黄色
+@bb-gradual-purple: linear-gradient(
+  45deg,
+  @bb-purple 0%,
+  @bb-purple-4 100%
+); // 渐变紫色
+@bb-gradual-pink: linear-gradient(
+  45deg,
+  @bb-pink 0%,
+  @bb-pink-4 100%
+); // 渐变粉色
+@bb-gradual-light-blue: linear-gradient(
+  45deg,
+  @bb-light-blue 0%,
+  @bb-light-blue-4 100%
+); // 渐变亮蓝
+@bb-gradual-polar-green: linear-gradient(
+  45deg,
+  @bb-polar-green 0%,
+  @bb-polar-green-4 100%
+); // 渐变极绿
+
+@bb-gradual-black: linear-gradient(
+  45deg,
+  @bb-black-7 0%,
+  @bb-black-4 100%
+); // 渐变黑色
+
+@bb-gradual-golden-purple: linear-gradient(
+  90deg,
+  #8a0662 0%,
+  #4f0884 100%
+); // 渐变金紫色
+@bb-gradual-light-purple: linear-gradient(
+  90deg,
+  #9b93ed 0%,
+  #de5490 100%
+); // 渐变 亮紫色
+@bb-gradual-dust-red: linear-gradient(
+  90deg,
+  #ee649a 0%,
+  #f06767 100%
+); // 渐变粉红色
+@bb-gradual-volcano-orange: linear-gradient(
+  90deg,
+  #f06363 0%,
+  #ffa731 100%
+); // 渐变火山橙
+@bb-gradual-geek-blue: linear-gradient(
+  90deg,
+  #7153a3 0%,
+  #1c4dc2 100%
+); // 渐变极客蓝
+@bb-gradual-cyan: linear-gradient(90deg, #0051cf 0%, #00a08a 100%); // 渐变青色
+@bb-gradual-bluish-green: linear-gradient(
+  90deg,
+  #53c97b 0%,
+  #3eb1c0 100%
+); // 渐变蓝绿色
+@bb-gradual-daybreak-blue: linear-gradient(
+  90deg,
+  #4ccede 0%,
+  #6e76ff 100%
+); // 渐变拂晓蓝
+
+// -------- 功能色 -----------
+@bb-primary-color: @bb-blue; // 主色
+@bb-info-color: @bb-primary-color; // 提示色
+@bb-error-color: @bb-red; // 错误色
+@bb-success-color: @bb-green; // 成功色
+@bb-warning-color: @bb-yellow; // 警告色
+@bb-normal-color: #f3f6f9; // 默认背景色
+@bb-option-hover-color: #f5f6f9; // 下拉选项的hover颜色
+@bb-option-active-color: #eef1ff; // 下拉选项的active颜色
+@bb-line-color: #e9e9eb; // 默认线条颜色
+@bb-zebra-crossing-color: #fafbfb; // 斑马线
+
+// --------- 背景色 ---------------
+@bb-primary-bg-color: @bb-blue; // 主按钮、单选选中、复选选中
+@bb-blackmask-bg-color: rgba(0, 0, 0, 0.5); // 黑色蒙层
+@bb-table-select: #f4f5f7; // 页面/表格表头(默认)表格行选中
+@bb-table-border-color: #ebecee; //表格分割、边框线
+@bb-zebra-crossing-bg-color: #fafbfb; // 表格行斑马线
+
+// -------- 功能辅助色 -----------
+// --- 提示 ---
+@bb-info-bg-color: @bb-blue-1;
+@bb-info-hover-color: @bb-blue-5;
+@bb-info-active-color: @bb-blue-7;
+// --- 错误 ---
+@bb-error-bg-color: @bb-red-1;
+@bb-error-hover-color: @bb-red-5;
+@bb-error-active-color: @bb-red-7;
+// --- 成功 ---
+@bb-success-bg-color: @bb-green-1;
+@bb-success-hover-color: @bb-green-5;
+@bb-success-active-color: @bb-green-7;
+// --- 警告 ---
+@bb-warning-bg-color: @bb-yellow-1;
+@bb-warning-hover-color: @bb-yellow-5;
+@bb-warning-active-color: @bb-yellow-7;
+
+// -------- 应用图标颜色 -----------
+@bb-app-color-1: @bb-golden-purple;
+@bb-app-color-2: @bb-light-purple;
+@bb-app-color-3: @bb-dust-red;
+@bb-app-color-4: @bb-volcano-orange;
+@bb-app-color-5: @bb-geek-blue;
+@bb-app-color-6: @bb-cyan;
+@bb-app-color-7: @bb-bluish-green;
+@bb-app-color-8: @bb-daybreak-blue;
+
+// -------- 文字颜色 -----------
+@bb-text-color-dark: #000; // 黑色模式
+@bb-text-color: @bb-black-7; // 蓝湖自定义一级黑
+@bb-text-color-light: @bb-black-6; // 蓝湖自定义二级黑
+@bb-text-color-light-2: @bb-black-4; // 蓝湖自定义三级黑
+@bb-text-color-primary: @bb-primary-color; // 主色调
+@bb-text-color-disabled: @bb-black-4; // 禁用色
+@bb-heading-text-color: @bb-text-color; // 文本色
+
+// --------- 阴影颜色 ---------------
+@bb-shadow-color: #d5e8ff;
+@bb-dark-shadow-color: rgba(51, 93, 182, 0.2);
+// --------- 拖拽 ---------------
+@bb-drag-ghost-color: @bb-shadow-color;
+
+// --------- 覆盖Antd ---------------
+// --------- tooltip ---------------
+@bb-tooltip-bg: fade(@bb-black-7, 85%);
+
+// --------- input ---------------
+@bb-input-height-base: 32px;
+@bb-input-padding-horizontal-base: 12px;
+@bb-input-placeholder-color: @bb-black-4;
+@bb-input-border-color: #e9ebef;
+@bb-input-bg: @bb-option-hover-color;
+@bb-input-disabled-bg: #d1d3e4;
+@bb-input-color: @bb-black-7;
+
+// ------ select ---
+@bb-select-border-color: @bb-option-hover-color;
+@bb-select-item-selected-color: @bb-black-7;
+@bb-select-dropdown-bg: #fff;
+@bb-select-item-selected-bg: #eef1ff;
+@bb-select-item-active-bg: #eef1ff;
+@bb-select-background: #e9ebef;
+
+// --------- modal ---------------
+@bb-modal-mask-bg: rgba(0, 0, 0, 0.5);
+@bb-modal-header-padding: @bb-padding-lg @bb-padding-lg 0 @bb-padding-lg;
+@bb-modal-header-height: 48px;
+@bb-modal-header-border-bottom: none;
+@bb-modal-header-line-height: 24px;
+@bb-modal-body-padding: @bb-padding-lg;
+@bb-modal-body-line-height: 22px;
+@bb-modal-footer-padding: 0 @bb-padding-lg @bb-padding-lg @bb-padding-lg;
+@bb-modal-footer-border-top: none;
+@bb-modal-close-x-height: 48px;
+@bb-modal-close-x-width: 48px;
+@bb-modal-close-x-line-height: 48px;
+@bb-modal-footer-padding-vertical: @bb-padding-lg;
+@bb-modal-footer-padding-horizontal: @bb-padding-lg;
+// --------- alert ---------------
+@bb-alert-success-bg-color: @bb-green-1;
+@bb-alert-success-border-color: @bb-green-3;
+@bb-alert-info-bg-color: @bb-blue-1;
+@bb-alert-info-border-color: @bb-blue-3;
+@bb-alert-warning-bg-color: @bb-orange-1;
+@bb-alert-warning-border-color: @bb-orange-3;
+@bb-alert-error-bg-color: @bb-red-1;
+@bb-alert-error-border-color: @bb-red-3;
+
+// --------- button ---------------
+@bb-btn-danger-bg: @bb-red;
+@bb-btn-primary-bg: @bb-blue;
+@bb-btn-shadow: none;
+@bb-btn-primary-shadow: none;
+@bb-btn-text-shadow: none;
+@bb-btn-height-base: 32px;
+@bb-btn-disable-color: fade(#000, 25%);
+@bb-btn-disable-bg: #e8eaf1;
+@bb-btn-disable-border: #d1d3e4;
+@bb-btn-default-border: #dee0ea;
+@bb-btn-default-color: @bb-black-7;
+
+// LINK
+@bb-link-color: @bb-blue;
+@bb-link-hover-color: @bb-blue-7;
+@bb-link-active-color: @bb-blue-7;
+@bb-link-decoration: none;
+@bb-link-hover-decoration: none;
+
+// --------- message ---------------
+@bb-message-notice-content-padding: 8px 16px;
+
+// --------- notification ---------------
+@bb-notification-padding: @bb-padding-md @bb-padding-lg @bb-padding-lg;
+
+// --------- switch ---------------
+@bb-switch-disabled-opacity: 0.3;
+@bb-switch-sm-height: 14px;
+@bb-switch-shadow-color: none;
+
+// --------- popover ---------------
+@bb-popover-arrow-width: 6px;
+
+// --------- tag ---------------
+@bb-tag-default-bg: #f1f2f4;
+@bb-tag-default-color: @bb-black-7;
+
+// --------- divider ---------------
+@bb-border-color-split: @bb-line-color;
+
+// ----- common ----------
+@bb-disabled-color: @bb-black-4;
+@bb-item-active-bg: @bb-option-active-color;
+@bb-item-hover-bg: @bb-option-hover-color;

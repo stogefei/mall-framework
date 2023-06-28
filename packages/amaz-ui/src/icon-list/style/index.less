@@ -1,0 +1,30 @@
+.bb-icon-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: @bb-margin-xxs @bb-padding-xs;
+    height: 32px;
+    width: 32px;
+    font-size: 16px;
+    transition: all 0.3s;
+
+
+    &:hover {
+      background: @bb-black-2;
+    }
+
+    &.active {
+      background: @bb-blue;
+      color: #fff;
+    }
+  }
+
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@amaz/theme",
+  "version": "9.0.0",
+  "description": "主题库",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "test",
+    "debug": "node --inspect-brk=9229 node_modules/.bin/gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "publishConfig": {},
+  "keywords": [
+    "theme"
+  ],
+  "files": [
+    "core",
+    "presets"
+  ],
+  "author": "zaf",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "ant-design-vue": "^3.2.14",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "merge-stream": "^2.0.0",
+    "vant": "^2.12.27"
+  }
+}

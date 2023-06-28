@@ -1,0 +1,173 @@
+@import '~@amaz/theme/presets/mobile/index.less';
+@bb-menu-tree: .bb-menu-tree;
+
+.bb-menu-tree {
+  width: 100%;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-out;
+
+    &__label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      height: 40px;
+      overflow: hidden;
+      padding: 0 @bb-padding-sm;
+      cursor: pointer;
+      opacity: 0.8;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        color: transparent;
+        background-color: transparent;
+        border-radius: 2px;
+        height: 2px;
+        width: 100%;
+        left: 0;
+      }
+
+      >.bb-icon {
+        color: @bb-blue-6;
+      }
+
+      >* {
+        flex: 1;
+        z-index: 1;
+      }
+    }
+
+    &__label:hover {
+      opacity: 1;
+      background: @bb-option-hover-color;
+    }
+
+    &--selected>&__label {
+      position: relative;
+      background: @bb-blue-1;
+      opacity: 1;
+
+      &::after {
+        position: absolute;
+        content: ' ';
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: @bb-blue;
+      }
+    }
+
+    &__icon {
+      flex: none;
+      display: inline-flex;
+      margin-right: @bb-margin-xs;
+      font-size: 16px;
+    }
+
+    &--disabled>&__label {
+      cursor: not-allowed;
+      // &:hover {
+      //   background: ;
+      // }
+    }
+  }
+
+  @{bb-menu-tree}-item-floder {
+    >@{bb-menu-tree}-item__label>.bb-icon {
+      color: @bb-yellow-6;
+    }
+  }
+
+  &-item-list {
+    flex: 0 0 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &--hide {
+      display: none;
+    }
+  }
+
+  &-drag-over-top::before {
+    top: 0;
+    background: @bb-blue;
+
+  }
+
+  &-drag-over {
+    color: #fefefe;
+
+    >.bb-icon {
+      color: #fefefe;
+    }
+
+    &::before {
+      top: 0;
+      height: 100%;
+      background: @bb-blue;
+    }
+  }
+
+  &-drag-over-bottom::before {
+    bottom: 0;
+    background: @bb-blue;
+
+  }
+}
+
+@bb-tree-expand: .bb-menu-tree-expand;
+
+@{bb-menu-tree}--dark {
+  color: #fff;
+  background: @bb-black-7;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #fefefe;
+  }
+
+  @{bb-menu-tree}-item-floder {
+    >@{bb-menu-tree}-item__label>.bb-icon {
+      color: @bb-yellow-4;
+    }
+  }
+
+  @{bb-menu-tree}-item__label {
+    >.bb-icon {
+      color: @bb-daybreak-blue-4;
+    }
+  }
+
+  @{bb-menu-tree}-item__label:hover {
+    background: rgba(@bb-black-6, 0.2);
+  }
+
+  @{bb-menu-tree}-item--selected>@{bb-menu-tree}-item__label {
+    background: rgba(@bb-black-6, 0.5);
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+@{bb-tree-expand}-enter-active {
+  max-height: 500px;
+  transition: all 0.3s ease-in;
+}
+
+@{bb-tree-expand}-leave-active {
+  max-height: 500px;
+
+  transition: all 0.3s ease-out;
+}
+
+@{bb-tree-expand}-enter,
+@{bb-tree-expand}-leave-to {
+  max-height: 0;
+}

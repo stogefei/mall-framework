@@ -1,0 +1,111 @@
+@import '~@amaz/theme/presets/pc/index.less';
+@bb-prop-opt-settings: .bb-prop-opt-settings;
+
+@{bb-prop-opt-settings} {
+
+  &--form {
+    @{bb-prop-opt-settings}__box {
+      display: flex;
+      justify-content: space-between;
+      line-height: 32px;
+
+      >label {
+        color: @bb-black-5;
+      }
+
+      .bb-icon {
+        margin-left: @bb-margin-xxs;
+      }
+    }
+
+    .bb-field::before {
+      top: 11px;
+      left: -8px;
+    }
+  }
+
+  &__jsonschame {
+    padding: 0;
+    margin-top: @bb-margin-xs;
+
+    .bb-json-schame-body {
+      max-height: 350px;
+      overflow: auto;
+    }
+  }
+
+
+
+  .bb-field__value {
+    overflow: hidden;
+  }
+}
+
+@{bb-prop-opt-settings}-list {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .bb-field {
+    width: 100%;
+    padding: @bb-padding-xxxs @bb-padding-xs;
+  }
+
+  .ant-input-affix-wrapper {
+    .ant-input {
+      padding-right: 40px !important;
+    }
+
+    .ant-input-suffix {
+      right: 8px;
+
+      * {
+        line-height: 1 !important;
+      }
+    }
+  }
+
+  &-ops {
+    display: inline-flex;
+    align-items: flex-start;
+
+    &__btn {
+      font-size: 12px;
+      line-height: 1 !important;
+      cursor: pointer;
+
+      &:hover i {
+        color: @bb-black-7 !important;
+      }
+    }
+
+    &__btn+&__btn {
+      margin-left: @bb-margin-xxs;
+    }
+  }
+
+
+  &__drag {
+    cursor: move !important;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: @bb-padding-xxxs 0;
+    width: 100%;
+
+    >.ant-btn {
+      padding: 0;
+      font-size: inherit;
+    }
+  }
+
+}
+
+.bb-prop-opt-settings-batch {
+  .ant-input {
+    min-height: 250px;
+  }
+}

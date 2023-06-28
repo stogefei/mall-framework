@@ -1,0 +1,46 @@
+@import '../theme/index.less';
+.link-button(@bg: @bb-tag-default-bg) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: @bb-padding-xxs @bb-padding-xs;
+  cursor: pointer;
+
+  .bb-icon+span {
+    margin-left: @bb-margin-xxs;
+  }
+
+  span {
+    .overflow-ellipsis();
+  }
+
+  z-index: 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
+    border-radius: @bb-border-radius-base;
+    z-index: -1;
+  }
+
+  &[disabled='disabled'] {
+    cursor: not-allowed;
+    color: @bb-black-4;
+  }
+
+  &:not([disabled='disabled']):hover::before {
+    background: @bg;
+    transform: scale(1);
+  }
+
+  &:not([disabled='disabled']):hover {
+    color: @bb-blue;
+  }
+}

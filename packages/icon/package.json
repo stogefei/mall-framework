@@ -1,0 +1,27 @@
+{
+  "name": "@amaz/icon",
+  "version": "9.0.0",
+  "description": "icon",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "files": [
+    "lib",
+    "es",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "publishConfig": {},
+  "keywords": [
+    "theme"
+  ],
+  "author": "zaf",
+  "license": "ISC",
+  "devDependencies": {
+    "vue": "^3.2.25"
+  }
+}

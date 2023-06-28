@@ -1,0 +1,52 @@
+.bbawesome-fade-enter-active {
+  opacity: 1;
+  transition: all linear 250ms;
+}
+.bbawesome-fade-leave-active {
+  opacity: 1;
+  transition: all linear 250ms;
+  position: absolute;
+}
+
+.bbawesome-fade-enter,
+.bbawesome-fade-leave-to {
+  opacity: 0;
+}
+
+.bbawesome-fade-move {
+  transition: all 250ms;
+}
+
+.bbawesome-zoom-enter-active {
+  animation: bbawesomeZoomBadgeIn 250ms linear;
+  animation-fill-mode: both;
+}
+
+.bbawesome-zoom-leave-active {
+  animation: bbawesomeZoomBadgeOut 250ms linear;
+  animation-fill-mode: both;
+}
+
+.bbawesome-zoom-move {
+  transition: all 250ms;
+}
+
+@keyframes bbawesomeZoomBadgeIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bbawesomeZoomBadgeOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,274 @@
+@import '~@amaz/theme/presets/pc/index.less';
+
+.bb-editor {
+
+  &-tooltip {
+    position: absolute;
+    border: 1px solid @bb-line-color;
+    box-shadow: @bb-shadow-card;
+    padding: @bb-padding-xxs @bb-padding-sm;
+    white-space: nowrap;
+    background: #fff;
+    border-radius: @bb-border-radius-sm;
+    z-index: 9999;
+
+    &.ql-hidden {
+      display: none;
+    }
+
+    &::before {
+      content: "链接地址:";
+      margin-right: @bb-margin-xs;
+    }
+
+
+    a {
+      color: @bb-blue;
+      line-height: 26px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    a.ql-action::after {
+      content: '编辑';
+      border-right: 1px solid @bb-line-color;
+      margin-left: 16px;
+      padding-right: 8px;
+    }
+
+    a.ql-remove::before {
+      content: '删除';
+      margin-left: @bb-margin-xs;
+    }
+
+    a.ql-preview {
+      display: inline-block;
+      max-width: 200px;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top;
+    }
+
+    &.ql-editing {
+      &::before {
+        content: "请输入链接地址:";
+      }
+
+      input[type=text] {
+        display: inline-block;
+      }
+
+      a.ql-remove,
+      a.ql-preview {
+        display: none;
+      }
+
+      a.ql-action::after {
+        content: '保存';
+        border-right: 0;
+        padding-right: 0;
+      }
+    }
+
+    input[type=text] {
+      display: none;
+      border: 1px solid @bb-line-color;
+      font-size: 13px;
+      height: 26px;
+      margin: 0px;
+      padding: 3px 5px;
+      width: 170px;
+      border-radius: @bb-border-radius-sm;
+      transition: box-shadow 0.3s ease-out;
+
+      &:focus {
+        border-color: @bb-blue;
+        background: #fff;
+        box-shadow: 0 0 0 2px rgba(@bb-blue, .2);
+      }
+    }
+  }
+}
+
+.ql-snow {
+  border: 0;
+}
+
+.ql-toolbar.ql-snow {
+  padding: @bb-padding-xxs;
+  border: 1px solid @bb-line-color;
+  border-bottom: 0;
+  border-radius: @bb-border-radius-base @bb-border-radius-base 0 0;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin: 0;
+}
+
+.ql-container.ql-snow {
+  border: 0;
+  font-family: inherit;
+}
+
+.ql-container .ql-editor {
+  min-height: 150px;
+  transition: all 0.3s;
+  border: 1px solid @bb-line-color;
+  border-radius: 0 0 @bb-border-radius-base @bb-border-radius-base;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.ql-container .ql-editor:hover {
+  background: #fff;
+}
+
+.ql-container .ql-editor:focus {
+  border-color: #315efb;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(49, 94, 251, 0.2);
+}
+
+.ql-snow .ql-picker {
+  color: @bb-black-7;
+  font-size: inherit;
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  content: '正文';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='1']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='1']::before {
+  content: '标题1';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='2']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='2']::before {
+  content: '标题2';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='3']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='3']::before {
+  content: '标题3';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='4']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='4']::before {
+  content: '标题4';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='5']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='5']::before {
+  content: '标题5';
+}
+
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='6']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='6']::before {
+  content: '标题6';
+}
+
+/*
+  文字大小
+*/
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='10px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='10px']::before {
+  content: '10px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='12px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='12px']::before {
+  content: '12px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='14px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='14px']::before {
+  content: '14px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='16px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='16px']::before {
+  content: '16px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='18px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='18px']::before {
+  content: '18px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='20px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='20px']::before {
+  content: '20px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='24px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='24px']::before {
+  content: '24px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='28px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='28px']::before {
+  content: '28px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='32px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='32px']::before {
+  content: '32px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='36px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='36px']::before {
+  content: '36px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='48px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='48px']::before {
+  content: '48px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: '13px';
+}
+
+
+.ql-snow a {
+  color: @bb-blue;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: @bb-black-4;
+  border-color: @bb-line-color;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border-color: @bb-line-color;
+  box-shadow: @bb-shadow-card;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: @bb-blue;
+}
+
+.bb-editor-confirm {
+  .bb-confirm__content {
+    display: flex;
+    justify-content: center;
+  }
+}

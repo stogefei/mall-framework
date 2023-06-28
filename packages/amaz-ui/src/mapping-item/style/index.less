@@ -1,0 +1,18 @@
+@import '~@amaz/theme/presets/pc/index.less';
+.bb-mapping-item {
+  background: #fff;
+  display: flex;
+  & &-cell {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    .bb-field {
+      flex: 1;
+      overflow: hidden;
+      padding: 1px 2px 1px 0;
+    }
+  }
+  &-cell:last-child {
+    flex: 1 !important;
+  }
+}

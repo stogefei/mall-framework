@@ -1,0 +1,113 @@
+@import '~@amaz/theme/presets/pc/index.less';
+
+.bb-fixed-confirm {
+  position: fixed;
+  background: #FFF;
+  box-shadow: @bb-shadow-normal;
+  border-radius: @bb-border-radius-base;
+  z-index: 1050;
+  opacity: 0;
+  transform: scaleY(0.8);
+  transition: opacity 0.3s ease-out;
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+  }
+
+  &--show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  &-arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    padding: 0 !important;
+    background: transparent;
+    border-style: solid;
+    border-width: 4px;
+    transform: rotate(45deg);
+  }
+
+  &.top-right {
+    transform: translate3d(-100%, -100%, 0);
+    margin-top: -10px;
+
+    .bb-fixed-confirm-arrow {
+      right: 16px;
+      bottom: -4px;
+      border-color: transparent #fff #fff transparent;
+      box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+
+    }
+
+  }
+
+  &.top-left {
+    transform: translate3d(0, -100%, 0);
+    margin-top: -10px;
+
+    .bb-fixed-confirm-arrow {
+      left: 16px;
+      bottom: -4px;
+      border-color: transparent #fff #fff transparent;
+      box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+    }
+  }
+
+  &.bottom-right {
+    margin-top: 10px;
+    transform: translate3d(-100%, 0, 0);
+
+    .bb-fixed-confirm-arrow {
+      right: 16px;
+      top: -4px;
+      border-color: #fff transparent transparent #fff;
+      box-shadow: -2px -2px 5px rgba(0, 0, 0 0.06);
+    }
+  }
+
+  &.bottom-left {
+    margin-top: 10px;
+    transform: translate3d(0, 0, 0);
+
+    .bb-fixed-confirm-arrow {
+      left: 16px;
+      top: -4px;
+      border-color: #fff transparent transparent #fff;
+      box-shadow: -2px -2px 5px rgba(0, 0, 0 0.06);
+    }
+  }
+
+  >* {
+    padding: @bb-padding-sm;
+  }
+
+  &-footer,
+  &-header {
+    display: flex;
+    align-items: center;
+  }
+
+  &-header {
+    justify-content: space-between;
+    border-bottom: 1px solid @bb-line-color;
+  }
+
+  &-footer {
+    justify-content: flex-end;
+    border-top: 1px solid @bb-line-color;
+
+    .ant-btn+.ant-btn {
+      margin-left: @bb-margin-xs;
+    }
+  }
+
+}

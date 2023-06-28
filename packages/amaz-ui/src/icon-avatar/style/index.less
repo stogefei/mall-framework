@@ -1,0 +1,99 @@
+@import '~@amaz/theme/presets/pc/index.less';
+
+.bb-icon-avatar {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+
+  &::before {
+    border-radius: 50%;
+
+  }
+
+  &--square {
+    >img {
+      border-radius: @bb-border-radius-base;
+    }
+
+    &::before {
+      border-radius: @bb-border-radius-base;
+    }
+  }
+
+
+
+  >span,
+  >i {
+    z-index: 1;
+  }
+
+  >img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  @colors: @bb-orange, @bb-volcano-orange, @bb-pink, @bb-red, @bb-bluish-green, @bb-polar-green, @bb-green, @bb-light-purple, @bb-purple, @bb-golden-purple, @bb-daybreak-blue, @bb-light-blue, @bb-blue, @bb-geek-blue;
+  @colorNames: orange, volcano-orange, pink, red, bluish-green, polar-green, green, light-purple, purple, golden-purple, daybreak-blue, light-blue, blue, geek-blue;
+  @len : length(@colors);
+
+  .each-solid-color(@index) when (@index <=@len) {
+    // 获取名称
+    @name : extract(@colorNames , @index);
+    @color: extract(@colors , @index);
+
+    &--solid.@{name} {
+      color: #fff;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background:color(~`colorPalette('@{color}', 5) `);
+        border: color(~`colorPalette('@{color}', 5) `);
+        z-index: 0;
+      }
+
+
+
+    }
+
+    .each-solid-color(@index + 1);
+  }
+
+  .each-color(@index) when (@index <=@len) {
+    // 获取名称
+    @name : extract(@colorNames , @index);
+    @color: extract(@colors , @index);
+
+    &.@{name} {
+      color: @color;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background: color(~`colorPalette('@{color}', 2) `);
+        border: 1px solid @color;
+        z-index: 0;
+      }
+
+
+
+    }
+
+    .each-color(@index + 1);
+  }
+
+  .each-color(1);
+  .each-solid-color(1);
+}

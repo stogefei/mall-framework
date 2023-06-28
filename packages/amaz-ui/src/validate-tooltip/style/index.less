@@ -1,0 +1,122 @@
+@import '~@amaz/theme/presets/pc/index.less';
+
+@import '~@amaz/theme/presets/pc/index.less';
+.bb-tooltip {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #fff;
+  position: absolute;
+  z-index: 1049;
+  display: block;
+  background: @bb-red-6;
+  border-radius: 4px;
+  padding: 6px 12px;
+  box-shadow: 0px 2px 8px @bb-red-3;
+  transition: opacity 0.3s;
+  opacity: 0;
+  top: -100%;
+  left: -100%;
+}
+.bb-tooltip-show {
+  opacity: 1;
+}
+.bb-tooltip::before {
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: @bb-red-6;
+  transform: rotate(45deg);
+  box-shadow: 0px 2px 8px @bb-red-3;
+}
+
+.verification-error {
+  & > .ant-input-number {
+    border: 1px solid @bb-red !important;
+    background: @bb-red-1 !important;
+    &-focused {
+      border-color: @bb-red;
+      background: #fff;
+      box-shadow: 0 0 0 2px @bb-red-2 !important;
+    }
+  }
+  &.ant-calendar-picker .ant-input,
+  &.ant-input,
+  &.bb-element-address .ant-input,
+  &.ant-input-affix-wrapper .ant-input {
+    border: 1px solid @bb-red !important;
+    background: @bb-red-1 !important;
+    &:not(.ant-input-disabled) {
+      &:hover {
+        border-color: #dee0ea;
+        background-color: #fff;
+      }
+
+      &:focus {
+        border-color: @bb-red;
+        background: #fff;
+        box-shadow: 0 0 0 2px @bb-red-2 !important;
+      }
+    }
+  }
+  &.ant-radio-group,
+  &.ant-checkbox-group {
+    border: 1px solid @bb-red !important;
+    background: @bb-red-1 !important;
+  }
+  &.bb-element-address {
+    .bb-combobox {
+      &__selection {
+        border: 1px solid @bb-red !important;
+        background: @bb-red-1 !important;
+      }
+    }
+  }
+  &.bb-upload {
+    border: 1px solid @bb-red !important;
+    background: @bb-red-1 !important;
+  }
+  &.bb-organization .bb-organization__label {
+    border: 1px solid @bb-red !important;
+    background: @bb-red-1 !important;
+  }
+  & > .ant-select {
+    &-focused {
+      .ant-select-selection {
+        border-color: @bb-red;
+        background: #fff;
+        box-shadow: 0 0 0 2px @bb-red-2 !important;
+      }
+    }
+    &-open {
+      .ant-select-selection {
+        border-color: @bb-red;
+        background: #fff;
+        box-shadow: 0 0 0 2px @bb-red-2 !important;
+      }
+    }
+    .ant-select-selection {
+      border: 1px solid @bb-red !important;
+      background: @bb-red-1 !important;
+    }
+  }
+  &.bb-virtualized-table-row {
+    border-color: @bb-red !important;
+    background: @bb-red-1 !important;
+  }
+  // &:focus {
+  //   border-color: @bb-red;
+  //   background: #fff;
+  //   box-shadow: 0 0 0 2px !important;
+  // }
+  &.bb-virtualized-table {
+    border: 1px solid @bb-red;
+    .bb-virtualized-table-body {
+      background: @bb-red-1 !important;
+    }
+  }
+}

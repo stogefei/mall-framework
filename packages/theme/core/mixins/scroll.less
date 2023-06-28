@@ -1,0 +1,52 @@
+@import '../theme/index.less';
+
+@smallNumber: 9px;
+@bigNumber: 11px;
+
+// -------- 滚动条 -----------
+.bb-scroll-base(@size: big) {
+  /* 滚动条整体样式 */
+  &::-webkit-scrollbar {
+    width: if((@size = small), @smallNumber, @bigNumber);
+    height: if((@size = small), @smallNumber, @bigNumber);
+  }
+
+  /* 滚动条滑块 滚动条滑块是由背景颜色和border共同渲染 */
+  &::-webkit-scrollbar-thumb {
+    border-radius: if((@size = small), @smallNumber, @bigNumber);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    background-color: fade(@bb-text-color, 25%);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    background-color: fade(@bb-text-color, 45%);
+  }
+
+  /* 滚动条里面轨道 */
+  &::-webkit-scrollbar-track {
+    opacity: 0;
+  }
+}
+
+/* 横向滚动条 隐藏纵向滚动条 */
+.bb-scroll-x(@size: big) {
+  overflow-x: auto;
+  overflow-y: hidden;
+  .bb-scroll-base(@size);
+}
+
+/* 纵向滚动条 隐藏横向滚动条 */
+.bb-scroll-y(@size: big) {
+  overflow-x: hidden;
+  overflow-y: auto;
+  .bb-scroll-base(@size);
+}
+
+/* 横竖都有滚动条 常规自动计算显示隐藏滚动条 */
+.bb-scroll-both(@size: big) {
+  overflow: auto;
+  .bb-scroll-base(@size);
+}

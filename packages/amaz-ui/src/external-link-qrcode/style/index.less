@@ -1,0 +1,44 @@
+@import '~@amaz/theme/presets/pc/index.less';
+
+.bb-external-link-qrcode {
+  flex: 0 0 100%;
+
+  .bb-field {
+    padding: @bb-padding-xxs 0;
+
+    &__label {
+      width: 55px;
+      font-size: @bb-font-size-sm;
+      margin-right: @bb-margin-xxs;
+    }
+  }
+
+  .bb-icon-paste {
+    cursor: pointer;
+
+    &:hover {
+      color: @bb-blue;
+    }
+  }
+
+  .ant-input.ant-input-disabled {
+    background: #FFF;
+  }
+
+  .bb-qrcode {
+    max-width: 150px;
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  &-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+
+}

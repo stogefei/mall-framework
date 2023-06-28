@@ -1,0 +1,18 @@
+@import '~@amaz/theme/presets/pc/index.less';
+.bb-confirm {
+  &__content {
+    min-height: 100px;
+    padding: @bb-padding-md @bb-padding-lg;
+  }
+  &__footer {
+    display: flex;
+    padding: @bb-padding-xs @bb-padding-md;
+    justify-content: flex-end;
+    justify-items: center;
+    overflow: hidden;
+    border-top: 1px solid @bb-line-color;
+    button + button {
+      margin-left: @bb-margin-sm;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '~@amaz/theme/presets/pc/index.less';
+@bb-icon-upload: .bb-icon-upload;
+@{bb-icon-upload} {
+  display: inline-block;
+  position: relative;
+  &-shade {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: rgba(@bb-black-6, 0.5);
+    border-radius: @bb-border-radius-base;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    cursor: pointer;
+    pointer-events: all;
+  }
+  .bb-avatar {
+    vertical-align: top;
+  }
+  &:hover {
+    @{bb-icon-upload}-shade {
+      opacity: 1;
+    }
+  }
+}
