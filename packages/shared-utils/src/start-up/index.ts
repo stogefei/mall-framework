@@ -6,7 +6,7 @@ import {
 import Core from '@amaz/core';
 import API, { EventType, ResponseCode } from '@amaz/api';
 import UserUtils from '../user';
-import { URL } from '@amaz/utils';
+import URL from '../url';
 interface ISettingsParams {
   /**
    * 消息组件

@@ -1,5 +1,6 @@
 import { ValidateTypes } from './validate';
-import { StringUtils, ObjectUtils } from '@amaz/utils';
+// import { StringUtils } from '@amaz/utils';
+import { isEmpty } from 'lodash-es';
 
 export interface ValidateRange {
   max?: number;
@@ -44,11 +45,11 @@ export interface RangeRule extends Rule {
 }
 
 class RuleHdandler {
-  static [ValidateTypes.REQUIRED](value, rule?: FuncRule) {
-    return !ObjectUtils.isEmpty(value);
+  static [ValidateTypes.REQUIRED] (value, rule?: FuncRule) {
+    return !isEmpty(value);
   }
 
-  static async [ValidateTypes.FUNC](value, rule: FuncRule, options) {
+  static async [ValidateTypes.FUNC] (value, rule: FuncRule, options) {
     let res = false;
     if (rule.func instanceof Function) {
       res = await rule.func(value, options);
@@ -56,7 +57,7 @@ class RuleHdandler {
     return res;
   }
 
-  static [ValidateTypes.REG](value, rule: RegExpRule, options) {
+  static [ValidateTypes.REG] (value, rule: RegExpRule, options) {
     let res = false;
     if (value && typeof value === 'string' && rule.regexp instanceof RegExp) {
       res = rule.regexp.test(value);
@@ -67,7 +68,7 @@ class RuleHdandler {
     return res;
   }
 
-  static [ValidateTypes.RANGE](
+  static [ValidateTypes.RANGE] (
     value: string | number,
     rule: RangeRule,
     options,
@@ -77,7 +78,7 @@ class RuleHdandler {
     if (value === undefined || value === null) {
       length = 0;
     } else if (typeof value === 'string') {
-      length = StringUtils.getLen(value);
+      length = value?.length;
     }
 
     if (rule.range) {
@@ -122,7 +123,9 @@ const code = [
   systemText,
 ];
 
-export { RuleHdandler, name, systemText, code, required, ValidateTypes };
+export {
+  RuleHdandler, name, systemText, code, required, ValidateTypes,
+};
 export default {
   RuleHdandler,
   name,

@@ -1,8 +1,4 @@
-import {
-  RouteLocationNormalized,
-  NavigationGuardNext,
-  RouteRecordRaw,
-} from 'vue-router';
+import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
 import config from './config';
 import {
   IFormCompoent,
@@ -54,7 +50,7 @@ class Core {
   /**
    * 页面路由
    */
-  routerOptions: RouteRecordRaw;
+  // routerOptions: RouteRecordRaw;
   /**
    * 自定义路由规则
    * 返回false，将阻止vue route的跳转，可以通过next控制跳转
@@ -64,7 +60,7 @@ class Core {
     to: RouteLocationNormalized,
     from: RouteLocationNormalized,
     next: NavigationGuardNext
-  ) => any;
+  ) => boolean;
 
   /**
    * 注册适配器配置

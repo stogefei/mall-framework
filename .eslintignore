@@ -10,7 +10,9 @@ _site/
 dist/
 package.json
 */**/iconfont.js
+packages/api/src/index.ts
 packages/api/src/base.ts
+packages/api/src/fetch.ts
 yarn.lock
 # 飞书
 h5-js-sdk.js

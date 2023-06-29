@@ -20,6 +20,7 @@
     "removeComments": false,
     "strictBindCallApply":true,
     "suppressImplicitAnyIndexErrors": true,
+    "strictPropertyInitialization": false ,
     "types": [
       "webpack-env",
       "node"

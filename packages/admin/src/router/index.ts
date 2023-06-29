@@ -6,7 +6,7 @@ import {
   createWebHistory,
 } from 'vue-router';
 import HomeView from '../views/index';
-// const titlePrefix = '生鲜';
+const titlePrefix = '生鲜';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -14,17 +14,17 @@ const routes: RouteRecordRaw[] = [
     name: 'Home',
     component: HomeView,
   },
-  // {
-  //   path: '/login',
-  //   name: 'login',
-  //   meta: {
-  //     title: `登录-${titlePrefix}`,
-  //     unauthorized: true,
-  //   },
-  //   components: {
-  //     default: () => import('../views/login/index'),
-  //   },
-  // },
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: `登录-${titlePrefix}`,
+      unauthorized: true,
+    },
+    components: {
+      default: () => import('../views/login/index'),
+    },
+  },
 ];
 
 // export default {
@@ -35,9 +35,6 @@ const routes: RouteRecordRaw[] = [
 
 const router: Router = createRouter({
   history: createWebHistory(),
-  // routes,
-  // mode: 'history',
-  // base: process.env.BASE_URL,
   routes,
 });
 

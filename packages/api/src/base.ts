@@ -1,4 +1,4 @@
-import fetch, { BAxiosRequestConfig, globalConfig } from './fetch';
+import fetch, { BAxiosRequestConfig, globalConfig } from "./fetch";
 import {
   AdminRoleVo,
   AdvancedDataSourceVo,
@@ -7,6 +7,7 @@ import {
   AppPerGroupSortVo,
   AppPerGroupVo,
   BatchDeptInsertVo,
+  BatchListSchemaParamVo,
   BatchListSheetDataVo,
   BatchMoveUserDeptVo,
   BatchSaveAdminRolePermissionVo,
@@ -37,8 +38,9 @@ import {
   BizServiceMethodCodeVo,
   BizServiceMethodVo,
   BizServiceVo,
-  BizViewDataQueryVo,
-  BizViewQueryVo,
+  BizViewCloneVo,
+  BizViewCodeVo,
+  BizViewSortNameVo,
   BizViewSortVo,
   BizViewVisibleVo,
   BizViewVo,
@@ -51,16 +53,19 @@ import {
   DepartmentVo,
   DeptManagerUpdateVo,
   DeptUserIdsVO,
+  EsbInvokeVo,
+  EsbServiceVo,
   ExportVo,
   ExternalSubmitVo,
   FlagVo,
+  FormCloneVo,
   FormCodesVo,
+  FormDataDeleteVo,
   FormRemindVo,
   IDVo,
   IdIndexVo,
   IdNameVo,
   ImportVo,
-  IncrementNotifyVo,
   InstanceCancelVo,
   InstanceNodeActivatelVo,
   InstanceNodeAdjustParticipantVo,
@@ -76,18 +81,29 @@ import {
   ModelFunSortVo,
   MoveChartVo,
   NameVo,
+  OcrRecognizeParamVo,
   OlapQueryVo,
   OpenApiBizObjectBatchSubmitVo,
   OpenApiBizObjectSubmitVo,
+  OpenApiDeptGetRequestVo,
+  OpenApiDeptQueryRequestVo,
   OpenApiLoadWorkItemFormDataParamVo,
   OpenApiSearchWorkItemVo,
   OpenApiStartWorkflowVo,
+  OpenApiTagGetRequestVo,
+  OpenApiTagGroupGetRequestVo,
+  OpenApiTagGroupQueryRequestVo,
+  OpenApiTagQueryRequestVo,
+  OpenApiUserGetRequestVo,
+  OpenApiUserQueryRequestVo,
   OpenApiWorkItemSubmitVo,
   OrgAscriptionCheckVo,
   OrgSyncRecordQueryVo,
+  OrganizationPushConfigVo,
   OrganizationVo,
+  PageQueryVo,
+  PortalUserUpdateVo,
   PredictParticipantVo,
-  QueryChildDeptVo,
   QueryUnitTreeVo,
   QueryUserVo,
   QuickLinkFunVo,
@@ -117,7 +133,9 @@ import {
   ResBodyDashboardVo,
   ResBodyDataSourceListVo,
   ResBodyDepartmentVo,
+  ResBodyDingtalkJsapiSignature,
   ResBodyDocumentFileVo,
+  ResBodyEsbServiceVo,
   ResBodyExportProgressVo,
   ResBodyFigureVo,
   ResBodyFormDataVo,
@@ -134,13 +152,11 @@ import {
   ResBodyListBizFormCommentVo,
   ResBodyListBizFormTemplateVo,
   ResBodyListBizFormVo,
-  ResBodyListBizObjectBo,
   ResBodyListBizPropertyFormulaVo,
   ResBodyListBizPropertyVo,
   ResBodyListBizRulePropertyVo,
   ResBodyListBizRuleVo,
   ResBodyListBizSchemaEventVo,
-  ResBodyListBizSchemaGroupVo,
   ResBodyListBizSchemaVo,
   ResBodyListBizServiceCategoryVo,
   ResBodyListBizServiceMethodVo,
@@ -148,18 +164,30 @@ import {
   ResBodyListBizViewVo,
   ResBodyListCalculateResultVo,
   ResBodyListDepartmentVo,
+  ResBodyListEsbGroupVo,
+  ResBodyListEsbServiceDefineVo,
   ResBodyListFunTreeVo,
+  ResBodyListIdNameVo,
   ResBodyListInstanceActivityVo,
   ResBodyList,
   ResBodyListMessageVo,
+  ResBodyListOcrConfig,
+  ResBodyListOpenApiDeptResponseVo,
+  ResBodyListOpenApiTagGroupResponseVo,
+  ResBodyListOpenApiTagResponseVo,
+  ResBodyListOpenApiUserResponseVo,
+  ResBodyListOrganizationPushConfigVo,
   ResBodyListOrganizationVo,
   ResBodyListQuickLinkVo,
   ResBodyListSchemaPermissionVo,
   ResBodyListSchemaPropertyPermissionVo,
   ResBodyListSecurityClientVo,
+  ResBodyListSupportOrgConfigVO,
   ResBodyListSystemDictConfigVo,
+  ResBodyListSystemDictGroupVo,
   ResBodyListTagGroupVo,
   ResBodyListTagTreeVo,
+  ResBodyListTreeNode,
   ResBodyListUnitTreeVo,
   ResBodyListUnitVo,
   ResBodyListUserCommonsVo,
@@ -173,19 +201,22 @@ import {
   ResBodyListobject,
   ResBodyListstring,
   ResBody,
+  ResBodyOpenApiDeptResponseVo,
+  ResBodyOpenApiTagGroupResponseVo,
+  ResBodyOpenApiTagResponseVo,
+  ResBodyOpenApiUserResponseVo,
   ResBodyOrganizationChartVo,
   ResBodyOrganizationVo,
   ResBodyPageVOAdminVo,
-  ResBodyPageVOAtUserQueryResultVo,
   ResBodyPageVOBizBusLogVo,
   ResBodyPageVOBizRuleLogVo,
+  ResBodyPageVOBizTemporaryVo,
   ResBodyPageVOInstanceLogVo,
   ResBodyPageVOLoginLogVo,
   ResBodyPageVO,
   ResBodyPageVOMessageVo,
   ResBodyPageVOOrgSyncRecordVo,
   ResBodyPageVOSysJobVo,
-  ResBodyPageVOSystemDictVo,
   ResBodyPageVOTagUnitVo,
   ResBodyPageVOUserVo,
   ResBodyPageVOWorkItemVo,
@@ -223,6 +254,7 @@ import {
   SaveSchemaPermissionVo,
   SaveWorkflowTemplateVo,
   SchedulerConfVo,
+  SchemaCloneVo,
   SchemaPropertyCodeVo,
   SchemaTitleVo,
   SearchJobVo,
@@ -234,12 +266,14 @@ import {
   StartWorkflowVo,
   SyncOrgVo,
   SysJobVo,
-  SystemDictQueryVo,
+  SystemDictSortVo,
   SystemDictVo,
   TagGroupVo,
   TagUnitIdsVo,
+  TagUnitOuScopeVo,
   TagUnitReqVo,
   TagUpdateVo,
+  TreeDataQueryVo,
   UniqueValidateVo,
   UnitVo,
   UpdateDashboardConfigVo,
@@ -261,7 +295,7 @@ import {
   WorkflowExprValidVo,
   WorkflowHeaderVo,
   WorkflowSchemaCodeVo,
-} from './module';
+} from "./module";
 
 /**
  *管理员管理接口
@@ -282,16 +316,16 @@ export class AdminController {
    */
   addSysAdmin(
     saveAdminVo: SaveAdminVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/permission/admin/addSysAdmin',
-        method: 'post',
-        modelFunName: 'adminController.addSysAdmin',
+        url: "/admin/permission/admin/addSysAdmin",
+        method: "post",
+        modelFunName: "adminController.addSysAdmin",
         data: saveAdminVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -315,20 +349,20 @@ export class AdminController {
     pageSize: number,
     pageNum: number,
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOAdminVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/admin/getSysAdminsByPage',
-        method: 'get',
-        modelFunName: 'adminController.getSysAdminsByPage',
+        url: "/admin/permission/admin/getSysAdminsByPage",
+        method: "get",
+        modelFunName: "adminController.getSysAdminsByPage",
         data: {
           pageSize,
           pageNum,
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOAdminVo>(req);
   }
@@ -348,16 +382,16 @@ export class AdminController {
    */
   removeSysAdmin(
     userIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/permission/admin/removeSysAdmin',
-        method: 'post',
-        modelFunName: 'adminController.removeSysAdmin',
+        url: "/admin/permission/admin/removeSysAdmin",
+        method: "post",
+        modelFunName: "adminController.removeSysAdmin",
         data: userIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -381,16 +415,16 @@ export class AdminRoleController {
    */
   batchGrantPermissions(
     batchSaveAdminRolePermissionVo: BatchSaveAdminRolePermissionVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/batchGrantPermissions',
-        method: 'post',
-        modelFunName: 'adminRoleController.batchGrantPermissions',
+        url: "/admin/permission/adminRole/batchGrantPermissions",
+        method: "post",
+        modelFunName: "adminRoleController.batchGrantPermissions",
         data: batchSaveAdminRolePermissionVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -411,12 +445,12 @@ export class AdminRoleController {
   chartTree(requestConfig?: BAxiosRequestConfig): Promise<ResBodyAdminRoleVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/chartTree',
-        method: 'get',
-        modelFunName: 'adminRoleController.chartTree',
+        url: "/admin/permission/adminRole/chartTree",
+        method: "get",
+        modelFunName: "adminRoleController.chartTree",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdminRoleVo>(req);
   }
@@ -436,16 +470,16 @@ export class AdminRoleController {
    */
   createAdminRole(
     adminRoleVo: AdminRoleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdminRoleVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/createAdminRole',
-        method: 'post',
-        modelFunName: 'adminRoleController.createAdminRole',
+        url: "/admin/permission/adminRole/createAdminRole",
+        method: "post",
+        modelFunName: "adminRoleController.createAdminRole",
         data: adminRoleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdminRoleVo>(req);
   }
@@ -465,16 +499,16 @@ export class AdminRoleController {
    */
   deleteAdminRole(
     roleIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/deleteAdminRole',
-        method: 'post',
-        modelFunName: 'adminRoleController.deleteAdminRole',
+        url: "/admin/permission/adminRole/deleteAdminRole",
+        method: "post",
+        modelFunName: "adminRoleController.deleteAdminRole",
         data: roleIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -494,18 +528,18 @@ export class AdminRoleController {
    */
   getPermissionRange(
     roleId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdminRolePermissionRangeVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/getPermissionRange',
-        method: 'get',
-        modelFunName: 'adminRoleController.getPermissionRange',
+        url: "/admin/permission/adminRole/getPermissionRange",
+        method: "get",
+        modelFunName: "adminRoleController.getPermissionRange",
         data: {
           roleId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdminRolePermissionRangeVo>(req);
   }
@@ -527,19 +561,19 @@ export class AdminRoleController {
   getRoleInfo(
     roleType: string,
     roleId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdminRoleVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/getRoleInfo',
-        method: 'get',
-        modelFunName: 'adminRoleController.getRoleInfo',
+        url: "/admin/permission/adminRole/getRoleInfo",
+        method: "get",
+        modelFunName: "adminRoleController.getRoleInfo",
         data: {
           roleType,
           roleId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdminRoleVo>(req);
   }
@@ -559,16 +593,16 @@ export class AdminRoleController {
    */
   grantPermissions(
     saveAdminRolePermissionVo: SaveAdminRolePermissionVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/grantPermissions',
-        method: 'post',
-        modelFunName: 'adminRoleController.grantPermissions',
+        url: "/admin/permission/adminRole/grantPermissions",
+        method: "post",
+        modelFunName: "adminRoleController.grantPermissions",
         data: saveAdminRolePermissionVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -588,16 +622,16 @@ export class AdminRoleController {
    */
   updateAdminRole(
     adminRoleVo: AdminRoleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdminRoleVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/adminRole/updateAdminRole',
-        method: 'post',
-        modelFunName: 'adminRoleController.updateAdminRole',
+        url: "/admin/permission/adminRole/updateAdminRole",
+        method: "post",
+        modelFunName: "adminRoleController.updateAdminRole",
         data: adminRoleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdminRoleVo>(req);
   }
@@ -621,16 +655,16 @@ export class AdminUnitTreeController {
    */
   getchildrenList(
     queryUnitTreeVo: QueryUnitTreeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListUnitTreeVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/unit/tree/getchildrenList',
-        method: 'post',
-        modelFunName: 'adminUnitTreeController.getchildrenList',
+        url: "/admin/org/unit/tree/getchildrenList",
+        method: "post",
+        modelFunName: "adminUnitTreeController.getchildrenList",
         data: queryUnitTreeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUnitTreeVo>(req);
   }
@@ -650,16 +684,16 @@ export class AdminUnitTreeController {
    */
   search(
     queryUnitTreeVo: QueryUnitTreeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUnitTreeSearchVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/unit/tree/search',
-        method: 'post',
-        modelFunName: 'adminUnitTreeController.search',
+        url: "/admin/org/unit/tree/search",
+        method: "post",
+        modelFunName: "adminUnitTreeController.search",
         data: queryUnitTreeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUnitTreeSearchVo>(req);
   }
@@ -683,16 +717,16 @@ export class AdvancedDataSourceController {
    */
   create(
     advancedDataSourceVo: AdvancedDataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdvancedDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/create',
-        method: 'post',
-        modelFunName: 'advancedDataSourceController.create',
+        url: "/admin/report/advanced/ds/create",
+        method: "post",
+        modelFunName: "advancedDataSourceController.create",
         data: advancedDataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdvancedDataSourceVo>(req);
   }
@@ -712,16 +746,16 @@ export class AdvancedDataSourceController {
    */
   delete(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/delete',
-        method: 'post',
-        modelFunName: 'advancedDataSourceController.delete',
+        url: "/admin/report/advanced/ds/delete",
+        method: "post",
+        modelFunName: "advancedDataSourceController.delete",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -741,18 +775,18 @@ export class AdvancedDataSourceController {
    */
   get(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdvancedDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/get',
-        method: 'get',
-        modelFunName: 'advancedDataSourceController.get',
+        url: "/admin/report/advanced/ds/get",
+        method: "get",
+        modelFunName: "advancedDataSourceController.get",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdvancedDataSourceVo>(req);
   }
@@ -771,16 +805,16 @@ export class AdvancedDataSourceController {
    * @returns Promise<ResBodyListAdvancedDataSourceVo>
    */
   list(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListAdvancedDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/list',
-        method: 'get',
-        modelFunName: 'advancedDataSourceController.list',
+        url: "/admin/report/advanced/ds/list",
+        method: "get",
+        modelFunName: "advancedDataSourceController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAdvancedDataSourceVo>(req);
   }
@@ -800,16 +834,16 @@ export class AdvancedDataSourceController {
    */
   testRun(
     advancedDataSourceVo: AdvancedDataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/testRun',
-        method: 'post',
-        modelFunName: 'advancedDataSourceController.testRun',
+        url: "/admin/report/advanced/ds/testRun",
+        method: "post",
+        modelFunName: "advancedDataSourceController.testRun",
         data: advancedDataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -829,16 +863,16 @@ export class AdvancedDataSourceController {
    */
   update(
     advancedDataSourceVo: AdvancedDataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAdvancedDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/advanced/ds/update',
-        method: 'post',
-        modelFunName: 'advancedDataSourceController.update',
+        url: "/admin/report/advanced/ds/update",
+        method: "post",
+        modelFunName: "advancedDataSourceController.update",
         data: advancedDataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAdvancedDataSourceVo>(req);
   }
@@ -862,18 +896,18 @@ export class AppController {
    */
   getDashboardInfo(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDashboardVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/getDashboardInfo',
-        method: 'get',
-        modelFunName: 'appController.getDashboardInfo',
+        url: "/portal/app/getDashboardInfo",
+        method: "get",
+        modelFunName: "appController.getDashboardInfo",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDashboardVo>(req);
   }
@@ -893,18 +927,18 @@ export class AppController {
    */
   getMenuInfo(
     menuCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizMenuVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/getMenuInfo',
-        method: 'get',
-        modelFunName: 'appController.getMenuInfo',
+        url: "/portal/app/getMenuInfo",
+        method: "get",
+        modelFunName: "appController.getMenuInfo",
         data: {
           menuCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizMenuVo>(req);
   }
@@ -924,18 +958,18 @@ export class AppController {
    */
   getSchemaInfo(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/getSchemaInfo',
-        method: 'get',
-        modelFunName: 'appController.getSchemaInfo',
+        url: "/portal/app/getSchemaInfo",
+        method: "get",
+        modelFunName: "appController.getSchemaInfo",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaVo>(req);
   }
@@ -955,18 +989,18 @@ export class AppController {
    */
   info(
     appCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/info',
-        method: 'get',
-        modelFunName: 'appController.info',
+        url: "/portal/app/info",
+        method: "get",
+        modelFunName: "appController.info",
         data: {
           appCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPackageVo>(req);
   }
@@ -987,12 +1021,12 @@ export class AppController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/list',
-        method: 'post',
-        modelFunName: 'appController.list',
+        url: "/portal/app/list",
+        method: "post",
+        modelFunName: "appController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppPackageVo>(req);
   }
@@ -1011,16 +1045,16 @@ export class AppController {
    * @returns Promise<ResBodyListFunTreeVo>
    */
   listGroupBy(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/listGroupBy',
-        method: 'post',
-        modelFunName: 'appController.listGroupBy',
+        url: "/portal/app/listGroupBy",
+        method: "post",
+        modelFunName: "appController.listGroupBy",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -1040,18 +1074,18 @@ export class AppController {
    */
   searchSchemas(
     keyword: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/portal/app/searchSchemas',
-        method: 'get',
-        modelFunName: 'appController.searchSchemas',
+        url: "/portal/app/searchSchemas",
+        method: "get",
+        modelFunName: "appController.searchSchemas",
         data: {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizSchemaVo>(req);
   }
@@ -1075,16 +1109,16 @@ export class AppPackageController {
    */
   create(
     appPackageVo: AppPackageVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/create',
-        method: 'post',
-        modelFunName: 'appPackageController.create',
+        url: "/admin/model/app/create",
+        method: "post",
+        modelFunName: "appPackageController.create",
         data: appPackageVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPackageVo>(req);
   }
@@ -1104,18 +1138,18 @@ export class AppPackageController {
    */
   getByCode(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/getByCode',
-        method: 'get',
-        modelFunName: 'appPackageController.getByCode',
+        url: "/admin/model/app/getByCode",
+        method: "get",
+        modelFunName: "appPackageController.getByCode",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPackageVo>(req);
   }
@@ -1135,16 +1169,16 @@ export class AppPackageController {
    */
   groupAdd(
     nameVo: NameVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/groupAdd',
-        method: 'post',
-        modelFunName: 'appPackageController.groupAdd',
+        url: "/admin/model/app/groupAdd",
+        method: "post",
+        modelFunName: "appPackageController.groupAdd",
         data: nameVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppGroupVo>(req);
   }
@@ -1163,16 +1197,16 @@ export class AppPackageController {
    * @returns Promise<ResBodyListAppGroupVo>
    */
   groupList(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListAppGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/groupList',
-        method: 'post',
-        modelFunName: 'appPackageController.groupList',
+        url: "/admin/model/app/groupList",
+        method: "post",
+        modelFunName: "appPackageController.groupList",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppGroupVo>(req);
   }
@@ -1192,16 +1226,16 @@ export class AppPackageController {
    */
   groupRemove(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/groupRemove',
-        method: 'post',
-        modelFunName: 'appPackageController.groupRemove',
+        url: "/admin/model/app/groupRemove",
+        method: "post",
+        modelFunName: "appPackageController.groupRemove",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1221,16 +1255,16 @@ export class AppPackageController {
    */
   groupSort(
     idIndexVo: IdIndexVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/groupSort',
-        method: 'post',
-        modelFunName: 'appPackageController.groupSort',
+        url: "/admin/model/app/groupSort",
+        method: "post",
+        modelFunName: "appPackageController.groupSort",
         data: idIndexVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1250,16 +1284,16 @@ export class AppPackageController {
    */
   groupUpdate(
     appGroupVo: AppGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/groupUpdate',
-        method: 'post',
-        modelFunName: 'appPackageController.groupUpdate',
+        url: "/admin/model/app/groupUpdate",
+        method: "post",
+        modelFunName: "appPackageController.groupUpdate",
         data: appGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppGroupVo>(req);
   }
@@ -1280,12 +1314,12 @@ export class AppPackageController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/list',
-        method: 'post',
-        modelFunName: 'appPackageController.list',
+        url: "/admin/model/app/list",
+        method: "post",
+        modelFunName: "appPackageController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppPackageVo>(req);
   }
@@ -1304,16 +1338,16 @@ export class AppPackageController {
    * @returns Promise<ResBodyListAppPackageVo>
    */
   listEnable(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/listEnable',
-        method: 'post',
-        modelFunName: 'appPackageController.listEnable',
+        url: "/admin/model/app/listEnable",
+        method: "post",
+        modelFunName: "appPackageController.listEnable",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppPackageVo>(req);
   }
@@ -1333,16 +1367,16 @@ export class AppPackageController {
    */
   listGroupBy(
     flagVo: FlagVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/listGroupBy',
-        method: 'post',
-        modelFunName: 'appPackageController.listGroupBy',
+        url: "/admin/model/app/listGroupBy",
+        method: "post",
+        modelFunName: "appPackageController.listGroupBy",
         data: flagVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -1362,18 +1396,18 @@ export class AppPackageController {
    */
   listOwn(
     userId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/listOwn',
-        method: 'get',
-        modelFunName: 'appPackageController.listOwn',
+        url: "/admin/model/app/listOwn",
+        method: "get",
+        modelFunName: "appPackageController.listOwn",
         data: {
           userId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppPackageVo>(req);
   }
@@ -1393,16 +1427,16 @@ export class AppPackageController {
    */
   modify(
     appPackageVo: AppPackageVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPackageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/modify',
-        method: 'post',
-        modelFunName: 'appPackageController.modify',
+        url: "/admin/model/app/modify",
+        method: "post",
+        modelFunName: "appPackageController.modify",
         data: appPackageVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPackageVo>(req);
   }
@@ -1422,16 +1456,16 @@ export class AppPackageController {
    */
   remove(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/remove',
-        method: 'post',
-        modelFunName: 'appPackageController.remove',
+        url: "/admin/model/app/remove",
+        method: "post",
+        modelFunName: "appPackageController.remove",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1455,16 +1489,16 @@ export class AppPermissionController {
    */
   createGroup(
     appPerGroupVo: AppPerGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPerGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/createGroup',
-        method: 'post',
-        modelFunName: 'appPermissionController.createGroup',
+        url: "/admin/model/app/permission/createGroup",
+        method: "post",
+        modelFunName: "appPermissionController.createGroup",
         data: appPerGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPerGroupVo>(req);
   }
@@ -1486,19 +1520,19 @@ export class AppPermissionController {
   getSchemaPermission(
     schemaCode: string,
     perGroupId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySchemaPermissionVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/getSchemaPermission',
-        method: 'get',
-        modelFunName: 'appPermissionController.getSchemaPermission',
+        url: "/admin/model/app/permission/getSchemaPermission",
+        method: "get",
+        modelFunName: "appPermissionController.getSchemaPermission",
         data: {
           schemaCode,
           perGroupId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySchemaPermissionVo>(req);
   }
@@ -1518,18 +1552,18 @@ export class AppPermissionController {
    */
   listGroups(
     appCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListAppPerGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/listGroups',
-        method: 'get',
-        modelFunName: 'appPermissionController.listGroups',
+        url: "/admin/model/app/permission/listGroups",
+        method: "get",
+        modelFunName: "appPermissionController.listGroups",
         data: {
           appCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListAppPerGroupVo>(req);
   }
@@ -1549,18 +1583,18 @@ export class AppPermissionController {
    */
   listSchemaPermission(
     perGroupId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListSchemaPermissionVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/listSchemaPermission',
-        method: 'get',
-        modelFunName: 'appPermissionController.listSchemaPermission',
+        url: "/admin/model/app/permission/listSchemaPermission",
+        method: "get",
+        modelFunName: "appPermissionController.listSchemaPermission",
         data: {
           perGroupId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListSchemaPermissionVo>(req);
   }
@@ -1580,18 +1614,18 @@ export class AppPermissionController {
    */
   propertyResource(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListSchemaPropertyPermissionVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/propertyResource',
-        method: 'get',
-        modelFunName: 'appPermissionController.propertyResource',
+        url: "/admin/model/app/permission/propertyResource",
+        method: "get",
+        modelFunName: "appPermissionController.propertyResource",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListSchemaPropertyPermissionVo>(req);
   }
@@ -1611,16 +1645,16 @@ export class AppPermissionController {
    */
   removeGroups(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/removeGroups',
-        method: 'post',
-        modelFunName: 'appPermissionController.removeGroups',
+        url: "/admin/model/app/permission/removeGroups",
+        method: "post",
+        modelFunName: "appPermissionController.removeGroups",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1640,16 +1674,16 @@ export class AppPermissionController {
    */
   rename(
     renameVo: IdNameVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/rename',
-        method: 'post',
-        modelFunName: 'appPermissionController.rename',
+        url: "/admin/model/app/permission/rename",
+        method: "post",
+        modelFunName: "appPermissionController.rename",
         data: renameVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1669,18 +1703,18 @@ export class AppPermissionController {
    */
   resource(
     appCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPermissionSettingVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/resource',
-        method: 'get',
-        modelFunName: 'appPermissionController.resource',
+        url: "/admin/model/app/permission/resource",
+        method: "get",
+        modelFunName: "appPermissionController.resource",
         data: {
           appCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPermissionSettingVo>(req);
   }
@@ -1700,16 +1734,16 @@ export class AppPermissionController {
    */
   saveSchemaPermissions(
     saveSchemaPermissionVo: SaveSchemaPermissionVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/saveSchemaPermissions',
-        method: 'post',
-        modelFunName: 'appPermissionController.saveSchemaPermissions',
+        url: "/admin/model/app/permission/saveSchemaPermissions",
+        method: "post",
+        modelFunName: "appPermissionController.saveSchemaPermissions",
         data: saveSchemaPermissionVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1729,16 +1763,16 @@ export class AppPermissionController {
    */
   sort(
     sortVo: AppPerGroupSortVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/sort',
-        method: 'post',
-        modelFunName: 'appPermissionController.sort',
+        url: "/admin/model/app/permission/sort",
+        method: "post",
+        modelFunName: "appPermissionController.sort",
         data: sortVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1758,16 +1792,16 @@ export class AppPermissionController {
    */
   updateGroup(
     appPerGroupVo: AppPerGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyAppPerGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/app/permission/updateGroup',
-        method: 'post',
-        modelFunName: 'appPermissionController.updateGroup',
+        url: "/admin/model/app/permission/updateGroup",
+        method: "post",
+        modelFunName: "appPermissionController.updateGroup",
         data: appPerGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyAppPerGroupVo>(req);
   }
@@ -1785,22 +1819,22 @@ export class AppViewController {
 
   /**
    * 获取视图详情，根据客户端类型返回视图配置
-   * @param bizViewQueryVo
+   * @param bizViewCodeVo
    * @param requestConfig
    * @returns Promise<ResBodyBizViewVo>
    */
   getViewInfo(
-    bizViewQueryVo: BizViewQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    bizViewCodeVo: BizViewCodeVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizViewVo> {
     const req = Object.assign(
       {
-        url: '/portal/view/getViewInfo',
-        method: 'post',
-        modelFunName: 'appViewController.getViewInfo',
-        data: bizViewQueryVo,
+        url: "/portal/view/getViewInfo",
+        method: "post",
+        modelFunName: "appViewController.getViewInfo",
+        data: bizViewCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizViewVo>(req);
   }
@@ -1820,47 +1854,105 @@ export class AppViewController {
    */
   list(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizViewVo> {
     const req = Object.assign(
       {
-        url: '/portal/view/list',
-        method: 'get',
-        modelFunName: 'appViewController.list',
+        url: "/portal/view/list",
+        method: "get",
+        modelFunName: "appViewController.list",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizViewVo>(req);
   }
 
   /**
-   * 查询数据URL
+   * 获取树形条件区域数据URL
    */
-  listDataUrl() {
-    return `${globalConfig.baseURL}/portal/view/listData`;
+  listTreeCriteriaUrl() {
+    return `${globalConfig.baseURL}/portal/view/listTreeCriteria`;
   }
 
   /**
-   * 查询数据
-   * @param bizViewDataQueryVo
+   * 获取树形条件区域数据
+   * @param bizObjectQueryVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListTreeNode>
+   */
+  listTreeCriteria(
+    bizObjectQueryVo: BizObjectQueryVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListTreeNode> {
+    const req = Object.assign(
+      {
+        url: "/portal/view/listTreeCriteria",
+        method: "post",
+        modelFunName: "appViewController.listTreeCriteria",
+        data: bizObjectQueryVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListTreeNode>(req);
+  }
+
+  /**
+   * 获取树形结构数据URL
+   */
+  listTreeDataUrl() {
+    return `${globalConfig.baseURL}/portal/view/listTreeData`;
+  }
+
+  /**
+   * 获取树形结构数据
+   * @param treeDataQueryVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListTreeNode>
+   */
+  listTreeData(
+    treeDataQueryVo: TreeDataQueryVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListTreeNode> {
+    const req = Object.assign(
+      {
+        url: "/portal/view/listTreeData",
+        method: "post",
+        modelFunName: "appViewController.listTreeData",
+        data: treeDataQueryVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListTreeNode>(req);
+  }
+
+  /**
+   * 查询视图数据URL
+   */
+  listViewDataUrl() {
+    return `${globalConfig.baseURL}/portal/view/listViewData`;
+  }
+
+  /**
+   * 查询视图数据
+   * @param bizObjectQueryVo
    * @param requestConfig
    * @returns Promise<ResBodyPageVO>
    */
-  listData(
-    bizViewDataQueryVo: BizViewDataQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+  listViewData(
+    bizObjectQueryVo: BizObjectQueryVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVO> {
     const req = Object.assign(
       {
-        url: '/portal/view/listData',
-        method: 'post',
-        modelFunName: 'appViewController.listData',
-        data: bizViewDataQueryVo,
+        url: "/portal/view/listViewData",
+        method: "post",
+        modelFunName: "appViewController.listViewData",
+        data: bizObjectQueryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVO>(req);
   }
@@ -1884,16 +1976,16 @@ export class BizDataSourceController {
    */
   create(
     bizDataSourceVo: BizDataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/datasource/create',
-        method: 'post',
-        modelFunName: 'bizDataSourceController.create',
+        url: "/admin/bizbus/datasource/create",
+        method: "post",
+        modelFunName: "bizDataSourceController.create",
         data: bizDataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizDataSourceVo>(req);
   }
@@ -1913,18 +2005,18 @@ export class BizDataSourceController {
    */
   getList(
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/datasource/getList',
-        method: 'get',
-        modelFunName: 'bizDataSourceController.getList',
+        url: "/admin/bizbus/datasource/getList",
+        method: "get",
+        modelFunName: "bizDataSourceController.getList",
         data: {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizDataSourceVo>(req);
   }
@@ -1944,16 +2036,16 @@ export class BizDataSourceController {
    */
   remove(
     codes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/datasource/remove',
-        method: 'post',
-        modelFunName: 'bizDataSourceController.remove',
+        url: "/admin/bizbus/datasource/remove",
+        method: "post",
+        modelFunName: "bizDataSourceController.remove",
         data: codes,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -1973,16 +2065,16 @@ export class BizDataSourceController {
    */
   update(
     bizDataSourceVo: BizDataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizDataSourceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/datasource/update',
-        method: 'post',
-        modelFunName: 'bizDataSourceController.update',
+        url: "/admin/bizbus/datasource/update",
+        method: "post",
+        modelFunName: "bizDataSourceController.update",
         data: bizDataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizDataSourceVo>(req);
   }
@@ -2006,16 +2098,16 @@ export class BizMenuController {
    */
   create(
     bizMenuVo: BizMenuVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizMenuVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/menu/create',
-        method: 'post',
-        modelFunName: 'bizMenuController.create',
+        url: "/admin/model/menu/create",
+        method: "post",
+        modelFunName: "bizMenuController.create",
         data: bizMenuVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizMenuVo>(req);
   }
@@ -2035,18 +2127,18 @@ export class BizMenuController {
    */
   get(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizMenuVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/menu/get',
-        method: 'get',
-        modelFunName: 'bizMenuController.get',
+        url: "/admin/model/menu/get",
+        method: "get",
+        modelFunName: "bizMenuController.get",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizMenuVo>(req);
   }
@@ -2066,16 +2158,16 @@ export class BizMenuController {
    */
   modify(
     bizMenuVo: BizMenuVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizMenuVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/menu/modify',
-        method: 'post',
-        modelFunName: 'bizMenuController.modify',
+        url: "/admin/model/menu/modify",
+        method: "post",
+        modelFunName: "bizMenuController.modify",
         data: bizMenuVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizMenuVo>(req);
   }
@@ -2095,16 +2187,16 @@ export class BizMenuController {
    */
   remove(
     codeVo: CodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/menu/remove',
-        method: 'post',
-        modelFunName: 'bizMenuController.remove',
+        url: "/admin/model/menu/remove",
+        method: "post",
+        modelFunName: "bizMenuController.remove",
         data: codeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2128,16 +2220,16 @@ export class BizObjectController {
    */
   batchListSheetDatas(
     batchListSheetDataVo: BatchListSheetDataVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBody> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/batchListSheetDatas',
-        method: 'post',
-        modelFunName: 'bizObjectController.batchListSheetDatas',
+        url: "/portal/bizObject/batchListSheetDatas",
+        method: "post",
+        modelFunName: "bizObjectController.batchListSheetDatas",
         data: batchListSheetDataVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBody>(req);
   }
@@ -2153,22 +2245,51 @@ export class BizObjectController {
    * 批量修改数据
    * @param batchUpdateBizObjectVo
    * @param requestConfig
-   * @returns Promise<ResBodyListBizObjectBo>
+   * @returns Promise<ResBodyVoid>
    */
   batchUpdate(
     batchUpdateBizObjectVo: BatchUpdateBizObjectVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyListBizObjectBo> {
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/batchUpdate',
-        method: 'post',
-        modelFunName: 'bizObjectController.batchUpdate',
+        url: "/portal/bizObject/batchUpdate",
+        method: "post",
+        modelFunName: "bizObjectController.batchUpdate",
         data: batchUpdateBizObjectVo,
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBodyListBizObjectBo>(req);
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 查询数据URL
+   */
+  getUrl() {
+    return `${globalConfig.baseURL}/portal/bizObject/get`;
+  }
+
+  /**
+   * 查询数据
+   * @param bizObjectIdVo
+   * @param requestConfig
+   * @returns Promise<ResBody>
+   */
+  get(
+    bizObjectIdVo: BizObjectIdVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBody> {
+    const req = Object.assign(
+      {
+        url: "/portal/bizObject/get",
+        method: "post",
+        modelFunName: "bizObjectController.get",
+        data: bizObjectIdVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBody>(req);
   }
 
   /**
@@ -2186,16 +2307,16 @@ export class BizObjectController {
    */
   getList(
     bizObjectIdsVo: BizObjectIdsVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyList> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/getList',
-        method: 'post',
-        modelFunName: 'bizObjectController.getList',
+        url: "/portal/bizObject/getList",
+        method: "post",
+        modelFunName: "bizObjectController.getList",
         data: bizObjectIdsVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyList>(req);
   }
@@ -2211,22 +2332,22 @@ export class BizObjectController {
    * 保存数据
    * @param bizObjectSubmitVo
    * @param requestConfig
-   * @returns Promise<ResBody>
+   * @returns Promise<ResBodystring>
    */
   insert(
     bizObjectSubmitVo: BizObjectSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBody> {
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/insert',
-        method: 'post',
-        modelFunName: 'bizObjectController.insert',
+        url: "/portal/bizObject/insert",
+        method: "post",
+        modelFunName: "bizObjectController.insert",
         data: bizObjectSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBody>(req);
+    return fetch<ResBodystring>(req);
   }
 
   /**
@@ -2244,18 +2365,18 @@ export class BizObjectController {
    */
   listProperty(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/listProperty',
-        method: 'get',
-        modelFunName: 'bizObjectController.listProperty',
+        url: "/portal/bizObject/listProperty",
+        method: "get",
+        modelFunName: "bizObjectController.listProperty",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyVo>(req);
   }
@@ -2279,20 +2400,20 @@ export class BizObjectController {
     sheetCode: string,
     schemaCode: string,
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyList> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/listSheetDatas',
-        method: 'get',
-        modelFunName: 'bizObjectController.listSheetDatas',
+        url: "/portal/bizObject/listSheetDatas",
+        method: "get",
+        modelFunName: "bizObjectController.listSheetDatas",
         data: {
           sheetCode,
           schemaCode,
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyList>(req);
   }
@@ -2312,16 +2433,16 @@ export class BizObjectController {
    */
   listTemplateData(
     queryVo: ListTemplateDataQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListTemplateDataVo> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/listTemplateData',
-        method: 'post',
-        modelFunName: 'bizObjectController.listTemplateData',
+        url: "/portal/bizObject/listTemplateData",
+        method: "post",
+        modelFunName: "bizObjectController.listTemplateData",
         data: queryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListTemplateDataVo>(req);
   }
@@ -2341,16 +2462,16 @@ export class BizObjectController {
    */
   remove(
     bizObjectIdsVo: BizObjectIdsVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/remove',
-        method: 'post',
-        modelFunName: 'bizObjectController.remove',
+        url: "/portal/bizObject/remove",
+        method: "post",
+        modelFunName: "bizObjectController.remove",
         data: bizObjectIdsVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2366,22 +2487,22 @@ export class BizObjectController {
    * 暂存数据
    * @param bizObjectSubmitVo
    * @param requestConfig
-   * @returns Promise<ResBody>
+   * @returns Promise<ResBodystring>
    */
   temporary(
     bizObjectSubmitVo: BizObjectSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBody> {
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/temporary',
-        method: 'post',
-        modelFunName: 'bizObjectController.temporary',
+        url: "/portal/bizObject/temporary",
+        method: "post",
+        modelFunName: "bizObjectController.temporary",
         data: bizObjectSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBody>(req);
+    return fetch<ResBodystring>(req);
   }
 
   /**
@@ -2399,16 +2520,16 @@ export class BizObjectController {
    */
   uniqueValidate(
     textUniqueValidateVo: UniqueValidateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyboolean> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/uniqueValidate',
-        method: 'post',
-        modelFunName: 'bizObjectController.uniqueValidate',
+        url: "/portal/bizObject/uniqueValidate",
+        method: "post",
+        modelFunName: "bizObjectController.uniqueValidate",
         data: textUniqueValidateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyboolean>(req);
   }
@@ -2424,22 +2545,51 @@ export class BizObjectController {
    * 修改数据
    * @param bizObjectSubmitVo
    * @param requestConfig
-   * @returns Promise<ResBody>
+   * @returns Promise<ResBodyVoid>
    */
   update(
     bizObjectSubmitVo: BizObjectSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBody> {
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/bizObject/update',
-        method: 'post',
-        modelFunName: 'bizObjectController.update',
+        url: "/portal/bizObject/update",
+        method: "post",
+        modelFunName: "bizObjectController.update",
         data: bizObjectSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBody>(req);
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 修改指定字段数据URL
+   */
+  updateSelectiveUrl() {
+    return `${globalConfig.baseURL}/portal/bizObject/updateSelective`;
+  }
+
+  /**
+   * 修改指定字段数据
+   * @param bizObjectSubmitVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  updateSelective(
+    bizObjectSubmitVo: BizObjectSubmitVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/portal/bizObject/updateSelective",
+        method: "post",
+        modelFunName: "bizObjectController.updateSelective",
+        data: bizObjectSubmitVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 }
 /**
@@ -2461,16 +2611,16 @@ export class BizObjectOpenApi {
    */
   batchInsert(
     bizObjectSubmitVo: OpenApiBizObjectBatchSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/batchInsert',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.batchInsert',
+        url: "/openapi/bizObject/batchInsert",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.batchInsert",
         data: bizObjectSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2490,16 +2640,16 @@ export class BizObjectOpenApi {
    */
   load(
     bizObjectIdVo: BizObjectIdVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBody> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/load',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.load',
+        url: "/openapi/bizObject/load",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.load",
         data: bizObjectIdVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBody>(req);
   }
@@ -2519,16 +2669,16 @@ export class BizObjectOpenApi {
    */
   loadList(
     bizObjectIdsVo: BizObjectIdsVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListobject> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/loadList',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.loadList',
+        url: "/openapi/bizObject/loadList",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.loadList",
         data: bizObjectIdsVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListobject>(req);
   }
@@ -2548,16 +2698,16 @@ export class BizObjectOpenApi {
    */
   pageList(
     bizObjectQueryVo: BizObjectQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVO> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/pageList',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.pageList',
+        url: "/openapi/bizObject/pageList",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.pageList",
         data: bizObjectQueryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVO>(req);
   }
@@ -2577,16 +2727,16 @@ export class BizObjectOpenApi {
    */
   remove(
     bizObjectIdsVo: BizObjectIdsVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/remove',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.remove',
+        url: "/openapi/bizObject/remove",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.remove",
         data: bizObjectIdsVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2606,16 +2756,16 @@ export class BizObjectOpenApi {
    */
   save(
     bizObjectSubmitVo: OpenApiBizObjectSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/openapi/bizObject/save',
-        method: 'post',
-        modelFunName: 'bizObjectOpenApi.save',
+        url: "/openapi/bizObject/save",
+        method: "post",
+        modelFunName: "bizObjectOpenApi.save",
         data: bizObjectSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -2633,22 +2783,22 @@ export class BizPropertyController {
 
   /**
    * 批量获取模型已发布的数据项列表
-   * @param schemaCodes
+   * @param batchListSchemaParamVo
    * @param requestConfig
    * @returns Promise<ResBody>
    */
   batchListPublish(
-    schemaCodes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    batchListSchemaParamVo: BatchListSchemaParamVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBody> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/batchListPublish',
-        method: 'post',
-        modelFunName: 'bizPropertyController.batchListPublish',
-        data: schemaCodes,
+        url: "/admin/model/schema/property/batchListPublish",
+        method: "post",
+        modelFunName: "bizPropertyController.batchListPublish",
+        data: batchListSchemaParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBody>(req);
   }
@@ -2662,22 +2812,22 @@ export class BizPropertyController {
 
   /**
    * 根据流程编码批量获取已发布的数据项列表
-   * @param workflowCodes
+   * @param batchListSchemaParamVo
    * @param requestConfig
    * @returns Promise<ResBody>
    */
   batchListPublishByWorkflowCodes(
-    workflowCodes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    batchListSchemaParamVo: BatchListSchemaParamVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBody> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/batchListPublishByWorkflowCodes',
-        method: 'post',
-        modelFunName: 'bizPropertyController.batchListPublishByWorkflowCodes',
-        data: workflowCodes,
+        url: "/admin/model/schema/property/batchListPublishByWorkflowCodes",
+        method: "post",
+        modelFunName: "bizPropertyController.batchListPublishByWorkflowCodes",
+        data: batchListSchemaParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBody>(req);
   }
@@ -2697,16 +2847,16 @@ export class BizPropertyController {
    */
   confirmRemove(
     schemaPropertyCodeVo: SchemaPropertyCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/confirmRemove',
-        method: 'post',
-        modelFunName: 'bizPropertyController.confirmRemove',
+        url: "/admin/model/schema/property/confirmRemove",
+        method: "post",
+        modelFunName: "bizPropertyController.confirmRemove",
         data: schemaPropertyCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2726,16 +2876,16 @@ export class BizPropertyController {
    */
   create(
     bizPropertyVo: BizPropertyVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/create',
-        method: 'post',
-        modelFunName: 'bizPropertyController.create',
+        url: "/admin/model/schema/property/create",
+        method: "post",
+        modelFunName: "bizPropertyController.create",
         data: bizPropertyVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizPropertyVo>(req);
   }
@@ -2755,16 +2905,45 @@ export class BizPropertyController {
    */
   get(
     schemaPropertyCodeVo: SchemaPropertyCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/get',
-        method: 'post',
-        modelFunName: 'bizPropertyController.get',
+        url: "/admin/model/schema/property/get",
+        method: "post",
+        modelFunName: "bizPropertyController.get",
         data: schemaPropertyCodeVo,
       },
-      requestConfig,
+      requestConfig
+    );
+    return fetch<ResBodyBizPropertyVo>(req);
+  }
+
+  /**
+   * 获取数据项详情URL
+   */
+  getByIdUrl() {
+    return `${globalConfig.baseURL}/admin/model/schema/property/getById`;
+  }
+
+  /**
+   * 获取数据项详情
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyBizPropertyVo>
+   */
+  getById(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyBizPropertyVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/model/schema/property/getById",
+        method: "post",
+        modelFunName: "bizPropertyController.getById",
+        data: idVo,
+      },
+      requestConfig
     );
     return fetch<ResBodyBizPropertyVo>(req);
   }
@@ -2779,26 +2958,29 @@ export class BizPropertyController {
   /**
    * 获取已发布的数据项列表
    * @param schemaCode
-   * @param loadSheetSysProperty
+   * @param loadSelfObject
+   * @param loadSysProperty
    * @param requestConfig
    * @returns Promise<ResBodyListBizPropertyVo>
    */
   getPublishList(
     schemaCode: string,
-    loadSheetSysProperty?: boolean,
-    requestConfig?: BAxiosRequestConfig,
+    loadSelfObject?: boolean,
+    loadSysProperty?: boolean,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/getPublishList',
-        method: 'get',
-        modelFunName: 'bizPropertyController.getPublishList',
+        url: "/admin/model/schema/property/getPublishList",
+        method: "get",
+        modelFunName: "bizPropertyController.getPublishList",
         data: {
           schemaCode,
-          loadSheetSysProperty,
+          loadSelfObject,
+          loadSysProperty,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyVo>(req);
   }
@@ -2813,26 +2995,29 @@ export class BizPropertyController {
   /**
    * 根据流程编码获取已发布的数据项列表
    * @param workflowCode
-   * @param loadSheetSysProperty
+   * @param loadSelfObject
+   * @param loadSysProperty
    * @param requestConfig
    * @returns Promise<ResBodyListBizPropertyVo>
    */
   getPublishListByWorkflowCode(
     workflowCode: string,
-    loadSheetSysProperty?: boolean,
-    requestConfig?: BAxiosRequestConfig,
+    loadSelfObject?: boolean,
+    loadSysProperty?: boolean,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/getPublishListByWorkflowCode',
-        method: 'get',
-        modelFunName: 'bizPropertyController.getPublishListByWorkflowCode',
+        url: "/admin/model/schema/property/getPublishListByWorkflowCode",
+        method: "get",
+        modelFunName: "bizPropertyController.getPublishListByWorkflowCode",
         data: {
           workflowCode,
-          loadSheetSysProperty,
+          loadSelfObject,
+          loadSysProperty,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyVo>(req);
   }
@@ -2847,29 +3032,23 @@ export class BizPropertyController {
   /**
    * 获取数据项列表
    * @param schemaCode
-   * @param loadSheetSysProperty
-   * @param sortType
    * @param requestConfig
    * @returns Promise<ResBodyListBizPropertyVo>
    */
   list(
     schemaCode: string,
-    loadSheetSysProperty?: boolean,
-    sortType?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/list',
-        method: 'get',
-        modelFunName: 'bizPropertyController.list',
+        url: "/admin/model/schema/property/list",
+        method: "get",
+        modelFunName: "bizPropertyController.list",
         data: {
           schemaCode,
-          loadSheetSysProperty,
-          sortType,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyVo>(req);
   }
@@ -2889,16 +3068,16 @@ export class BizPropertyController {
    */
   modify(
     bizPropertyVo: BizPropertyVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/modify',
-        method: 'post',
-        modelFunName: 'bizPropertyController.modify',
+        url: "/admin/model/schema/property/modify",
+        method: "post",
+        modelFunName: "bizPropertyController.modify",
         data: bizPropertyVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizPropertyVo>(req);
   }
@@ -2918,16 +3097,16 @@ export class BizPropertyController {
    */
   remove(
     schemaPropertyCodeVo: SchemaPropertyCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyRemovePropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/remove',
-        method: 'post',
-        modelFunName: 'bizPropertyController.remove',
+        url: "/admin/model/schema/property/remove",
+        method: "post",
+        modelFunName: "bizPropertyController.remove",
         data: schemaPropertyCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyRemovePropertyVo>(req);
   }
@@ -2947,16 +3126,16 @@ export class BizPropertyController {
    */
   sort(
     bizPropertySortVo: BizPropertySortVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/property/sort',
-        method: 'post',
-        modelFunName: 'bizPropertyController.sort',
+        url: "/admin/model/schema/property/sort",
+        method: "post",
+        modelFunName: "bizPropertyController.sort",
         data: bizPropertySortVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -2980,16 +3159,16 @@ export class BizPropertyFormulaController {
    */
   create(
     bizPropertyFormulaVo: BizPropertyFormulaVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/formula/create',
-        method: 'post',
-        modelFunName: 'bizPropertyFormulaController.create',
+        url: "/admin/model/schema/formula/create",
+        method: "post",
+        modelFunName: "bizPropertyFormulaController.create",
         data: bizPropertyFormulaVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3009,18 +3188,18 @@ export class BizPropertyFormulaController {
    */
   list(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyFormulaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/formula/list',
-        method: 'get',
-        modelFunName: 'bizPropertyFormulaController.list',
+        url: "/admin/model/schema/formula/list",
+        method: "get",
+        modelFunName: "bizPropertyFormulaController.list",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyFormulaVo>(req);
   }
@@ -3040,16 +3219,16 @@ export class BizPropertyFormulaController {
    */
   remove(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/formula/remove',
-        method: 'post',
-        modelFunName: 'bizPropertyFormulaController.remove',
+        url: "/admin/model/schema/formula/remove",
+        method: "post",
+        modelFunName: "bizPropertyFormulaController.remove",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3069,16 +3248,16 @@ export class BizPropertyFormulaController {
    */
   update(
     bizPropertyFormulaVo: BizPropertyFormulaVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/formula/update',
-        method: 'post',
-        modelFunName: 'bizPropertyFormulaController.update',
+        url: "/admin/model/schema/formula/update",
+        method: "post",
+        modelFunName: "bizPropertyFormulaController.update",
         data: bizPropertyFormulaVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3102,16 +3281,16 @@ export class BizRuleController {
    */
   clone(
     idNameVo: IdNameVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizRuleVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/clone',
-        method: 'post',
-        modelFunName: 'bizRuleController.clone',
+        url: "/admin/model/biz/rule/clone",
+        method: "post",
+        modelFunName: "bizRuleController.clone",
         data: idNameVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizRuleVo>(req);
   }
@@ -3131,16 +3310,16 @@ export class BizRuleController {
    */
   create(
     bizRuleVo: BizRuleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/create',
-        method: 'post',
-        modelFunName: 'bizRuleController.create',
+        url: "/admin/model/biz/rule/create",
+        method: "post",
+        modelFunName: "bizRuleController.create",
         data: bizRuleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -3160,16 +3339,16 @@ export class BizRuleController {
    */
   delete(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/delete',
-        method: 'post',
-        modelFunName: 'bizRuleController.delete',
+        url: "/admin/model/biz/rule/delete",
+        method: "post",
+        modelFunName: "bizRuleController.delete",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3189,18 +3368,18 @@ export class BizRuleController {
    */
   get(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizRuleVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/get',
-        method: 'get',
-        modelFunName: 'bizRuleController.get',
+        url: "/admin/model/biz/rule/get",
+        method: "get",
+        modelFunName: "bizRuleController.get",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizRuleVo>(req);
   }
@@ -3221,12 +3400,12 @@ export class BizRuleController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListBizRuleVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/list',
-        method: 'post',
-        modelFunName: 'bizRuleController.list',
+        url: "/admin/model/biz/rule/list",
+        method: "post",
+        modelFunName: "bizRuleController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizRuleVo>(req);
   }
@@ -3246,18 +3425,18 @@ export class BizRuleController {
    */
   getProperty(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizRulePropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/property/get',
-        method: 'get',
-        modelFunName: 'bizRuleController.getProperty',
+        url: "/admin/model/biz/rule/property/get",
+        method: "get",
+        modelFunName: "bizRuleController.getProperty",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizRulePropertyVo>(req);
   }
@@ -3277,16 +3456,16 @@ export class BizRuleController {
    */
   listProperty(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizRulePropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/property/list',
-        method: 'post',
-        modelFunName: 'bizRuleController.listProperty',
+        url: "/admin/model/biz/rule/property/list",
+        method: "post",
+        modelFunName: "bizRuleController.listProperty",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizRulePropertyVo>(req);
   }
@@ -3306,18 +3485,18 @@ export class BizRuleController {
    */
   queryBySchemaCode(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizRuleVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/queryBySchemaCode',
-        method: 'get',
-        modelFunName: 'bizRuleController.queryBySchemaCode',
+        url: "/admin/model/biz/rule/queryBySchemaCode",
+        method: "get",
+        modelFunName: "bizRuleController.queryBySchemaCode",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizRuleVo>(req);
   }
@@ -3337,16 +3516,16 @@ export class BizRuleController {
    */
   rename(
     renameVo: BizRuleRenameVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/rename',
-        method: 'post',
-        modelFunName: 'bizRuleController.rename',
+        url: "/admin/model/biz/rule/rename",
+        method: "post",
+        modelFunName: "bizRuleController.rename",
         data: renameVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3366,16 +3545,16 @@ export class BizRuleController {
    */
   update(
     bizRuleVo: BizRuleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/biz/rule/update',
-        method: 'post',
-        modelFunName: 'bizRuleController.update',
+        url: "/admin/model/biz/rule/update",
+        method: "post",
+        modelFunName: "bizRuleController.update",
         data: bizRuleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3384,6 +3563,35 @@ export class BizRuleController {
  *模型接口
  */
 export class BizSchemaController {
+  /**
+   * 复制模型URL
+   */
+  cloneUrl() {
+    return `${globalConfig.baseURL}/admin/model/schema/clone`;
+  }
+
+  /**
+   * 复制模型
+   * @param cloneVo
+   * @param requestConfig
+   * @returns Promise<ResBodyBizSchemaVo>
+   */
+  clone(
+    cloneVo: SchemaCloneVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyBizSchemaVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/model/schema/clone",
+        method: "post",
+        modelFunName: "bizSchemaController.clone",
+        data: cloneVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyBizSchemaVo>(req);
+  }
+
   /**
    * 创建模型分组URL
    */
@@ -3399,16 +3607,16 @@ export class BizSchemaController {
    */
   createGroup(
     bizSchemaGroupVo: BizSchemaGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/createGroup',
-        method: 'post',
-        modelFunName: 'bizSchemaController.createGroup',
+        url: "/admin/model/schema/createGroup",
+        method: "post",
+        modelFunName: "bizSchemaController.createGroup",
         data: bizSchemaGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaGroupVo>(req);
   }
@@ -3428,16 +3636,16 @@ export class BizSchemaController {
    */
   createSchema(
     bizSchemaVo: BizSchemaVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/createSchema',
-        method: 'post',
-        modelFunName: 'bizSchemaController.createSchema',
+        url: "/admin/model/schema/createSchema",
+        method: "post",
+        modelFunName: "bizSchemaController.createSchema",
         data: bizSchemaVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaVo>(req);
   }
@@ -3457,51 +3665,20 @@ export class BizSchemaController {
    */
   getCorrlationFormSchema(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/getCorrlationFormSchema',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getCorrlationFormSchema',
+        url: "/admin/model/schema/getCorrlationFormSchema",
+        method: "get",
+        modelFunName: "bizSchemaController.getCorrlationFormSchema",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizSchemaVo>(req);
-  }
-
-  /**
-   * 获取模型分组列表URL
-   */
-  getGroupTreeUrl() {
-    return `${globalConfig.baseURL}/admin/model/schema/getGroupTree`;
-  }
-
-  /**
-   * 获取模型分组列表
-   * @param appCode
-   * @param requestConfig
-   * @returns Promise<ResBodyListBizSchemaGroupVo>
-   */
-  getGroupTree(
-    appCode: string,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyListBizSchemaGroupVo> {
-    const req = Object.assign(
-      {
-        url: '/admin/model/schema/getGroupTree',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getGroupTree',
-        data: {
-          appCode,
-        },
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyListBizSchemaGroupVo>(req);
   }
 
   /**
@@ -3519,18 +3696,18 @@ export class BizSchemaController {
    */
   getModelList(
     appCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/getModelList',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getModelList',
+        url: "/admin/model/schema/getModelList",
+        method: "get",
+        modelFunName: "bizSchemaController.getModelList",
         data: {
           appCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizSchemaVo>(req);
   }
@@ -3550,18 +3727,18 @@ export class BizSchemaController {
    */
   getModelTree(
     appCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/getModelTree',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getModelTree',
+        url: "/admin/model/schema/getModelTree",
+        method: "get",
+        modelFunName: "bizSchemaController.getModelTree",
         data: {
           appCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -3581,49 +3758,52 @@ export class BizSchemaController {
    */
   getSchemaInfo(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/getSchemaInfo',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getSchemaInfo',
+        url: "/admin/model/schema/getSchemaInfo",
+        method: "get",
+        modelFunName: "bizSchemaController.getSchemaInfo",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaVo>(req);
   }
 
   /**
-   * 获取模型元数据，包含数据项、及数据规则URL
+   * 获取已发布的模型元数据，包含数据项URL
    */
   getSchemaMetadataUrl() {
     return `${globalConfig.baseURL}/admin/model/schema/getSchemaMetadata`;
   }
 
   /**
-   * 获取模型元数据，包含数据项、及数据规则
+   * 获取已发布的模型元数据，包含数据项
    * @param schemaCode
+   * @param loadSelfObject
    * @param requestConfig
    * @returns Promise<ResBodyBizSchemaVo>
    */
   getSchemaMetadata(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    loadSelfObject?: boolean,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/getSchemaMetadata',
-        method: 'get',
-        modelFunName: 'bizSchemaController.getSchemaMetadata',
+        url: "/admin/model/schema/getSchemaMetadata",
+        method: "get",
+        modelFunName: "bizSchemaController.getSchemaMetadata",
         data: {
           schemaCode,
+          loadSelfObject,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaVo>(req);
   }
@@ -3643,16 +3823,16 @@ export class BizSchemaController {
    */
   lock(
     codeVo: CodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/lock',
-        method: 'post',
-        modelFunName: 'bizSchemaController.lock',
+        url: "/admin/model/schema/lock",
+        method: "post",
+        modelFunName: "bizSchemaController.lock",
         data: codeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3672,16 +3852,16 @@ export class BizSchemaController {
    */
   modifyGroup(
     bizSchemaGroupVo: BizSchemaGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/modifyGroup',
-        method: 'post',
-        modelFunName: 'bizSchemaController.modifyGroup',
+        url: "/admin/model/schema/modifyGroup",
+        method: "post",
+        modelFunName: "bizSchemaController.modifyGroup",
         data: bizSchemaGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaGroupVo>(req);
   }
@@ -3701,16 +3881,16 @@ export class BizSchemaController {
    */
   modifySchema(
     bizSchemaVo: BizSchemaVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/modifySchema',
-        method: 'post',
-        modelFunName: 'bizSchemaController.modifySchema',
+        url: "/admin/model/schema/modifySchema",
+        method: "post",
+        modelFunName: "bizSchemaController.modifySchema",
         data: bizSchemaVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaVo>(req);
   }
@@ -3730,16 +3910,16 @@ export class BizSchemaController {
    */
   publish(
     codes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/publish',
-        method: 'post',
-        modelFunName: 'bizSchemaController.publish',
+        url: "/admin/model/schema/publish",
+        method: "post",
+        modelFunName: "bizSchemaController.publish",
         data: codes,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3759,16 +3939,16 @@ export class BizSchemaController {
    */
   removeGroup(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/removeGroup',
-        method: 'post',
-        modelFunName: 'bizSchemaController.removeGroup',
+        url: "/admin/model/schema/removeGroup",
+        method: "post",
+        modelFunName: "bizSchemaController.removeGroup",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3788,16 +3968,16 @@ export class BizSchemaController {
    */
   removeSchema(
     codes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/removeSchema',
-        method: 'post',
-        modelFunName: 'bizSchemaController.removeSchema',
+        url: "/admin/model/schema/removeSchema",
+        method: "post",
+        modelFunName: "bizSchemaController.removeSchema",
         data: codes,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3817,16 +3997,16 @@ export class BizSchemaController {
    */
   saveTitle(
     schemaTitleVo: SchemaTitleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/saveTitle',
-        method: 'post',
-        modelFunName: 'bizSchemaController.saveTitle',
+        url: "/admin/model/schema/saveTitle",
+        method: "post",
+        modelFunName: "bizSchemaController.saveTitle",
         data: schemaTitleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3846,16 +4026,16 @@ export class BizSchemaController {
    */
   unlock(
     codeVo: CodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/unlock',
-        method: 'post',
-        modelFunName: 'bizSchemaController.unlock',
+        url: "/admin/model/schema/unlock",
+        method: "post",
+        modelFunName: "bizSchemaController.unlock",
         data: codeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3879,16 +4059,16 @@ export class BizSchemaEventController {
    */
   create(
     bizSchemaEventVo: BizSchemaEventVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/create',
-        method: 'post',
-        modelFunName: 'bizSchemaEventController.create',
+        url: "/admin/model/schema/event/create",
+        method: "post",
+        modelFunName: "bizSchemaEventController.create",
         data: bizSchemaEventVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -3908,18 +4088,18 @@ export class BizSchemaEventController {
    */
   delete(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/delete',
-        method: 'get',
-        modelFunName: 'bizSchemaEventController.delete',
+        url: "/admin/model/schema/event/delete",
+        method: "get",
+        modelFunName: "bizSchemaEventController.delete",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -3939,18 +4119,18 @@ export class BizSchemaEventController {
    */
   get(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizSchemaEventVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/get',
-        method: 'get',
-        modelFunName: 'bizSchemaEventController.get',
+        url: "/admin/model/schema/event/get",
+        method: "get",
+        modelFunName: "bizSchemaEventController.get",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizSchemaEventVo>(req);
   }
@@ -3969,16 +4149,16 @@ export class BizSchemaEventController {
    * @returns Promise<ResBodyListBizSchemaEventVo>
    */
   list(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizSchemaEventVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/list',
-        method: 'post',
-        modelFunName: 'bizSchemaEventController.list',
+        url: "/admin/model/schema/event/list",
+        method: "post",
+        modelFunName: "bizSchemaEventController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizSchemaEventVo>(req);
   }
@@ -3998,18 +4178,18 @@ export class BizSchemaEventController {
    */
   queryBySchemaCode(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizSchemaEventVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/queryBySchemaCode',
-        method: 'get',
-        modelFunName: 'bizSchemaEventController.queryBySchemaCode',
+        url: "/admin/model/schema/event/queryBySchemaCode",
+        method: "get",
+        modelFunName: "bizSchemaEventController.queryBySchemaCode",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizSchemaEventVo>(req);
   }
@@ -4029,16 +4209,16 @@ export class BizSchemaEventController {
    */
   update(
     bizSchemaEventVo: BizSchemaEventVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/schema/event/update',
-        method: 'post',
-        modelFunName: 'bizSchemaEventController.update',
+        url: "/admin/model/schema/event/update",
+        method: "post",
+        modelFunName: "bizSchemaEventController.update",
         data: bizSchemaEventVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4062,16 +4242,16 @@ export class BizServerInvokeController {
    */
   bizBus(
     invokeVo: BizMethodInvokeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/portal/server/invoke/bizBus',
-        method: 'post',
-        modelFunName: 'bizServerInvokeController.bizBus',
+        url: "/portal/server/invoke/bizBus",
+        method: "post",
+        modelFunName: "bizServerInvokeController.bizBus",
         data: invokeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -4091,16 +4271,16 @@ export class BizServerInvokeController {
    */
   bizRule(
     invokeVo: BizRuleInvokeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/portal/server/invoke/bizRule',
-        method: 'post',
-        modelFunName: 'bizServerInvokeController.bizRule',
+        url: "/portal/server/invoke/bizRule",
+        method: "post",
+        modelFunName: "bizServerInvokeController.bizRule",
         data: invokeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -4124,16 +4304,16 @@ export class BizServiceCategroyController {
    */
   create(
     bizServiceCategoryVo: BizServiceCategoryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceCategoryVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/categroy/create',
-        method: 'post',
-        modelFunName: 'bizServiceCategroyController.create',
+        url: "/admin/bizbus/service/categroy/create",
+        method: "post",
+        modelFunName: "bizServiceCategroyController.create",
         data: bizServiceCategoryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceCategoryVo>(req);
   }
@@ -4153,18 +4333,18 @@ export class BizServiceCategroyController {
    */
   getList(
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceCategoryVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/categroy/getList',
-        method: 'get',
-        modelFunName: 'bizServiceCategroyController.getList',
+        url: "/admin/bizbus/service/categroy/getList",
+        method: "get",
+        modelFunName: "bizServiceCategroyController.getList",
         data: {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceCategoryVo>(req);
   }
@@ -4184,16 +4364,16 @@ export class BizServiceCategroyController {
    */
   remove(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/categroy/remove',
-        method: 'post',
-        modelFunName: 'bizServiceCategroyController.remove',
+        url: "/admin/bizbus/service/categroy/remove",
+        method: "post",
+        modelFunName: "bizServiceCategroyController.remove",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4213,16 +4393,16 @@ export class BizServiceCategroyController {
    */
   update(
     bizServiceCategoryVo: BizServiceCategoryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceCategoryVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/categroy/update',
-        method: 'post',
-        modelFunName: 'bizServiceCategroyController.update',
+        url: "/admin/bizbus/service/categroy/update",
+        method: "post",
+        modelFunName: "bizServiceCategroyController.update",
         data: bizServiceCategoryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceCategoryVo>(req);
   }
@@ -4246,16 +4426,16 @@ export class BizServiceController {
    */
   create(
     bizServiceVo: BizServiceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/create',
-        method: 'post',
-        modelFunName: 'bizServiceController.create',
+        url: "/admin/bizbus/service/create",
+        method: "post",
+        modelFunName: "bizServiceController.create",
         data: bizServiceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceVo>(req);
   }
@@ -4277,21 +4457,47 @@ export class BizServiceController {
   getList(
     categroyId: string,
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/getList',
-        method: 'get',
-        modelFunName: 'bizServiceController.getList',
+        url: "/admin/bizbus/service/getList",
+        method: "get",
+        modelFunName: "bizServiceController.getList",
         data: {
           categroyId,
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceVo>(req);
+  }
+
+  /**
+   * 获取所有业务服务分组URL
+   */
+  groupListUrl() {
+    return `${globalConfig.baseURL}/admin/bizbus/service/groupList`;
+  }
+
+  /**
+   * 获取所有业务服务分组
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListIdNameVo>
+   */
+  groupList(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListIdNameVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/bizbus/service/groupList",
+        method: "get",
+        modelFunName: "bizServiceController.groupList",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListIdNameVo>(req);
   }
 
   /**
@@ -4308,16 +4514,16 @@ export class BizServiceController {
    * @returns Promise<ResBodyListBizServiceVo>
    */
   listAll(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/listAll',
-        method: 'get',
-        modelFunName: 'bizServiceController.listAll',
+        url: "/admin/bizbus/service/listAll",
+        method: "get",
+        modelFunName: "bizServiceController.listAll",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceVo>(req);
   }
@@ -4336,16 +4542,16 @@ export class BizServiceController {
    * @returns Promise<ResBodyListBizServiceCategoryVo>
    */
   listServiceTree(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceCategoryVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/listServiceTree',
-        method: 'get',
-        modelFunName: 'bizServiceController.listServiceTree',
+        url: "/admin/bizbus/service/listServiceTree",
+        method: "get",
+        modelFunName: "bizServiceController.listServiceTree",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceCategoryVo>(req);
   }
@@ -4365,16 +4571,16 @@ export class BizServiceController {
    */
   remove(
     codes: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/remove',
-        method: 'post',
-        modelFunName: 'bizServiceController.remove',
+        url: "/admin/bizbus/service/remove",
+        method: "post",
+        modelFunName: "bizServiceController.remove",
         data: codes,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4394,16 +4600,16 @@ export class BizServiceController {
    */
   update(
     bizServiceVo: BizServiceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/update',
-        method: 'post',
-        modelFunName: 'bizServiceController.update',
+        url: "/admin/bizbus/service/update",
+        method: "post",
+        modelFunName: "bizServiceController.update",
         data: bizServiceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceVo>(req);
   }
@@ -4427,16 +4633,16 @@ export class BizServiceMethodController {
    */
   BizServiceMethodVo(
     bizServiceMethodVo: BizServiceMethodVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceMethodVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/BizServiceMethodVo',
-        method: 'post',
-        modelFunName: 'bizServiceMethodController.BizServiceMethodVo',
+        url: "/admin/bizbus/service/method/BizServiceMethodVo",
+        method: "post",
+        modelFunName: "bizServiceMethodController.BizServiceMethodVo",
         data: bizServiceMethodVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceMethodVo>(req);
   }
@@ -4456,16 +4662,16 @@ export class BizServiceMethodController {
    */
   batchList(
     methodCodeVos: BizServiceMethodCodeVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceMethodVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/batchList',
-        method: 'post',
-        modelFunName: 'bizServiceMethodController.batchList',
+        url: "/admin/bizbus/service/method/batchList",
+        method: "post",
+        modelFunName: "bizServiceMethodController.batchList",
         data: methodCodeVos,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceMethodVo>(req);
   }
@@ -4487,19 +4693,19 @@ export class BizServiceMethodController {
   get(
     serviceCode: string,
     methodCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceMethodVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/get',
-        method: 'get',
-        modelFunName: 'bizServiceMethodController.get',
+        url: "/admin/bizbus/service/method/get",
+        method: "get",
+        modelFunName: "bizServiceMethodController.get",
         data: {
           serviceCode,
           methodCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceMethodVo>(req);
   }
@@ -4519,18 +4725,18 @@ export class BizServiceMethodController {
    */
   getList(
     serviceCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizServiceMethodVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/getList',
-        method: 'get',
-        modelFunName: 'bizServiceMethodController.getList',
+        url: "/admin/bizbus/service/method/getList",
+        method: "get",
+        modelFunName: "bizServiceMethodController.getList",
         data: {
           serviceCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizServiceMethodVo>(req);
   }
@@ -4550,16 +4756,16 @@ export class BizServiceMethodController {
    */
   remove(
     bizServiceMethodCodeVo: BizServiceMethodCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/remove',
-        method: 'post',
-        modelFunName: 'bizServiceMethodController.remove',
+        url: "/admin/bizbus/service/method/remove",
+        method: "post",
+        modelFunName: "bizServiceMethodController.remove",
         data: bizServiceMethodCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4579,16 +4785,16 @@ export class BizServiceMethodController {
    */
   testConnect(
     invokeParam: MethodInvokeParamVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/testConnect',
-        method: 'post',
-        modelFunName: 'bizServiceMethodController.testConnect',
+        url: "/admin/bizbus/service/method/testConnect",
+        method: "post",
+        modelFunName: "bizServiceMethodController.testConnect",
         data: invokeParam,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -4608,16 +4814,16 @@ export class BizServiceMethodController {
    */
   update(
     bizServiceMethodVo: BizServiceMethodVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizServiceMethodVo> {
     const req = Object.assign(
       {
-        url: '/admin/bizbus/service/method/update',
-        method: 'post',
-        modelFunName: 'bizServiceMethodController.update',
+        url: "/admin/bizbus/service/method/update",
+        method: "post",
+        modelFunName: "bizServiceMethodController.update",
         data: bizServiceMethodVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizServiceMethodVo>(req);
   }
@@ -4626,6 +4832,35 @@ export class BizServiceMethodController {
  *视图接口
  */
 export class BizViewController {
+  /**
+   * 复制URL
+   */
+  cloneUrl() {
+    return `${globalConfig.baseURL}/admin/model/view/clone`;
+  }
+
+  /**
+   * 复制
+   * @param cloneVo
+   * @param requestConfig
+   * @returns Promise<ResBodyBizViewVo>
+   */
+  clone(
+    cloneVo: BizViewCloneVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyBizViewVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/model/view/clone",
+        method: "post",
+        modelFunName: "bizViewController.clone",
+        data: cloneVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyBizViewVo>(req);
+  }
+
   /**
    * 创建视图URL
    */
@@ -4641,16 +4876,16 @@ export class BizViewController {
    */
   create(
     bizViewVo: BizViewVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizViewVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/create',
-        method: 'post',
-        modelFunName: 'bizViewController.create',
+        url: "/admin/model/view/create",
+        method: "post",
+        modelFunName: "bizViewController.create",
         data: bizViewVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizViewVo>(req);
   }
@@ -4664,22 +4899,22 @@ export class BizViewController {
 
   /**
    * 获取视图详情，根据客户端类型返回视图配置
-   * @param bizViewQueryVo
+   * @param bizViewCodeVo
    * @param requestConfig
    * @returns Promise<ResBodyBizViewVo>
    */
   getViewInfo(
-    bizViewQueryVo: BizViewQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    bizViewCodeVo: BizViewCodeVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizViewVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/getViewInfo',
-        method: 'post',
-        modelFunName: 'bizViewController.getViewInfo',
-        data: bizViewQueryVo,
+        url: "/admin/model/view/getViewInfo",
+        method: "post",
+        modelFunName: "bizViewController.getViewInfo",
+        data: bizViewCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizViewVo>(req);
   }
@@ -4699,18 +4934,18 @@ export class BizViewController {
    */
   list(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizViewVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/list',
-        method: 'get',
-        modelFunName: 'bizViewController.list',
+        url: "/admin/model/view/list",
+        method: "get",
+        modelFunName: "bizViewController.list",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizViewVo>(req);
   }
@@ -4730,16 +4965,16 @@ export class BizViewController {
    */
   publish(
     bizViewVo: BizViewVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizViewVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/publish',
-        method: 'post',
-        modelFunName: 'bizViewController.publish',
+        url: "/admin/model/view/publish",
+        method: "post",
+        modelFunName: "bizViewController.publish",
         data: bizViewVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizViewVo>(req);
   }
@@ -4753,22 +4988,51 @@ export class BizViewController {
 
   /**
    * 删除视图
-   * @param bizViewQueryVo
+   * @param bizViewCodeVo
    * @param requestConfig
    * @returns Promise<ResBodyVoid>
    */
   remove(
-    bizViewQueryVo: BizViewQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    bizViewCodeVo: BizViewCodeVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/remove',
-        method: 'post',
-        modelFunName: 'bizViewController.remove',
-        data: bizViewQueryVo,
+        url: "/admin/model/view/remove",
+        method: "post",
+        modelFunName: "bizViewController.remove",
+        data: bizViewCodeVo,
       },
-      requestConfig,
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 重命名URL
+   */
+  renameUrl() {
+    return `${globalConfig.baseURL}/admin/model/view/rename`;
+  }
+
+  /**
+   * 重命名
+   * @param renameVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  rename(
+    renameVo: BizViewSortNameVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/model/view/rename",
+        method: "post",
+        modelFunName: "bizViewController.rename",
+        data: renameVo,
+      },
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4788,47 +5052,18 @@ export class BizViewController {
    */
   sort(
     sortVo: BizViewSortVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/sort',
-        method: 'post',
-        modelFunName: 'bizViewController.sort',
+        url: "/admin/model/view/sort",
+        method: "post",
+        modelFunName: "bizViewController.sort",
         data: sortVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
-  }
-
-  /**
-   * 编辑视图URL
-   */
-  updateUrl() {
-    return `${globalConfig.baseURL}/admin/model/view/update`;
-  }
-
-  /**
-   * 编辑视图
-   * @param bizViewVo
-   * @param requestConfig
-   * @returns Promise<ResBodyBizViewVo>
-   */
-  update(
-    bizViewVo: BizViewVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyBizViewVo> {
-    const req = Object.assign(
-      {
-        url: '/admin/model/view/update',
-        method: 'post',
-        modelFunName: 'bizViewController.update',
-        data: bizViewVo,
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyBizViewVo>(req);
   }
 
   /**
@@ -4846,16 +5081,16 @@ export class BizViewController {
    */
   updateVisible(
     bizViewVisibleVo: BizViewVisibleVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/view/updateVisible',
-        method: 'post',
-        modelFunName: 'bizViewController.updateVisible',
+        url: "/admin/model/view/updateVisible",
+        method: "post",
+        modelFunName: "bizViewController.updateVisible",
         data: bizViewVisibleVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4879,16 +5114,16 @@ export class ChartController {
    */
   create(
     chartVo: ChartVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyChartVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/chart/create',
-        method: 'post',
-        modelFunName: 'chartController.create',
+        url: "/admin/report/chart/create",
+        method: "post",
+        modelFunName: "chartController.create",
         data: chartVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyChartVo>(req);
   }
@@ -4908,16 +5143,16 @@ export class ChartController {
    */
   modify(
     chartVo: ChartVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyChartVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/chart/modify',
-        method: 'post',
-        modelFunName: 'chartController.modify',
+        url: "/admin/report/chart/modify",
+        method: "post",
+        modelFunName: "chartController.modify",
         data: chartVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyChartVo>(req);
   }
@@ -4938,12 +5173,12 @@ export class ChartController {
   test(requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/chart/test',
-        method: 'post',
-        modelFunName: 'chartController.test',
+        url: "/admin/report/chart/test",
+        method: "post",
+        modelFunName: "chartController.test",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -4967,16 +5202,16 @@ export class DashboardController {
    */
   create(
     dashboardVo: DashboardVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDashboardVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/create',
-        method: 'post',
-        modelFunName: 'dashboardController.create',
+        url: "/admin/report/dashboard/create",
+        method: "post",
+        modelFunName: "dashboardController.create",
         data: dashboardVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDashboardVo>(req);
   }
@@ -4996,16 +5231,16 @@ export class DashboardController {
    */
   delete(
     codeVo: CodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/delete',
-        method: 'post',
-        modelFunName: 'dashboardController.delete',
+        url: "/admin/report/dashboard/delete",
+        method: "post",
+        modelFunName: "dashboardController.delete",
         data: codeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5025,18 +5260,18 @@ export class DashboardController {
    */
   get(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDashboardVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/get',
-        method: 'get',
-        modelFunName: 'dashboardController.get',
+        url: "/admin/report/dashboard/get",
+        method: "get",
+        modelFunName: "dashboardController.get",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDashboardVo>(req);
   }
@@ -5056,16 +5291,16 @@ export class DashboardController {
    */
   modify(
     dashboardVo: DashboardVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDashboardVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/modify',
-        method: 'post',
-        modelFunName: 'dashboardController.modify',
+        url: "/admin/report/dashboard/modify",
+        method: "post",
+        modelFunName: "dashboardController.modify",
         data: dashboardVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDashboardVo>(req);
   }
@@ -5085,16 +5320,16 @@ export class DashboardController {
    */
   moveChart(
     moveChartVo: MoveChartVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/moveChart',
-        method: 'post',
-        modelFunName: 'dashboardController.moveChart',
+        url: "/admin/report/dashboard/moveChart",
+        method: "post",
+        modelFunName: "dashboardController.moveChart",
         data: moveChartVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5114,16 +5349,16 @@ export class DashboardController {
    */
   publish(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/publish',
-        method: 'post',
-        modelFunName: 'dashboardController.publish',
+        url: "/admin/report/dashboard/publish",
+        method: "post",
+        modelFunName: "dashboardController.publish",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5143,16 +5378,16 @@ export class DashboardController {
    */
   saveFilters(
     dashboardConfigVo: UpdateDashboardConfigVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/saveFilters',
-        method: 'post',
-        modelFunName: 'dashboardController.saveFilters',
+        url: "/admin/report/dashboard/saveFilters",
+        method: "post",
+        modelFunName: "dashboardController.saveFilters",
         data: dashboardConfigVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5172,16 +5407,16 @@ export class DashboardController {
    */
   saveGlobal(
     dashboardConfigVo: UpdateDashboardConfigVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/report/dashboard/saveGlobal',
-        method: 'post',
-        modelFunName: 'dashboardController.saveGlobal',
+        url: "/admin/report/dashboard/saveGlobal",
+        method: "post",
+        modelFunName: "dashboardController.saveGlobal",
         data: dashboardConfigVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5205,16 +5440,16 @@ export class DepartmentController {
    */
   batchSaveDept(
     batchDeptInsertVo: BatchDeptInsertVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListDepartmentVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/batchSaveDept',
-        method: 'post',
-        modelFunName: 'departmentController.batchSaveDept',
+        url: "/admin/org/dept/batchSaveDept",
+        method: "post",
+        modelFunName: "departmentController.batchSaveDept",
         data: batchDeptInsertVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListDepartmentVo>(req);
   }
@@ -5234,18 +5469,18 @@ export class DepartmentController {
    */
   get(
     deptId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDepartmentVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/get',
-        method: 'get',
-        modelFunName: 'departmentController.get',
+        url: "/admin/org/dept/get",
+        method: "get",
+        modelFunName: "departmentController.get",
         data: {
           deptId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDepartmentVo>(req);
   }
@@ -5265,120 +5500,20 @@ export class DepartmentController {
    */
   getAllDeptTree(
     parentId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyOrganizationChartVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/getAllDeptTree',
-        method: 'get',
-        modelFunName: 'departmentController.getAllDeptTree',
+        url: "/admin/org/dept/getAllDeptTree",
+        method: "get",
+        modelFunName: "departmentController.getAllDeptTree",
         data: {
           parentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyOrganizationChartVo>(req);
-  }
-
-  /**
-   * 根据父级id获取子级部门列表URL
-   */
-  getChildListUrl() {
-    return `${globalConfig.baseURL}/admin/org/dept/getChildList`;
-  }
-
-  /**
-   * 根据父级id获取子级部门列表
-   * @param queryChildDeptVo
-   * @param requestConfig
-   * @returns Promise<ResBodyListDepartmentVo>
-   */
-  getChildList(
-    queryChildDeptVo: QueryChildDeptVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyListDepartmentVo> {
-    const req = Object.assign(
-      {
-        url: '/admin/org/dept/getChildList',
-        method: 'post',
-        modelFunName: 'departmentController.getChildList',
-        data: queryChildDeptVo,
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyListDepartmentVo>(req);
-  }
-
-  /**
-   * 获取部门下用户列表URL
-   */
-  getDeptUserListUrl() {
-    return `${globalConfig.baseURL}/admin/org/dept/getDeptUserList`;
-  }
-
-  /**
-   * 获取部门下用户列表
-   * @param deptId
-   * @param requestConfig
-   * @returns Promise<ResBodyListUserVo>
-   */
-  getDeptUserList(
-    deptId: string,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyListUserVo> {
-    const req = Object.assign(
-      {
-        url: '/admin/org/dept/getDeptUserList',
-        method: 'get',
-        modelFunName: 'departmentController.getDeptUserList',
-        data: {
-          deptId,
-        },
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyListUserVo>(req);
-  }
-
-  /**
-   * 分页获取部门下用户列表URL
-   */
-  getDeptUserListByPageUrl() {
-    return `${globalConfig.baseURL}/admin/org/dept/getDeptUserListByPage`;
-  }
-
-  /**
-   * 分页获取部门下用户列表
-   * @param pageSize
-   * @param pageNum
-   * @param deptId
-   * @param keyword
-   * @param requestConfig
-   * @returns Promise<ResBodyPageVOUserVo>
-   */
-  getDeptUserListByPage(
-    pageSize: number,
-    pageNum: number,
-    deptId: string,
-    keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyPageVOUserVo> {
-    const req = Object.assign(
-      {
-        url: '/admin/org/dept/getDeptUserListByPage',
-        method: 'get',
-        modelFunName: 'departmentController.getDeptUserListByPage',
-        data: {
-          pageSize,
-          pageNum,
-          deptId,
-          keyword,
-        },
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyPageVOUserVo>(req);
   }
 
   /**
@@ -5396,18 +5531,18 @@ export class DepartmentController {
    */
   listChildUnit(
     parentId?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUnitGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/listChildUnit',
-        method: 'get',
-        modelFunName: 'departmentController.listChildUnit',
+        url: "/admin/org/dept/listChildUnit",
+        method: "get",
+        modelFunName: "departmentController.listChildUnit",
         data: {
           parentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUnitGroupVo>(req);
   }
@@ -5427,16 +5562,16 @@ export class DepartmentController {
    */
   remove(
     deptIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/remove',
-        method: 'post',
-        modelFunName: 'departmentController.remove',
+        url: "/admin/org/dept/remove",
+        method: "post",
+        modelFunName: "departmentController.remove",
         data: deptIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5456,16 +5591,16 @@ export class DepartmentController {
    */
   removeUser(
     deptUserIdsVO: DeptUserIdsVO,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/removeUser',
-        method: 'post',
-        modelFunName: 'departmentController.removeUser',
+        url: "/admin/org/dept/removeUser",
+        method: "post",
+        modelFunName: "departmentController.removeUser",
         data: deptUserIdsVO,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5485,16 +5620,16 @@ export class DepartmentController {
    */
   save(
     departmentVo: DepartmentVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDepartmentVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/save',
-        method: 'post',
-        modelFunName: 'departmentController.save',
+        url: "/admin/org/dept/save",
+        method: "post",
+        modelFunName: "departmentController.save",
         data: departmentVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDepartmentVo>(req);
   }
@@ -5514,18 +5649,18 @@ export class DepartmentController {
    */
   search(
     keyword: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListDepartmentVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/dept/search',
-        method: 'get',
-        modelFunName: 'departmentController.search',
+        url: "/admin/org/dept/search",
+        method: "get",
+        modelFunName: "departmentController.search",
         data: {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListDepartmentVo>(req);
   }
@@ -5549,16 +5684,16 @@ export class DocumentFileController {
    */
   delete(
     documentIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/document/delete',
-        method: 'post',
-        modelFunName: 'documentFileController.delete',
+        url: "/document/delete",
+        method: "post",
+        modelFunName: "documentFileController.delete",
         data: documentIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5578,16 +5713,16 @@ export class DocumentFileController {
    */
   deleteTemp(
     documentIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/document/deleteTemp',
-        method: 'post',
-        modelFunName: 'documentFileController.deleteTemp',
+        url: "/document/deleteTemp",
+        method: "post",
+        modelFunName: "documentFileController.deleteTemp",
         data: documentIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -5608,14 +5743,14 @@ export class DocumentFileController {
   file(documentId: string, requestConfig?: BAxiosRequestConfig): Promise<any> {
     const req = Object.assign(
       {
-        url: '/document/download/file',
-        method: 'get',
-        modelFunName: 'documentFileController.file',
+        url: "/document/download/file",
+        method: "get",
+        modelFunName: "documentFileController.file",
         data: {
           documentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
@@ -5635,18 +5770,18 @@ export class DocumentFileController {
    */
   temporary(
     documentId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<any> {
     const req = Object.assign(
       {
-        url: '/document/download/temporary',
-        method: 'get',
-        modelFunName: 'documentFileController.temporary',
+        url: "/document/download/temporary",
+        method: "get",
+        modelFunName: "documentFileController.temporary",
         data: {
           documentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
@@ -5666,18 +5801,18 @@ export class DocumentFileController {
    */
   fileUpload(
     file: File,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDocumentFileVo> {
     const req = Object.assign(
       {
-        url: '/document/upload/file',
-        method: 'formdata',
-        modelFunName: 'documentFileController.fileUpload',
+        url: "/document/upload/file",
+        method: "formdata",
+        modelFunName: "documentFileController.fileUpload",
         data: {
           file,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDocumentFileVo>(req);
   }
@@ -5697,18 +5832,18 @@ export class DocumentFileController {
    */
   image(
     file: File,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDocumentFileVo> {
     const req = Object.assign(
       {
-        url: '/document/upload/image',
-        method: 'formdata',
-        modelFunName: 'documentFileController.image',
+        url: "/document/upload/image",
+        method: "formdata",
+        modelFunName: "documentFileController.image",
         data: {
           file,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDocumentFileVo>(req);
   }
@@ -5728,18 +5863,18 @@ export class DocumentFileController {
    */
   richtext(
     file: File,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDocumentFileVo> {
     const req = Object.assign(
       {
-        url: '/document/upload/richtext',
-        method: 'formdata',
-        modelFunName: 'documentFileController.richtext',
+        url: "/document/upload/richtext",
+        method: "formdata",
+        modelFunName: "documentFileController.richtext",
         data: {
           file,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDocumentFileVo>(req);
   }
@@ -5759,18 +5894,18 @@ export class DocumentFileController {
    */
   temporaryUpload(
     file: File,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDocumentFileVo> {
     const req = Object.assign(
       {
-        url: '/document/upload/temporary',
-        method: 'formdata',
-        modelFunName: 'documentFileController.temporaryUpload',
+        url: "/document/upload/temporary",
+        method: "formdata",
+        modelFunName: "documentFileController.temporaryUpload",
         data: {
           file,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDocumentFileVo>(req);
   }
@@ -5790,18 +5925,18 @@ export class DocumentFileController {
    */
   uploadIcon(
     file: File,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyDocumentFileVo> {
     const req = Object.assign(
       {
-        url: '/document/uploadIcon',
-        method: 'formdata',
-        modelFunName: 'documentFileController.uploadIcon',
+        url: "/document/uploadIcon",
+        method: "formdata",
+        modelFunName: "documentFileController.uploadIcon",
         data: {
           file,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDocumentFileVo>(req);
   }
@@ -5822,14 +5957,14 @@ export class DocumentFileController {
   icon(documentId: string, requestConfig?: BAxiosRequestConfig): Promise<any> {
     const req = Object.assign(
       {
-        url: '/document/view/icon',
-        method: 'get',
-        modelFunName: 'documentFileController.icon',
+        url: "/document/view/icon",
+        method: "get",
+        modelFunName: "documentFileController.icon",
         data: {
           documentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
@@ -5849,18 +5984,18 @@ export class DocumentFileController {
    */
   imageView(
     documentId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<any> {
     const req = Object.assign(
       {
-        url: '/document/view/image',
-        method: 'get',
-        modelFunName: 'documentFileController.imageView',
+        url: "/document/view/image",
+        method: "get",
+        modelFunName: "documentFileController.imageView",
         data: {
           documentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
@@ -5880,20 +6015,446 @@ export class DocumentFileController {
    */
   thumbnail(
     documentId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<any> {
     const req = Object.assign(
       {
-        url: '/document/view/thumbnail',
-        method: 'get',
-        modelFunName: 'documentFileController.thumbnail',
+        url: "/document/view/thumbnail",
+        method: "get",
+        modelFunName: "documentFileController.thumbnail",
         data: {
           documentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
+  }
+}
+/**
+ *openapi:文件管理接口
+ */
+export class DocumentFileOpenApi {
+  /**
+   * 下载文件URL
+   */
+  fileUrl() {
+    return `${globalConfig.baseURL}/openapi/download/file`;
+  }
+
+  /**
+   * 下载文件
+   * @param documentId
+   * @param requestConfig
+   * @returns Promise<any>
+   */
+  file(documentId: string, requestConfig?: BAxiosRequestConfig): Promise<any> {
+    const req = Object.assign(
+      {
+        url: "/openapi/download/file",
+        method: "get",
+        modelFunName: "documentFileOpenApi.file",
+        data: {
+          documentId,
+        },
+      },
+      requestConfig
+    );
+    return fetch<any>(req);
+  }
+
+  /**
+   * 上传文件URL
+   */
+  fileUploadUrl() {
+    return `${globalConfig.baseURL}/openapi/upload/file`;
+  }
+
+  /**
+   * 上传文件
+   * @param file
+   * @param requestConfig
+   * @returns Promise<ResBodyDocumentFileVo>
+   */
+  fileUpload(
+    file: File,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyDocumentFileVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/upload/file",
+        method: "formdata",
+        modelFunName: "documentFileOpenApi.fileUpload",
+        data: {
+          file,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodyDocumentFileVo>(req);
+  }
+
+  /**
+   * 上传图片URL
+   */
+  imageUrl() {
+    return `${globalConfig.baseURL}/openapi/upload/image`;
+  }
+
+  /**
+   * 上传图片
+   * @param file
+   * @param requestConfig
+   * @returns Promise<ResBodyDocumentFileVo>
+   */
+  image(
+    file: File,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyDocumentFileVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/upload/image",
+        method: "formdata",
+        modelFunName: "documentFileOpenApi.image",
+        data: {
+          file,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodyDocumentFileVo>(req);
+  }
+}
+/**
+ *openapi:esb运行时接口
+ */
+export class EsbRuntimeOpenApi {
+  /**
+   * 调用esb接口URL
+   */
+  invokeUrl() {
+    return `${globalConfig.baseURL}/openapi/esb/invoke`;
+  }
+
+  /**
+   * 调用esb接口
+   * @param esbInvokeVo
+   * @param requestConfig
+   * @returns Promise<ResBodyobject>
+   */
+  invoke(
+    esbInvokeVo: EsbInvokeVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyobject> {
+    const req = Object.assign(
+      {
+        url: "/openapi/esb/invoke",
+        method: "post",
+        modelFunName: "esbRuntimeOpenApi.invoke",
+        data: esbInvokeVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyobject>(req);
+  }
+}
+/**
+ *ESB服务接口
+ */
+export class EsbServiceController {
+  /**
+   * 批量获取esb服务的输入输出参数URL
+   */
+  batchListDefinesUrl() {
+    return `${globalConfig.baseURL}/admin/esb/batchListDefines`;
+  }
+
+  /**
+   * 批量获取esb服务的输入输出参数
+   * @param codes
+   * @param requestConfig
+   * @returns Promise<ResBodyListEsbServiceDefineVo>
+   */
+  batchListDefines(
+    codes: string[],
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListEsbServiceDefineVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/batchListDefines",
+        method: "post",
+        modelFunName: "esbServiceController.batchListDefines",
+        data: codes,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListEsbServiceDefineVo>(req);
+  }
+
+  /**
+   * 新建esb服务URL
+   */
+  createUrl() {
+    return `${globalConfig.baseURL}/admin/esb/create`;
+  }
+
+  /**
+   * 新建esb服务
+   * @param esbServiceVo
+   * @param requestConfig
+   * @returns Promise<ResBodyEsbServiceVo>
+   */
+  create(
+    esbServiceVo: EsbServiceVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyEsbServiceVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/create",
+        method: "post",
+        modelFunName: "esbServiceController.create",
+        data: esbServiceVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyEsbServiceVo>(req);
+  }
+
+  /**
+   * 获取esb服务详情URL
+   */
+  getByCodeUrl() {
+    return `${globalConfig.baseURL}/admin/esb/getByCode`;
+  }
+
+  /**
+   * 获取esb服务详情
+   * @param code
+   * @param requestConfig
+   * @returns Promise<ResBodyEsbServiceVo>
+   */
+  getByCode(
+    code: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyEsbServiceVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/getByCode",
+        method: "get",
+        modelFunName: "esbServiceController.getByCode",
+        data: {
+          code,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodyEsbServiceVo>(req);
+  }
+
+  /**
+   * 获取esb服务详情URL
+   */
+  getByIdUrl() {
+    return `${globalConfig.baseURL}/admin/esb/getById`;
+  }
+
+  /**
+   * 获取esb服务详情
+   * @param id
+   * @param requestConfig
+   * @returns Promise<ResBodyEsbServiceVo>
+   */
+  getById(
+    id: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyEsbServiceVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/getById",
+        method: "get",
+        modelFunName: "esbServiceController.getById",
+        data: {
+          id,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodyEsbServiceVo>(req);
+  }
+
+  /**
+   * 删除分组URL
+   */
+  groupDeleteUrl() {
+    return `${globalConfig.baseURL}/admin/esb/groupDelete`;
+  }
+
+  /**
+   * 删除分组
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  groupDelete(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/groupDelete",
+        method: "post",
+        modelFunName: "esbServiceController.groupDelete",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 分组重命名URL
+   */
+  groupRenameUrl() {
+    return `${globalConfig.baseURL}/admin/esb/groupRename`;
+  }
+
+  /**
+   * 分组重命名
+   * @param idNameVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  groupRename(
+    idNameVo: IdNameVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/groupRename",
+        method: "post",
+        modelFunName: "esbServiceController.groupRename",
+        data: idNameVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 获取指定应用有访问权限的esb服务列表URL
+   */
+  listByAclAppUrl() {
+    return `${globalConfig.baseURL}/admin/esb/listByAclApp`;
+  }
+
+  /**
+   * 获取指定应用有访问权限的esb服务列表
+   * @param appCode
+   * @param requestConfig
+   * @returns Promise<ResBodyListEsbGroupVo>
+   */
+  listByAclApp(
+    appCode: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListEsbGroupVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/listByAclApp",
+        method: "get",
+        modelFunName: "esbServiceController.listByAclApp",
+        data: {
+          appCode,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListEsbGroupVo>(req);
+  }
+
+  /**
+   * 分组获取esb服务列表URL
+   */
+  listGroupByUrl() {
+    return `${globalConfig.baseURL}/admin/esb/listGroupBy`;
+  }
+
+  /**
+   * 分组获取esb服务列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListEsbGroupVo>
+   */
+  listGroupBy(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListEsbGroupVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/listGroupBy",
+        method: "post",
+        modelFunName: "esbServiceController.listGroupBy",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListEsbGroupVo>(req);
+  }
+
+  /**
+   * 删除esb服务URL
+   */
+  removeUrl() {
+    return `${globalConfig.baseURL}/admin/esb/remove`;
+  }
+
+  /**
+   * 删除esb服务
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  remove(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/remove",
+        method: "post",
+        modelFunName: "esbServiceController.remove",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 修改esb服务URL
+   */
+  updateUrl() {
+    return `${globalConfig.baseURL}/admin/esb/update`;
+  }
+
+  /**
+   * 修改esb服务
+   * @param esbServiceVo
+   * @param requestConfig
+   * @returns Promise<ResBodyEsbServiceVo>
+   */
+  update(
+    esbServiceVo: EsbServiceVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyEsbServiceVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/esb/update",
+        method: "post",
+        modelFunName: "esbServiceController.update",
+        data: esbServiceVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyEsbServiceVo>(req);
   }
 }
 /**
@@ -5915,16 +6476,16 @@ export class ExcelController {
    */
   downloadTemplate(
     importVo?: ImportVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<any> {
     const req = Object.assign(
       {
-        url: '/excel/downloadTemplate',
-        method: 'post',
-        modelFunName: 'excelController.downloadTemplate',
+        url: "/excel/downloadTemplate",
+        method: "post",
+        modelFunName: "excelController.downloadTemplate",
         data: importVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
@@ -5944,16 +6505,16 @@ export class ExcelController {
    */
   excelExport(
     exportVo: ExportVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/excel/excelExport',
-        method: 'post',
-        modelFunName: 'excelController.excelExport',
+        url: "/excel/excelExport",
+        method: "post",
+        modelFunName: "excelController.excelExport",
         data: exportVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -5973,18 +6534,18 @@ export class ExcelController {
    */
   getExportProgress(
     taskId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyExportProgressVo> {
     const req = Object.assign(
       {
-        url: '/excel/getExportProgress',
-        method: 'get',
-        modelFunName: 'excelController.getExportProgress',
+        url: "/excel/getExportProgress",
+        method: "get",
+        modelFunName: "excelController.getExportProgress",
         data: {
           taskId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyExportProgressVo>(req);
   }
@@ -6004,18 +6565,18 @@ export class ExcelController {
    */
   getImportProgress(
     taskId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyImportProgressVo> {
     const req = Object.assign(
       {
-        url: '/excel/getImportProgress',
-        method: 'get',
-        modelFunName: 'excelController.getImportProgress',
+        url: "/excel/getImportProgress",
+        method: "get",
+        modelFunName: "excelController.getImportProgress",
         data: {
           taskId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyImportProgressVo>(req);
   }
@@ -6035,16 +6596,16 @@ export class ExcelController {
    */
   import(
     importVo: ImportVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/excel/import',
-        method: 'post',
-        modelFunName: 'excelController.import',
+        url: "/excel/import",
+        method: "post",
+        modelFunName: "excelController.import",
         data: importVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -6068,18 +6629,18 @@ export class ExternalController {
    */
   load(
     shortCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyFormDataVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/external/load',
-        method: 'get',
-        modelFunName: 'externalController.load',
+        url: "/portal/runtime/external/load",
+        method: "get",
+        modelFunName: "externalController.load",
         data: {
           shortCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyFormDataVo>(req);
   }
@@ -6099,16 +6660,16 @@ export class ExternalController {
    */
   startWorkflow(
     externalSubmitVo: ExternalSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/external/startWorkflow',
-        method: 'post',
-        modelFunName: 'externalController.startWorkflow',
+        url: "/portal/runtime/external/startWorkflow",
+        method: "post",
+        modelFunName: "externalController.startWorkflow",
         data: externalSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -6128,16 +6689,16 @@ export class ExternalController {
    */
   submit(
     externalSubmitVo: ExternalSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/external/submit',
-        method: 'post',
-        modelFunName: 'externalController.submit',
+        url: "/portal/runtime/external/submit",
+        method: "post",
+        modelFunName: "externalController.submit",
         data: externalSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -6161,16 +6722,16 @@ export class FormCommentController {
    */
   create(
     bizFormCommentVo: BizFormCommentVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormCommentVo> {
     const req = Object.assign(
       {
-        url: '/portal/form/comment/create',
-        method: 'post',
-        modelFunName: 'formCommentController.create',
+        url: "/portal/form/comment/create",
+        method: "post",
+        modelFunName: "formCommentController.create",
         data: bizFormCommentVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormCommentVo>(req);
   }
@@ -6190,18 +6751,18 @@ export class FormCommentController {
    */
   delete(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/form/comment/delete',
-        method: 'get',
-        modelFunName: 'formCommentController.delete',
+        url: "/portal/form/comment/delete",
+        method: "get",
+        modelFunName: "formCommentController.delete",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -6221,55 +6782,55 @@ export class FormCommentController {
    */
   findByBizObjectId(
     bizObjectId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizFormCommentVo> {
     const req = Object.assign(
       {
-        url: '/portal/form/comment/findByBizObjectId',
-        method: 'get',
-        modelFunName: 'formCommentController.findByBizObjectId',
+        url: "/portal/form/comment/findByBizObjectId",
+        method: "get",
+        modelFunName: "formCommentController.findByBizObjectId",
         data: {
           bizObjectId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizFormCommentVo>(req);
-  }
-
-  /**
-   * 分页查询表单评论可@用户列表URL
-   */
-  queryAtUserUrl() {
-    return `${globalConfig.baseURL}/portal/form/comment/queryAtUser`;
-  }
-
-  /**
-   * 分页查询表单评论可@用户列表
-   * @param atUserQueryVo
-   * @param requestConfig
-   * @returns Promise<ResBodyPageVOAtUserQueryResultVo>
-   */
-  queryAtUser(
-    atUserQueryVo: BizFormCommentVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyPageVOAtUserQueryResultVo> {
-    const req = Object.assign(
-      {
-        url: '/portal/form/comment/queryAtUser',
-        method: 'get',
-        modelFunName: 'formCommentController.queryAtUser',
-        data: atUserQueryVo,
-      },
-      requestConfig,
-    );
-    return fetch<ResBodyPageVOAtUserQueryResultVo>(req);
   }
 }
 /**
  *表单管理接口
  */
 export class FormDesignController {
+  /**
+   * 复制表单URL
+   */
+  cloneUrl() {
+    return `${globalConfig.baseURL}/admin/form/clone`;
+  }
+
+  /**
+   * 复制表单
+   * @param formCloneVo
+   * @param requestConfig
+   * @returns Promise<ResBodyBizFormVo>
+   */
+  clone(
+    formCloneVo: FormCloneVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyBizFormVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/form/clone",
+        method: "post",
+        modelFunName: "formDesignController.clone",
+        data: formCloneVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyBizFormVo>(req);
+  }
+
   /**
    * 新建表单URL
    */
@@ -6285,16 +6846,16 @@ export class FormDesignController {
    */
   create(
     bizFormVo: BizFormVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/create',
-        method: 'post',
-        modelFunName: 'formDesignController.create',
+        url: "/admin/form/create",
+        method: "post",
+        modelFunName: "formDesignController.create",
         data: bizFormVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormVo>(req);
   }
@@ -6316,19 +6877,19 @@ export class FormDesignController {
   get(
     schemaCode: string,
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/get',
-        method: 'get',
-        modelFunName: 'formDesignController.get',
+        url: "/admin/form/get",
+        method: "get",
+        modelFunName: "formDesignController.get",
         data: {
           schemaCode,
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormVo>(req);
   }
@@ -6350,19 +6911,19 @@ export class FormDesignController {
   getInfo(
     schemaCode: string,
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/getInfo',
-        method: 'get',
-        modelFunName: 'formDesignController.getInfo',
+        url: "/admin/form/getInfo",
+        method: "get",
+        modelFunName: "formDesignController.getInfo",
         data: {
           schemaCode,
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormVo>(req);
   }
@@ -6377,23 +6938,26 @@ export class FormDesignController {
   /**
    * 获取表单列表
    * @param schemaCode
+   * @param published
    * @param requestConfig
    * @returns Promise<ResBodyListBizFormVo>
    */
   list(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    published?: boolean,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/list',
-        method: 'get',
-        modelFunName: 'formDesignController.list',
+        url: "/admin/form/list",
+        method: "get",
+        modelFunName: "formDesignController.list",
         data: {
           schemaCode,
+          published,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizFormVo>(req);
   }
@@ -6413,16 +6977,16 @@ export class FormDesignController {
    */
   modify(
     bizFormVo: BizFormVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/modify',
-        method: 'post',
-        modelFunName: 'formDesignController.modify',
+        url: "/admin/form/modify",
+        method: "post",
+        modelFunName: "formDesignController.modify",
         data: bizFormVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormVo>(req);
   }
@@ -6442,16 +7006,16 @@ export class FormDesignController {
    */
   publish(
     bizFormVo: BizFormVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/publish',
-        method: 'post',
-        modelFunName: 'formDesignController.publish',
+        url: "/admin/form/publish",
+        method: "post",
+        modelFunName: "formDesignController.publish",
         data: bizFormVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormVo>(req);
   }
@@ -6471,16 +7035,16 @@ export class FormDesignController {
    */
   remove(
     formCodesVo: FormCodesVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/form/remove',
-        method: 'post',
-        modelFunName: 'formDesignController.remove',
+        url: "/admin/form/remove",
+        method: "post",
+        modelFunName: "formDesignController.remove",
         data: formCodesVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -6504,18 +7068,47 @@ export class FormRuntimeController {
    */
   calculate(
     calculateList: CalculateVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListCalculateResultVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/calculate',
-        method: 'post',
-        modelFunName: 'formRuntimeController.calculate',
+        url: "/portal/runtime/form/calculate",
+        method: "post",
+        modelFunName: "formRuntimeController.calculate",
         data: calculateList,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListCalculateResultVo>(req);
+  }
+
+  /**
+   * 删除数据URL
+   */
+  deleteUrl() {
+    return `${globalConfig.baseURL}/portal/runtime/form/delete`;
+  }
+
+  /**
+   * 删除数据
+   * @param formDataDeleteVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  delete(
+    formDataDeleteVo: FormDataDeleteVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/portal/runtime/form/delete",
+        method: "post",
+        modelFunName: "formRuntimeController.delete",
+        data: formDataDeleteVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 
   /**
@@ -6533,16 +7126,16 @@ export class FormRuntimeController {
    */
   loadBizData(
     loadFormDataParamVo: LoadFormDataParamVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyFormDataVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/loadBizData',
-        method: 'post',
-        modelFunName: 'formRuntimeController.loadBizData',
+        url: "/portal/runtime/form/loadBizData",
+        method: "post",
+        modelFunName: "formRuntimeController.loadBizData",
         data: loadFormDataParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyFormDataVo>(req);
   }
@@ -6562,18 +7155,18 @@ export class FormRuntimeController {
    */
   loadDataByCommentId(
     commentId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowFormDataVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/loadDataByCommentId',
-        method: 'get',
-        modelFunName: 'formRuntimeController.loadDataByCommentId',
+        url: "/portal/runtime/form/loadDataByCommentId",
+        method: "get",
+        modelFunName: "formRuntimeController.loadDataByCommentId",
         data: {
           commentId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowFormDataVo>(req);
   }
@@ -6593,16 +7186,16 @@ export class FormRuntimeController {
    */
   loadSheetDatas(
     loadFormSheetDataParamVo: LoadFormSheetDataParamVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyList> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/loadSheetDatas',
-        method: 'post',
-        modelFunName: 'formRuntimeController.loadSheetDatas',
+        url: "/portal/runtime/form/loadSheetDatas",
+        method: "post",
+        modelFunName: "formRuntimeController.loadSheetDatas",
         data: loadFormSheetDataParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyList>(req);
   }
@@ -6622,16 +7215,16 @@ export class FormRuntimeController {
    */
   loadWorkflowData(
     loadWorkflowFormDataParamVo: LoadWorkflowFormDataParamVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowFormDataVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/loadWorkflowData',
-        method: 'post',
-        modelFunName: 'formRuntimeController.loadWorkflowData',
+        url: "/portal/runtime/form/loadWorkflowData",
+        method: "post",
+        modelFunName: "formRuntimeController.loadWorkflowData",
         data: loadWorkflowFormDataParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowFormDataVo>(req);
   }
@@ -6651,16 +7244,16 @@ export class FormRuntimeController {
    */
   remind(
     formRemindVo: FormRemindVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyFormRemindVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/remind',
-        method: 'post',
-        modelFunName: 'formRuntimeController.remind',
+        url: "/portal/runtime/form/remind",
+        method: "post",
+        modelFunName: "formRuntimeController.remind",
         data: formRemindVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyFormRemindVo>(req);
   }
@@ -6674,30 +7267,27 @@ export class FormRuntimeController {
 
   /**
    * 预览关联表单
-   * @param viewCode
    * @param schemaCode
    * @param bizObjectId
    * @param requestConfig
    * @returns Promise<ResBodyViewCorrelationFormVo>
    */
   viewCorrelationForm(
-    viewCode: string,
     schemaCode: string,
     bizObjectId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyViewCorrelationFormVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/form/viewCorrelationForm',
-        method: 'get',
-        modelFunName: 'formRuntimeController.viewCorrelationForm',
+        url: "/portal/runtime/form/viewCorrelationForm",
+        method: "get",
+        modelFunName: "formRuntimeController.viewCorrelationForm",
         data: {
-          viewCode,
           schemaCode,
           bizObjectId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyViewCorrelationFormVo>(req);
   }
@@ -6721,16 +7311,16 @@ export class FormRuntimeOpenApi {
    */
   calculate(
     calculateList: CalculateVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListCalculateResultVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/form/calculate',
-        method: 'post',
-        modelFunName: 'formRuntimeOpenApi.calculate',
+        url: "/openapi/runtime/form/calculate",
+        method: "post",
+        modelFunName: "formRuntimeOpenApi.calculate",
         data: calculateList,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListCalculateResultVo>(req);
   }
@@ -6750,16 +7340,16 @@ export class FormRuntimeOpenApi {
    */
   loadWorkItemFormData(
     loadWorkItemFormDataParamVo: OpenApiLoadWorkItemFormDataParamVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowFormDataVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/form/loadWorkItemFormData',
-        method: 'post',
-        modelFunName: 'formRuntimeOpenApi.loadWorkItemFormData',
+        url: "/openapi/runtime/form/loadWorkItemFormData",
+        method: "post",
+        modelFunName: "formRuntimeOpenApi.loadWorkItemFormData",
         data: loadWorkItemFormDataParamVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowFormDataVo>(req);
   }
@@ -6779,16 +7369,16 @@ export class FormRuntimeOpenApi {
    */
   startWorkflow(
     startWorkflowVo: OpenApiStartWorkflowVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/form/startWorkflow',
-        method: 'post',
-        modelFunName: 'formRuntimeOpenApi.startWorkflow',
+        url: "/openapi/runtime/form/startWorkflow",
+        method: "post",
+        modelFunName: "formRuntimeOpenApi.startWorkflow",
         data: startWorkflowVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -6812,16 +7402,16 @@ export class FormTemplateController {
    */
   create(
     bizFormTemplateVo: BizFormTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/form/template/create',
-        method: 'post',
-        modelFunName: 'formTemplateController.create',
+        url: "/admin/form/template/create",
+        method: "post",
+        modelFunName: "formTemplateController.create",
         data: bizFormTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -6841,18 +7431,18 @@ export class FormTemplateController {
    */
   delete(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/form/template/delete',
-        method: 'get',
-        modelFunName: 'formTemplateController.delete',
+        url: "/admin/form/template/delete",
+        method: "get",
+        modelFunName: "formTemplateController.delete",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -6872,18 +7462,18 @@ export class FormTemplateController {
    */
   findBySchemaCode(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizFormTemplateVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/template/findBySchemaCode',
-        method: 'get',
-        modelFunName: 'formTemplateController.findBySchemaCode',
+        url: "/admin/form/template/findBySchemaCode",
+        method: "get",
+        modelFunName: "formTemplateController.findBySchemaCode",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizFormTemplateVo>(req);
   }
@@ -6903,18 +7493,18 @@ export class FormTemplateController {
    */
   getByCode(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormTemplateVo> {
     const req = Object.assign(
       {
-        url: '/admin/form/template/getByCode',
-        method: 'get',
-        modelFunName: 'formTemplateController.getByCode',
+        url: "/admin/form/template/getByCode",
+        method: "get",
+        modelFunName: "formTemplateController.getByCode",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormTemplateVo>(req);
   }
@@ -6934,16 +7524,16 @@ export class FormTemplateController {
    */
   update(
     bizFormTemplateVo: BizFormTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/form/template/update',
-        method: 'post',
-        modelFunName: 'formTemplateController.update',
+        url: "/admin/form/template/update",
+        method: "post",
+        modelFunName: "formTemplateController.update",
         data: bizFormTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -6968,12 +7558,12 @@ export class IdGeneratorController {
   generateIds(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListstring> {
     const req = Object.assign(
       {
-        url: '/system/sys/idGenerator/generateIds',
-        method: 'get',
-        modelFunName: 'idGeneratorController.generateIds',
+        url: "/system/sys/idGenerator/generateIds",
+        method: "get",
+        modelFunName: "idGeneratorController.generateIds",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListstring>(req);
   }
@@ -6997,18 +7587,47 @@ export class InstanceRuntimeController {
    */
   delete(
     instanceIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/delete',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.delete',
+        url: "/portal/runtime/instance/delete",
+        method: "post",
+        modelFunName: "instanceRuntimeController.delete",
         data: instanceIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 提交流程为草稿URL
+   */
+  draftUrl() {
+    return `${globalConfig.baseURL}/portal/runtime/instance/draft`;
+  }
+
+  /**
+   * 提交流程为草稿
+   * @param startWorkflowVo
+   * @param requestConfig
+   * @returns Promise<ResBodystring>
+   */
+  draft(
+    startWorkflowVo: StartWorkflowVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
+    const req = Object.assign(
+      {
+        url: "/portal/runtime/instance/draft",
+        method: "post",
+        modelFunName: "instanceRuntimeController.draft",
+        data: startWorkflowVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodystring>(req);
   }
 
   /**
@@ -7026,18 +7645,18 @@ export class InstanceRuntimeController {
    */
   getOriginatorDepartments(
     workflowCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListUnitVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/getOriginatorDepartments',
-        method: 'get',
-        modelFunName: 'instanceRuntimeController.getOriginatorDepartments',
+        url: "/portal/runtime/instance/getOriginatorDepartments",
+        method: "get",
+        modelFunName: "instanceRuntimeController.getOriginatorDepartments",
         data: {
           workflowCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUnitVo>(req);
   }
@@ -7061,20 +7680,20 @@ export class InstanceRuntimeController {
     pageSize: number,
     pageNum: number,
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOInstanceLogVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/logs',
-        method: 'get',
-        modelFunName: 'instanceRuntimeController.logs',
+        url: "/portal/runtime/instance/logs",
+        method: "get",
+        modelFunName: "instanceRuntimeController.logs",
         data: {
           pageSize,
           pageNum,
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOInstanceLogVo>(req);
   }
@@ -7094,16 +7713,16 @@ export class InstanceRuntimeController {
    */
   startWorkflow(
     startWorkflowVo: StartWorkflowVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/startWorkflow',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.startWorkflow',
+        url: "/portal/runtime/instance/startWorkflow",
+        method: "post",
+        modelFunName: "instanceRuntimeController.startWorkflow",
         data: startWorkflowVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -7123,16 +7742,16 @@ export class InstanceRuntimeController {
    */
   superActivateNode(
     instanceNodeActivatelVo: InstanceNodeActivatelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superActivateNode',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superActivateNode',
+        url: "/portal/runtime/instance/superActivateNode",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superActivateNode",
         data: instanceNodeActivatelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7152,16 +7771,16 @@ export class InstanceRuntimeController {
    */
   superAdjustNodeParticipant(
     adjustParticipantVo: InstanceNodeAdjustParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superAdjustNodeParticipant',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superAdjustNodeParticipant',
+        url: "/portal/runtime/instance/superAdjustNodeParticipant",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superAdjustNodeParticipant",
         data: adjustParticipantVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7181,16 +7800,16 @@ export class InstanceRuntimeController {
    */
   superCancelNode(
     instanceNodeCancelVo: InstanceNodeCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superCancelNode',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superCancelNode',
+        url: "/portal/runtime/instance/superCancelNode",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superCancelNode",
         data: instanceNodeCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7210,16 +7829,16 @@ export class InstanceRuntimeController {
    */
   superChangeOwner(
     changeOwnerVo: ChangeOwnerVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superChangeOwner',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superChangeOwner',
+        url: "/portal/runtime/instance/superChangeOwner",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superChangeOwner",
         data: changeOwnerVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7239,16 +7858,16 @@ export class InstanceRuntimeController {
    */
   superClose(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superClose',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superClose',
+        url: "/portal/runtime/instance/superClose",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superClose",
         data: instanceId,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7268,16 +7887,16 @@ export class InstanceRuntimeController {
    */
   superDeleteInstance(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superDeleteInstance',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superDeleteInstance',
+        url: "/portal/runtime/instance/superDeleteInstance",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superDeleteInstance",
         data: instanceId,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7297,16 +7916,16 @@ export class InstanceRuntimeController {
    */
   superInvalid(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/superInvalid',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.superInvalid',
+        url: "/portal/runtime/instance/superInvalid",
+        method: "post",
+        modelFunName: "instanceRuntimeController.superInvalid",
         data: instanceId,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7326,16 +7945,16 @@ export class InstanceRuntimeController {
    */
   temporary(
     startWorkflowVo: StartWorkflowVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/temporary',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.temporary',
+        url: "/portal/runtime/instance/temporary",
+        method: "post",
+        modelFunName: "instanceRuntimeController.temporary",
         data: startWorkflowVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -7355,16 +7974,16 @@ export class InstanceRuntimeController {
    */
   deleteTemporary(
     instanceIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/temporary/delete',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.deleteTemporary',
+        url: "/portal/runtime/instance/temporary/delete",
+        method: "post",
+        modelFunName: "instanceRuntimeController.deleteTemporary",
         data: instanceIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7384,18 +8003,18 @@ export class InstanceRuntimeController {
    */
   tracks(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyInstanceTrackVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/tracks',
-        method: 'get',
-        modelFunName: 'instanceRuntimeController.tracks',
+        url: "/portal/runtime/instance/tracks",
+        method: "get",
+        modelFunName: "instanceRuntimeController.tracks",
         data: {
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyInstanceTrackVo>(req);
   }
@@ -7415,16 +8034,16 @@ export class InstanceRuntimeController {
    */
   urge(
     instanceUrgeVo: InstanceUrgeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/instance/urge',
-        method: 'post',
-        modelFunName: 'instanceRuntimeController.urge',
+        url: "/portal/runtime/instance/urge",
+        method: "post",
+        modelFunName: "instanceRuntimeController.urge",
         data: instanceUrgeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7448,16 +8067,16 @@ export class InstanceRuntimeOpenApi {
    */
   activateNode(
     instanceNodeActivatelVo: InstanceNodeActivatelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/activateNode',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.activateNode',
+        url: "/openapi/runtime/instance/activateNode",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.activateNode",
         data: instanceNodeActivatelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7477,16 +8096,16 @@ export class InstanceRuntimeOpenApi {
    */
   adjustNodeParticipant(
     adjustParticipantVo: InstanceNodeAdjustParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/adjustNodeParticipant',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.adjustNodeParticipant',
+        url: "/openapi/runtime/instance/adjustNodeParticipant",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.adjustNodeParticipant",
         data: adjustParticipantVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7506,18 +8125,18 @@ export class InstanceRuntimeOpenApi {
    */
   approvals(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListInstanceActivityVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/approvals',
-        method: 'get',
-        modelFunName: 'instanceRuntimeOpenApi.approvals',
+        url: "/openapi/runtime/instance/approvals",
+        method: "get",
+        modelFunName: "instanceRuntimeOpenApi.approvals",
         data: {
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListInstanceActivityVo>(req);
   }
@@ -7537,16 +8156,16 @@ export class InstanceRuntimeOpenApi {
    */
   cancelNode(
     instanceNodeCancelVo: InstanceNodeCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/cancelNode',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.cancelNode',
+        url: "/openapi/runtime/instance/cancelNode",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.cancelNode",
         data: instanceNodeCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7566,16 +8185,16 @@ export class InstanceRuntimeOpenApi {
    */
   changeOwner(
     changeOwnerVo: ChangeOwnerVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/changeOwner',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.changeOwner',
+        url: "/openapi/runtime/instance/changeOwner",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.changeOwner",
         data: changeOwnerVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7596,12 +8215,12 @@ export class InstanceRuntimeOpenApi {
   close(idVo: IDVo, requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/close',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.close',
+        url: "/openapi/runtime/instance/close",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.close",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7621,16 +8240,16 @@ export class InstanceRuntimeOpenApi {
    */
   delete(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/delete',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.delete',
+        url: "/openapi/runtime/instance/delete",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.delete",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7650,18 +8269,18 @@ export class InstanceRuntimeOpenApi {
    */
   getInfo(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowInstanceVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/getInfo',
-        method: 'get',
-        modelFunName: 'instanceRuntimeOpenApi.getInfo',
+        url: "/openapi/runtime/instance/getInfo",
+        method: "get",
+        modelFunName: "instanceRuntimeOpenApi.getInfo",
         data: {
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowInstanceVo>(req);
   }
@@ -7681,18 +8300,18 @@ export class InstanceRuntimeOpenApi {
    */
   getVariables(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBody> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/getVariables',
-        method: 'get',
-        modelFunName: 'instanceRuntimeOpenApi.getVariables',
+        url: "/openapi/runtime/instance/getVariables",
+        method: "get",
+        modelFunName: "instanceRuntimeOpenApi.getVariables",
         data: {
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBody>(req);
   }
@@ -7712,18 +8331,18 @@ export class InstanceRuntimeOpenApi {
    */
   getWorkItems(
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/getWorkItems',
-        method: 'get',
-        modelFunName: 'instanceRuntimeOpenApi.getWorkItems',
+        url: "/openapi/runtime/instance/getWorkItems",
+        method: "get",
+        modelFunName: "instanceRuntimeOpenApi.getWorkItems",
         data: {
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListWorkItemVo>(req);
   }
@@ -7747,20 +8366,20 @@ export class InstanceRuntimeOpenApi {
     pageSize: number,
     pageNum: number,
     instanceId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOInstanceLogVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/logs',
-        method: 'get',
-        modelFunName: 'instanceRuntimeOpenApi.logs',
+        url: "/openapi/runtime/instance/logs",
+        method: "get",
+        modelFunName: "instanceRuntimeOpenApi.logs",
         data: {
           pageSize,
           pageNum,
           instanceId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOInstanceLogVo>(req);
   }
@@ -7780,16 +8399,16 @@ export class InstanceRuntimeOpenApi {
    */
   urge(
     instanceUrgeVo: InstanceUrgeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/instance/urge',
-        method: 'post',
-        modelFunName: 'instanceRuntimeOpenApi.urge',
+        url: "/openapi/runtime/instance/urge",
+        method: "post",
+        modelFunName: "instanceRuntimeOpenApi.urge",
         data: instanceUrgeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7798,6 +8417,35 @@ export class InstanceRuntimeOpenApi {
  *js签名接口
  */
 export class JsSignController {
+  /**
+   * 钉钉js签名URL
+   */
+  dingtalkUrl() {
+    return `${globalConfig.baseURL}/portal/js/sign/dingtalk`;
+  }
+
+  /**
+   * 钉钉js签名
+   * @param urlVo
+   * @param requestConfig
+   * @returns Promise<ResBodyDingtalkJsapiSignature>
+   */
+  dingtalk(
+    urlVo: UrlVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyDingtalkJsapiSignature> {
+    const req = Object.assign(
+      {
+        url: "/portal/js/sign/dingtalk",
+        method: "post",
+        modelFunName: "jsSignController.dingtalk",
+        data: urlVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyDingtalkJsapiSignature>(req);
+  }
+
   /**
    * 微信js签名URL
    */
@@ -7813,16 +8461,16 @@ export class JsSignController {
    */
   wechat(
     urlVo: UrlVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWxJsapiSignature> {
     const req = Object.assign(
       {
-        url: '/portal/js/sign/wechat',
-        method: 'post',
-        modelFunName: 'jsSignController.wechat',
+        url: "/portal/js/sign/wechat",
+        method: "post",
+        modelFunName: "jsSignController.wechat",
         data: urlVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWxJsapiSignature>(req);
   }
@@ -7845,16 +8493,16 @@ export class LoginController {
    * @returns Promise<ResBodyGenKeyResultVo>
    */
   genRsaKey(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyGenKeyResultVo> {
     const req = Object.assign(
       {
-        url: '/auth/genRsaKey',
-        method: 'get',
-        modelFunName: 'loginController.genRsaKey',
+        url: "/auth/genRsaKey",
+        method: "get",
+        modelFunName: "loginController.genRsaKey",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyGenKeyResultVo>(req);
   }
@@ -7873,16 +8521,16 @@ export class LoginController {
    * @returns Promise<ResBodyListOrganizationVo>
    */
   getOrgList(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListOrganizationVo> {
     const req = Object.assign(
       {
-        url: '/auth/getOrgList',
-        method: 'get',
-        modelFunName: 'loginController.getOrgList',
+        url: "/auth/getOrgList",
+        method: "get",
+        modelFunName: "loginController.getOrgList",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListOrganizationVo>(req);
   }
@@ -7907,12 +8555,12 @@ export class MessageController {
   cleadAllRead(requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/message/cleadAllRead',
-        method: 'post',
-        modelFunName: 'messageController.cleadAllRead',
+        url: "/portal/message/cleadAllRead",
+        method: "post",
+        modelFunName: "messageController.cleadAllRead",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -7936,20 +8584,20 @@ export class MessageController {
     pageSize: number,
     pageNum: number,
     read?: boolean,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOMessageVo> {
     const req = Object.assign(
       {
-        url: '/portal/message/list',
-        method: 'get',
-        modelFunName: 'messageController.list',
+        url: "/portal/message/list",
+        method: "get",
+        modelFunName: "messageController.list",
         data: {
           pageSize,
           pageNum,
           read,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOMessageVo>(req);
   }
@@ -7968,16 +8616,16 @@ export class MessageController {
    * @returns Promise<ResBodyListMessageVo>
    */
   listUnreadLimit(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListMessageVo> {
     const req = Object.assign(
       {
-        url: '/portal/message/listUnreadLimit',
-        method: 'get',
-        modelFunName: 'messageController.listUnreadLimit',
+        url: "/portal/message/listUnreadLimit",
+        method: "get",
+        modelFunName: "messageController.listUnreadLimit",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListMessageVo>(req);
   }
@@ -7998,12 +8646,12 @@ export class MessageController {
   read(idVo: IDVo, requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/message/read',
-        method: 'post',
-        modelFunName: 'messageController.read',
+        url: "/portal/message/read",
+        method: "post",
+        modelFunName: "messageController.read",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8024,12 +8672,12 @@ export class MessageController {
   readAll(requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/message/readAll',
-        method: 'post',
-        modelFunName: 'messageController.readAll',
+        url: "/portal/message/readAll",
+        method: "post",
+        modelFunName: "messageController.readAll",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8053,16 +8701,16 @@ export class ModelFunTreeController {
    */
   rename(
     renameVo: ModelFunRenameVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/fun/rename',
-        method: 'post',
-        modelFunName: 'modelFunTreeController.rename',
+        url: "/admin/model/fun/rename",
+        method: "post",
+        modelFunName: "modelFunTreeController.rename",
         data: renameVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8082,16 +8730,16 @@ export class ModelFunTreeController {
    */
   sort(
     modelFunSortVo: ModelFunSortVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/fun/sort',
-        method: 'post',
-        modelFunName: 'modelFunTreeController.sort',
+        url: "/admin/model/fun/sort",
+        method: "post",
+        modelFunName: "modelFunTreeController.sort",
         data: modelFunSortVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8111,18 +8759,18 @@ export class ModelFunTreeController {
    */
   tree(
     funType: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/fun/tree',
-        method: 'get',
-        modelFunName: 'modelFunTreeController.tree',
+        url: "/admin/model/fun/tree",
+        method: "get",
+        modelFunName: "modelFunTreeController.tree",
         data: {
           funType,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -8132,84 +8780,102 @@ export class ModelFunTreeController {
  */
 export class NotifyController {
   /**
-   * 微信增量回调消息通知URL
+   * 增量回调消息通知URL
    */
-  dingtalkUrl() {
-    return `${globalConfig.baseURL}/third/notify/dingtalk`;
+  notifyUrl() {
+    return `${globalConfig.baseURL}/third/notify/{channel}`;
   }
 
   /**
-   * 微信增量回调消息通知
+   * 增量回调消息通知
+   * @param channel
    * @param body
    * @param requestConfig
    * @returns Promise<any>
    */
-  dingtalk(body: string, requestConfig?: BAxiosRequestConfig): Promise<any> {
+  notify(
+    channel: string,
+    body?: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<any> {
     const req = Object.assign(
       {
-        url: '/third/notify/dingtalk',
-        method: 'get',
-        modelFunName: 'notifyController.dingtalk',
-        data: body,
+        url: "/third/notify/{channel}",
+        method: "resetful",
+        modelFunName: "notifyController.notify",
+        data: {
+          channel,
+          body,
+        },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<any>(req);
   }
-
+}
+/**
+ *ocr配置接口
+ */
+export class OcrConfigController {
   /**
-   * openApi类型增量回调事件处理URL
+   * 获取ocr配置URL
    */
-  openapiUrl() {
-    return `${globalConfig.baseURL}/third/notify/openapi`;
+  getConfigsUrl() {
+    return `${globalConfig.baseURL}/admin/ocr/getConfigs`;
   }
 
   /**
-   * openApi类型增量回调事件处理
-   * @param incrementNotifyVo
+   * 获取ocr配置
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListOcrConfig>
+   */
+  getConfigs(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOcrConfig> {
+    const req = Object.assign(
+      {
+        url: "/admin/ocr/getConfigs",
+        method: "get",
+        modelFunName: "ocrConfigController.getConfigs",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOcrConfig>(req);
+  }
+}
+/**
+ *ocr识别接口
+ */
+export class OcrController {
+  /**
+   * 识别URL
+   */
+  recognizeUrl() {
+    return `${globalConfig.baseURL}/portal/ocr/recognize`;
+  }
+
+  /**
+   * 识别
+   * @param paramVo
    * @param requestConfig
    * @returns Promise<ResBodyobject>
    */
-  openapi(
-    incrementNotifyVo: IncrementNotifyVo,
-    requestConfig?: BAxiosRequestConfig,
+  recognize(
+    paramVo: OcrRecognizeParamVo,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/third/notify/openapi',
-        method: 'post',
-        modelFunName: 'notifyController.openapi',
-        data: incrementNotifyVo,
+        url: "/portal/ocr/recognize",
+        method: "post",
+        modelFunName: "ocrController.recognize",
+        data: paramVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
-  }
-
-  /**
-   * 微信增量回调消息通知URL
-   */
-  wechatUrl() {
-    return `${globalConfig.baseURL}/third/notify/wechat`;
-  }
-
-  /**
-   * 微信增量回调消息通知
-   * @param body
-   * @param requestConfig
-   * @returns Promise<any>
-   */
-  wechat(body?: string, requestConfig?: BAxiosRequestConfig): Promise<any> {
-    const req = Object.assign(
-      {
-        url: '/third/notify/wechat',
-        method: 'get',
-        modelFunName: 'notifyController.wechat',
-        data: body,
-      },
-      requestConfig,
-    );
-    return fetch<any>(req);
   }
 }
 /**
@@ -8231,16 +8897,16 @@ export class OlapController {
    */
   query(
     olapQueryVo: OlapQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/admin/report/olap/query',
-        method: 'post',
-        modelFunName: 'olapController.query',
+        url: "/admin/report/olap/query",
+        method: "post",
+        modelFunName: "olapController.query",
         data: olapQueryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -8264,16 +8930,16 @@ export class OlapRuntimeController {
    */
   query(
     olapQueryVo: OlapQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/portal/report/olap/query',
-        method: 'post',
-        modelFunName: 'olapRuntimeController.query',
+        url: "/portal/report/olap/query",
+        method: "post",
+        modelFunName: "olapRuntimeController.query",
         data: olapQueryVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -8297,18 +8963,18 @@ export class OrganizationController {
    */
   genSyncResult(
     taskId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/genSyncResult',
-        method: 'get',
-        modelFunName: 'organizationController.genSyncResult',
+        url: "/admin/org/config/genSyncResult",
+        method: "get",
+        modelFunName: "organizationController.genSyncResult",
         data: {
           taskId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -8328,18 +8994,18 @@ export class OrganizationController {
    */
   get(
     orgId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyOrganizationVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/get',
-        method: 'get',
-        modelFunName: 'organizationController.get',
+        url: "/admin/org/config/get",
+        method: "get",
+        modelFunName: "organizationController.get",
         data: {
           orgId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyOrganizationVo>(req);
   }
@@ -8358,18 +9024,46 @@ export class OrganizationController {
    * @returns Promise<ResBodyListOrganizationVo>
    */
   getList(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListOrganizationVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/getList',
-        method: 'get',
-        modelFunName: 'organizationController.getList',
+        url: "/admin/org/config/getList",
+        method: "get",
+        modelFunName: "organizationController.getList",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListOrganizationVo>(req);
+  }
+
+  /**
+   * 获取支持的组织列表URL
+   */
+  getSupportConfigUrl() {
+    return `${globalConfig.baseURL}/admin/org/config/getSupportConfig`;
+  }
+
+  /**
+   * 获取支持的组织列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListSupportOrgConfigVO>
+   */
+  getSupportConfig(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSupportOrgConfigVO> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/config/getSupportConfig",
+        method: "get",
+        modelFunName: "organizationController.getSupportConfig",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSupportOrgConfigVO>(req);
   }
 
   /**
@@ -8387,16 +9081,16 @@ export class OrganizationController {
    */
   record(
     queryParams: OrgSyncRecordQueryVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOOrgSyncRecordVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/query/record',
-        method: 'post',
-        modelFunName: 'organizationController.record',
+        url: "/admin/org/config/query/record",
+        method: "post",
+        modelFunName: "organizationController.record",
         data: queryParams,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOOrgSyncRecordVo>(req);
   }
@@ -8416,16 +9110,16 @@ export class OrganizationController {
    */
   remove(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/remove',
-        method: 'post',
-        modelFunName: 'organizationController.remove',
+        url: "/admin/org/config/remove",
+        method: "post",
+        modelFunName: "organizationController.remove",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8445,16 +9139,16 @@ export class OrganizationController {
    */
   save(
     organizationVo: OrganizationVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/save',
-        method: 'post',
-        modelFunName: 'organizationController.save',
+        url: "/admin/org/config/save",
+        method: "post",
+        modelFunName: "organizationController.save",
         data: organizationVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8474,16 +9168,16 @@ export class OrganizationController {
    */
   syncOrgs(
     syncOrgVo: SyncOrgVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/org/config/syncOrgs',
-        method: 'post',
-        modelFunName: 'organizationController.syncOrgs',
+        url: "/admin/org/config/syncOrgs",
+        method: "post",
+        modelFunName: "organizationController.syncOrgs",
         data: syncOrgVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -8492,6 +9186,209 @@ export class OrganizationController {
  *openapi:组织接口
  */
 export class OrganizationOpenApi {
+  /**
+   * 部门详情查询URL
+   */
+  getUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/dept/get`;
+  }
+
+  /**
+   * 部门详情查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyOpenApiDeptResponseVo>
+   */
+  get(
+    requestVo: OpenApiDeptGetRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyOpenApiDeptResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/dept/get",
+        method: "post",
+        modelFunName: "organizationOpenApi.get",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyOpenApiDeptResponseVo>(req);
+  }
+
+  /**
+   * 部门列表查询URL
+   */
+  listUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/dept/list`;
+  }
+
+  /**
+   * 部门列表查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListOpenApiDeptResponseVo>
+   */
+  list(
+    requestVo: OpenApiDeptQueryRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOpenApiDeptResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/dept/list",
+        method: "post",
+        modelFunName: "organizationOpenApi.list",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOpenApiDeptResponseVo>(req);
+  }
+
+  /**
+   * 标签详情查询URL
+   */
+  getTagUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/tag/get`;
+  }
+
+  /**
+   * 标签详情查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyOpenApiTagResponseVo>
+   */
+  getTag(
+    requestVo: OpenApiTagGetRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyOpenApiTagResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/tag/get",
+        method: "post",
+        modelFunName: "organizationOpenApi.getTag",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyOpenApiTagResponseVo>(req);
+  }
+
+  /**
+   * 标签列表查询URL
+   */
+  listTagUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/tag/list`;
+  }
+
+  /**
+   * 标签列表查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListOpenApiTagResponseVo>
+   */
+  listTag(
+    requestVo: OpenApiTagQueryRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOpenApiTagResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/tag/list",
+        method: "post",
+        modelFunName: "organizationOpenApi.listTag",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOpenApiTagResponseVo>(req);
+  }
+
+  /**
+   * 标签组详情查询URL
+   */
+  getTagGroupUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/tagGroup/get`;
+  }
+
+  /**
+   * 标签组详情查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyOpenApiTagGroupResponseVo>
+   */
+  getTagGroup(
+    requestVo: OpenApiTagGroupGetRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyOpenApiTagGroupResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/tagGroup/get",
+        method: "post",
+        modelFunName: "organizationOpenApi.getTagGroup",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyOpenApiTagGroupResponseVo>(req);
+  }
+
+  /**
+   * 标签组列表查询URL
+   */
+  listTagGroupUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/tagGroup/list`;
+  }
+
+  /**
+   * 标签组列表查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListOpenApiTagGroupResponseVo>
+   */
+  listTagGroup(
+    requestVo: OpenApiTagGroupQueryRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOpenApiTagGroupResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/tagGroup/list",
+        method: "post",
+        modelFunName: "organizationOpenApi.listTagGroup",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOpenApiTagGroupResponseVo>(req);
+  }
+
+  /**
+   * 用户详情查询URL
+   */
+  getUserUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/user/get`;
+  }
+
+  /**
+   * 用户详情查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyOpenApiUserResponseVo>
+   */
+  getUser(
+    requestVo: OpenApiUserGetRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyOpenApiUserResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/user/get",
+        method: "post",
+        modelFunName: "organizationOpenApi.getUser",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyOpenApiUserResponseVo>(req);
+  }
+
   /**
    * 根据用户账号获取用户详情URL
    */
@@ -8509,21 +9406,168 @@ export class OrganizationOpenApi {
   getByCode(
     userCode: string,
     orgId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/openapi/organization/user/getByCode',
-        method: 'get',
-        modelFunName: 'organizationOpenApi.getByCode',
+        url: "/openapi/organization/user/getByCode",
+        method: "get",
+        modelFunName: "organizationOpenApi.getByCode",
         data: {
           userCode,
           orgId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
+  }
+
+  /**
+   * 用户列表查询URL
+   */
+  listUserUrl() {
+    return `${globalConfig.baseURL}/openapi/organization/user/list`;
+  }
+
+  /**
+   * 用户列表查询
+   * @param requestVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListOpenApiUserResponseVo>
+   */
+  listUser(
+    requestVo: OpenApiUserQueryRequestVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOpenApiUserResponseVo> {
+    const req = Object.assign(
+      {
+        url: "/openapi/organization/user/list",
+        method: "post",
+        modelFunName: "organizationOpenApi.listUser",
+        data: requestVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOpenApiUserResponseVo>(req);
+  }
+}
+/**
+ *组织推送接口
+ */
+export class OrganizationPushController {
+  /**
+   * 获取组织列表URL
+   */
+  getListUrl() {
+    return `${globalConfig.baseURL}/admin/org/push/config/getList`;
+  }
+
+  /**
+   * 获取组织列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListOrganizationPushConfigVo>
+   */
+  getList(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListOrganizationPushConfigVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/push/config/getList",
+        method: "get",
+        modelFunName: "organizationPushController.getList",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListOrganizationPushConfigVo>(req);
+  }
+
+  /**
+   * 获取支持的组织列表URL
+   */
+  getPushConfigSupportListUrl() {
+    return `${globalConfig.baseURL}/admin/org/push/config/getPushConfigSupportList`;
+  }
+
+  /**
+   * 获取支持的组织列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListSupportOrgConfigVO>
+   */
+  getPushConfigSupportList(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSupportOrgConfigVO> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/push/config/getPushConfigSupportList",
+        method: "get",
+        modelFunName: "organizationPushController.getPushConfigSupportList",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSupportOrgConfigVO>(req);
+  }
+
+  /**
+   * 删除组织监听配置URL
+   */
+  removeUrl() {
+    return `${globalConfig.baseURL}/admin/org/push/config/remove`;
+  }
+
+  /**
+   * 删除组织监听配置
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  remove(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/push/config/remove",
+        method: "post",
+        modelFunName: "organizationPushController.remove",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 保存组织URL
+   */
+  saveUrl() {
+    return `${globalConfig.baseURL}/admin/org/push/config/save`;
+  }
+
+  /**
+   * 保存组织
+   * @param organizationPushConfigVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  save(
+    organizationPushConfigVo: OrganizationPushConfigVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/push/config/save",
+        method: "post",
+        modelFunName: "organizationPushController.save",
+        data: organizationPushConfigVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 }
 /**
@@ -8545,16 +9589,16 @@ export class PermissionSummaryController {
    */
   summaryByApp(
     codeVo: CodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySummaryByAppQueryVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/summary/summaryByApp',
-        method: 'post',
-        modelFunName: 'permissionSummaryController.summaryByApp',
+        url: "/admin/permission/summary/summaryByApp",
+        method: "post",
+        modelFunName: "permissionSummaryController.summaryByApp",
         data: codeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySummaryByAppQueryVo>(req);
   }
@@ -8574,16 +9618,16 @@ export class PermissionSummaryController {
    */
   summaryByOrg(
     unitVo: UnitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySummaryByOrgResultVo> {
     const req = Object.assign(
       {
-        url: '/admin/permission/summary/summaryByOrg',
-        method: 'post',
-        modelFunName: 'permissionSummaryController.summaryByOrg',
+        url: "/admin/permission/summary/summaryByOrg",
+        method: "post",
+        modelFunName: "permissionSummaryController.summaryByOrg",
         data: unitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySummaryByOrgResultVo>(req);
   }
@@ -8607,18 +9651,18 @@ export class PortalFormTemplateController {
    */
   findBySchemaCode(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizFormTemplateVo> {
     const req = Object.assign(
       {
-        url: '/portal/form/template/findBySchemaCode',
-        method: 'get',
-        modelFunName: 'portalFormTemplateController.findBySchemaCode',
+        url: "/portal/form/template/findBySchemaCode",
+        method: "get",
+        modelFunName: "portalFormTemplateController.findBySchemaCode",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizFormTemplateVo>(req);
   }
@@ -8638,18 +9682,18 @@ export class PortalFormTemplateController {
    */
   getByCode(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyBizFormTemplateVo> {
     const req = Object.assign(
       {
-        url: '/portal/form/template/getByCode',
-        method: 'get',
-        modelFunName: 'portalFormTemplateController.getByCode',
+        url: "/portal/form/template/getByCode",
+        method: "get",
+        modelFunName: "portalFormTemplateController.getByCode",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyBizFormTemplateVo>(req);
   }
@@ -8673,18 +9717,18 @@ export class PortalModelFunTreeController {
    */
   tree(
     funType?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/portal/model/fun/tree',
-        method: 'get',
-        modelFunName: 'portalModelFunTreeController.tree',
+        url: "/portal/model/fun/tree",
+        method: "get",
+        modelFunName: "portalModelFunTreeController.tree",
         data: {
           funType,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -8694,35 +9738,32 @@ export class PortalModelFunTreeController {
  */
 export class PortalSysDictController {
   /**
-   * 查询字典数据项列表URL
+   * 查询字典选项URL
    */
-  listByDictIdUrl() {
-    return `${globalConfig.baseURL}/portal/system/dict/config/listByDictId`;
+  getOptionsByCodeUrl() {
+    return `${globalConfig.baseURL}/portal/system/dict/getOptionsByCode`;
   }
 
   /**
-   * 查询字典数据项列表
-   * @param dictId
-   * @param status
+   * 查询字典选项
+   * @param code
    * @param requestConfig
    * @returns Promise<ResBodyListSystemDictConfigVo>
    */
-  listByDictId(
-    dictId: string,
-    status?: boolean,
-    requestConfig?: BAxiosRequestConfig,
+  getOptionsByCode(
+    code: string,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListSystemDictConfigVo> {
     const req = Object.assign(
       {
-        url: '/portal/system/dict/config/listByDictId',
-        method: 'get',
-        modelFunName: 'portalSysDictController.listByDictId',
+        url: "/portal/system/dict/getOptionsByCode",
+        method: "get",
+        modelFunName: "portalSysDictController.getOptionsByCode",
         data: {
-          dictId,
-          status,
+          code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListSystemDictConfigVo>(req);
   }
@@ -8746,16 +9787,16 @@ export class PortalUnitController {
    */
   belongToCheck(
     orgAscriptionCheckVo: OrgAscriptionCheckVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyboolean> {
     const req = Object.assign(
       {
-        url: '/portal/unit/belongToCheck',
-        method: 'post',
-        modelFunName: 'portalUnitController.belongToCheck',
+        url: "/portal/unit/belongToCheck",
+        method: "post",
+        modelFunName: "portalUnitController.belongToCheck",
         data: orgAscriptionCheckVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyboolean>(req);
   }
@@ -8776,12 +9817,12 @@ export class PortalUnitController {
   getCurUserInfo(requestConfig?: BAxiosRequestConfig): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/portal/unit/getCurUserInfo',
-        method: 'get',
-        modelFunName: 'portalUnitController.getCurUserInfo',
+        url: "/portal/unit/getCurUserInfo",
+        method: "get",
+        modelFunName: "portalUnitController.getCurUserInfo",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
   }
@@ -8801,18 +9842,18 @@ export class PortalUnitController {
    */
   getUserInfo(
     userId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/portal/unit/getUserInfo',
-        method: 'get',
-        modelFunName: 'portalUnitController.getUserInfo',
+        url: "/portal/unit/getUserInfo",
+        method: "get",
+        modelFunName: "portalUnitController.getUserInfo",
         data: {
           userId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
   }
@@ -8832,18 +9873,18 @@ export class PortalUnitController {
    */
   getUserMappingInfo(
     userId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUser> {
     const req = Object.assign(
       {
-        url: '/portal/unit/getUserMappingInfo',
-        method: 'get',
-        modelFunName: 'portalUnitController.getUserMappingInfo',
+        url: "/portal/unit/getUserMappingInfo",
+        method: "get",
+        modelFunName: "portalUnitController.getUserMappingInfo",
         data: {
           userId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUser>(req);
   }
@@ -8863,16 +9904,16 @@ export class PortalUnitController {
    */
   updateAvatar(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/unit/updateAvatar',
-        method: 'post',
-        modelFunName: 'portalUnitController.updateAvatar',
+        url: "/portal/unit/updateAvatar",
+        method: "post",
+        modelFunName: "portalUnitController.updateAvatar",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8892,16 +9933,16 @@ export class PortalUnitController {
    */
   updatePwd(
     updatePasswordVo: UpdatePasswordVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/unit/updatePwd',
-        method: 'post',
-        modelFunName: 'portalUnitController.updatePwd',
+        url: "/portal/unit/updatePwd",
+        method: "post",
+        modelFunName: "portalUnitController.updatePwd",
         data: updatePasswordVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -8925,16 +9966,16 @@ export class PortalUnitTreeController {
    */
   getchildrenList(
     queryUnitTreeVo: QueryUnitTreeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListUnitTreeVo> {
     const req = Object.assign(
       {
-        url: '/portal/unit/tree/getchildrenList',
-        method: 'post',
-        modelFunName: 'portalUnitTreeController.getchildrenList',
+        url: "/portal/unit/tree/getchildrenList",
+        method: "post",
+        modelFunName: "portalUnitTreeController.getchildrenList",
         data: queryUnitTreeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUnitTreeVo>(req);
   }
@@ -8954,16 +9995,16 @@ export class PortalUnitTreeController {
    */
   search(
     queryUnitTreeVo: QueryUnitTreeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUnitTreeSearchVo> {
     const req = Object.assign(
       {
-        url: '/portal/unit/tree/search',
-        method: 'post',
-        modelFunName: 'portalUnitTreeController.search',
+        url: "/portal/unit/tree/search",
+        method: "post",
+        modelFunName: "portalUnitTreeController.search",
         data: queryUnitTreeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUnitTreeSearchVo>(req);
   }
@@ -8983,16 +10024,16 @@ export class PortalUnitTreeController {
    */
   searchUser(
     queryUserVo: QueryUserVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUnitTreeSearchVo> {
     const req = Object.assign(
       {
-        url: '/portal/unit/tree/user/search',
-        method: 'post',
-        modelFunName: 'portalUnitTreeController.searchUser',
+        url: "/portal/unit/tree/user/search",
+        method: "post",
+        modelFunName: "portalUnitTreeController.searchUser",
         data: queryUserVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUnitTreeSearchVo>(req);
   }
@@ -9016,16 +10057,16 @@ export class PortalUserBizController {
    */
   create(
     signFileVo: SignFileVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/user/biz/common/create',
-        method: 'post',
-        modelFunName: 'portalUserBizController.create',
+        url: "/portal/user/biz/common/create",
+        method: "post",
+        modelFunName: "portalUserBizController.create",
         data: signFileVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9045,16 +10086,16 @@ export class PortalUserBizController {
    */
   delete(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/user/biz/common/delete',
-        method: 'post',
-        modelFunName: 'portalUserBizController.delete',
+        url: "/portal/user/biz/common/delete",
+        method: "post",
+        modelFunName: "portalUserBizController.delete",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9075,14 +10116,43 @@ export class PortalUserBizController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListUserCommonsVo> {
     const req = Object.assign(
       {
-        url: '/portal/user/biz/common/list',
-        method: 'get',
-        modelFunName: 'portalUserBizController.list',
+        url: "/portal/user/biz/common/list",
+        method: "get",
+        modelFunName: "portalUserBizController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUserCommonsVo>(req);
+  }
+
+  /**
+   * 修改用户信息URL
+   */
+  updateUrl() {
+    return `${globalConfig.baseURL}/portal/user/biz/update`;
+  }
+
+  /**
+   * 修改用户信息
+   * @param userVo
+   * @param requestConfig
+   * @returns Promise<ResBodyUserVo>
+   */
+  update(
+    userVo: PortalUserUpdateVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyUserVo> {
+    const req = Object.assign(
+      {
+        url: "/portal/user/biz/update",
+        method: "post",
+        modelFunName: "portalUserBizController.update",
+        data: userVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyUserVo>(req);
   }
 }
 /**
@@ -9104,16 +10174,16 @@ export class QuickLinkController {
    */
   add(
     quickLinkFunVo: QuickLinkFunVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workbench/quicklink/add',
-        method: 'post',
-        modelFunName: 'quickLinkController.add',
+        url: "/portal/workbench/quicklink/add",
+        method: "post",
+        modelFunName: "quickLinkController.add",
         data: quickLinkFunVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9133,16 +10203,16 @@ export class QuickLinkController {
    */
   delete(
     quickLinkFunVo: QuickLinkFunVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workbench/quicklink/delete',
-        method: 'post',
-        modelFunName: 'quickLinkController.delete',
+        url: "/portal/workbench/quicklink/delete",
+        method: "post",
+        modelFunName: "quickLinkController.delete",
         data: quickLinkFunVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9163,12 +10233,12 @@ export class QuickLinkController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListQuickLinkVo> {
     const req = Object.assign(
       {
-        url: '/portal/workbench/quicklink/list',
-        method: 'get',
-        modelFunName: 'quickLinkController.list',
+        url: "/portal/workbench/quicklink/list",
+        method: "get",
+        modelFunName: "quickLinkController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListQuickLinkVo>(req);
   }
@@ -9188,16 +10258,16 @@ export class QuickLinkController {
    */
   save(
     quickLinkFuns: QuickLinkFunVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workbench/quicklink/save',
-        method: 'post',
-        modelFunName: 'quickLinkController.save',
+        url: "/portal/workbench/quicklink/save",
+        method: "post",
+        modelFunName: "quickLinkController.save",
         data: quickLinkFuns,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9222,12 +10292,12 @@ export class ReportDataSourceController {
   list(requestConfig?: BAxiosRequestConfig): Promise<ResBodyDataSourceListVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/ds/list',
-        method: 'get',
-        modelFunName: 'reportDataSourceController.list',
+        url: "/admin/report/ds/list",
+        method: "get",
+        modelFunName: "reportDataSourceController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyDataSourceListVo>(req);
   }
@@ -9247,16 +10317,16 @@ export class ReportDataSourceController {
    */
   propertys(
     dataSourceVo: DataSourceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListBizPropertyVo> {
     const req = Object.assign(
       {
-        url: '/admin/report/ds/propertys',
-        method: 'post',
-        modelFunName: 'reportDataSourceController.propertys',
+        url: "/admin/report/ds/propertys",
+        method: "post",
+        modelFunName: "reportDataSourceController.propertys",
         data: dataSourceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListBizPropertyVo>(req);
   }
@@ -9280,16 +10350,16 @@ export class SchedulerController {
    */
   add(
     sysJobVo: SysJobVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySysJobVo> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/add',
-        method: 'post',
-        modelFunName: 'schedulerController.add',
+        url: "/admin/scheduler/add",
+        method: "post",
+        modelFunName: "schedulerController.add",
         data: sysJobVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySysJobVo>(req);
   }
@@ -9309,18 +10379,18 @@ export class SchedulerController {
    */
   getInfo(
     jobId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySysJobVo> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/getInfo',
-        method: 'get',
-        modelFunName: 'schedulerController.getInfo',
+        url: "/admin/scheduler/getInfo",
+        method: "get",
+        modelFunName: "schedulerController.getInfo",
         data: {
           jobId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySysJobVo>(req);
   }
@@ -9340,16 +10410,16 @@ export class SchedulerController {
    */
   list(
     searchJobVo: SearchJobVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOSysJobVo> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/list',
-        method: 'post',
-        modelFunName: 'schedulerController.list',
+        url: "/admin/scheduler/list",
+        method: "post",
+        modelFunName: "schedulerController.list",
         data: searchJobVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOSysJobVo>(req);
   }
@@ -9369,16 +10439,16 @@ export class SchedulerController {
    */
   nextTriggerTime(
     schedulerConfVo: SchedulerConfVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListstring> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/nextTriggerTime',
-        method: 'post',
-        modelFunName: 'schedulerController.nextTriggerTime',
+        url: "/admin/scheduler/nextTriggerTime",
+        method: "post",
+        modelFunName: "schedulerController.nextTriggerTime",
         data: schedulerConfVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListstring>(req);
   }
@@ -9398,16 +10468,16 @@ export class SchedulerController {
    */
   remove(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/remove',
-        method: 'post',
-        modelFunName: 'schedulerController.remove',
+        url: "/admin/scheduler/remove",
+        method: "post",
+        modelFunName: "schedulerController.remove",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9428,12 +10498,12 @@ export class SchedulerController {
   start(idVo: IDVo, requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/start',
-        method: 'post',
-        modelFunName: 'schedulerController.start',
+        url: "/admin/scheduler/start",
+        method: "post",
+        modelFunName: "schedulerController.start",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9454,12 +10524,12 @@ export class SchedulerController {
   stop(idVo: IDVo, requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/stop',
-        method: 'post',
-        modelFunName: 'schedulerController.stop',
+        url: "/admin/scheduler/stop",
+        method: "post",
+        modelFunName: "schedulerController.stop",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9479,16 +10549,16 @@ export class SchedulerController {
    */
   trigger(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/trigger',
-        method: 'post',
-        modelFunName: 'schedulerController.trigger',
+        url: "/admin/scheduler/trigger",
+        method: "post",
+        modelFunName: "schedulerController.trigger",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9508,16 +10578,16 @@ export class SchedulerController {
    */
   update(
     sysJobVo: SysJobVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySysJobVo> {
     const req = Object.assign(
       {
-        url: '/admin/scheduler/update',
-        method: 'post',
-        modelFunName: 'schedulerController.update',
+        url: "/admin/scheduler/update",
+        method: "post",
+        modelFunName: "schedulerController.update",
         data: sysJobVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySysJobVo>(req);
   }
@@ -9541,16 +10611,16 @@ export class SecurityClientController {
    */
   create(
     securityClientVo: SecurityClientVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySecurityClientVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/security/create',
-        method: 'post',
-        modelFunName: 'securityClientController.create',
+        url: "/admin/system/security/create",
+        method: "post",
+        modelFunName: "securityClientController.create",
         data: securityClientVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySecurityClientVo>(req);
   }
@@ -9569,16 +10639,16 @@ export class SecurityClientController {
    * @returns Promise<ResBodyListSecurityClientVo>
    */
   list(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListSecurityClientVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/security/list',
-        method: 'get',
-        modelFunName: 'securityClientController.list',
+        url: "/admin/system/security/list",
+        method: "get",
+        modelFunName: "securityClientController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListSecurityClientVo>(req);
   }
@@ -9598,16 +10668,16 @@ export class SecurityClientController {
    */
   remove(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/system/security/remove',
-        method: 'post',
-        modelFunName: 'securityClientController.remove',
+        url: "/admin/system/security/remove",
+        method: "post",
+        modelFunName: "securityClientController.remove",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9627,16 +10697,16 @@ export class SecurityClientController {
    */
   resetSecret(
     idVo: IDVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/system/security/resetSecret',
-        method: 'post',
-        modelFunName: 'securityClientController.resetSecret',
+        url: "/admin/system/security/resetSecret",
+        method: "post",
+        modelFunName: "securityClientController.resetSecret",
         data: idVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -9656,16 +10726,16 @@ export class SecurityClientController {
    */
   update(
     securityClientVo: SecurityClientVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySecurityClientVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/security/update',
-        method: 'post',
-        modelFunName: 'securityClientController.update',
+        url: "/admin/system/security/update",
+        method: "post",
+        modelFunName: "securityClientController.update",
         data: securityClientVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySecurityClientVo>(req);
   }
@@ -9688,16 +10758,16 @@ export class SecurityController {
    * @returns Promise<ResBodyGenKeyResultVo>
    */
   genRsaKey(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyGenKeyResultVo> {
     const req = Object.assign(
       {
-        url: '/system/sys/security/genRsaKey',
-        method: 'get',
-        modelFunName: 'securityController.genRsaKey',
+        url: "/system/sys/security/genRsaKey",
+        method: "get",
+        modelFunName: "securityController.genRsaKey",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyGenKeyResultVo>(req);
   }
@@ -9721,16 +10791,16 @@ export class ShortLinkController {
    */
   batchGet(
     shortLinks: ShortLink[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListstring> {
     const req = Object.assign(
       {
-        url: '/system/shortlink/batchGet',
-        method: 'post',
-        modelFunName: 'shortLinkController.batchGet',
+        url: "/system/shortlink/batchGet",
+        method: "post",
+        modelFunName: "shortLinkController.batchGet",
         data: shortLinks,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListstring>(req);
   }
@@ -9750,16 +10820,16 @@ export class ShortLinkController {
    */
   get(
     shortLink: ShortLink,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/system/shortlink/get',
-        method: 'post',
-        modelFunName: 'shortLinkController.get',
+        url: "/system/shortlink/get",
+        method: "post",
+        modelFunName: "shortLinkController.get",
         data: shortLink,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -9783,16 +10853,16 @@ export class SysDictController {
    */
   add(
     systemDictVo: SystemDictVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/add',
-        method: 'post',
-        modelFunName: 'sysDictController.add',
+        url: "/admin/system/dict/add",
+        method: "post",
+        modelFunName: "sysDictController.add",
         data: systemDictVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9814,19 +10884,19 @@ export class SysDictController {
   changeStatus(
     status: boolean,
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/changeStatus',
-        method: 'get',
-        modelFunName: 'sysDictController.changeStatus',
+        url: "/admin/system/dict/changeStatus",
+        method: "get",
+        modelFunName: "sysDictController.changeStatus",
         data: {
           status,
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9848,21 +10918,79 @@ export class SysDictController {
   listByDictId(
     dictId: string,
     status?: boolean,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListSystemDictConfigVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/config/listByDictId',
-        method: 'get',
-        modelFunName: 'sysDictController.listByDictId',
+        url: "/admin/system/dict/config/listByDictId",
+        method: "get",
+        modelFunName: "sysDictController.listByDictId",
         data: {
           dictId,
           status,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListSystemDictConfigVo>(req);
+  }
+
+  /**
+   * 删除URL
+   */
+  deleteUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/delete`;
+  }
+
+  /**
+   * 删除
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  delete(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/delete",
+        method: "post",
+        modelFunName: "sysDictController.delete",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 删除分组URL
+   */
+  deleteGroupUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/deleteGroup`;
+  }
+
+  /**
+   * 删除分组
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  deleteGroup(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/deleteGroup",
+        method: "post",
+        modelFunName: "sysDictController.deleteGroup",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 
   /**
@@ -9880,49 +11008,136 @@ export class SysDictController {
    */
   get(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySystemDictVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/get',
-        method: 'get',
-        modelFunName: 'sysDictController.get',
+        url: "/admin/system/dict/get",
+        method: "get",
+        modelFunName: "sysDictController.get",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySystemDictVo>(req);
   }
 
   /**
-   * 分页查询数据字典列表URL
+   * 根据编码查询字典选项URL
    */
-  pageUrl() {
-    return `${globalConfig.baseURL}/admin/system/dict/page`;
+  getOptionsByCodeUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/getOptionsByCode`;
   }
 
   /**
-   * 分页查询数据字典列表
-   * @param systemDictQueryVo
+   * 根据编码查询字典选项
+   * @param code
    * @param requestConfig
-   * @returns Promise<ResBodyPageVOSystemDictVo>
+   * @returns Promise<ResBodySystemDictVo>
    */
-  page(
-    systemDictQueryVo: SystemDictQueryVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyPageVOSystemDictVo> {
+  getOptionsByCode(
+    code: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodySystemDictVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/page',
-        method: 'post',
-        modelFunName: 'sysDictController.page',
-        data: systemDictQueryVo,
+        url: "/admin/system/dict/getOptionsByCode",
+        method: "get",
+        modelFunName: "sysDictController.getOptionsByCode",
+        data: {
+          code,
+        },
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBodyPageVOSystemDictVo>(req);
+    return fetch<ResBodySystemDictVo>(req);
+  }
+
+  /**
+   * 获取分组列表URL
+   */
+  listAllGroupUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/listAllGroup`;
+  }
+
+  /**
+   * 获取分组列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListSystemDictGroupVo>
+   */
+  listAllGroup(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSystemDictGroupVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/listAllGroup",
+        method: "post",
+        modelFunName: "sysDictController.listAllGroup",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSystemDictGroupVo>(req);
+  }
+
+  /**
+   * 分组获取数据字典列表URL
+   */
+  listGroupByUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/listGroupBy`;
+  }
+
+  /**
+   * 分组获取数据字典列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListSystemDictGroupVo>
+   */
+  listGroupBy(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSystemDictGroupVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/listGroupBy",
+        method: "post",
+        modelFunName: "sysDictController.listGroupBy",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSystemDictGroupVo>(req);
+  }
+
+  /**
+   * 字典排序URL
+   */
+  sortUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/sort`;
+  }
+
+  /**
+   * 字典排序
+   * @param systemDictSortVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  sort(
+    systemDictSortVo: SystemDictSortVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/sort",
+        method: "post",
+        modelFunName: "sysDictController.sort",
+        data: systemDictSortVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 
   /**
@@ -9940,16 +11155,16 @@ export class SysDictController {
    */
   update(
     systemDictVo: SystemDictVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/system/dict/update',
-        method: 'post',
-        modelFunName: 'sysDictController.update',
+        url: "/admin/system/dict/update",
+        method: "post",
+        modelFunName: "sysDictController.update",
         data: systemDictVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -9974,12 +11189,12 @@ export class SystemController {
   getInfo(requestConfig?: BAxiosRequestConfig): Promise<ResBodySystemInfoVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/getInfo',
-        method: 'get',
-        modelFunName: 'systemController.getInfo',
+        url: "/admin/system/getInfo",
+        method: "get",
+        modelFunName: "systemController.getInfo",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySystemInfoVo>(req);
   }
@@ -10003,16 +11218,16 @@ export class SystemLogController {
    */
   listPage(
     bizBusLogSearchVo: BizBusLogSearchVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOBizBusLogVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/log/bizbus/listPage',
-        method: 'post',
-        modelFunName: 'systemLogController.listPage',
+        url: "/admin/system/log/bizbus/listPage",
+        method: "post",
+        modelFunName: "systemLogController.listPage",
         data: bizBusLogSearchVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOBizBusLogVo>(req);
   }
@@ -10032,16 +11247,16 @@ export class SystemLogController {
    */
   listPageBizrule(
     bizRuleLogSearchVo: BizRuleLogSearchVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOBizRuleLogVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/log/bizrule/listPage',
-        method: 'post',
-        modelFunName: 'systemLogController.listPageBizrule',
+        url: "/admin/system/log/bizrule/listPage",
+        method: "post",
+        modelFunName: "systemLogController.listPageBizrule",
         data: bizRuleLogSearchVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOBizRuleLogVo>(req);
   }
@@ -10061,18 +11276,18 @@ export class SystemLogController {
    */
   info(
     id: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodySystemLogInfoVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/log/info',
-        method: 'get',
-        modelFunName: 'systemLogController.info',
+        url: "/admin/system/log/info",
+        method: "get",
+        modelFunName: "systemLogController.info",
         data: {
           id,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodySystemLogInfoVo>(req);
   }
@@ -10092,16 +11307,16 @@ export class SystemLogController {
    */
   listPageLogin(
     loginLogSearchVo: LoginLogSearchVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOLoginLogVo> {
     const req = Object.assign(
       {
-        url: '/admin/system/log/login/listPage',
-        method: 'post',
-        modelFunName: 'systemLogController.listPageLogin',
+        url: "/admin/system/log/login/listPage",
+        method: "post",
+        modelFunName: "systemLogController.listPageLogin",
         data: loginLogSearchVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOLoginLogVo>(req);
   }
@@ -10125,16 +11340,16 @@ export class TagController {
    */
   batchSaveTag(
     batchTagList: BatchTagVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/batchSaveTag',
-        method: 'post',
-        modelFunName: 'tagController.batchSaveTag',
+        url: "/admin/org/tag/batchSaveTag",
+        method: "post",
+        modelFunName: "tagController.batchSaveTag",
         data: batchTagList,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10154,18 +11369,18 @@ export class TagController {
    */
   getTagTreeWithoutOrg(
     groupId?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListTagTreeVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/getTagTreeWithoutOrg',
-        method: 'get',
-        modelFunName: 'tagController.getTagTreeWithoutOrg',
+        url: "/admin/org/tag/getTagTreeWithoutOrg",
+        method: "get",
+        modelFunName: "tagController.getTagTreeWithoutOrg",
         data: {
           groupId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListTagTreeVo>(req);
   }
@@ -10191,13 +11406,13 @@ export class TagController {
     pageSize: number,
     pageNum: number,
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOTagUnitVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/getUserListByPage',
-        method: 'get',
-        modelFunName: 'tagController.getUserListByPage',
+        url: "/admin/org/tag/getUserListByPage",
+        method: "get",
+        modelFunName: "tagController.getUserListByPage",
         data: {
           tagId,
           pageSize,
@@ -10205,9 +11420,35 @@ export class TagController {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOTagUnitVo>(req);
+  }
+
+  /**
+   * 获取所有自建的标签组URL
+   */
+  listGroupUrl() {
+    return `${globalConfig.baseURL}/admin/org/tag/listGroup`;
+  }
+
+  /**
+   * 获取所有自建的标签组
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListIdNameVo>
+   */
+  listGroup(requestConfig?: BAxiosRequestConfig): Promise<ResBodyListIdNameVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/tag/listGroup",
+        method: "get",
+        modelFunName: "tagController.listGroup",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListIdNameVo>(req);
   }
 
   /**
@@ -10225,16 +11466,16 @@ export class TagController {
    */
   removeGroup(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/removeGroup',
-        method: 'post',
-        modelFunName: 'tagController.removeGroup',
+        url: "/admin/org/tag/removeGroup",
+        method: "post",
+        modelFunName: "tagController.removeGroup",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10254,16 +11495,16 @@ export class TagController {
    */
   removeTag(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/removeTag',
-        method: 'post',
-        modelFunName: 'tagController.removeTag',
+        url: "/admin/org/tag/removeTag",
+        method: "post",
+        modelFunName: "tagController.removeTag",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10283,16 +11524,16 @@ export class TagController {
    */
   removeUnits(
     tagUnitIdsVo: TagUnitIdsVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/removeUnits',
-        method: 'post',
-        modelFunName: 'tagController.removeUnits',
+        url: "/admin/org/tag/removeUnits",
+        method: "post",
+        modelFunName: "tagController.removeUnits",
         data: tagUnitIdsVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10312,16 +11553,16 @@ export class TagController {
    */
   saveGroup(
     tagGroupVo: TagGroupVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyTagGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/saveGroup',
-        method: 'post',
-        modelFunName: 'tagController.saveGroup',
+        url: "/admin/org/tag/saveGroup",
+        method: "post",
+        modelFunName: "tagController.saveGroup",
         data: tagGroupVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyTagGroupVo>(req);
   }
@@ -10341,16 +11582,16 @@ export class TagController {
    */
   saveUserToTag(
     tagUnitReqVo: TagUnitReqVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/saveUserToTag',
-        method: 'post',
-        modelFunName: 'tagController.saveUserToTag',
+        url: "/admin/org/tag/saveUserToTag",
+        method: "post",
+        modelFunName: "tagController.saveUserToTag",
         data: tagUnitReqVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10370,18 +11611,18 @@ export class TagController {
    */
   searchTagGroup(
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListTagGroupVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/searchTagGroup',
-        method: 'get',
-        modelFunName: 'tagController.searchTagGroup',
+        url: "/admin/org/tag/searchTagGroup",
+        method: "get",
+        modelFunName: "tagController.searchTagGroup",
         data: {
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListTagGroupVo>(req);
   }
@@ -10401,18 +11642,135 @@ export class TagController {
    */
   updateTag(
     tagUpdateVo: TagUpdateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyTagVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/tag/updateTag',
-        method: 'post',
-        modelFunName: 'tagController.updateTag',
+        url: "/admin/org/tag/updateTag",
+        method: "post",
+        modelFunName: "tagController.updateTag",
         data: tagUpdateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyTagVo>(req);
+  }
+
+  /**
+   * 修改标签用户管理范围URL
+   */
+  updateTagUserOuScopesUrl() {
+    return `${globalConfig.baseURL}/admin/org/tag/updateTagUserOuScopes`;
+  }
+
+  /**
+   * 修改标签用户管理范围
+   * @param tagUnitOuScopeVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  updateTagUserOuScopes(
+    tagUnitOuScopeVo: TagUnitOuScopeVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/tag/updateTagUserOuScopes",
+        method: "post",
+        modelFunName: "tagController.updateTagUserOuScopes",
+        data: tagUnitOuScopeVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+}
+/**
+ *暂存数据接口
+ */
+export class TemporaryController {
+  /**
+   * 清除用户暂存数据URL
+   */
+  clearUrl() {
+    return `${globalConfig.baseURL}/portal/temporary/clear`;
+  }
+
+  /**
+   * 清除用户暂存数据
+
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  clear(requestConfig?: BAxiosRequestConfig): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/portal/temporary/clear",
+        method: "post",
+        modelFunName: "temporaryController.clear",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 删除暂存数据URL
+   */
+  deleteUrl() {
+    return `${globalConfig.baseURL}/portal/temporary/delete`;
+  }
+
+  /**
+   * 删除暂存数据
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  delete(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/portal/temporary/delete",
+        method: "post",
+        modelFunName: "temporaryController.delete",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 分页获取用户暂存数据列表URL
+   */
+  pageListUrl() {
+    return `${globalConfig.baseURL}/portal/temporary/pageList`;
+  }
+
+  /**
+   * 分页获取用户暂存数据列表
+   * @param pageQueryVo
+   * @param requestConfig
+   * @returns Promise<ResBodyPageVOBizTemporaryVo>
+   */
+  pageList(
+    pageQueryVo: PageQueryVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyPageVOBizTemporaryVo> {
+    const req = Object.assign(
+      {
+        url: "/portal/temporary/pageList",
+        method: "post",
+        modelFunName: "temporaryController.pageList",
+        data: pageQueryVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyPageVOBizTemporaryVo>(req);
   }
 }
 /**
@@ -10434,18 +11792,18 @@ export class UserBizController {
    */
   genResult(
     taskId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/biz/genResult',
-        method: 'get',
-        modelFunName: 'userBizController.genResult',
+        url: "/admin/org/user/biz/genResult",
+        method: "get",
+        modelFunName: "userBizController.genResult",
         data: {
           taskId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -10465,16 +11823,16 @@ export class UserBizController {
    */
   searchUserWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/biz/searchUserWorkItems',
-        method: 'post',
-        modelFunName: 'userBizController.searchUserWorkItems',
+        url: "/admin/org/user/biz/searchUserWorkItems",
+        method: "post",
+        modelFunName: "userBizController.searchUserWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -10494,16 +11852,16 @@ export class UserBizController {
    */
   transfer(
     userTransferVo: UserTransferVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/biz/transfer',
-        method: 'post',
-        modelFunName: 'userBizController.transfer',
+        url: "/admin/org/user/biz/transfer",
+        method: "post",
+        modelFunName: "userBizController.transfer",
         data: userTransferVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodystring>(req);
   }
@@ -10527,16 +11885,16 @@ export class UserController {
    */
   batchMoveUserDept(
     batchMoveUserDeptVo: BatchMoveUserDeptVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/batchMoveUserDept',
-        method: 'post',
-        modelFunName: 'userController.batchMoveUserDept',
+        url: "/admin/org/user/batchMoveUserDept",
+        method: "post",
+        modelFunName: "userController.batchMoveUserDept",
         data: batchMoveUserDeptVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10556,16 +11914,16 @@ export class UserController {
    */
   batchSave(
     userVoList: UserVo[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/batchSave',
-        method: 'post',
-        modelFunName: 'userController.batchSave',
+        url: "/admin/org/user/batchSave",
+        method: "post",
+        modelFunName: "userController.batchSave",
         data: userVoList,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUserVo>(req);
   }
@@ -10585,16 +11943,16 @@ export class UserController {
    */
   delete(
     deptUserIdsVO: DeptUserIdsVO,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/delete',
-        method: 'post',
-        modelFunName: 'userController.delete',
+        url: "/admin/org/user/delete",
+        method: "post",
+        modelFunName: "userController.delete",
         data: deptUserIdsVO,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10614,16 +11972,16 @@ export class UserController {
    */
   disable(
     userIds: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/disable',
-        method: 'post',
-        modelFunName: 'userController.disable',
+        url: "/admin/org/user/disable",
+        method: "post",
+        modelFunName: "userController.disable",
         data: userIds,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10643,18 +12001,18 @@ export class UserController {
    */
   get(
     userId: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/get',
-        method: 'get',
-        modelFunName: 'userController.get',
+        url: "/admin/org/user/get",
+        method: "get",
+        modelFunName: "userController.get",
         data: {
           userId,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
   }
@@ -10678,20 +12036,20 @@ export class UserController {
     pageSize: number,
     pageNum: number,
     keyword?: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/listQuitUsers',
-        method: 'get',
-        modelFunName: 'userController.listQuitUsers',
+        url: "/admin/org/user/listQuitUsers",
+        method: "get",
+        modelFunName: "userController.listQuitUsers",
         data: {
           pageSize,
           pageNum,
           keyword,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOUserVo>(req);
   }
@@ -10711,16 +12069,16 @@ export class UserController {
    */
   resetPwd(
     resetUserPwdVo: ResetUserPwdVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/resetPwd',
-        method: 'post',
-        modelFunName: 'userController.resetPwd',
+        url: "/admin/org/user/resetPwd",
+        method: "post",
+        modelFunName: "userController.resetPwd",
         data: resetUserPwdVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10740,16 +12098,16 @@ export class UserController {
    */
   restore(
     deptUserIdsVO: DeptUserIdsVO,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/restore',
-        method: 'post',
-        modelFunName: 'userController.restore',
+        url: "/admin/org/user/restore",
+        method: "post",
+        modelFunName: "userController.restore",
         data: deptUserIdsVO,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListUserVo>(req);
   }
@@ -10769,16 +12127,16 @@ export class UserController {
    */
   save(
     userVO: UserVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/save',
-        method: 'post',
-        modelFunName: 'userController.save',
+        url: "/admin/org/user/save",
+        method: "post",
+        modelFunName: "userController.save",
         data: userVO,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
   }
@@ -10798,16 +12156,16 @@ export class UserController {
    */
   setDeptManager(
     deptManagerUpdateVo: DeptManagerUpdateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/setDeptManager',
-        method: 'post',
-        modelFunName: 'userController.setDeptManager',
+        url: "/admin/org/user/setDeptManager",
+        method: "post",
+        modelFunName: "userController.setDeptManager",
         data: deptManagerUpdateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10827,16 +12185,16 @@ export class UserController {
    */
   updateQuitRemark(
     updateUserRemarkVo: UpdateUserRemarkVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyUserVo> {
     const req = Object.assign(
       {
-        url: '/admin/org/user/updateQuitRemark',
-        method: 'post',
-        modelFunName: 'userController.updateQuitRemark',
+        url: "/admin/org/user/updateQuitRemark",
+        method: "post",
+        modelFunName: "userController.updateQuitRemark",
         data: updateUserRemarkVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyUserVo>(req);
   }
@@ -10860,16 +12218,16 @@ export class WorkItemRuntimeController {
    */
   agree(
     workItemSubmitVo: WorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/agree',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.agree',
+        url: "/portal/runtime/workitem/agree",
+        method: "post",
+        modelFunName: "workItemRuntimeController.agree",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10889,16 +12247,16 @@ export class WorkItemRuntimeController {
    */
   apposttile(
     workItemApposttileVo: WorkItemAddParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/apposttile',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.apposttile',
+        url: "/portal/runtime/workitem/apposttile",
+        method: "post",
+        modelFunName: "workItemRuntimeController.apposttile",
         data: workItemApposttileVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10918,16 +12276,16 @@ export class WorkItemRuntimeController {
    */
   assist(
     workItemAssistVo: WorkItemAssistVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/assist',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.assist',
+        url: "/portal/runtime/workitem/assist",
+        method: "post",
+        modelFunName: "workItemRuntimeController.assist",
         data: workItemAssistVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10947,16 +12305,16 @@ export class WorkItemRuntimeController {
    */
   assistSubmit(
     workItemSubmitVo: WorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/assistSubmit',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.assistSubmit',
+        url: "/portal/runtime/workitem/assistSubmit",
+        method: "post",
+        modelFunName: "workItemRuntimeController.assistSubmit",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -10976,16 +12334,16 @@ export class WorkItemRuntimeController {
    */
   batchAgree(
     batchSubmitVo: WorkItemBatchSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/batchAgree',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.batchAgree',
+        url: "/portal/runtime/workitem/batchAgree",
+        method: "post",
+        modelFunName: "workItemRuntimeController.batchAgree",
         data: batchSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11005,16 +12363,16 @@ export class WorkItemRuntimeController {
    */
   circulate(
     workItemCirculateVo: WorkItemCirculateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/circulate',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.circulate',
+        url: "/portal/runtime/workitem/circulate",
+        method: "post",
+        modelFunName: "workItemRuntimeController.circulate",
         data: workItemCirculateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11034,16 +12392,16 @@ export class WorkItemRuntimeController {
    */
   close(
     instanceCancelVo: InstanceCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/close',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.close',
+        url: "/portal/runtime/workitem/close",
+        method: "post",
+        modelFunName: "workItemRuntimeController.close",
         data: instanceCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11063,16 +12421,16 @@ export class WorkItemRuntimeController {
    */
   disagree(
     workItemSubmitVo: WorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/disagree',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.disagree',
+        url: "/portal/runtime/workitem/disagree",
+        method: "post",
+        modelFunName: "workItemRuntimeController.disagree",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11092,16 +12450,16 @@ export class WorkItemRuntimeController {
    */
   invalid(
     instanceCancelVo: InstanceCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/invalid',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.invalid',
+        url: "/portal/runtime/workitem/invalid",
+        method: "post",
+        modelFunName: "workItemRuntimeController.invalid",
         data: instanceCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11121,16 +12479,16 @@ export class WorkItemRuntimeController {
    */
   predictParticipant(
     runtimePredictParticipantVo: RuntimePredictParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowNodeParticipantVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/predictParticipant',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.predictParticipant',
+        url: "/portal/runtime/workitem/predictParticipant",
+        method: "post",
+        modelFunName: "workItemRuntimeController.predictParticipant",
         data: runtimePredictParticipantVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowNodeParticipantVo>(req);
   }
@@ -11150,16 +12508,16 @@ export class WorkItemRuntimeController {
    */
   reject(
     workItemRejectVo: WorkItemRejectVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/reject',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.reject',
+        url: "/portal/runtime/workitem/reject",
+        method: "post",
+        modelFunName: "workItemRuntimeController.reject",
         data: workItemRejectVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11179,16 +12537,16 @@ export class WorkItemRuntimeController {
    */
   retrieve(
     workItemRetrieveVo: WorkItemRetrieveVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/retrieve',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.retrieve',
+        url: "/portal/runtime/workitem/retrieve",
+        method: "post",
+        modelFunName: "workItemRuntimeController.retrieve",
         data: workItemRetrieveVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11208,16 +12566,16 @@ export class WorkItemRuntimeController {
    */
   submit(
     workItemSubmitVo: WorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/submit',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.submit',
+        url: "/portal/runtime/workitem/submit",
+        method: "post",
+        modelFunName: "workItemRuntimeController.submit",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11233,22 +12591,22 @@ export class WorkItemRuntimeController {
    * undefined
    * @param workItemSubmitVo
    * @param requestConfig
-   * @returns Promise<ResBodyVoid>
+   * @returns Promise<ResBodystring>
    */
   temporary(
     workItemSubmitVo: WorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyVoid> {
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/temporary',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.temporary',
+        url: "/portal/runtime/workitem/temporary",
+        method: "post",
+        modelFunName: "workItemRuntimeController.temporary",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
-    return fetch<ResBodyVoid>(req);
+    return fetch<ResBodystring>(req);
   }
 
   /**
@@ -11266,16 +12624,16 @@ export class WorkItemRuntimeController {
    */
   transfer(
     workItemTransferVo: WorkItemTransferVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workitem/transfer',
-        method: 'post',
-        modelFunName: 'workItemRuntimeController.transfer',
+        url: "/portal/runtime/workitem/transfer",
+        method: "post",
+        modelFunName: "workItemRuntimeController.transfer",
         data: workItemTransferVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11299,16 +12657,16 @@ export class WorkItemRuntimeOpenApi {
    */
   agree(
     workItemSubmitVo: OpenApiWorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/agree',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.agree',
+        url: "/openapi/runtime/workitem/agree",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.agree",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11328,16 +12686,16 @@ export class WorkItemRuntimeOpenApi {
    */
   apposttile(
     workItemApposttileVo: WorkItemAddParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/apposttile',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.apposttile',
+        url: "/openapi/runtime/workitem/apposttile",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.apposttile",
         data: workItemApposttileVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11357,16 +12715,16 @@ export class WorkItemRuntimeOpenApi {
    */
   assist(
     workItemAssistVo: WorkItemAssistVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/assist',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.assist',
+        url: "/openapi/runtime/workitem/assist",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.assist",
         data: workItemAssistVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11386,16 +12744,16 @@ export class WorkItemRuntimeOpenApi {
    */
   circulate(
     workItemCirculateVo: WorkItemCirculateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/circulate',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.circulate',
+        url: "/openapi/runtime/workitem/circulate",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.circulate",
         data: workItemCirculateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11415,16 +12773,16 @@ export class WorkItemRuntimeOpenApi {
    */
   close(
     instanceCancelVo: InstanceCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/close',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.close',
+        url: "/openapi/runtime/workitem/close",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.close",
         data: instanceCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11444,16 +12802,16 @@ export class WorkItemRuntimeOpenApi {
    */
   disagree(
     workItemSubmitVo: OpenApiWorkItemSubmitVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/disagree',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.disagree',
+        url: "/openapi/runtime/workitem/disagree",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.disagree",
         data: workItemSubmitVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11473,16 +12831,16 @@ export class WorkItemRuntimeOpenApi {
    */
   invalid(
     instanceCancelVo: InstanceCancelVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/invalid',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.invalid',
+        url: "/openapi/runtime/workitem/invalid",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.invalid",
         data: instanceCancelVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11502,16 +12860,16 @@ export class WorkItemRuntimeOpenApi {
    */
   reject(
     workItemRejectVo: WorkItemRejectVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/reject',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.reject',
+        url: "/openapi/runtime/workitem/reject",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.reject",
         data: workItemRejectVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11531,16 +12889,16 @@ export class WorkItemRuntimeOpenApi {
    */
   retrieve(
     workItemRetrieveVo: WorkItemRetrieveVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/retrieve',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.retrieve',
+        url: "/openapi/runtime/workitem/retrieve",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.retrieve",
         data: workItemRetrieveVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11560,16 +12918,16 @@ export class WorkItemRuntimeOpenApi {
    */
   transfer(
     workItemTransferVo: WorkItemTransferVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workitem/transfer',
-        method: 'post',
-        modelFunName: 'workItemRuntimeOpenApi.transfer',
+        url: "/openapi/runtime/workitem/transfer",
+        method: "post",
+        modelFunName: "workItemRuntimeOpenApi.transfer",
         data: workItemTransferVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11594,12 +12952,12 @@ export class WorkbenchController {
   getFigure(requestConfig?: BAxiosRequestConfig): Promise<ResBodyFigureVo> {
     const req = Object.assign(
       {
-        url: '/portal/workbench/getFigure',
-        method: 'get',
-        modelFunName: 'workbenchController.getFigure',
+        url: "/portal/workbench/getFigure",
+        method: "get",
+        modelFunName: "workbenchController.getFigure",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyFigureVo>(req);
   }
@@ -11623,16 +12981,16 @@ export class WorkflowDelegateController {
    */
   create(
     createDelegateVo: WorkflowDelegateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workflow/delegate/create',
-        method: 'post',
-        modelFunName: 'workflowDelegateController.create',
+        url: "/portal/workflow/delegate/create",
+        method: "post",
+        modelFunName: "workflowDelegateController.create",
         data: createDelegateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11652,16 +13010,16 @@ export class WorkflowDelegateController {
    */
   delete(
     ids: string[],
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workflow/delegate/delete',
-        method: 'post',
-        modelFunName: 'workflowDelegateController.delete',
+        url: "/portal/workflow/delegate/delete",
+        method: "post",
+        modelFunName: "workflowDelegateController.delete",
         data: ids,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11680,16 +13038,16 @@ export class WorkflowDelegateController {
    * @returns Promise<ResBodyListWorkflowDelegateVo>
    */
   list(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListWorkflowDelegateVo> {
     const req = Object.assign(
       {
-        url: '/portal/workflow/delegate/list',
-        method: 'post',
-        modelFunName: 'workflowDelegateController.list',
+        url: "/portal/workflow/delegate/list",
+        method: "post",
+        modelFunName: "workflowDelegateController.list",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListWorkflowDelegateVo>(req);
   }
@@ -11709,16 +13067,16 @@ export class WorkflowDelegateController {
    */
   update(
     updateDelegateVo: WorkflowDelegateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/portal/workflow/delegate/update',
-        method: 'post',
-        modelFunName: 'workflowDelegateController.update',
+        url: "/portal/workflow/delegate/update",
+        method: "post",
+        modelFunName: "workflowDelegateController.update",
         data: updateDelegateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -11742,16 +13100,16 @@ export class WorkflowDesignController {
    */
   clone(
     workflowCloneVo: WorkflowCloneVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowDraftVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/clone',
-        method: 'post',
-        modelFunName: 'workflowDesignController.clone',
+        url: "/admin/model/workflow/clone",
+        method: "post",
+        modelFunName: "workflowDesignController.clone",
         data: workflowCloneVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowDraftVo>(req);
   }
@@ -11771,16 +13129,16 @@ export class WorkflowDesignController {
    */
   createWorkflow(
     saveWorkflowTemplateVo: SaveWorkflowTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowHeaderVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/createWorkflow',
-        method: 'post',
-        modelFunName: 'workflowDesignController.createWorkflow',
+        url: "/admin/model/workflow/createWorkflow",
+        method: "post",
+        modelFunName: "workflowDesignController.createWorkflow",
         data: saveWorkflowTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowHeaderVo>(req);
   }
@@ -11800,18 +13158,18 @@ export class WorkflowDesignController {
    */
   get(
     code: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowHeaderVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/get',
-        method: 'get',
-        modelFunName: 'workflowDesignController.get',
+        url: "/admin/model/workflow/get",
+        method: "get",
+        modelFunName: "workflowDesignController.get",
         data: {
           code,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowHeaderVo>(req);
   }
@@ -11831,16 +13189,16 @@ export class WorkflowDesignController {
    */
   getHistoricPublishedList(
     workflowSchemaCodeVo: WorkflowSchemaCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListWorkflowDeploymentVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/getHistoricPublishedList',
-        method: 'post',
-        modelFunName: 'workflowDesignController.getHistoricPublishedList',
+        url: "/admin/model/workflow/getHistoricPublishedList",
+        method: "post",
+        modelFunName: "workflowDesignController.getHistoricPublishedList",
         data: workflowSchemaCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListWorkflowDeploymentVo>(req);
   }
@@ -11860,16 +13218,16 @@ export class WorkflowDesignController {
    */
   getWorkflowDraft(
     workflowSchemaCodeVo: WorkflowSchemaCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowDraftVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/getWorkflowDraft',
-        method: 'post',
-        modelFunName: 'workflowDesignController.getWorkflowDraft',
+        url: "/admin/model/workflow/getWorkflowDraft",
+        method: "post",
+        modelFunName: "workflowDesignController.getWorkflowDraft",
         data: workflowSchemaCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowDraftVo>(req);
   }
@@ -11889,16 +13247,16 @@ export class WorkflowDesignController {
    */
   getWorkflowTemplate(
     workflowSchemaCodeVo: WorkflowSchemaCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowDraftVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/getWorkflowTemplate',
-        method: 'post',
-        modelFunName: 'workflowDesignController.getWorkflowTemplate',
+        url: "/admin/model/workflow/getWorkflowTemplate",
+        method: "post",
+        modelFunName: "workflowDesignController.getWorkflowTemplate",
         data: workflowSchemaCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowDraftVo>(req);
   }
@@ -11918,18 +13276,18 @@ export class WorkflowDesignController {
    */
   list(
     schemaCode: string,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListWorkflowHeaderVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/list',
-        method: 'get',
-        modelFunName: 'workflowDesignController.list',
+        url: "/admin/model/workflow/list",
+        method: "get",
+        modelFunName: "workflowDesignController.list",
         data: {
           schemaCode,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListWorkflowHeaderVo>(req);
   }
@@ -11949,16 +13307,16 @@ export class WorkflowDesignController {
    */
   publishWorkflowTemplate(
     saveWorkflowTemplateVo: SaveWorkflowTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/publishWorkflowTemplate',
-        method: 'post',
-        modelFunName: 'workflowDesignController.publishWorkflowTemplate',
+        url: "/admin/model/workflow/publishWorkflowTemplate",
+        method: "post",
+        modelFunName: "workflowDesignController.publishWorkflowTemplate",
         data: saveWorkflowTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -11978,16 +13336,16 @@ export class WorkflowDesignController {
    */
   remove(
     workflowSchemaCodeVo: WorkflowSchemaCodeVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/remove',
-        method: 'post',
-        modelFunName: 'workflowDesignController.remove',
+        url: "/admin/model/workflow/remove",
+        method: "post",
+        modelFunName: "workflowDesignController.remove",
         data: workflowSchemaCodeVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -12007,16 +13365,16 @@ export class WorkflowDesignController {
    */
   saveWorkflowTemplate(
     saveWorkflowTemplateVo: SaveWorkflowTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyobject> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/saveWorkflowTemplate',
-        method: 'post',
-        modelFunName: 'workflowDesignController.saveWorkflowTemplate',
+        url: "/admin/model/workflow/saveWorkflowTemplate",
+        method: "post",
+        modelFunName: "workflowDesignController.saveWorkflowTemplate",
         data: saveWorkflowTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyobject>(req);
   }
@@ -12036,16 +13394,16 @@ export class WorkflowDesignController {
    */
   updateWorkflowHeader(
     workflowHeaderVo: WorkflowHeaderVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyWorkflowHeaderVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/updateWorkflowHeader',
-        method: 'post',
-        modelFunName: 'workflowDesignController.updateWorkflowHeader',
+        url: "/admin/model/workflow/updateWorkflowHeader",
+        method: "post",
+        modelFunName: "workflowDesignController.updateWorkflowHeader",
         data: workflowHeaderVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyWorkflowHeaderVo>(req);
   }
@@ -12065,16 +13423,16 @@ export class WorkflowDesignController {
    */
   validateParticipantExpr(
     exprValidVo: WorkflowExprValidVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyVoid> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/validateParticipantExpr',
-        method: 'get',
-        modelFunName: 'workflowDesignController.validateParticipantExpr',
+        url: "/admin/model/workflow/validateParticipantExpr",
+        method: "get",
+        modelFunName: "workflowDesignController.validateParticipantExpr",
         data: exprValidVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyVoid>(req);
   }
@@ -12094,16 +13452,16 @@ export class WorkflowDesignController {
    */
   validateWorkflowTemplate(
     saveWorkflowTemplateVo: SaveWorkflowTemplateVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListValidateErrorMessageVo> {
     const req = Object.assign(
       {
-        url: '/admin/model/workflow/validateWorkflowTemplate',
-        method: 'post',
-        modelFunName: 'workflowDesignController.validateWorkflowTemplate',
+        url: "/admin/model/workflow/validateWorkflowTemplate",
+        method: "post",
+        modelFunName: "workflowDesignController.validateWorkflowTemplate",
         data: saveWorkflowTemplateVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListValidateErrorMessageVo>(req);
   }
@@ -12127,16 +13485,16 @@ export class WorkflowRuntimeController {
    */
   listInstances(
     searchWorkflowInstanceVo: SearchWorkflowInstanceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkflowInstanceVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/listInstances',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.listInstances',
+        url: "/portal/runtime/workflow/listInstances",
+        method: "post",
+        modelFunName: "workflowRuntimeController.listInstances",
         data: searchWorkflowInstanceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkflowInstanceVo>(req);
   }
@@ -12156,16 +13514,16 @@ export class WorkflowRuntimeController {
    */
   listWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/listWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.listWorkItems',
+        url: "/portal/runtime/workflow/listWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.listWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12184,16 +13542,16 @@ export class WorkflowRuntimeController {
    * @returns Promise<ResBodyListFunTreeVo>
    */
   listWrokflow(
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/listWrokflow',
-        method: 'get',
-        modelFunName: 'workflowRuntimeController.listWrokflow',
+        url: "/portal/runtime/workflow/listWrokflow",
+        method: "get",
+        modelFunName: "workflowRuntimeController.listWrokflow",
         data: {},
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -12213,16 +13571,16 @@ export class WorkflowRuntimeController {
    */
   searchAllHistoricWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchAllHistoricWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchAllHistoricWorkItems',
+        url: "/portal/runtime/workflow/searchAllHistoricWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchAllHistoricWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12242,16 +13600,16 @@ export class WorkflowRuntimeController {
    */
   searchAllWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchAllWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchAllWorkItems',
+        url: "/portal/runtime/workflow/searchAllWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchAllWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12271,16 +13629,16 @@ export class WorkflowRuntimeController {
    */
   searchBatchWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchBatchWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchBatchWorkItems',
+        url: "/portal/runtime/workflow/searchBatchWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchBatchWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12300,45 +13658,16 @@ export class WorkflowRuntimeController {
    */
   searchCirculateWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchCirculateWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchCirculateWorkItems',
+        url: "/portal/runtime/workflow/searchCirculateWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchCirculateWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
-    );
-    return fetch<ResBodyPageVOWorkItemVo>(req);
-  }
-
-  /**
-   * 获取已阅任务列表URL
-   */
-  searchHistoricCirculateWorkItemsUrl() {
-    return `${globalConfig.baseURL}/portal/runtime/workflow/searchHistoricCirculateWorkItems`;
-  }
-
-  /**
-   * 获取已阅任务列表
-   * @param searchWorkItemVo
-   * @param requestConfig
-   * @returns Promise<ResBodyPageVOWorkItemVo>
-   */
-  searchHistoricCirculateWorkItems(
-    searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
-  ): Promise<ResBodyPageVOWorkItemVo> {
-    const req = Object.assign(
-      {
-        url: '/portal/runtime/workflow/searchHistoricCirculateWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchHistoricCirculateWorkItems',
-        data: searchWorkItemVo,
-      },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12358,16 +13687,16 @@ export class WorkflowRuntimeController {
    */
   searchHistoricWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchHistoricWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchHistoricWorkItems',
+        url: "/portal/runtime/workflow/searchHistoricWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchHistoricWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12387,16 +13716,16 @@ export class WorkflowRuntimeController {
    */
   searchMyInstances(
     searchWorkflowInstanceVo: SearchWorkflowInstanceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkflowInstanceVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchMyInstances',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchMyInstances',
+        url: "/portal/runtime/workflow/searchMyInstances",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchMyInstances",
         data: searchWorkflowInstanceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkflowInstanceVo>(req);
   }
@@ -12416,16 +13745,16 @@ export class WorkflowRuntimeController {
    */
   searchWorkItems(
     searchWorkItemVo: SearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/portal/runtime/workflow/searchWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeController.searchWorkItems',
+        url: "/portal/runtime/workflow/searchWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeController.searchWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12449,16 +13778,16 @@ export class WorkflowRuntimeOpenApi {
    */
   listInstances(
     searchWorkflowInstanceVo: SearchWorkflowInstanceVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkflowInstanceVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workflow/listInstances',
-        method: 'post',
-        modelFunName: 'workflowRuntimeOpenApi.listInstances',
+        url: "/openapi/runtime/workflow/listInstances",
+        method: "post",
+        modelFunName: "workflowRuntimeOpenApi.listInstances",
         data: searchWorkflowInstanceVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkflowInstanceVo>(req);
   }
@@ -12480,19 +13809,19 @@ export class WorkflowRuntimeOpenApi {
   listWrokflow(
     userId: string,
     type: number,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListFunTreeVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workflow/listWrokflow',
-        method: 'get',
-        modelFunName: 'workflowRuntimeOpenApi.listWrokflow',
+        url: "/openapi/runtime/workflow/listWrokflow",
+        method: "get",
+        modelFunName: "workflowRuntimeOpenApi.listWrokflow",
         data: {
           userId,
           type,
         },
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListFunTreeVo>(req);
   }
@@ -12512,16 +13841,16 @@ export class WorkflowRuntimeOpenApi {
    */
   predictParticipant(
     predictParticipantVo: PredictParticipantVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyListWorkflowNodeParticipantVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workflow/predictParticipant',
-        method: 'post',
-        modelFunName: 'workflowRuntimeOpenApi.predictParticipant',
+        url: "/openapi/runtime/workflow/predictParticipant",
+        method: "post",
+        modelFunName: "workflowRuntimeOpenApi.predictParticipant",
         data: predictParticipantVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyListWorkflowNodeParticipantVo>(req);
   }
@@ -12541,16 +13870,16 @@ export class WorkflowRuntimeOpenApi {
    */
   searchUserFinishedWorkItems(
     searchWorkItemVo: OpenApiSearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workflow/searchUserFinishedWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeOpenApi.searchUserFinishedWorkItems',
+        url: "/openapi/runtime/workflow/searchUserFinishedWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeOpenApi.searchUserFinishedWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12570,16 +13899,16 @@ export class WorkflowRuntimeOpenApi {
    */
   searchUserWorkItems(
     searchWorkItemVo: OpenApiSearchWorkItemVo,
-    requestConfig?: BAxiosRequestConfig,
+    requestConfig?: BAxiosRequestConfig
   ): Promise<ResBodyPageVOWorkItemVo> {
     const req = Object.assign(
       {
-        url: '/openapi/runtime/workflow/searchUserWorkItems',
-        method: 'post',
-        modelFunName: 'workflowRuntimeOpenApi.searchUserWorkItems',
+        url: "/openapi/runtime/workflow/searchUserWorkItems",
+        method: "post",
+        modelFunName: "workflowRuntimeOpenApi.searchUserWorkItems",
         data: searchWorkItemVo,
       },
-      requestConfig,
+      requestConfig
     );
     return fetch<ResBodyPageVOWorkItemVo>(req);
   }
@@ -12637,6 +13966,12 @@ export class BaseApi {
 
   documentFileController = new DocumentFileController();
 
+  documentFileOpenApi = new DocumentFileOpenApi();
+
+  esbRuntimeOpenApi = new EsbRuntimeOpenApi();
+
+  esbServiceController = new EsbServiceController();
+
   excelController = new ExcelController();
 
   externalController = new ExternalController();
@@ -12667,6 +14002,10 @@ export class BaseApi {
 
   notifyController = new NotifyController();
 
+  ocrConfigController = new OcrConfigController();
+
+  ocrController = new OcrController();
+
   olapController = new OlapController();
 
   olapRuntimeController = new OlapRuntimeController();
@@ -12674,6 +14013,8 @@ export class BaseApi {
   organizationController = new OrganizationController();
 
   organizationOpenApi = new OrganizationOpenApi();
+
+  organizationPushController = new OrganizationPushController();
 
   permissionSummaryController = new PermissionSummaryController();
 
@@ -12708,6 +14049,8 @@ export class BaseApi {
   systemLogController = new SystemLogController();
 
   tagController = new TagController();
+
+  temporaryController = new TemporaryController();
 
   userBizController = new UserBizController();
 

@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig, CancelTokenSource, Method } from 'axios';
-import { EventType, ResponseCode } from './enum';
+// @ts-nocheck
+import axios, { AxiosRequestConfig, CancelTokenSource, Method } from "axios";
+import { EventType, ResponseCode } from "./enum";
 const CancelToken = axios.CancelToken;
-
 // 唯一队列
 const apiUniqueQueue: { [key: string]: CancelTokenSource } = {};
 
@@ -28,11 +28,11 @@ export const GlobalInterceptor: {
 
 export const mocks: { [key: string]: any } = {};
 
-const momckPrefix = 'mock: ';
+const momckPrefix = "mock: ";
 
-export const isDev = 'development';
+export const isDev = "development";
 
-export type BMethod = Method | 'formdata' | 'resetful';
+export type BMethod = Method | "formdata" | "resetful";
 
 let log = false;
 
@@ -69,7 +69,7 @@ export function setGlobalConfig(params: BAxiosRequestConfig) {
 function interceptorHandler(
   type: EventType,
   config: BAxiosRequestConfig,
-  params: any,
+  params: any
 ) {
   const events = Object.keys(GlobalInterceptor[type]);
   let nParams = params;
@@ -106,37 +106,37 @@ function interceptorHandler(
 // 请求拦截器
 Instance.interceptors.request.use(
   (config: BAxiosRequestConfig) => {
-    let nConfig = config;
+    let nConfig: any = config;
     nConfig = interceptorHandler(EventType.REQUSETBEFORE, config, config);
     const mockPath = config.modelFunName || config.url;
-    if (mocks[config.modelFunName] || mocks[config.url]) {
+    if (config && (mocks[config.modelFunName] || mocks[config.url])) {
       const error = new Error(`${momckPrefix}${mockPath}`);
       (error as any).config = config;
       return Promise.reject(error);
     }
-    if (nConfig.url.includes('document/file/upload')) {
+    if (nConfig.url.includes("document/file/upload")) {
       console.log(
-        'config start:',
+        "config start:",
         config.method,
-        JSON.parse(JSON.stringify(config.headers)),
+        JSON.parse(JSON.stringify(config.headers))
       );
     }
     switch (config.method as BMethod) {
-      case 'get':
+      case "get":
         config.params = config.data;
         break;
-      case 'delete':
+      case "delete":
         config.params = config.data;
         break;
-      case 'resetful':
+      case "resetful":
         Object.keys(config.data).forEach((key) => {
           config.url = config.url.replace(`{${key}}`, config.data[key]);
         });
-        config.method = 'get';
+        config.method = "get";
         config.data = null;
         break;
-      case 'formdata':
-        config.method = 'POST';
+      case "formdata":
+        config.method = "POST";
         const formData = new FormData();
         Object.keys(config.data).forEach((key) => {
           formData.append(key, config.data[key]);
@@ -144,24 +144,24 @@ Instance.interceptors.request.use(
         config.data = formData;
         // 兼容钉钉上传
         config.transformRequest = (data) => {
-          data.toString = () => '[object FormData]';
+          data.toString = () => "[object FormData]";
           return data;
         };
         break;
-      case 'post':
+      case "post":
         // 强制post提交
-        config.headers['Content-Type'] = 'application/json';
+        config.headers["Content-Type"] = "application/json";
         break;
       default:
         break;
     }
     nConfig = interceptorHandler(EventType.REQUSETAFTER, config, config);
-    if (nConfig.url.includes('document/file/upload')) {
+    if (nConfig.url.includes("document/file/upload")) {
       console.log(
-        'config end:',
+        "config end:",
         nConfig.method,
         nConfig.headers,
-        JSON.parse(JSON.stringify(nConfig.headers)),
+        JSON.parse(JSON.stringify(nConfig.headers))
       );
     }
     return nConfig;
@@ -170,7 +170,7 @@ Instance.interceptors.request.use(
     let nError = error;
     nError = interceptorHandler(EventType.REQUSETAFTER, error.config, error);
     return Promise.reject(nError);
-  },
+  }
 );
 
 // 响应拦截器
@@ -180,14 +180,14 @@ Instance.interceptors.response.use(
     responseData = interceptorHandler(
       EventType.RESPONSEBEFORE,
       response.config,
-      response.data,
+      response.data
     );
-    const contentType = response.headers['content-type'];
-    if (contentType === 'application/x-msdownload') {
-      const name = response.headers['content-disposition']
-        .split(';')[1]
-        .replace('filename=', '');
-      const downloadElement = document.createElement('a');
+    const contentType = response.headers["content-type"];
+    if (contentType === "application/x-msdownload") {
+      const name = response.headers["content-disposition"]
+        .split(";")[1]
+        .replace("filename=", "");
+      const downloadElement = document.createElement("a");
       const href = URL.createObjectURL(new Blob([responseData])); // 创建下载的链接
       downloadElement.href = href;
       downloadElement.download = decodeURI(name);
@@ -200,14 +200,14 @@ Instance.interceptors.response.use(
     responseData = interceptorHandler(
       EventType.RESPONSEAFTER,
       response.config,
-      responseData,
+      responseData
     );
     return responseData;
   },
   (error) => {
     if (error.message.includes(momckPrefix)) {
       console.log(error.message);
-      let data = mocks[error.message.replace(momckPrefix, '')];
+      let data = mocks[error.message.replace(momckPrefix, "")];
       if (data instanceof Function) {
         data = data(error.config);
       }
@@ -215,7 +215,7 @@ Instance.interceptors.response.use(
     } else {
       if (error.response) {
         if (isDev) {
-          console.group('请求发生错误');
+          console.group("请求发生错误");
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -226,7 +226,7 @@ Instance.interceptors.response.use(
     let nError = error;
     nError = interceptorHandler(EventType.RESPONSEERROR, error.config, nError);
     return Promise.reject(nError);
-  },
+  }
 );
 
 /**
@@ -239,7 +239,7 @@ export default function fetch<T>(options: BAxiosRequestConfig): Promise<T> {
   const requestConfig: BAxiosRequestConfig = Object.assign(
     {},
     JSON.parse(JSON.stringify(globalConfig)),
-    options,
+    options
   );
   // 设置token
   if (apiToken) {
@@ -268,7 +268,7 @@ export default function fetch<T>(options: BAxiosRequestConfig): Promise<T> {
         resolve(response);
       })
       .catch((error) =>
-        resolve({ code: ResponseCode.RESPONSEERROR, msg: error } as any),
+        resolve({ code: ResponseCode.RESPONSEERROR, msg: error } as any)
       );
   });
 }

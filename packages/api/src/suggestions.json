@@ -238,16 +238,24 @@
     "detail": "应用视图接口",
     "funs": {
       "getViewInfo": {
-        "detail": "(bizViewQueryVo: BizViewQueryVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取视图详情，根据客户端类型返回视图配置\n   * @param bizViewQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
+        "detail": "(bizViewCodeVo: BizViewCodeVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取视图详情，根据客户端类型返回视图配置\n   * @param bizViewCodeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
       },
       "list": {
         "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取视图列表，只返回基础信息，不返回配置\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizViewVo>\n   */\n"
       },
-      "listData": {
-        "detail": "(bizViewDataQueryVo: BizViewDataQueryVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 查询数据\n   * @param bizViewDataQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVO>\n   */\n"
+      "listTreeCriteria": {
+        "detail": "(bizObjectQueryVo: BizObjectQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取树形条件区域数据\n   * @param bizObjectQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListTreeNode>\n   */\n"
+      },
+      "listTreeData": {
+        "detail": "(treeDataQueryVo: TreeDataQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取树形结构数据\n   * @param treeDataQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListTreeNode>\n   */\n"
+      },
+      "listViewData": {
+        "detail": "(bizObjectQueryVo: BizObjectQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 查询视图数据\n   * @param bizObjectQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVO>\n   */\n"
       }
     }
   },
@@ -302,7 +310,11 @@
       },
       "batchUpdate": {
         "detail": "(batchUpdateBizObjectVo: BatchUpdateBizObjectVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 批量修改数据\n   * @param batchUpdateBizObjectVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizObjectBo>\n   */\n"
+        "documentation": "  /**\n   * 批量修改数据\n   * @param batchUpdateBizObjectVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "get": {
+        "detail": "(bizObjectIdVo: BizObjectIdVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 查询数据\n   * @param bizObjectIdVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
       },
       "getList": {
         "detail": "(bizObjectIdsVo: BizObjectIdsVo, requestConfig?: BAxiosRequestConfig)",
@@ -310,7 +322,7 @@
       },
       "insert": {
         "detail": "(bizObjectSubmitVo: BizObjectSubmitVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 保存数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+        "documentation": "  /**\n   * 保存数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
       },
       "listProperty": {
         "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
@@ -330,7 +342,7 @@
       },
       "temporary": {
         "detail": "(bizObjectSubmitVo: BizObjectSubmitVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 暂存数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+        "documentation": "  /**\n   * 暂存数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
       },
       "uniqueValidate": {
         "detail": "(textUniqueValidateVo: UniqueValidateVo, requestConfig?: BAxiosRequestConfig)",
@@ -338,7 +350,11 @@
       },
       "update": {
         "detail": "(bizObjectSubmitVo: BizObjectSubmitVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 修改数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+        "documentation": "  /**\n   * 修改数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "updateSelective": {
+        "detail": "(bizObjectSubmitVo: BizObjectSubmitVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 修改指定字段数据\n   * @param bizObjectSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       }
     }
   },
@@ -375,12 +391,12 @@
     "detail": "模型数据项管理接口",
     "funs": {
       "batchListPublish": {
-        "detail": "(schemaCodes: string[], requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 批量获取模型已发布的数据项列表\n   * @param schemaCodes\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+        "detail": "(batchListSchemaParamVo: BatchListSchemaParamVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 批量获取模型已发布的数据项列表\n   * @param batchListSchemaParamVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
       },
       "batchListPublishByWorkflowCodes": {
-        "detail": "(workflowCodes: string[], requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 根据流程编码批量获取已发布的数据项列表\n   * @param workflowCodes\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+        "detail": "(batchListSchemaParamVo: BatchListSchemaParamVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 根据流程编码批量获取已发布的数据项列表\n   * @param batchListSchemaParamVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
       },
       "confirmRemove": {
         "detail": "(schemaPropertyCodeVo: SchemaPropertyCodeVo, requestConfig?: BAxiosRequestConfig)",
@@ -394,17 +410,21 @@
         "detail": "(schemaPropertyCodeVo: SchemaPropertyCodeVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取数据项详情\n   * @param schemaPropertyCodeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizPropertyVo>\n   */\n"
       },
+      "getById": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取数据项详情\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizPropertyVo>\n   */\n"
+      },
       "getPublishList": {
-        "detail": "(schemaCode: string, loadSheetSysProperty?: boolean, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取已发布的数据项列表\n   * @param schemaCode\n   * @param loadSheetSysProperty\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
+        "detail": "(schemaCode: string, loadSelfObject?: boolean, loadSysProperty?: boolean, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取已发布的数据项列表\n   * @param schemaCode\n   * @param loadSelfObject\n   * @param loadSysProperty\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
       },
       "getPublishListByWorkflowCode": {
-        "detail": "(workflowCode: string, loadSheetSysProperty?: boolean, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 根据流程编码获取已发布的数据项列表\n   * @param workflowCode\n   * @param loadSheetSysProperty\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
+        "detail": "(workflowCode: string, loadSelfObject?: boolean, loadSysProperty?: boolean, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 根据流程编码获取已发布的数据项列表\n   * @param workflowCode\n   * @param loadSelfObject\n   * @param loadSysProperty\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
       },
       "list": {
-        "detail": "(schemaCode: string, loadSheetSysProperty?: boolean, sortType?: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取数据项列表\n   * @param schemaCode\n   * @param loadSheetSysProperty\n   * @param sortType\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
+        "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取数据项列表\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizPropertyVo>\n   */\n"
       },
       "modify": {
         "detail": "(bizPropertyVo: BizPropertyVo, requestConfig?: BAxiosRequestConfig)",
@@ -489,6 +509,10 @@
   "bizSchemaController": {
     "detail": "模型接口",
     "funs": {
+      "clone": {
+        "detail": "(cloneVo: SchemaCloneVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 复制模型\n   * @param cloneVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizSchemaVo>\n   */\n"
+      },
       "createGroup": {
         "detail": "(bizSchemaGroupVo: BizSchemaGroupVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 创建模型分组\n   * @param bizSchemaGroupVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizSchemaGroupVo>\n   */\n"
@@ -500,10 +524,6 @@
       "getCorrlationFormSchema": {
         "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取使用关联表单关联了指定模型的模型\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizSchemaVo>\n   */\n"
-      },
-      "getGroupTree": {
-        "detail": "(appCode: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取模型分组列表\n   * @param appCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizSchemaGroupVo>\n   */\n"
       },
       "getModelList": {
         "detail": "(appCode: string, requestConfig?: BAxiosRequestConfig)",
@@ -518,8 +538,8 @@
         "documentation": "  /**\n   * 获取模型详情\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyBizSchemaVo>\n   */\n"
       },
       "getSchemaMetadata": {
-        "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取模型元数据，包含数据项、及数据规则\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyBizSchemaVo>\n   */\n"
+        "detail": "(schemaCode: string, loadSelfObject?: boolean, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取已发布的模型元数据，包含数据项\n   * @param schemaCode\n   * @param loadSelfObject\n   * @param requestConfig\n   * @returns Promise<ResBodyBizSchemaVo>\n   */\n"
       },
       "lock": {
         "detail": "(codeVo: CodeVo, requestConfig?: BAxiosRequestConfig)",
@@ -629,6 +649,10 @@
         "detail": "(categroyId: string, keyword?: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 根据关键字获取业务服务列表\n   * @param categroyId\n   * @param keyword\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizServiceVo>\n   */\n"
       },
+      "groupList": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取所有业务服务分组\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListIdNameVo>\n   */\n"
+      },
       "listAll": {
         "detail": "(requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取所有业务服务\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizServiceVo>\n   */\n"
@@ -683,13 +707,17 @@
   "bizViewController": {
     "detail": "视图接口",
     "funs": {
+      "clone": {
+        "detail": "(cloneVo: BizViewCloneVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 复制\n   * @param cloneVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
+      },
       "create": {
         "detail": "(bizViewVo: BizViewVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 创建视图\n   * @param bizViewVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
       },
       "getViewInfo": {
-        "detail": "(bizViewQueryVo: BizViewQueryVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取视图详情，根据客户端类型返回视图配置\n   * @param bizViewQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
+        "detail": "(bizViewCodeVo: BizViewCodeVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取视图详情，根据客户端类型返回视图配置\n   * @param bizViewCodeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
       },
       "list": {
         "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
@@ -700,16 +728,16 @@
         "documentation": "  /**\n   * 发布视图\n   * @param bizViewVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
       },
       "remove": {
-        "detail": "(bizViewQueryVo: BizViewQueryVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 删除视图\n   * @param bizViewQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+        "detail": "(bizViewCodeVo: BizViewCodeVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除视图\n   * @param bizViewCodeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "rename": {
+        "detail": "(renameVo: BizViewSortNameVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 重命名\n   * @param renameVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       },
       "sort": {
         "detail": "(sortVo: BizViewSortVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 排序\n   * @param sortVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
-      },
-      "update": {
-        "detail": "(bizViewVo: BizViewVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 编辑视图\n   * @param bizViewVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizViewVo>\n   */\n"
       },
       "updateVisible": {
         "detail": "(bizViewVisibleVo: BizViewVisibleVo, requestConfig?: BAxiosRequestConfig)",
@@ -786,18 +814,6 @@
         "detail": "(parentId: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取完整组织树\n   * @param parentId\n   * @param requestConfig\n   * @returns Promise<ResBodyOrganizationChartVo>\n   */\n"
       },
-      "getChildList": {
-        "detail": "(queryChildDeptVo: QueryChildDeptVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 根据父级id获取子级部门列表\n   * @param queryChildDeptVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListDepartmentVo>\n   */\n"
-      },
-      "getDeptUserList": {
-        "detail": "(deptId: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取部门下用户列表\n   * @param deptId\n   * @param requestConfig\n   * @returns Promise<ResBodyListUserVo>\n   */\n"
-      },
-      "getDeptUserListByPage": {
-        "detail": "(pageSize: number, pageNum: number, deptId: string, keyword?: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 分页获取部门下用户列表\n   * @param pageSize\n   * @param pageNum\n   * @param deptId\n   * @param keyword\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOUserVo>\n   */\n"
-      },
       "listChildUnit": {
         "detail": "(parentId?: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 根据父级id获取子级部门列表\n   * @param parentId\n   * @param requestConfig\n   * @returns Promise<ResBodyUnitGroupVo>\n   */\n"
@@ -873,6 +889,77 @@
       }
     }
   },
+  "documentFileOpenApi": {
+    "detail": "openapi:文件管理接口",
+    "funs": {
+      "file": {
+        "detail": "(documentId: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 下载文件\n   * @param documentId\n   * @param requestConfig\n   * @returns Promise<any>\n   */\n"
+      },
+      "fileUpload": {
+        "detail": "(file: File, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 上传文件\n   * @param file\n   * @param requestConfig\n   * @returns Promise<ResBodyDocumentFileVo>\n   */\n"
+      },
+      "image": {
+        "detail": "(file: File, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 上传图片\n   * @param file\n   * @param requestConfig\n   * @returns Promise<ResBodyDocumentFileVo>\n   */\n"
+      }
+    }
+  },
+  "esbRuntimeOpenApi": {
+    "detail": "openapi:esb运行时接口",
+    "funs": {
+      "invoke": {
+        "detail": "(esbInvokeVo: EsbInvokeVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 调用esb接口\n   * @param esbInvokeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyobject>\n   */\n"
+      }
+    }
+  },
+  "esbServiceController": {
+    "detail": "ESB服务接口",
+    "funs": {
+      "batchListDefines": {
+        "detail": "(codes: string[], requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 批量获取esb服务的输入输出参数\n   * @param codes\n   * @param requestConfig\n   * @returns Promise<ResBodyListEsbServiceDefineVo>\n   */\n"
+      },
+      "create": {
+        "detail": "(esbServiceVo: EsbServiceVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 新建esb服务\n   * @param esbServiceVo\n   * @param requestConfig\n   * @returns Promise<ResBodyEsbServiceVo>\n   */\n"
+      },
+      "getByCode": {
+        "detail": "(code: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取esb服务详情\n   * @param code\n   * @param requestConfig\n   * @returns Promise<ResBodyEsbServiceVo>\n   */\n"
+      },
+      "getById": {
+        "detail": "(id: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取esb服务详情\n   * @param id\n   * @param requestConfig\n   * @returns Promise<ResBodyEsbServiceVo>\n   */\n"
+      },
+      "groupDelete": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除分组\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "groupRename": {
+        "detail": "(idNameVo: IdNameVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 分组重命名\n   * @param idNameVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "listByAclApp": {
+        "detail": "(appCode: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取指定应用有访问权限的esb服务列表\n   * @param appCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListEsbGroupVo>\n   */\n"
+      },
+      "listGroupBy": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 分组获取esb服务列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListEsbGroupVo>\n   */\n"
+      },
+      "remove": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除esb服务\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "update": {
+        "detail": "(esbServiceVo: EsbServiceVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 修改esb服务\n   * @param esbServiceVo\n   * @param requestConfig\n   * @returns Promise<ResBodyEsbServiceVo>\n   */\n"
+      }
+    }
+  },
   "excelController": {
     "detail": "Excel导入导出接口",
     "funs": {
@@ -929,16 +1016,16 @@
       "findByBizObjectId": {
         "detail": "(bizObjectId: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 根据表单id查询所属评论列表\n   * @param bizObjectId\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizFormCommentVo>\n   */\n"
-      },
-      "queryAtUser": {
-        "detail": "(atUserQueryVo: BizFormCommentVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 分页查询表单评论可@用户列表\n   * @param atUserQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOAtUserQueryResultVo>\n   */\n"
       }
     }
   },
   "formDesignController": {
     "detail": "表单管理接口",
     "funs": {
+      "clone": {
+        "detail": "(formCloneVo: FormCloneVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 复制表单\n   * @param formCloneVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizFormVo>\n   */\n"
+      },
       "create": {
         "detail": "(bizFormVo: BizFormVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 新建表单\n   * @param bizFormVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizFormVo>\n   */\n"
@@ -952,8 +1039,8 @@
         "documentation": "  /**\n   * 获取表单详情-加载表单设计\n   * @param schemaCode\n   * @param code\n   * @param requestConfig\n   * @returns Promise<ResBodyBizFormVo>\n   */\n"
       },
       "list": {
-        "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取表单列表\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizFormVo>\n   */\n"
+        "detail": "(schemaCode: string, published?: boolean, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取表单列表\n   * @param schemaCode\n   * @param published\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizFormVo>\n   */\n"
       },
       "modify": {
         "detail": "(bizFormVo: BizFormVo, requestConfig?: BAxiosRequestConfig)",
@@ -976,6 +1063,10 @@
         "detail": "(calculateList: CalculateVo[], requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 公式计算\n   * @param calculateList\n   * @param requestConfig\n   * @returns Promise<ResBodyListCalculateResultVo>\n   */\n"
       },
+      "delete": {
+        "detail": "(formDataDeleteVo: FormDataDeleteVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除数据\n   * @param formDataDeleteVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
       "loadBizData": {
         "detail": "(loadFormDataParamVo: LoadFormDataParamVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 加载业务表单数据\n   * @param loadFormDataParamVo\n   * @param requestConfig\n   * @returns Promise<ResBodyFormDataVo>\n   */\n"
@@ -997,8 +1088,8 @@
         "documentation": "  /**\n   * 表单提醒设置\n   * @param formRemindVo\n   * @param requestConfig\n   * @returns Promise<ResBodyFormRemindVo>\n   */\n"
       },
       "viewCorrelationForm": {
-        "detail": "(viewCode: string, schemaCode: string, bizObjectId: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 预览关联表单\n   * @param viewCode\n   * @param schemaCode\n   * @param bizObjectId\n   * @param requestConfig\n   * @returns Promise<ResBodyViewCorrelationFormVo>\n   */\n"
+        "detail": "(schemaCode: string, bizObjectId: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 预览关联表单\n   * @param schemaCode\n   * @param bizObjectId\n   * @param requestConfig\n   * @returns Promise<ResBodyViewCorrelationFormVo>\n   */\n"
       }
     }
   },
@@ -1059,6 +1150,10 @@
       "delete": {
         "detail": "(instanceIds: string[], requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 视图删除流程\n   * @param instanceIds\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "draft": {
+        "detail": "(startWorkflowVo: StartWorkflowVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 提交流程为草稿\n   * @param startWorkflowVo\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
       },
       "getOriginatorDepartments": {
         "detail": "(workflowCode: string, requestConfig?: BAxiosRequestConfig)",
@@ -1174,6 +1269,10 @@
   "jsSignController": {
     "detail": "js签名接口",
     "funs": {
+      "dingtalk": {
+        "detail": "(urlVo: UrlVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 钉钉js签名\n   * @param urlVo\n   * @param requestConfig\n   * @returns Promise<ResBodyDingtalkJsapiSignature>\n   */\n"
+      },
       "wechat": {
         "detail": "(urlVo: UrlVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 微信js签名\n   * @param urlVo\n   * @param requestConfig\n   * @returns Promise<ResBodyWxJsapiSignature>\n   */\n"
@@ -1238,17 +1337,27 @@
   "notifyController": {
     "detail": "第三方组织同步推送接口",
     "funs": {
-      "dingtalk": {
-        "detail": "(body: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 微信增量回调消息通知\n   * @param body\n   * @param requestConfig\n   * @returns Promise<any>\n   */\n"
-      },
-      "openapi": {
-        "detail": "(incrementNotifyVo: IncrementNotifyVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * openApi类型增量回调事件处理\n   * @param incrementNotifyVo\n   * @param requestConfig\n   * @returns Promise<ResBodyobject>\n   */\n"
-      },
-      "wechat": {
-        "detail": "(body?: string, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 微信增量回调消息通知\n   * @param body\n   * @param requestConfig\n   * @returns Promise<any>\n   */\n"
+      "notify": {
+        "detail": "(channel: string, body?: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 增量回调消息通知\n   * @param channel\n   * @param body\n   * @param requestConfig\n   * @returns Promise<any>\n   */\n"
+      }
+    }
+  },
+  "ocrConfigController": {
+    "detail": "ocr配置接口",
+    "funs": {
+      "getConfigs": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取ocr配置\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListOcrConfig>\n   */\n"
+      }
+    }
+  },
+  "ocrController": {
+    "detail": "ocr识别接口",
+    "funs": {
+      "recognize": {
+        "detail": "(paramVo: OcrRecognizeParamVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 识别\n   * @param paramVo\n   * @param requestConfig\n   * @returns Promise<ResBodyobject>\n   */\n"
       }
     }
   },
@@ -1285,6 +1394,10 @@
         "detail": "(requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取组织列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListOrganizationVo>\n   */\n"
       },
+      "getSupportConfig": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取支持的组织列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListSupportOrgConfigVO>\n   */\n"
+      },
       "record": {
         "detail": "(queryParams: OrgSyncRecordQueryVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 组织同步记录查询\n   * @param queryParams\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOOrgSyncRecordVo>\n   */\n"
@@ -1306,9 +1419,62 @@
   "organizationOpenApi": {
     "detail": "openapi:组织接口",
     "funs": {
+      "get": {
+        "detail": "(requestVo: OpenApiDeptGetRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 部门详情查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyOpenApiDeptResponseVo>\n   */\n"
+      },
+      "list": {
+        "detail": "(requestVo: OpenApiDeptQueryRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 部门列表查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListOpenApiDeptResponseVo>\n   */\n"
+      },
+      "getTag": {
+        "detail": "(requestVo: OpenApiTagGetRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 标签详情查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyOpenApiTagResponseVo>\n   */\n"
+      },
+      "listTag": {
+        "detail": "(requestVo: OpenApiTagQueryRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 标签列表查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListOpenApiTagResponseVo>\n   */\n"
+      },
+      "getTagGroup": {
+        "detail": "(requestVo: OpenApiTagGroupGetRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 标签组详情查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyOpenApiTagGroupResponseVo>\n   */\n"
+      },
+      "listTagGroup": {
+        "detail": "(requestVo: OpenApiTagGroupQueryRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 标签组列表查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListOpenApiTagGroupResponseVo>\n   */\n"
+      },
+      "getUser": {
+        "detail": "(requestVo: OpenApiUserGetRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 用户详情查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyOpenApiUserResponseVo>\n   */\n"
+      },
       "getByCode": {
         "detail": "(userCode: string, orgId: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 根据用户账号获取用户详情\n   * @param userCode\n   * @param orgId\n   * @param requestConfig\n   * @returns Promise<ResBodyUserVo>\n   */\n"
+      },
+      "listUser": {
+        "detail": "(requestVo: OpenApiUserQueryRequestVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 用户列表查询\n   * @param requestVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListOpenApiUserResponseVo>\n   */\n"
+      }
+    }
+  },
+  "organizationPushController": {
+    "detail": "组织推送接口",
+    "funs": {
+      "getList": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取组织列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListOrganizationPushConfigVo>\n   */\n"
+      },
+      "getPushConfigSupportList": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取支持的组织列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListSupportOrgConfigVO>\n   */\n"
+      },
+      "remove": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除组织监听配置\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "save": {
+        "detail": "(organizationPushConfigVo: OrganizationPushConfigVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 保存组织\n   * @param organizationPushConfigVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       }
     }
   },
@@ -1350,9 +1516,9 @@
   "portalSysDictController": {
     "detail": "运行态-字典管理-查询字典数据项",
     "funs": {
-      "listByDictId": {
-        "detail": "(dictId: string, status?: boolean, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 查询字典数据项列表\n   * @param dictId\n   * @param status\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemDictConfigVo>\n   */\n"
+      "getOptionsByCode": {
+        "detail": "(code: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 查询字典选项\n   * @param code\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemDictConfigVo>\n   */\n"
       }
     }
   },
@@ -1416,6 +1582,10 @@
       "list": {
         "detail": "(requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 删除常用审批附件\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListUserCommonsVo>\n   */\n"
+      },
+      "update": {
+        "detail": "(userVo: PortalUserUpdateVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 修改用户信息\n   * @param userVo\n   * @param requestConfig\n   * @returns Promise<ResBodyUserVo>\n   */\n"
       }
     }
   },
@@ -1556,13 +1726,33 @@
         "detail": "(dictId: string, status?: boolean, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 查询字典数据项列表\n   * @param dictId\n   * @param status\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemDictConfigVo>\n   */\n"
       },
+      "delete": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "deleteGroup": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除分组\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
       "get": {
         "detail": "(id: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 查询字典详情\n   * @param id\n   * @param requestConfig\n   * @returns Promise<ResBodySystemDictVo>\n   */\n"
       },
-      "page": {
-        "detail": "(systemDictQueryVo: SystemDictQueryVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 分页查询数据字典列表\n   * @param systemDictQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOSystemDictVo>\n   */\n"
+      "getOptionsByCode": {
+        "detail": "(code: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 根据编码查询字典选项\n   * @param code\n   * @param requestConfig\n   * @returns Promise<ResBodySystemDictVo>\n   */\n"
+      },
+      "listAllGroup": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取分组列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemDictGroupVo>\n   */\n"
+      },
+      "listGroupBy": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 分组获取数据字典列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemDictGroupVo>\n   */\n"
+      },
+      "sort": {
+        "detail": "(systemDictSortVo: SystemDictSortVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 字典排序\n   * @param systemDictSortVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       },
       "update": {
         "detail": "(systemDictVo: SystemDictVo, requestConfig?: BAxiosRequestConfig)",
@@ -1615,6 +1805,10 @@
         "detail": "(tagId: string, pageSize: number, pageNum: number, keyword?: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 分页获取标签下的用户列表\n   * @param tagId\n   * @param pageSize\n   * @param pageNum\n   * @param keyword\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOTagUnitVo>\n   */\n"
       },
+      "listGroup": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取所有自建的标签组\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListIdNameVo>\n   */\n"
+      },
       "removeGroup": {
         "detail": "(ids: string[], requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 删除标签组\n   * @param ids\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
@@ -1642,6 +1836,27 @@
       "updateTag": {
         "detail": "(tagUpdateVo: TagUpdateVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 保存标签\n   * @param tagUpdateVo\n   * @param requestConfig\n   * @returns Promise<ResBodyTagVo>\n   */\n"
+      },
+      "updateTagUserOuScopes": {
+        "detail": "(tagUnitOuScopeVo: TagUnitOuScopeVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 修改标签用户管理范围\n   * @param tagUnitOuScopeVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      }
+    }
+  },
+  "temporaryController": {
+    "detail": "暂存数据接口",
+    "funs": {
+      "clear": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 清除用户暂存数据\n\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "delete": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除暂存数据\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "pageList": {
+        "detail": "(pageQueryVo: PageQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 分页获取用户暂存数据列表\n   * @param pageQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOBizTemporaryVo>\n   */\n"
       }
     }
   },
@@ -1768,7 +1983,7 @@
       },
       "temporary": {
         "detail": "(workItemSubmitVo: WorkItemSubmitVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * undefined\n   * @param workItemSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+        "documentation": "  /**\n   * undefined\n   * @param workItemSubmitVo\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
       },
       "transfer": {
         "detail": "(workItemTransferVo: WorkItemTransferVo, requestConfig?: BAxiosRequestConfig)",
@@ -1938,10 +2153,6 @@
       "searchCirculateWorkItems": {
         "detail": "(searchWorkItemVo: SearchWorkItemVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取待阅任务列表\n   * @param searchWorkItemVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOWorkItemVo>\n   */\n"
-      },
-      "searchHistoricCirculateWorkItems": {
-        "detail": "(searchWorkItemVo: SearchWorkItemVo, requestConfig?: BAxiosRequestConfig)",
-        "documentation": "  /**\n   * 获取已阅任务列表\n   * @param searchWorkItemVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOWorkItemVo>\n   */\n"
       },
       "searchHistoricWorkItems": {
         "detail": "(searchWorkItemVo: SearchWorkItemVo, requestConfig?: BAxiosRequestConfig)",

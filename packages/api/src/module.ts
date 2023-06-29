@@ -69,70 +69,18 @@ export enum BizMenuVoType {
   VIEW = 'VIEW',
   LINK = 'LINK',
 }
-export enum BizObjectFilterVoOp {
-  EQUAL = 'EQUAL',
-  NOT_EQUAL = 'NOT_EQUAL',
-  GREATER_THAN = 'GREATER_THAN',
-  GREATER_THAN_OR_EQUAL_TO = 'GREATER_THAN_OR_EQUAL_TO',
-  LESS_THAN = 'LESS_THAN',
-  LESS_THAN_OR_EQUAL_TO = 'LESS_THAN_OR_EQUAL_TO',
-  CONTAINS = 'CONTAINS',
-  NOT_CONTAINS = 'NOT_CONTAINS',
-  LOCATED = 'LOCATED',
-  NOT_LOCATED = 'NOT_LOCATED',
-  BETWEEN = 'BETWEEN',
-  NOT_BETWEEN = 'NOT_BETWEEN',
-  EMPTY = 'EMPTY',
-  NOT_EMPTY = 'NOT_EMPTY',
-  BELONG_TO = 'BELONG_TO',
-  BELONG_TO_OR = 'BELONG_TO_OR',
-  NOT_BELONG_TO = 'NOT_BELONG_TO',
-  HAVA = 'HAVA',
-  NOT_HAVA = 'NOT_HAVA',
-  DYNAMIC = 'DYNAMIC',
-}
-export enum BizObjectFilterVoPropertyType {
-  ID = 'ID',
-  NAME = 'NAME',
-  CREATOR = 'CREATOR',
-  CREATOR_DEPARTMENT = 'CREATOR_DEPARTMENT',
-  CREATED_TIME = 'CREATED_TIME',
-  MODIFIER = 'MODIFIER',
-  MODIFIED_TIME = 'MODIFIED_TIME',
-  OWNER = 'OWNER',
-  OWNER_DEPARTMENT = 'OWNER_DEPARTMENT',
-  SEQUENCE_NO = 'SEQUENCE_NO',
-  SEQUENCE_STATUS = 'SEQUENCE_STATUS',
-  SELF_OBJECT = 'SELF_OBJECT',
-  INSTANCE_ID = 'INSTANCE_ID',
-  TEXT = 'TEXT',
-  RADIO = 'RADIO',
-  CHECKBOX = 'CHECKBOX',
-  DROPDOWN = 'DROPDOWN',
-  MULTI_DROPDOWN = 'MULTI_DROPDOWN',
-  TEXTAREA = 'TEXTAREA',
-  RICHTEXT = 'RICHTEXT',
-  NUMBER = 'NUMBER',
-  DATE = 'DATE',
-  LOGIC = 'LOGIC',
-  STAFF_SELECTOR = 'STAFF_SELECTOR',
-  STAFF_MULTI_SELECTOR = 'STAFF_MULTI_SELECTOR',
-  DEPARTMENT_SELECTOR = 'DEPARTMENT_SELECTOR',
-  DEPARTMENT_MULTI_SELECTOR = 'DEPARTMENT_MULTI_SELECTOR',
-  STAFF_DEPARTMENT_SELECTOR = 'STAFF_DEPARTMENT_SELECTOR',
-  ADDRESS = 'ADDRESS',
-  LOCATION = 'LOCATION',
-  ATTACHMENT = 'ATTACHMENT',
-  IMAGE = 'IMAGE',
-  SIGNATURE = 'SIGNATURE',
-  CORRELATION_FORM = 'CORRELATION_FORM',
-  CORRELATION_MULTI_FORM = 'CORRELATION_MULTI_FORM',
-  SHEET = 'SHEET',
-}
 export enum BizObjectSortVoSortType {
   ASC = 'ASC',
   DESC = 'DESC',
   DEFAULT = 'DEFAULT',
+}
+export enum BizPropertyVoCorrelationPropertyWay {
+  SELECT = 'SELECT',
+  CREATE = 'CREATE',
+}
+export enum BizPropertyVoCorrelationType {
+  MASTER_SLAVE = 'MASTER_SLAVE',
+  UNION_RELATION = 'UNION_RELATION',
 }
 export enum BizPropertyVoPropertyType {
   ID = 'ID',
@@ -183,165 +131,10 @@ export enum BizSchemaEventVoEventType {
   LOAD = 'LOAD',
   LIST = 'LIST',
 }
-export enum BizViewActionVoActionType {
-  QUERY = 'QUERY',
-  ADD = 'ADD',
-  EDIT = 'EDIT',
-  DELETE = 'DELETE',
-  IMPORT = 'IMPORT',
-  EXPORT = 'EXPORT',
-  QR_CODE = 'QR_CODE',
-  EDIT_OWNER = 'EDIT_OWNER',
-  BATCH_PRINT = 'BATCH_PRINT',
-  BATCH_EDIT = 'BATCH_EDIT',
-  CUSTOM = 'CUSTOM',
-}
-export enum BizViewActionVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
-}
-export enum BizViewActionVoCorrelationType {
+export enum BizTemporaryVoTempType {
   BIZFORM = 'BIZFORM',
   WORKFLOW = 'WORKFLOW',
-}
-export enum BizViewColumnVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
-}
-export enum BizViewColumnVoPropertyType {
-  ID = 'ID',
-  NAME = 'NAME',
-  CREATOR = 'CREATOR',
-  CREATOR_DEPARTMENT = 'CREATOR_DEPARTMENT',
-  CREATED_TIME = 'CREATED_TIME',
-  MODIFIER = 'MODIFIER',
-  MODIFIED_TIME = 'MODIFIED_TIME',
-  OWNER = 'OWNER',
-  OWNER_DEPARTMENT = 'OWNER_DEPARTMENT',
-  SEQUENCE_NO = 'SEQUENCE_NO',
-  SEQUENCE_STATUS = 'SEQUENCE_STATUS',
-  SELF_OBJECT = 'SELF_OBJECT',
-  INSTANCE_ID = 'INSTANCE_ID',
-  TEXT = 'TEXT',
-  RADIO = 'RADIO',
-  CHECKBOX = 'CHECKBOX',
-  DROPDOWN = 'DROPDOWN',
-  MULTI_DROPDOWN = 'MULTI_DROPDOWN',
-  TEXTAREA = 'TEXTAREA',
-  RICHTEXT = 'RICHTEXT',
-  NUMBER = 'NUMBER',
-  DATE = 'DATE',
-  LOGIC = 'LOGIC',
-  STAFF_SELECTOR = 'STAFF_SELECTOR',
-  STAFF_MULTI_SELECTOR = 'STAFF_MULTI_SELECTOR',
-  DEPARTMENT_SELECTOR = 'DEPARTMENT_SELECTOR',
-  DEPARTMENT_MULTI_SELECTOR = 'DEPARTMENT_MULTI_SELECTOR',
-  STAFF_DEPARTMENT_SELECTOR = 'STAFF_DEPARTMENT_SELECTOR',
-  ADDRESS = 'ADDRESS',
-  LOCATION = 'LOCATION',
-  ATTACHMENT = 'ATTACHMENT',
-  IMAGE = 'IMAGE',
-  SIGNATURE = 'SIGNATURE',
-  CORRELATION_FORM = 'CORRELATION_FORM',
-  CORRELATION_MULTI_FORM = 'CORRELATION_MULTI_FORM',
-  SHEET = 'SHEET',
-}
-export enum BizViewConditionVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
-}
-export enum BizViewConditionVoPropertyType {
-  ID = 'ID',
-  NAME = 'NAME',
-  CREATOR = 'CREATOR',
-  CREATOR_DEPARTMENT = 'CREATOR_DEPARTMENT',
-  CREATED_TIME = 'CREATED_TIME',
-  MODIFIER = 'MODIFIER',
-  MODIFIED_TIME = 'MODIFIED_TIME',
-  OWNER = 'OWNER',
-  OWNER_DEPARTMENT = 'OWNER_DEPARTMENT',
-  SEQUENCE_NO = 'SEQUENCE_NO',
-  SEQUENCE_STATUS = 'SEQUENCE_STATUS',
-  SELF_OBJECT = 'SELF_OBJECT',
-  INSTANCE_ID = 'INSTANCE_ID',
-  TEXT = 'TEXT',
-  RADIO = 'RADIO',
-  CHECKBOX = 'CHECKBOX',
-  DROPDOWN = 'DROPDOWN',
-  MULTI_DROPDOWN = 'MULTI_DROPDOWN',
-  TEXTAREA = 'TEXTAREA',
-  RICHTEXT = 'RICHTEXT',
-  NUMBER = 'NUMBER',
-  DATE = 'DATE',
-  LOGIC = 'LOGIC',
-  STAFF_SELECTOR = 'STAFF_SELECTOR',
-  STAFF_MULTI_SELECTOR = 'STAFF_MULTI_SELECTOR',
-  DEPARTMENT_SELECTOR = 'DEPARTMENT_SELECTOR',
-  DEPARTMENT_MULTI_SELECTOR = 'DEPARTMENT_MULTI_SELECTOR',
-  STAFF_DEPARTMENT_SELECTOR = 'STAFF_DEPARTMENT_SELECTOR',
-  ADDRESS = 'ADDRESS',
-  LOCATION = 'LOCATION',
-  ATTACHMENT = 'ATTACHMENT',
-  IMAGE = 'IMAGE',
-  SIGNATURE = 'SIGNATURE',
-  CORRELATION_FORM = 'CORRELATION_FORM',
-  CORRELATION_MULTI_FORM = 'CORRELATION_MULTI_FORM',
-  SHEET = 'SHEET',
-}
-export enum BizViewQueryVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
-}
-export enum BizViewSortVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
-}
-export enum BizViewSortVoPropertyType {
-  ID = 'ID',
-  NAME = 'NAME',
-  CREATOR = 'CREATOR',
-  CREATOR_DEPARTMENT = 'CREATOR_DEPARTMENT',
-  CREATED_TIME = 'CREATED_TIME',
-  MODIFIER = 'MODIFIER',
-  MODIFIED_TIME = 'MODIFIED_TIME',
-  OWNER = 'OWNER',
-  OWNER_DEPARTMENT = 'OWNER_DEPARTMENT',
-  SEQUENCE_NO = 'SEQUENCE_NO',
-  SEQUENCE_STATUS = 'SEQUENCE_STATUS',
-  SELF_OBJECT = 'SELF_OBJECT',
-  INSTANCE_ID = 'INSTANCE_ID',
-  TEXT = 'TEXT',
-  RADIO = 'RADIO',
-  CHECKBOX = 'CHECKBOX',
-  DROPDOWN = 'DROPDOWN',
-  MULTI_DROPDOWN = 'MULTI_DROPDOWN',
-  TEXTAREA = 'TEXTAREA',
-  RICHTEXT = 'RICHTEXT',
-  NUMBER = 'NUMBER',
-  DATE = 'DATE',
-  LOGIC = 'LOGIC',
-  STAFF_SELECTOR = 'STAFF_SELECTOR',
-  STAFF_MULTI_SELECTOR = 'STAFF_MULTI_SELECTOR',
-  DEPARTMENT_SELECTOR = 'DEPARTMENT_SELECTOR',
-  DEPARTMENT_MULTI_SELECTOR = 'DEPARTMENT_MULTI_SELECTOR',
-  STAFF_DEPARTMENT_SELECTOR = 'STAFF_DEPARTMENT_SELECTOR',
-  ADDRESS = 'ADDRESS',
-  LOCATION = 'LOCATION',
-  ATTACHMENT = 'ATTACHMENT',
-  IMAGE = 'IMAGE',
-  SIGNATURE = 'SIGNATURE',
-  CORRELATION_FORM = 'CORRELATION_FORM',
-  CORRELATION_MULTI_FORM = 'CORRELATION_MULTI_FORM',
-  SHEET = 'SHEET',
-}
-export enum BizViewSortVoSortType {
-  ASC = 'ASC',
-  DESC = 'DESC',
-  DEFAULT = 'DEFAULT',
-}
-export enum BizViewVoClientType {
-  PC = 'PC',
-  MOBILE = 'MOBILE',
+  WORKITEM = 'WORKITEM',
 }
 export enum CalculateVoPropertyType {
   ID = 'ID',
@@ -435,6 +228,7 @@ export enum DepartmentVoUnitType {
   DEPARTMENT = 'DEPARTMENT',
   ORGANIZATION = 'ORGANIZATION',
   TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
 }
 export enum DimensionPropertyVoDataType {
   ID = 'ID',
@@ -479,6 +273,20 @@ export enum DimensionPropertyVoType {
   DATE = 'DATE',
   NUMBER = 'NUMBER',
 }
+export enum EsbServiceVoExternalAppAclType {
+  NONE = 'NONE',
+  SOME = 'SOME',
+  ALL = 'ALL',
+}
+export enum EsbServiceVoInternalAppAclType {
+  NONE = 'NONE',
+  SOME = 'SOME',
+  ALL = 'ALL',
+}
+export enum EsbServiceVoWorkerType {
+  BIZ_BUS = 'BIZ_BUS',
+  BIZ_RULE = 'BIZ_RULE',
+}
 export enum ExportProgressVoStatus {
   ERROR = 'ERROR',
   PROGRESS = 'PROGRESS',
@@ -496,6 +304,7 @@ export enum ExportVoType {
   BIZ_BUS_SERVICE_EXPORT = 'BIZ_BUS_SERVICE_EXPORT',
   BIZ_BUS_DATASOURCE_EXPORT = 'BIZ_BUS_DATASOURCE_EXPORT',
   BIZ_BUS_REPORT_DS_EXPORT = 'BIZ_BUS_REPORT_DS_EXPORT',
+  SYSTEM_DICT = 'SYSTEM_DICT',
 }
 export enum FormDataVoFormTypeEnum {
   BIZFORM = 'BIZFORM',
@@ -519,6 +328,7 @@ export enum FunTreeVoFunType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
 }
 export enum ImportProgressVoStatus {
   ERROR = 'ERROR',
@@ -532,11 +342,13 @@ export enum ImportVoType {
   ORGANIZATION_DEPT_USER_IMPORT = 'ORGANIZATION_DEPT_USER_IMPORT',
   DASHBOARD_IMPORT = 'DASHBOARD_IMPORT',
   SCHEMA_IMPORT = 'SCHEMA_IMPORT',
+  SCHEMA_PROPERTY_IMPORT = 'SCHEMA_PROPERTY_IMPORT',
   APP_IMPORT = 'APP_IMPORT',
   FORM_DATA_IMPORT = 'FORM_DATA_IMPORT',
   BIZ_BUS_SERVICE_IMPORT = 'BIZ_BUS_SERVICE_IMPORT',
   BIZ_BUS_DATASOURCE_IMPORT = 'BIZ_BUS_DATASOURCE_IMPORT',
   BIZ_BUS_REPORT_DS_IMPORT = 'BIZ_BUS_REPORT_DS_IMPORT',
+  SYSTEM_DICT = 'SYSTEM_DICT',
 }
 export enum InstanceActivityVoActivityStatus {
   PROCESSING = 'PROCESSING',
@@ -560,6 +372,7 @@ export enum JsonSchemaOp {
   EQUAL = 'EQUAL',
   ADD = 'ADD',
   SUBTRACT = 'SUBTRACT',
+  APPEND = 'APPEND',
 }
 export enum JsonSchemaValueType {
   FIXED = 'FIXED',
@@ -636,6 +449,7 @@ export enum ModelFunRenameVoType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
 }
 export enum ModelFunSortVoType {
   APP_GROUP = 'APP_GROUP',
@@ -645,6 +459,7 @@ export enum ModelFunSortVoType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
 }
 export enum OlapQueryVoAuthorization {
   ALL = 'ALL',
@@ -662,10 +477,17 @@ export enum OpenApiSearchWorkItemVoInstanceStatus {
   EXCEPTION = 'EXCEPTION',
   TEMPORARY = 'TEMPORARY',
 }
-export enum OpenApiSearchWorkItemVoSearchWorkItemStatus {
-  SUSPEND = 'SUSPEND',
-  PROCESSING = 'PROCESSING',
-  FINISHED = 'FINISHED',
+export enum OpenApiSearchWorkItemVoSearchWorkItemType {
+  TASK = 'TASK',
+  READ = 'READ',
+}
+export enum OpenApiSearchWorkItemVoStatus {
+  PENDING = 'PENDING',
+  AGREE = 'AGREE',
+  DISAGREE = 'DISAGREE',
+  REJECT = 'REJECT',
+  TRANSFERRED = 'TRANSFERRED',
+  REVOKE = 'REVOKE',
   CANCELED = 'CANCELED',
 }
 export enum OrgAscriptionCheckVoOp {
@@ -694,6 +516,22 @@ export enum OrgSyncRecordVoSyncType {
   FULL_SYNC = 'FULL_SYNC',
   INCREMENT_SYNC = 'INCREMENT_SYNC',
 }
+export enum OrganizationPushConfigVoListenEventList {
+  ADD_DEPARTMENT = 'ADD_DEPARTMENT',
+  UPDATE_DEPARTMENT = 'UPDATE_DEPARTMENT',
+  DELETE_DEPARTMENT = 'DELETE_DEPARTMENT',
+  ADD_USER = 'ADD_USER',
+  UPDATE_USER = 'UPDATE_USER',
+  DELETE_USER = 'DELETE_USER',
+  ADD_TAG_GROUP = 'ADD_TAG_GROUP',
+  UPDATE_TAG_GROUP = 'UPDATE_TAG_GROUP',
+  DELETE_TAG_GROUP = 'DELETE_TAG_GROUP',
+  ADD_TAG = 'ADD_TAG',
+  UPDATE_TAG = 'UPDATE_TAG',
+  DELETE_TAG = 'DELETE_TAG',
+  TAG_ADD_USER = 'TAG_ADD_USER',
+  TAG_REMOVE_USER = 'TAG_REMOVE_USER',
+}
 export enum ParticipantVoWorkItemType {
   NORMAL = 'NORMAL',
   TRANSFERRED = 'TRANSFERRED',
@@ -720,6 +558,7 @@ export enum QuickLinkFunVoType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
 }
 export enum QuickLinkVoFunType {
   APP_GROUP = 'APP_GROUP',
@@ -729,6 +568,45 @@ export enum QuickLinkVoFunType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
+}
+export enum RelationTargetType {
+  ID = 'ID',
+  NAME = 'NAME',
+  CREATOR = 'CREATOR',
+  CREATOR_DEPARTMENT = 'CREATOR_DEPARTMENT',
+  CREATED_TIME = 'CREATED_TIME',
+  MODIFIER = 'MODIFIER',
+  MODIFIED_TIME = 'MODIFIED_TIME',
+  OWNER = 'OWNER',
+  OWNER_DEPARTMENT = 'OWNER_DEPARTMENT',
+  SEQUENCE_NO = 'SEQUENCE_NO',
+  SEQUENCE_STATUS = 'SEQUENCE_STATUS',
+  SELF_OBJECT = 'SELF_OBJECT',
+  INSTANCE_ID = 'INSTANCE_ID',
+  TEXT = 'TEXT',
+  RADIO = 'RADIO',
+  CHECKBOX = 'CHECKBOX',
+  DROPDOWN = 'DROPDOWN',
+  MULTI_DROPDOWN = 'MULTI_DROPDOWN',
+  TEXTAREA = 'TEXTAREA',
+  RICHTEXT = 'RICHTEXT',
+  NUMBER = 'NUMBER',
+  DATE = 'DATE',
+  LOGIC = 'LOGIC',
+  STAFF_SELECTOR = 'STAFF_SELECTOR',
+  STAFF_MULTI_SELECTOR = 'STAFF_MULTI_SELECTOR',
+  DEPARTMENT_SELECTOR = 'DEPARTMENT_SELECTOR',
+  DEPARTMENT_MULTI_SELECTOR = 'DEPARTMENT_MULTI_SELECTOR',
+  STAFF_DEPARTMENT_SELECTOR = 'STAFF_DEPARTMENT_SELECTOR',
+  ADDRESS = 'ADDRESS',
+  LOCATION = 'LOCATION',
+  ATTACHMENT = 'ATTACHMENT',
+  IMAGE = 'IMAGE',
+  SIGNATURE = 'SIGNATURE',
+  CORRELATION_FORM = 'CORRELATION_FORM',
+  CORRELATION_MULTI_FORM = 'CORRELATION_MULTI_FORM',
+  SHEET = 'SHEET',
 }
 export enum SaveWorkflowTemplateVoVisibleType {
   ALL = 'ALL',
@@ -762,6 +640,7 @@ export enum SchemaPermissionResourceFunType {
   MENU = 'MENU',
   DASHBOARD = 'DASHBOARD',
   WORKFLOW = 'WORKFLOW',
+  BIZ_RULE = 'BIZ_RULE',
 }
 export enum SearchJobVoTriggerStatus {
   RUNNING = 'RUNNING',
@@ -774,19 +653,25 @@ export enum SearchWorkItemVoInstanceStatus {
   EXCEPTION = 'EXCEPTION',
   TEMPORARY = 'TEMPORARY',
 }
-export enum SearchWorkItemVoSearchWorkItemStatus {
-  SUSPEND = 'SUSPEND',
-  PROCESSING = 'PROCESSING',
-  FINISHED = 'FINISHED',
+export enum SearchWorkItemVoSearchWorkItemType {
+  TASK = 'TASK',
+  READ = 'READ',
+}
+export enum SearchWorkItemVoStatus {
+  PENDING = 'PENDING',
+  AGREE = 'AGREE',
+  DISAGREE = 'DISAGREE',
+  REJECT = 'REJECT',
+  TRANSFERRED = 'TRANSFERRED',
+  REVOKE = 'REVOKE',
   CANCELED = 'CANCELED',
 }
-export enum SearchWorkflowInstanceVoSearchWorkflowInstanceStatus {
+export enum SearchWorkflowInstanceVoStatus {
   PROCESSING = 'PROCESSING',
   FINISHED = 'FINISHED',
   CANCELED = 'CANCELED',
   EXCEPTION = 'EXCEPTION',
   TEMPORARY = 'TEMPORARY',
-  ALL = 'ALL',
 }
 export enum ShortLinkType {
   BIZFORM = 'BIZFORM',
@@ -859,10 +744,6 @@ export enum SysJobVoTriggerStatus {
   RUNNING = 'RUNNING',
   STOP = 'STOP',
 }
-export enum SystemDictQueryVoType {
-  KEY_VALUE = 'KEY_VALUE',
-  TREE = 'TREE',
-}
 export enum SystemDictVoType {
   KEY_VALUE = 'KEY_VALUE',
   TREE = 'TREE',
@@ -877,29 +758,33 @@ export enum TagTreeVoNodeType {
   GROUP = 'GROUP',
   TAG = 'TAG',
 }
+export enum UnitBoType {
+  USER = 'USER',
+  DEPARTMENT = 'DEPARTMENT',
+  ORGANIZATION = 'ORGANIZATION',
+  TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
+}
 export enum UnitTreeSearchVoUnitType {
   USER = 'USER',
   DEPARTMENT = 'DEPARTMENT',
   ORGANIZATION = 'ORGANIZATION',
   TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
 }
 export enum UnitTreeVoUnitType {
   USER = 'USER',
   DEPARTMENT = 'DEPARTMENT',
   ORGANIZATION = 'ORGANIZATION',
   TAG = 'TAG',
-}
-export enum UnitValueType {
-  USER = 'USER',
-  DEPARTMENT = 'DEPARTMENT',
-  ORGANIZATION = 'ORGANIZATION',
-  TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
 }
 export enum UnitVoType {
   USER = 'USER',
   DEPARTMENT = 'DEPARTMENT',
   ORGANIZATION = 'ORGANIZATION',
   TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
 }
 export enum UserTransferVoTransferType {
   APP = 'APP',
@@ -915,6 +800,7 @@ export enum UserVoUnitType {
   DEPARTMENT = 'DEPARTMENT',
   ORGANIZATION = 'ORGANIZATION',
   TAG = 'TAG',
+  TAG_GROUP = 'TAG_GROUP',
 }
 export enum ValidateErrorMessageVoErrorLevel {
   WARN = 'WARN',
@@ -1008,6 +894,14 @@ export interface ActionPermissionVo {
    * 结束流程
    */
   close?: boolean;
+  /**
+   * 删除
+   */
+  delete?: boolean;
+  /**
+   * 清除暂存
+   */
+  deleteTemporary?: boolean;
   /**
    * 不同意
    */
@@ -1164,6 +1058,10 @@ export interface AdminRolePermissionRangeVo {
    */
   scopeUnits?: UnitVo[];
   /**
+   * 数据字典管理范围
+   */
+  systemDictList?: CodeNameVo[];
+  /**
    * 扩展字段
    */
   [key: string]: any;
@@ -1216,6 +1114,10 @@ export interface AdminRolePermissionVo {
    * 组织管辖范围
    */
   scopeUnits?: UnitVo[];
+  /**
+   * 数据字典管理范围
+   */
+  systemDictList?: string[];
   /**
    * 扩展字段
    */
@@ -1572,27 +1474,6 @@ export interface ApprovalLogVo {
   [key: string]: any;
 }
 /**
- *表单评论可@用户vo
- */
-export interface AtUserQueryResultVo {
-  /**
-   * 用户头像
-   */
-  avatar?: string;
-  /**
-   * 用户id
-   */
-  userId?: string;
-  /**
-   * 用户名称
-   */
-  userName?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
  *批量新增部门vo
  */
 export interface BatchDeptInsertVo {
@@ -1604,6 +1485,35 @@ export interface BatchDeptInsertVo {
    * 上级部门id
    */
   parentId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *批量获取模型参数VO
+ */
+export interface BatchListSchemaParamVo {
+  /**
+   * 是否加载关联表单数据项
+   */
+  loadCorrelationFrom?: boolean;
+  /**
+   * 是否加载当前对象字段
+   */
+  loadSelfObject?: boolean;
+  /**
+   * 是否加载系统数据项
+   */
+  loadSysProperty?: boolean;
+  /**
+   * 模型编码
+   */
+  schemaCodes?: string[];
+  /**
+   * 流程编码
+   */
+  workflowCodes?: string[];
   /**
    * 扩展字段
    */
@@ -1900,7 +1810,7 @@ export interface BizFormCommentVo {
   /**
    * @用户信息列表
    */
-  receiveUserList?: UnitValue[];
+  receiveUserList?: UnitBo[];
   /**
    * 回复的评论id
    */
@@ -2119,40 +2029,6 @@ export interface BizMethodInvokeVo {
   [key: string]: any;
 }
 /**
- *undefined
- */
-export interface BizObjectBo {
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *业务对象过滤条件Vo
- */
-export interface BizObjectFilterVo {
-  /**
-   * 操作符
-   */
-  op?: BizObjectFilterVoOp;
-  /**
-   * 数据项编码
-   */
-  propertyCode?: string;
-  /**
-   * 数据项类型
-   */
-  propertyType?: BizObjectFilterVoPropertyType;
-  /**
-   * 条件值
-   */
-  values?: any[];
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
  *业务数据id对象Vo
  */
 export interface BizObjectIdVo {
@@ -2182,6 +2058,10 @@ export interface BizObjectIdsVo {
    */
   schemaCode?: string;
   /**
+   * 暂存数据id
+   */
+  tid?: string;
+  /**
    * 扩展字段
    */
   [key: string]: any;
@@ -2191,6 +2071,10 @@ export interface BizObjectIdsVo {
  */
 export interface BizObjectQueryVo {
   /**
+   * 查询条件
+   */
+  conditions?: ConditionItem[][];
+  /**
    * 是否去重
    */
   distinct?: boolean;
@@ -2199,9 +2083,13 @@ export interface BizObjectQueryVo {
    */
   fields?: string[];
   /**
-   * 过滤条件
+   * 数据过滤
    */
-  filters?: BizObjectFilterVo[];
+  filters?: ConditionItem[][];
+  /**
+   * 数据限定
+   */
+  limitation?: ConditionItem[][];
   /**
    * 开始页数
    */
@@ -2218,6 +2106,10 @@ export interface BizObjectQueryVo {
    * 排序条件
    */
   sorts?: BizObjectSortVo[];
+  /**
+   * 树形区域筛选
+   */
+  treeCriterias?: ConditionItem[][];
   /**
    * 扩展字段
    */
@@ -2290,6 +2182,10 @@ export interface BizObjectSubmitVo {
    */
   sheetDatas?: BizObjectSheetSubmitVo[];
   /**
+   * 暂存数据id
+   */
+  tid?: string;
+  /**
    * 扩展字段
    */
   [key: string]: any;
@@ -2322,14 +2218,6 @@ export interface BizPropertyFormulaVo {
    * 模型编码
    */
   schemaCode?: string;
-  /**
-   * 子表编码
-   */
-  sheetCode?: string;
-  /**
-   * 子表名称
-   */
-  sheetName?: string;
   /**
    * 扩展字段
    */
@@ -2377,21 +2265,37 @@ export interface BizPropertyVo {
    */
   correlationFormSchemaCode?: string;
   /**
-   * 关联模型关联字段
+   * 关联模型关联字段编码
    */
   correlationPropertyCode?: string;
+  /**
+   * 关联模型关联字段名称
+   */
+  correlationPropertyName?: string;
+  /**
+   * 关联模型关联字段的关联方式
+   */
+  correlationPropertyWay?: BizPropertyVoCorrelationPropertyWay;
+  /**
+   * 关联关系，关联类型为'UNION_RELATION'时有值
+   */
+  correlationRelations?: Relation[];
   /**
    * 关联模型所属应用名称（子表/关联表单）
    */
   correlationSchemaAppName?: string;
   /**
-   * 关联模型编码字段
+   * 关联模型编码
    */
   correlationSchemaCode?: string;
   /**
    * 关联模型名称（子表/关联表单）
    */
   correlationSchemaName?: string;
+  /**
+   * 关联类型，默认主从
+   */
+  correlationType?: BizPropertyVoCorrelationType;
   /**
    * 显示格式
    */
@@ -2405,10 +2309,6 @@ export interface BizPropertyVo {
    */
   id?: string;
   /**
-   * 主模型编码
-   */
-  mainSchemaCode?: string;
-  /**
    * 名称
    */
   name?: string;
@@ -2416,6 +2316,10 @@ export interface BizPropertyVo {
    * 选项
    */
   option?: PropertyOption;
+  /**
+   * 父级数据项编码
+   */
+  parentCode?: string;
   /**
    * 是否创建索引
    */
@@ -2444,10 +2348,6 @@ export interface BizPropertyVo {
    * 单据号规则
    */
   sequenceNoRule?: any;
-  /**
-   * 子表编码
-   */
-  sheetCode?: string;
   /**
    * 排序索引
    */
@@ -3013,209 +2913,75 @@ export interface BizServiceVo {
   [key: string]: any;
 }
 /**
- *视图操作按钮对象
+ *暂存数据VO
  */
-export interface BizViewActionVo {
+export interface BizTemporaryVo {
   /**
-   * 动作编码
+   * 表单编码，业务数据暂存时有值
    */
-  actionCode?: string;
+  formCode?: string;
   /**
-   * 动作名称
-   */
-  actionName?: string;
-  /**
-   * 动作类型
-   */
-  actionType?: BizViewActionVoActionType;
-  /**
-   * 客户端类型
-   */
-  clientType?: BizViewActionVoClientType;
-  /**
-   * 关联编码，表单编码或流程编码
-   */
-  correlationCode?: string;
-  /**
-   * 关联类型
-   */
-  correlationType?: BizViewActionVoCorrelationType;
-  /**
-   * 主键
+   * ID
    */
   id?: string;
   /**
-   * 模型编码
+   * 模型编码，业务数据暂存时有值
    */
   schemaCode?: string;
   /**
-   * 排序值
+   * 类型
    */
-  sortKey?: number;
+  tempType?: BizTemporaryVoTempType;
   /**
-   * 视图编码
+   * 暂存时间
    */
-  viewCode?: string;
+  time?: string;
+  /**
+   * 数据标题
+   */
+  title?: string;
+  /**
+   * 待办id， 待办暂存时有值
+   */
+  workItemId?: string;
+  /**
+   * 流程编码， 流程暂存时有值
+   */
+  workflowCode?: string;
   /**
    * 扩展字段
    */
   [key: string]: any;
 }
 /**
- *视图展示字段VO对象
+ *视图复制
  */
-export interface BizViewColumnVo {
+export interface BizViewCloneVo {
   /**
-   * 客户端类型
+   * 视图编码
    */
-  clientType?: BizViewColumnVoClientType;
+  code?: string;
   /**
-   * 显示格式
+   * 新编码
    */
-  displayFormat?: any;
+  newCode?: string;
   /**
-   * 显示名称
+   * 新名称
    */
-  displayName?: string;
-  /**
-   * 主键
-   */
-  id?: string;
-  /**
-   * 数据项编码
-   */
-  propertyCode?: string;
-  /**
-   * 数据项类型
-   */
-  propertyType?: BizViewColumnVoPropertyType;
+  newName?: string;
   /**
    * 模型编码
    */
   schemaCode?: string;
-  /**
-   * 排序值
-   */
-  sortKey?: number;
-  /**
-   * 视图编码
-   */
-  viewCode?: string;
-  /**
-   * 宽度
-   */
-  width?: number;
   /**
    * 扩展字段
    */
   [key: string]: any;
 }
 /**
- *视图查询条件Vo对象
+ *视图编码vo对象
  */
-export interface BizViewConditionVo {
-  /**
-   * 客户端类型
-   */
-  clientType?: BizViewConditionVoClientType;
-  /**
-   * 默认值
-   */
-  defaultValue?: any;
-  /**
-   * 默认值类型, 空：empty, 固定值：fixed, 其他的默认值类型由前端定义
-   */
-  defaultValueType?: string;
-  /**
-   * 显示格式
-   */
-  displayFormat?: any;
-  /**
-   * 显示名称
-   */
-  displayName?: string;
-  /**
-   * 主键
-   */
-  id?: string;
-  /**
-   * 数据项编码
-   */
-  propertyCode?: string;
-  /**
-   * 数据项类型
-   */
-  propertyType?: BizViewConditionVoPropertyType;
-  /**
-   * 模型编码
-   */
-  schemaCode?: string;
-  /**
-   * 排序值
-   */
-  sortKey?: number;
-  /**
-   * 视图编码
-   */
-  viewCode?: string;
-  /**
-   * 是否可见
-   */
-  visible?: boolean;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *视图数据查询参数Vo
- */
-export interface BizViewDataQueryVo {
-  /**
-   * 是否去重
-   */
-  distinct?: boolean;
-  /**
-   * 查询字段
-   */
-  fields?: string[];
-  /**
-   * 过滤条件
-   */
-  filters?: BizObjectFilterVo[];
-  /**
-   * 开始页数
-   */
-  pageNum?: number;
-  /**
-   * 每页查询数量, 最大100
-   */
-  pageSize?: number;
-  /**
-   * 模型编码
-   */
-  schemaCode?: string;
-  /**
-   * 排序条件
-   */
-  sorts?: BizObjectSortVo[];
-  /**
-   * 视图编码
-   */
-  viewCode?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *视图查询vo对象
- */
-export interface BizViewQueryVo {
-  /**
-   * 客户端类型
-   */
-  clientType?: BizViewQueryVoClientType;
+export interface BizViewCodeVo {
   /**
    * 视图编码
    */
@@ -3230,29 +2996,34 @@ export interface BizViewQueryVo {
   [key: string]: any;
 }
 /**
- *视图排序对象
+ *视图名称VO对象
+ */
+export interface BizViewSortNameVo {
+  /**
+   * 视图编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *视图列表排序对象
  */
 export interface BizViewSortVo {
   /**
-   * 客户端类型
+   * 视图编码
    */
-  clientType?: BizViewSortVoClientType;
-  /**
-   * 主键
-   */
-  id?: string;
-  /**
-   * 数据项编码
-   */
-  propertyCode?: string;
-  /**
-   * 数据项名称
-   */
-  propertyName?: string;
-  /**
-   * 数据项类型
-   */
-  propertyType?: BizViewSortVoPropertyType;
+  code?: string;
   /**
    * 模型编码
    */
@@ -3261,14 +3032,6 @@ export interface BizViewSortVo {
    * 排序值
    */
   sortKey?: number;
-  /**
-   * 排序类型
-   */
-  sortType?: BizViewSortVoSortType;
-  /**
-   * 视图编码
-   */
-  viewCode?: string;
   /**
    * 扩展字段
    */
@@ -3304,13 +3067,9 @@ export interface BizViewVisibleVo {
  */
 export interface BizViewVo {
   /**
-   * 操作按钮
+   * 视图按钮
    */
-  actions?: BizViewActionVo[];
-  /**
-   * 客户端类型
-   */
-  clientType?: BizViewVoClientType;
+  btns?: CodeNameVo[];
   /**
    * 视图编码
    */
@@ -3318,27 +3077,31 @@ export interface BizViewVo {
   /**
    * 展示字段
    */
-  columns?: BizViewColumnVo[];
+  displayFields?: string[];
   /**
-   * 查询条件
+   * 全局js
    */
-  conditions?: BizViewConditionVo[];
-  /**
-   * 关联编码，表单编码或流程编码
-   */
-  correlationCode?: string;
-  /**
-   * glue源码
-   */
-  glueSource?: string;
+  globalJs?: string;
   /**
    * 主键
    */
   id?: string;
   /**
+   * 数据限定
+   */
+  limitation?: ConditionItem[][];
+  /**
+   * 移动布局
+   */
+  mobileLayout?: any;
+  /**
    * 视图名称
    */
   name?: string;
+  /**
+   * pc布局
+   */
+  pcLayout?: any;
   /**
    * 数据项
    */
@@ -3352,13 +3115,9 @@ export interface BizViewVo {
    */
   schemaCode?: string;
   /**
-   * 排序值
+   * 视图类型
    */
-  sortKey?: number;
-  /**
-   * 排序字段
-   */
-  sorts?: BizViewSortVo[];
+  type?: string;
   /**
    * 移动端可见
    */
@@ -3413,10 +3172,6 @@ export interface CalculateVo {
    * 计算公式
    */
   formulaExp?: string;
-  /**
-   * 主模型编码
-   */
-  mainSchemaCode?: string;
   /**
    * 计算字段编码
    */
@@ -3847,7 +3602,7 @@ export interface DictOption {
   /**
    * undefined
    */
-  id?: string;
+  code?: string;
   /**
    * undefined
    */
@@ -3899,6 +3654,39 @@ export interface DimensionPropertyVo {
   [key: string]: any;
 }
 /**
+ *undefined
+ */
+export interface DingtalkJsapiSignature {
+  /**
+   * undefined
+   */
+  agentId?: string;
+  /**
+   * undefined
+   */
+  corpId?: string;
+  /**
+   * undefined
+   */
+  nonceStr?: string;
+  /**
+   * undefined
+   */
+  signature?: string;
+  /**
+   * undefined
+   */
+  timestamp?: number;
+  /**
+   * undefined
+   */
+  url?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *文件对象
  */
 export interface DocumentFileVo {
@@ -3930,6 +3718,146 @@ export interface DocumentFileVo {
    * 文件后缀名
    */
   suffix?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *ESB服务分组vo
+ */
+export interface EsbGroupVo {
+  /**
+   * 分组id
+   */
+  id?: string;
+  /**
+   * 分组名称
+   */
+  name?: string;
+  /**
+   * esb服务列表
+   */
+  serviceList?: EsbServiceVo[];
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *ESB调用参数vo
+ */
+export interface EsbInvokeVo {
+  /**
+   * 调用参数
+   */
+  args?: any;
+  /**
+   * esb服务编码
+   */
+  code?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *ESB服务定义vo
+ */
+export interface EsbServiceDefineVo {
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 输入
+   */
+  input?: JsonSchema;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 输出
+   */
+  output?: JsonSchema;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *ESB服务vo
+ */
+export interface EsbServiceVo {
+  /**
+   * 业务规则
+   */
+  bizRule?: IdNameVo;
+  /**
+   * 业务服务
+   */
+  bizService?: CodeNameVo;
+  /**
+   * 业务服务方法
+   */
+  bizServiceMethod?: CodeNameVo;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 创建时间
+   */
+  createdTime?: string;
+  /**
+   * 创建人
+   */
+  creator?: UnitVo;
+  /**
+   * 外部系统访问权限类型
+   */
+  externalAppAclType?: EsbServiceVoExternalAppAclType;
+  /**
+   * 指定外部系统应用访问权限
+   */
+  externalAppList?: CodeNameVo[];
+  /**
+   * 分组id
+   */
+  groupId?: string;
+  /**
+   * 分组名称
+   */
+  groupName?: string;
+  /**
+   * id
+   */
+  id?: string;
+  /**
+   * 输入
+   */
+  input?: JsonSchema;
+  /**
+   * 系统内应用访问权限类型
+   */
+  internalAppAclType?: EsbServiceVoInternalAppAclType;
+  /**
+   * 指定应用访问权限
+   */
+  internalAppList?: CodeNameVo[];
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 输出
+   */
+  output?: JsonSchema;
+  /**
+   * 运行模式
+   */
+  workerType?: EsbServiceVoWorkerType;
   /**
    * 扩展字段
    */
@@ -4032,6 +3960,10 @@ export interface FigureVo {
    */
   circulateCount?: number;
   /**
+   * 暂存数量
+   */
+  draftCount?: number;
+  /**
    * 进行中的流程数量
    */
   runtimeInstanceCount?: number;
@@ -4066,6 +3998,31 @@ export interface FlagVo {
   [key: string]: any;
 }
 /**
+ *表单复制
+ */
+export interface FormCloneVo {
+  /**
+   * 表单编码
+   */
+  code?: string;
+  /**
+   * 新编码
+   */
+  newCode?: string;
+  /**
+   * 新名称
+   */
+  newName?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *表单编码Vo对象
  */
 export interface FormCodesVo {
@@ -4077,6 +4034,27 @@ export interface FormCodesVo {
    * 模型编码
    */
   schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *表单数据删除参数VO
+ */
+export interface FormDataDeleteVo {
+  /**
+   * 业务数据id
+   */
+  bizObjectId?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 暂存数据id
+   */
+  tid?: string;
   /**
    * 扩展字段
    */
@@ -4113,7 +4091,7 @@ export interface FormDataVo {
   /**
    * 数据项权限
    */
-  dataPermissionList?: any[][];
+  dataPermissions?: any;
   /**
    * 表单评论列表
    */
@@ -4131,17 +4109,13 @@ export interface FormDataVo {
    */
   schemaCode?: string;
   /**
-   * 子表数据
-   */
-  sheetDatas?: any;
-  /**
    * 表单状态， 默认预览状态
    */
   status?: FormDataVoStatus;
   /**
-   * 是否是暂存状态
+   * 暂存数据id
    */
-  temporaryFlag?: boolean;
+  tid?: string;
   /**
    * 扩展字段
    */
@@ -4220,6 +4194,10 @@ export interface FunTreeVo {
    * 主键
    */
   id?: string;
+  /**
+   * id层级路径
+   */
+  idPath?: string;
   /**
    * 名称
    */
@@ -4389,6 +4367,10 @@ export interface ImportProgressVo {
  */
 export interface ImportVo {
   /**
+   * 是否覆盖导入
+   */
+  cover?: boolean;
+  /**
    * 文档id
    */
   documentId?: string;
@@ -4400,31 +4382,6 @@ export interface ImportVo {
    * 导入导出类型
    */
   type?: ImportVoType;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *增量消息通知Vo
- */
-export interface IncrementNotifyVo {
-  /**
-   * undefined
-   */
-  body?: string;
-  /**
-   * undefined
-   */
-  event?: string;
-  /**
-   * undefined
-   */
-  orgId?: string;
-  /**
-   * undefined
-   */
-  sendTime?: string;
   /**
    * 扩展字段
    */
@@ -4770,6 +4727,10 @@ export interface LoadFormDataParamVo {
    */
   schemaCode?: string;
   /**
+   * 暂存数据id
+   */
+  tid?: string;
+  /**
    * 扩展字段
    */
   [key: string]: any;
@@ -4778,6 +4739,10 @@ export interface LoadFormDataParamVo {
  *加载表单子表数据参数对象VO
  */
 export interface LoadFormSheetDataParamVo {
+  /**
+   * 业务对象数据
+   */
+  bizObjectData?: any;
   /**
    * 业务对象id
    */
@@ -4827,6 +4792,10 @@ export interface LoadWorkflowFormDataParamVo {
    * 子表编码，查询子表数据时使用
    */
   sheetCode?: string;
+  /**
+   * 暂存数据id
+   */
+  tid?: string;
   /**
    * 工作项id
    */
@@ -5082,6 +5051,44 @@ export interface NameVo {
   [key: string]: any;
 }
 /**
+ *ocr支持的类型配置Vo
+ */
+export interface OcrConfig {
+  /**
+   * 别名
+   */
+  alias?: string;
+  /**
+   * 返回的字段
+   */
+  propertys?: Property[];
+  /**
+   * ocr识别类型
+   */
+  type?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *ocr识别参数Vo
+ */
+export interface OcrRecognizeParamVo {
+  /**
+   * 识别文件id
+   */
+  documentId?: string;
+  /**
+   * 类型
+   */
+  type?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *OLAP过滤条件vo
  */
 export interface OlapFilterVo {
@@ -5168,7 +5175,7 @@ export interface OlapQueryVo {
  */
 export interface OpenApiBizObjectBatchSubmitVo {
   /**
-   * 主表数据
+   * 业务数据
    */
   datas?: any[];
   /**
@@ -5197,7 +5204,7 @@ export interface OpenApiBizObjectBatchSubmitVo {
  */
 export interface OpenApiBizObjectSubmitVo {
   /**
-   * 主表数据
+   * 业务数据
    */
   data?: any;
   /**
@@ -5216,6 +5223,69 @@ export interface OpenApiBizObjectSubmitVo {
    * 模型编码
    */
   schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *部门详情查询请求vo
+ */
+export interface OpenApiDeptGetRequestVo {
+  /**
+   * 部门id
+   */
+  deptId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *部门列表查询请求vo
+ */
+export interface OpenApiDeptQueryRequestVo {
+  /**
+   * 是否查询子部门
+   */
+  fetchChild?: boolean;
+  /**
+   * 父部门Id
+   */
+  parentId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *部门响应vo
+ */
+export interface OpenApiDeptResponseVo {
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 部门层级
+   */
+  level?: number;
+  /**
+   * 部门主管id
+   */
+  managerId?: string;
+  /**
+   * 部门名称
+   */
+  name?: string;
+  /**
+   * 组织id
+   */
+  orgId?: string;
+  /**
+   * 父级id
+   */
+  parentId?: string;
   /**
    * 扩展字段
    */
@@ -5271,9 +5341,9 @@ export interface OpenApiSearchWorkItemVo {
    */
   instanceStatus?: OpenApiSearchWorkItemVoInstanceStatus;
   /**
-   * 发起人id
+   * 发起人
    */
-  originatorId?: string;
+  originator?: UnitVo;
   /**
    * 分页页数
    */
@@ -5287,13 +5357,17 @@ export interface OpenApiSearchWorkItemVo {
    */
   receiveTime?: string[];
   /**
-   * 任务状态
+   * 任务类型
    */
-  searchWorkItemStatus?: OpenApiSearchWorkItemVoSearchWorkItemStatus;
+  searchWorkItemType?: OpenApiSearchWorkItemVoSearchWorkItemType;
   /**
    * 单据号
    */
   sequenceNo?: string;
+  /**
+   * 任务状态
+   */
+  status?: OpenApiSearchWorkItemVoStatus;
   /**
    * 用户id
    */
@@ -5327,6 +5401,231 @@ export interface OpenApiStartWorkflowVo {
    * 流程编码
    */
   workflowCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签详情查询请求vo
+ */
+export interface OpenApiTagGetRequestVo {
+  /**
+   * 标签Id
+   */
+  tagId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签组详情查询请求vo
+ */
+export interface OpenApiTagGroupGetRequestVo {
+  /**
+   * 标签组id
+   */
+  tagGroupId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签组列表查询请求vo
+ */
+export interface OpenApiTagGroupQueryRequestVo {
+  /**
+   * 组织id
+   */
+  orgId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签组响应vo
+ */
+export interface OpenApiTagGroupResponseVo {
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 组织Id
+   */
+  orgId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签列表查询请求vo
+ */
+export interface OpenApiTagQueryRequestVo {
+  /**
+   * 组织id
+   */
+  orgId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *标签响应vo
+ */
+export interface OpenApiTagResponseVo {
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 标签组ID
+   */
+  groupId?: string;
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 组织Id
+   */
+  orgId?: string;
+  /**
+   * 标签下用户列表
+   */
+  tagUnitList?: TagUnitVo[];
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *用户详情查询请求vo
+ */
+export interface OpenApiUserGetRequestVo {
+  /**
+   * 父部门Id
+   */
+  userId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *用户列表查询请求vo
+ */
+export interface OpenApiUserQueryRequestVo {
+  /**
+   * 部门Id
+   */
+  deptId?: string;
+  /**
+   * 是否查询子部门用户
+   */
+  fetchChild?: boolean;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *用户响应vo
+ */
+export interface OpenApiUserResponseVo {
+  /**
+   * 头像
+   */
+  avatar?: string;
+  /**
+   * 用户账号
+   */
+  code?: string;
+  /**
+   * 邮箱
+   */
+  email?: string;
+  /**
+   * 工号
+   */
+  employeeNo?: string;
+  /**
+   * 入职日期
+   */
+  entryDate?: string;
+  /**
+   * 性别
+   */
+  gender?: number;
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 身份证号
+   */
+  idCard?: string;
+  /**
+   * 是否是主管
+   */
+  isManager?: any;
+  /**
+   * 主部门id
+   */
+  mainDepartmentId?: string;
+  /**
+   * 手机号
+   */
+  mobile?: string;
+  /**
+   * 用户名称
+   */
+  name?: string;
+  /**
+   * 组织ID
+   */
+  orgId?: string;
+  /**
+   * 兼职部门Id
+   */
+  partTimeDepartmentIds?: string[];
+  /**
+   * 职位
+   */
+  position?: string;
+  /**
+   * 离职日期
+   */
+  quitDate?: string;
+  /**
+   * 备注
+   */
+  remarks?: string;
+  /**
+   * 标签Id列表
+   */
+  tagIds?: string[];
+  /**
+   * 办公电话
+   */
+  telphone?: string;
   /**
    * 扩展字段
    */
@@ -5373,6 +5672,31 @@ export interface OrgAscriptionCheckVo {
    * 右：用户、部门id
    */
   rights?: UnitVo[];
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *undefined
+ */
+export interface OrgConfigParamsBo {
+  /**
+   * undefined
+   */
+  code?: string;
+  /**
+   * undefined
+   */
+  desc?: string;
+  /**
+   * undefined
+   */
+  name?: string;
+  /**
+   * undefined
+   */
+  required?: boolean;
   /**
    * 扩展字段
    */
@@ -5486,6 +5810,43 @@ export interface OrganizationChartVo {
   [key: string]: any;
 }
 /**
+ *组织推送监听配置
+ */
+export interface OrganizationPushConfigVo {
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 监听组织变更事件
+   */
+  listenEventList?: OrganizationPushConfigVoListenEventList[];
+  /**
+   * 维护类型：SYS：自维护，DINGTALK:钉钉，WECHAT:微信
+   */
+  maintainType?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 组织Id
+   */
+  orgId?: string;
+  /**
+   * 组织集成配置
+   */
+  relatedConfig?: string;
+  /**
+   * 关联id
+   */
+  relatedId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *组织VO对象
  */
 export interface OrganizationVo {
@@ -5526,9 +5887,30 @@ export interface OrganizationVo {
    */
   relatedConfig?: string;
   /**
+   * 关联id
+   */
+  relatedId?: string;
+  /**
    * 组织状态: ENABLE:启用，DISABLE：禁用
    */
   status?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *分页查询参数对象VO
+ */
+export interface PageQueryVo {
+  /**
+   * 开始页数
+   */
+  pageNum?: number;
+  /**
+   * 每页显示数量
+   */
+  pageSize?: number;
   /**
    * 扩展字段
    */
@@ -5542,31 +5924,6 @@ export interface PageVOAdminVo {
    * 查询数据
    */
   list?: AdminVo[];
-  /**
-   * 开始页数
-   */
-  pageNum?: number;
-  /**
-   * 每页显示数量
-   */
-  pageSize?: number;
-  /**
-   * 总记录数
-   */
-  total?: number;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *分页对象
- */
-export interface PageVOAtUserQueryResultVo {
-  /**
-   * 查询数据
-   */
-  list?: AtUserQueryResultVo[];
   /**
    * 开始页数
    */
@@ -5617,6 +5974,31 @@ export interface PageVOBizRuleLogVo {
    * 查询数据
    */
   list?: BizRuleLogVo[];
+  /**
+   * 开始页数
+   */
+  pageNum?: number;
+  /**
+   * 每页显示数量
+   */
+  pageSize?: number;
+  /**
+   * 总记录数
+   */
+  total?: number;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *分页对象
+ */
+export interface PageVOBizTemporaryVo {
+  /**
+   * 查询数据
+   */
+  list?: BizTemporaryVo[];
   /**
    * 开始页数
    */
@@ -5767,31 +6149,6 @@ export interface PageVOSysJobVo {
    * 查询数据
    */
   list?: SysJobVo[];
-  /**
-   * 开始页数
-   */
-  pageNum?: number;
-  /**
-   * 每页显示数量
-   */
-  pageSize?: number;
-  /**
-   * 总记录数
-   */
-  total?: number;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *分页对象
- */
-export interface PageVOSystemDictVo {
-  /**
-   * 查询数据
-   */
-  list?: SystemDictVo[];
   /**
    * 开始页数
    */
@@ -5974,6 +6331,23 @@ export interface PortalAppDataPerm {
 /**
  *undefined
  */
+export interface PortalUserUpdateVo {
+  /**
+   * 主键
+   */
+  id?: string;
+  /**
+   * 手机号
+   */
+  mobile?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *undefined
+ */
 export interface Position {
   /**
    * 扩展字段
@@ -6032,14 +6406,6 @@ export interface Property {
   /**
    * undefined
    */
-  sheetCode?: string;
-  /**
-   * undefined
-   */
-  sheetName?: string;
-  /**
-   * undefined
-   */
   type?: string;
   /**
    * 扩展字段
@@ -6091,19 +6457,6 @@ export interface PropertyPermissionTrait {
    * undefined
    */
   visible?: boolean;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *查询子级部门参数对象
- */
-export interface QueryChildDeptVo {
-  /**
-   * 父级id
-   */
-  parentId?: string;
   /**
    * 扩展字段
    */
@@ -6208,6 +6561,31 @@ export interface QuickLinkVo {
    * 图标
    */
   icon?: Icon;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *undefined
+ */
+export interface Relation {
+  /**
+   * undefined
+   */
+  selfCode?: string;
+  /**
+   * undefined
+   */
+  selfType?: string;
+  /**
+   * undefined
+   */
+  targetCode?: string;
+  /**
+   * undefined
+   */
+  targetType?: RelationTargetType;
   /**
    * 扩展字段
    */
@@ -6995,6 +7373,35 @@ export interface ResBodyDepartmentVo {
 /**
  *通用响应报文
  */
+export interface ResBodyDingtalkJsapiSignature {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: DingtalkJsapiSignature;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
 export interface ResBodyDocumentFileVo {
   /**
    * 业务key
@@ -7008,6 +7415,35 @@ export interface ResBodyDocumentFileVo {
    * 数据
    */
   data?: DocumentFileVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyEsbServiceVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: EsbServiceVo;
   /**
    * 错误信息
    */
@@ -7488,35 +7924,6 @@ export interface ResBodyListBizFormVo {
 /**
  *通用响应报文
  */
-export interface ResBodyListBizObjectBo {
-  /**
-   * 业务key
-   */
-  bizKey?: string;
-  /**
-   * 状态码: 成功：200
-   */
-  code?: number;
-  /**
-   * 数据
-   */
-  data?: BizObjectBo[];
-  /**
-   * 错误信息
-   */
-  msg?: string;
-  /**
-   * 调用链id
-   */
-  traceId?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *通用响应报文
- */
 export interface ResBodyListBizPropertyFormulaVo {
   /**
    * 业务key
@@ -7646,35 +8053,6 @@ export interface ResBodyListBizSchemaEventVo {
    * 数据
    */
   data?: BizSchemaEventVo[];
-  /**
-   * 错误信息
-   */
-  msg?: string;
-  /**
-   * 调用链id
-   */
-  traceId?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *通用响应报文
- */
-export interface ResBodyListBizSchemaGroupVo {
-  /**
-   * 业务key
-   */
-  bizKey?: string;
-  /**
-   * 状态码: 成功：200
-   */
-  code?: number;
-  /**
-   * 数据
-   */
-  data?: BizSchemaGroupVo[];
   /**
    * 错误信息
    */
@@ -7894,6 +8272,64 @@ export interface ResBodyListDepartmentVo {
 /**
  *通用响应报文
  */
+export interface ResBodyListEsbGroupVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: EsbGroupVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListEsbServiceDefineVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: EsbServiceDefineVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
 export interface ResBodyListFunTreeVo {
   /**
    * 业务key
@@ -7907,6 +8343,35 @@ export interface ResBodyListFunTreeVo {
    * 数据
    */
   data?: FunTreeVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListIdNameVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: IdNameVo[];
   /**
    * 错误信息
    */
@@ -7994,6 +8459,180 @@ export interface ResBodyListMessageVo {
    * 数据
    */
   data?: MessageVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOcrConfig {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OcrConfig[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOpenApiDeptResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiDeptResponseVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOpenApiTagGroupResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiTagGroupResponseVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOpenApiTagResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiTagResponseVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOpenApiUserResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiUserResponseVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListOrganizationPushConfigVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OrganizationPushConfigVo[];
   /**
    * 错误信息
    */
@@ -8155,6 +8794,35 @@ export interface ResBodyListSecurityClientVo {
 /**
  *通用响应报文
  */
+export interface ResBodyListSupportOrgConfigVO {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: SupportOrgConfigVO[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
 export interface ResBodyListSystemDictConfigVo {
   /**
    * 业务key
@@ -8168,6 +8836,35 @@ export interface ResBodyListSystemDictConfigVo {
    * 数据
    */
   data?: SystemDictConfigVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListSystemDictGroupVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: SystemDictGroupVo[];
   /**
    * 错误信息
    */
@@ -8226,6 +8923,35 @@ export interface ResBodyListTagTreeVo {
    * 数据
    */
   data?: TagTreeVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListTreeNode {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: TreeNode[];
   /**
    * 错误信息
    */
@@ -8619,6 +9345,122 @@ export interface ResBody {
 /**
  *通用响应报文
  */
+export interface ResBodyOpenApiDeptResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiDeptResponseVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyOpenApiTagGroupResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiTagGroupResponseVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyOpenApiTagResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiTagResponseVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyOpenApiUserResponseVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: OpenApiUserResponseVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
 export interface ResBodyOrganizationChartVo {
   /**
    * 业务key
@@ -8706,35 +9548,6 @@ export interface ResBodyPageVOAdminVo {
 /**
  *通用响应报文
  */
-export interface ResBodyPageVOAtUserQueryResultVo {
-  /**
-   * 业务key
-   */
-  bizKey?: string;
-  /**
-   * 状态码: 成功：200
-   */
-  code?: number;
-  /**
-   * 数据
-   */
-  data?: PageVOAtUserQueryResultVo;
-  /**
-   * 错误信息
-   */
-  msg?: string;
-  /**
-   * 调用链id
-   */
-  traceId?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *通用响应报文
- */
 export interface ResBodyPageVOBizBusLogVo {
   /**
    * 业务key
@@ -8777,6 +9590,35 @@ export interface ResBodyPageVOBizRuleLogVo {
    * 数据
    */
   data?: PageVOBizRuleLogVo;
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyPageVOBizTemporaryVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: PageVOBizTemporaryVo;
   /**
    * 错误信息
    */
@@ -8951,35 +9793,6 @@ export interface ResBodyPageVOSysJobVo {
    * 数据
    */
   data?: PageVOSysJobVo;
-  /**
-   * 错误信息
-   */
-  msg?: string;
-  /**
-   * 调用链id
-   */
-  traceId?: string;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *通用响应报文
- */
-export interface ResBodyPageVOSystemDictVo {
-  /**
-   * 业务key
-   */
-  bizKey?: string;
-  /**
-   * 状态码: 成功：200
-   */
-  code?: number;
-  /**
-   * 数据
-   */
-  data?: PageVOSystemDictVo;
   /**
    * 错误信息
    */
@@ -9997,6 +10810,10 @@ export interface SaveWorkflowTemplateVo {
    */
   shortLinkEnable?: boolean;
   /**
+   * 流程标题
+   */
+  title?: string;
+  /**
    * 移动端是否可见
    */
   visibleMobile?: boolean;
@@ -10035,17 +10852,54 @@ export interface SchedulerConfVo {
   [key: string]: any;
 }
 /**
+ *复制模型vo
+ */
+export interface SchemaCloneVo {
+  /**
+   * 分组id
+   */
+  groupId?: string;
+  /**
+   * 新编码
+   */
+  newCode?: string;
+  /**
+   * 新名称
+   */
+  newName?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *模型数据权限资源VO
  */
 export interface SchemaDataPermissionResource {
+  /**
+   * 新增权限
+   */
+  create?: boolean;
   /**
    * 权限类型
    */
   defaultValue?: SchemaDataPermissionResourceDefaultValue;
   /**
+   * 删除权限
+   */
+  delete?: boolean;
+  /**
    * 权限资源
    */
   resources?: CodeNameVo[];
+  /**
+   * 修改权限
+   */
+  update?: boolean;
   /**
    * 扩展字段
    */
@@ -10060,9 +10914,21 @@ export interface SchemaDataPermissionVo {
    */
   conditionWrap?: ConditionItem[][];
   /**
+   * 新增权限
+   */
+  create?: boolean;
+  /**
+   * 删除权限
+   */
+  delete?: boolean;
+  /**
    * 权限类型
    */
   type?: SchemaDataPermissionVoType;
+  /**
+   * 修改权限
+   */
+  update?: boolean;
   /**
    * 扩展字段
    */
@@ -10093,9 +10959,9 @@ export interface SchemaPermissionResource {
    */
   schemaName?: string;
   /**
-   * 按钮权限
+   * 视图权限
    */
-  viewActionPermission?: SchemaViewActionPermissionResource;
+  viewPermissions?: SchemaViewPermissionResourceVo[];
   /**
    * 可见权限
    */
@@ -10134,6 +11000,10 @@ export interface SchemaPermissionVo {
    */
   viewActionPermissions?: string[];
   /**
+   * 视图权限
+   */
+  viewPermissions?: SchemaViewPermissionVo[];
+  /**
    * 可见权限
    */
   visible?: boolean;
@@ -10151,10 +11021,6 @@ export interface SchemaPermissionVo {
  */
 export interface SchemaPropertyCodeVo {
   /**
-   * 主模型编码
-   */
-  mainSchemaCode?: string;
-  /**
    * 数据项编码
    */
   propertyCode?: string;
@@ -10162,10 +11028,6 @@ export interface SchemaPropertyCodeVo {
    * 模型编码
    */
   schemaCode?: string;
-  /**
-   * 子表编码
-   */
-  sheetCode?: string;
   /**
    * 扩展字段
    */
@@ -10218,17 +11080,38 @@ export interface SchemaTitleVo {
   [key: string]: any;
 }
 /**
- *视图按钮权限资源VO
+ *视图权限资源VO
  */
-export interface SchemaViewActionPermissionResource {
+export interface SchemaViewPermissionResourceVo {
   /**
-   * 已选权限
+   * 按钮
    */
-  codes?: string[];
+  btns?: CodeNameVo[];
   /**
-   * 权限资源
+   * 视图编码
    */
-  resources?: CodeNameVo[];
+  code?: string;
+  /**
+   * 视图名称
+   */
+  name?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *视图权限VO
+ */
+export interface SchemaViewPermissionVo {
+  /**
+   * 视图按钮
+   */
+  btns?: string[];
+  /**
+   * 视图编码
+   */
+  code?: string;
   /**
    * 扩展字段
    */
@@ -10321,9 +11204,9 @@ export interface SearchWorkItemVo {
    */
   instanceStatus?: SearchWorkItemVoInstanceStatus;
   /**
-   * 发起人id
+   * 发起人
    */
-  originatorId?: string;
+  originator?: UnitVo;
   /**
    * 分页页数
    */
@@ -10337,13 +11220,17 @@ export interface SearchWorkItemVo {
    */
   receiveTime?: string[];
   /**
-   * 任务状态
+   * 任务类型
    */
-  searchWorkItemStatus?: SearchWorkItemVoSearchWorkItemStatus;
+  searchWorkItemType?: SearchWorkItemVoSearchWorkItemType;
   /**
    * 单据号
    */
   sequenceNo?: string;
+  /**
+   * 任务状态
+   */
+  status?: SearchWorkItemVoStatus;
   /**
    * 流程定义编码
    */
@@ -10358,17 +11245,9 @@ export interface SearchWorkItemVo {
  */
 export interface SearchWorkflowInstanceVo {
   /**
-   * 作废时间
-   */
-  instanceCancelTime?: string[];
-  /**
    * 流程实例名称
    */
   instanceName?: string;
-  /**
-   * 流程发起时间
-   */
-  instanceStartTime?: string[];
   /**
    * 发起人id
    */
@@ -10382,13 +11261,17 @@ export interface SearchWorkflowInstanceVo {
    */
   pageSize?: number;
   /**
-   * 流程实例状态
-   */
-  searchWorkflowInstanceStatus?: SearchWorkflowInstanceVoSearchWorkflowInstanceStatus;
-  /**
    * 单据号
    */
   sequenceNo?: string;
+  /**
+   * 流程发起时间
+   */
+  startTime?: string[];
+  /**
+   * 流程实例状态
+   */
+  status?: SearchWorkflowInstanceVoStatus;
   /**
    * 流程定义编码
    */
@@ -10434,27 +11317,6 @@ export interface SecurityClientVo {
    * 刷新token有效时间
    */
   refreshTokenValiditySeconds?: number;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
- *undefined
- */
-export interface SelfObject {
-  /**
-   * undefined
-   */
-  id?: string;
-  /**
-   * undefined
-   */
-  name?: string;
-  /**
-   * undefined
-   */
-  schemaCode?: string;
   /**
    * 扩展字段
    */
@@ -10576,6 +11438,10 @@ export interface StartWorkflowVo {
    */
   sheetDatas?: BizObjectSheetSubmitVo[];
   /**
+   * 暂存数据id
+   */
+  tid?: string;
+  /**
    * 流程编码
    */
   workflowCode?: string;
@@ -10658,6 +11524,27 @@ export interface SummaryByOrgResultVo {
    * 可发起的流程列表
    */
   workflowList?: WorkflowHeaderVo[];
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *支持添加的第三方组织vo
+ */
+export interface SupportOrgConfigVO {
+  /**
+   * 组织类型该组织类型支持的配置参数
+   */
+  configParamsList?: OrgConfigParamsBo[];
+  /**
+   * 组织类型
+   */
+  maintainType?: string;
+  /**
+   * 类型名称
+   */
+  name?: string;
   /**
    * 扩展字段
    */
@@ -10775,45 +11662,46 @@ export interface SystemDictConfigVo {
   [key: string]: any;
 }
 /**
- *字典查询vo
+ *字典分组vo
  */
-export interface SystemDictQueryVo {
+export interface SystemDictGroupVo {
   /**
-   * 编码
+   * id
    */
-  code?: string;
-  /**
-   * 创建时间
-   */
-  createdTimeBegin?: string;
-  /**
-   * 创建时间
-   */
-  createdTimeEnd?: string;
-  /**
-   * 状态
-   */
-  enabled?: boolean;
-  /**
-   * 分组
-   */
-  groupCode?: string;
+  id?: string;
   /**
    * 名称
    */
   name?: string;
   /**
-   * 页码
+   * 排序值
    */
-  pageNum?: number;
+  sortIndex?: number;
   /**
-   * 页容量
+   * 字典列表
    */
-  pageSize?: number;
+  systemDictList?: SystemDictVo[];
   /**
-   * 字典类型
+   * 扩展字段
    */
-  type?: SystemDictQueryVoType;
+  [key: string]: any;
+}
+/**
+ *字典排序vo
+ */
+export interface SystemDictSortVo {
+  /**
+   * 分组id
+   */
+  groupId?: string;
+  /**
+   * id
+   */
+  id?: string;
+  /**
+   * 排序值
+   */
+  sortIndex?: number;
   /**
    * 扩展字段
    */
@@ -10848,9 +11736,13 @@ export interface SystemDictVo {
    */
   enabled?: boolean;
   /**
-   * 分组
+   * 业务分组
    */
   groupCode?: string;
+  /**
+   * 分组名称
+   */
+  groupName?: string;
   /**
    * id
    */
@@ -10863,6 +11755,10 @@ export interface SystemDictVo {
    * 备注
    */
   remark?: string;
+  /**
+   * 排序值
+   */
+  sortIndex?: number;
   /**
    * 字典类型
    */
@@ -11046,6 +11942,27 @@ export interface TagUnitIdsVo {
   [key: string]: any;
 }
 /**
+ *标签用户管理范围Vo
+ */
+export interface TagUnitOuScopeVo {
+  /**
+   * 管理范围id
+   */
+  ouScopes?: string[];
+  /**
+   * 标签id
+   */
+  tagId?: string;
+  /**
+   * 用户id
+   */
+  unitId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *标签组织维护请求参数Vo
  */
 export interface TagUnitReqVo {
@@ -11174,6 +12091,44 @@ export interface TagVo {
   [key: string]: any;
 }
 /**
+ *树形数据查询参数Vo
+ */
+export interface TreeDataQueryVo {
+  /**
+   * 父级字段编码
+   */
+  parentCode?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *undefined
+ */
+export interface TreeNode {
+  /**
+   * undefined
+   */
+  children?: TreeNode[];
+  /**
+   * undefined
+   */
+  name?: string;
+  /**
+   * undefined
+   */
+  value?: any;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *业务对象短文本唯一校验查询参数Vo
  */
 export interface UniqueValidateVo {
@@ -11193,6 +12148,27 @@ export interface UniqueValidateVo {
    * 模型编码
    */
   schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *undefined
+ */
+export interface UnitBo {
+  /**
+   * undefined
+   */
+  id?: string;
+  /**
+   * undefined
+   */
+  name?: string;
+  /**
+   * undefined
+   */
+  type?: UnitBoType;
   /**
    * 扩展字段
    */
@@ -11294,27 +12270,6 @@ export interface UnitTreeVo {
   [key: string]: any;
 }
 /**
- *undefined
- */
-export interface UnitValue {
-  /**
-   * undefined
-   */
-  id?: string;
-  /**
-   * undefined
-   */
-  name?: string;
-  /**
-   * undefined
-   */
-  type?: UnitValueType;
-  /**
-   * 扩展字段
-   */
-  [key: string]: any;
-}
-/**
  *组织Vo对象
  */
 export interface UnitVo {
@@ -11322,6 +12277,10 @@ export interface UnitVo {
    * 头像
    */
   avatar?: string;
+  /**
+   * 部门id
+   */
+  departmentId?: string;
   /**
    * 部门名称
    */
@@ -11521,6 +12480,10 @@ export interface UserPermissionVo {
    * 新建集成服务目录权限
    */
   createBizServiceCategory?: boolean;
+  /**
+   * 新增角色权限
+   */
+  createRole?: boolean;
   /**
    * 登录后端权限
    */
@@ -11901,6 +12864,10 @@ export interface WorkItemSubmitVo {
    */
   signFileVo?: SignFileVo;
   /**
+   * 暂存数据id
+   */
+  tid?: string;
+  /**
    * 工作项id
    */
   workItemId?: string;
@@ -12019,6 +12986,10 @@ export interface WorkItemVo {
    */
   receiveTime?: string;
   /**
+   * 驳回标识
+   */
+  reject?: boolean;
+  /**
    * 处理结果
    */
   resultStatus?: WorkItemVoResultStatus;
@@ -12026,6 +12997,10 @@ export interface WorkItemVo {
    * 单据号
    */
   sequenceNo?: string;
+  /**
+   * 传阅来源
+   */
+  source?: string;
   /**
    * 任务状态
    */
@@ -12267,7 +13242,7 @@ export interface WorkflowFormDataVo {
   /**
    * 数据项权限
    */
-  dataPermissionList?: any[][];
+  dataPermissions?: any;
   /**
    * 表单评论列表
    */
@@ -12301,17 +13276,13 @@ export interface WorkflowFormDataVo {
    */
   schemaCode?: string;
   /**
-   * 子表数据
-   */
-  sheetDatas?: any;
-  /**
    * 表单状态， 默认预览状态
    */
   status?: WorkflowFormDataVoStatus;
   /**
-   * 是否是暂存状态
+   * 暂存数据id
    */
-  temporaryFlag?: boolean;
+  tid?: string;
   /**
    * 可查看的节点
    */
@@ -12320,6 +13291,10 @@ export interface WorkflowFormDataVo {
    * 工作任务id
    */
   workItemId?: string;
+  /**
+   * 流程编码
+   */
+  workflowCode?: string;
   /**
    * 流程模版名称
    */
@@ -12370,6 +13345,10 @@ export interface WorkflowHeaderVo {
    */
   shortLinkEnable?: boolean;
   /**
+   * 流程标题
+   */
+  title?: string;
+  /**
    * 移动端是否可见
    */
   visibleMobile?: boolean;
@@ -12390,6 +13369,14 @@ export interface WorkflowHeaderVo {
  *流程实例VO
  */
 export interface WorkflowInstanceVo {
+  /**
+   * 节点编码
+   */
+  activityCode?: string;
+  /**
+   * 节点名称
+   */
+  activityName?: string;
   /**
    * 创建时间
    */
@@ -12431,17 +13418,13 @@ export interface WorkflowInstanceVo {
    */
   originatorId?: string;
   /**
-   * 参与者
+   * 当前处理人
    */
   participant?: UnitVo;
   /**
    * 参与者id
    */
   participantId?: string;
-  /**
-   * 运行时节点信息-节点名称、参与者
-   */
-  runtimeActivitys?: InstanceActivityVo[];
   /**
    * 单据号
    */

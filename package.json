@@ -1,5 +1,5 @@
 {
-  "name": "zaf",
+  "name": "mall",
   "version": "9.0.0",
   "description": "zaf-from",
   "private": true,
@@ -11,14 +11,14 @@
     "task": "npx gulp --gulpfile ./build/gulp/index.js",
     "cz": "npx git-cz",
     "dev:portal": "yarn run build:packages && cd packages/portal && yarn run dev",
-    "dev:admin": "cd packages/admin && yarn run dev",
+    "dev:admin": "yarn run build:packages && cd packages/admin && yarn run dev",
     "build:api": "lerna run --scope=@amaz/api build",
     "build:theme": "lerna run --scope=@amaz/theme build",
     "build:packages": "yarn run build:theme && yarn run build:api"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:stogefei/workspace-init.git"
+    "url": "git@github.com:stogefei/mall-framework.git"
   },
   "author": "zaf",
   "license": "ISC",
