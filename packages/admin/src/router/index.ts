@@ -1,25 +1,43 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue';
+import {
+  createRouter,
+  // createWebHashHistory,
+  RouteRecordRaw,
+  Router,
+  createWebHistory,
+} from 'vue-router';
+import HomeView from '../views/index';
+// const titlePrefix = '生鲜';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: HomeView,
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+  // {
+  //   path: '/login',
+  //   name: 'login',
+  //   meta: {
+  //     title: `登录-${titlePrefix}`,
+  //     unauthorized: true,
+  //   },
+  //   components: {
+  //     default: () => import('../views/login/index'),
+  //   },
+  // },
 ];
 
-const router = createRouter({
-  history: createWebHashHistory(),
+// export default {
+//   mode: process.env.NODE_ENV === 'development' ? 'history' : 'hash',
+//   base: process.env.BASE_URL,
+//   routes,
+// };
+
+const router: Router = createRouter({
+  history: createWebHistory(),
+  // routes,
+  // mode: 'history',
+  // base: process.env.BASE_URL,
   routes,
 });
 

@@ -3,13 +3,13 @@ import AES from 'crypto-js/aes';
 import encUtf8 from 'crypto-js/enc-utf8';
 
 const key = 'bbsz';
-function setUser(user: UserVo) {
+function setUser (user: UserVo | any) {
   sessionStorage.setItem(
     'user',
     AES.encrypt(JSON.stringify(user), key).toString(),
   );
 }
-function getUser(): UserVo | undefined {
+function getUser (): UserVo | undefined {
   const userStr = sessionStorage.getItem('user');
   if (userStr) {
     try {
@@ -23,27 +23,29 @@ function getUser(): UserVo | undefined {
     return undefined;
   }
 }
-async function getUserInfo(token): Promise<UserVo> {
+async function getUserInfo (token: any): Promise<UserVo> {
   localStorage.setItem('token', token);
   // todo 需要处理登录
-  const res = await API.portalUnitController.getCurUserInfo();
+  const res: any = await API.portalUnitController.getCurUserInfo();
   setUser(res.data);
   return res.data;
 }
-function getToken() {
+function getToken () {
   const token = localStorage.getItem('token');
   return token;
 }
-function setToken(token) {
+function setToken (token: any) {
   localStorage.setItem('token', token);
   return token;
 }
-function removeToken() {
+function removeToken () {
   localStorage.removeItem('token');
   localStorage.setItem('fromPath', window.location.href);
   setUser(null);
 }
-export { setUser, getUser, getUserInfo, removeToken, getToken, setToken };
+export {
+  setUser, getUser, getUserInfo, removeToken, getToken, setToken,
+};
 export default {
   setUser,
   getUser,

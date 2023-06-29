@@ -19,6 +19,7 @@
     "baseUrl": ".",
     "removeComments": false,
     "strictBindCallApply":true,
+    "suppressImplicitAnyIndexErrors": true,
     "types": [
       "webpack-env",
       "node"

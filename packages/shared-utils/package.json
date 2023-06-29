@@ -18,7 +18,6 @@
     "@amaz/api": "^9.0.0",
     "@amaz/core": "^9.0.0",
     "@amaz/theme": "^9.0.0",
-    "@amaz/utils": "^9.0.0",
     "crypto-js": "^4.1.1",
     "dingtalk-jsapi": "^2.14.1",
     "jsencrypt": "3.2.1",

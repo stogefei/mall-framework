@@ -24,14 +24,13 @@ interface ISettingsParams {
   cusRouteRule?: (
     to: RouteLocationNormalized,
     from: RouteLocationNormalized,
-    next: NavigationGuardNext,
+    next: NavigationGuardNext
   ) => Promise<boolean>;
 }
 /**
  * 启动设置
  */
-async function settings({ message, router, cusRouteRule }: ISettingsParams) {
-  const process = import.meta.env;
+async function settings ({ message, router, cusRouteRule }: ISettingsParams) {
   // 浏览器打开的时候清理一下user缓存信息
   UserUtils.setUser(null);
   // API全局配置
@@ -71,14 +70,15 @@ async function settings({ message, router, cusRouteRule }: ISettingsParams) {
 
     return response;
   });
-  if (process.MODE === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     // 开发模式默认打开dubug console
     (window as any).__BB_DEBUG__ = true;
   }
   API.setToken(() => UserUtils.getToken());
   routerHandler(router, cusRouteRule);
 }
-function routerHandler(router: Router, handle?: Function) {
+// eslint-disable-next-line @typescript-eslint/ban-types
+function routerHandler (router: Router, handle?: Function) {
   // createRouter(router);
   // 处理浏览器带过来的token
   const pToken = URL.getQueryVariable('token');
@@ -90,7 +90,7 @@ function routerHandler(router: Router, handle?: Function) {
       .map((key) => `${key}=${params[key]}`)
       .join('&');
     const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
-    window.history.replaceState(null, null, url);
+    (window as any).history.replaceState(null, null, url);
   }
   router.beforeEach(
     async (
@@ -139,7 +139,9 @@ function routerHandler(router: Router, handle?: Function) {
   );
   return router;
 }
-export { routerHandler, settings, ISettingsParams };
+export {
+  routerHandler, settings, ISettingsParams,
+};
 export default {
   routerHandler,
   settings,

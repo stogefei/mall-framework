@@ -1,0 +1,12 @@
+{
+  "name": "@amaz/core",
+  "version": "9.0.0",
+  "description": "核心功能库（主要制作适配器层）",
+  "main": "src/index.ts",
+  "scripts": {},
+  "author": "zaf",
+  "license": "ISC",
+  "dependencies": {
+    "vue-router": "^4.0.3"
+  }
+}

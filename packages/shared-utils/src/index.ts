@@ -1,7 +1,7 @@
 // import ViewTable from './view-table';
-import Schema from './schema';
+// import Schema from './schema';
 // import Amap from './amap';
-import Directives from './directives';
+// import Directives from './directives';
 import Rules from './rules';
 import ImageUtils from './image';
 import StartUp from './start-up';
@@ -11,9 +11,9 @@ export * from './app-icon';
 
 export {
   // ViewTable,
-  Schema,
+  // Schema,
   // Amap,
-  Directives,
+  // Directives,
   Rules,
   StartUp,
   UserUtils,
@@ -21,9 +21,9 @@ export {
 };
 export default {
   // ViewTable,
-  Schema,
+  // Schema,
   // Amap,
-  Directives,
+  // Directives,
   Rules,
   StartUp,
   UserUtils,
