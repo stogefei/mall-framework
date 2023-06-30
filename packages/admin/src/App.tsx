@@ -12,7 +12,7 @@ export default defineComponent({
     const locale: Ref = ref(zhCN);
     return () => {
       return (
-        <a-config-provider locale={locale}>
+        <a-config-provider locale={locale.value}>
           <div id="app" class={prefixCls}>
             <router-view />
           </div>

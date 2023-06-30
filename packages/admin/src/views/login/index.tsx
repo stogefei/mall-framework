@@ -102,7 +102,6 @@ export default defineComponent({
               >
                 <a-input
                   v-model={formState.username}
-                  autocomplete="off"
                   placeholder="请输入密码"
                 />
               </a-form-item>
@@ -115,7 +114,6 @@ export default defineComponent({
                 <a-input-password
                   class={`${prefixCls}__pwd`}
                   v-model={formState.password}
-                  autocomplete="off"
                   placeholder="请输入密码"
                 />
               </a-form-item>
