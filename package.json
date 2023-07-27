@@ -45,7 +45,7 @@
     }
   },
   "dependencies": {
-    "ant-design-vue": "^3.2.20",
+    "ant-design-vue": "^4.0.0",
     "core-js": "^3.8.3",
     "lodash-es": "^4.17.15"
   },

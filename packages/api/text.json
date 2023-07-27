@@ -96,6 +96,10 @@
       "description": "视图接口"
     },
     {
+      "name": "calendar-controller",
+      "description": "工作日历相关接口"
+    },
+    {
       "name": "chart-controller",
       "description": "图表接口"
     },
@@ -282,6 +286,14 @@
     {
       "name": "temporary-controller",
       "description": "暂存数据接口"
+    },
+    {
+      "name": "tp-task-sso-controller",
+      "description": "第三方待办单点登录接口"
+    },
+    {
+      "name": "unify-todo-open-api",
+      "description": "openapi:统一待办接口"
     },
     {
       "name": "user-biz-controller",
@@ -2421,6 +2433,61 @@
         "deprecated": false
       }
     },
+    "/admin/form/template/clone": {
+      "post": {
+        "tags": [
+          "form-template-controller"
+        ],
+        "summary": "复制打印模板",
+        "description": "复制打印模板",
+        "operationId": "cloneUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "formTemplateCloneVo",
+            "description": "formTemplateCloneVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FormTemplateCloneVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«BizFormTemplateVo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
     "/admin/form/template/create": {
       "post": {
         "tags": [
@@ -4496,7 +4563,7 @@
         ],
         "summary": "排序",
         "description": "排序",
-        "operationId": "sortUsingPOST_3",
+        "operationId": "sortUsingPOST_4",
         "consumes": [
           "application/json"
         ],
@@ -7337,7 +7404,7 @@
         ],
         "summary": "克隆流程",
         "description": "克隆流程",
-        "operationId": "cloneUsingPOST_4",
+        "operationId": "cloneUsingPOST_5",
         "consumes": [
           "application/json"
         ],
@@ -8862,6 +8929,61 @@
         "deprecated": false
       }
     },
+    "/admin/org/dept/sort": {
+      "post": {
+        "tags": [
+          "department-controller"
+        ],
+        "summary": "部门排序",
+        "description": "字典排序",
+        "operationId": "sortUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "departmentSortVo",
+            "description": "departmentSortVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DepartmentSortVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
     "/admin/org/push/config/getList": {
       "get": {
         "tags": [
@@ -9000,7 +9122,7 @@
         ],
         "summary": "保存组织",
         "description": "保存组织",
-        "operationId": "saveUsingPOST_2",
+        "operationId": "saveUsingPOST_3",
         "consumes": [
           "application/json"
         ],
@@ -10086,7 +10208,7 @@
         ],
         "summary": "删除用户",
         "description": "删除用户",
-        "operationId": "deleteUsingPOST_3",
+        "operationId": "deleteUsingPOST_5",
         "consumes": [
           "application/json"
         ],
@@ -12433,7 +12555,7 @@
         ],
         "summary": "获取任务列表",
         "description": "获取任务列表",
-        "operationId": "listUsingPOST_2",
+        "operationId": "listUsingPOST_3",
         "consumes": [
           "application/json"
         ],
@@ -12981,7 +13103,7 @@
         ],
         "summary": "删除",
         "description": "删除",
-        "operationId": "deleteUsingPOST_1",
+        "operationId": "deleteUsingPOST_2",
         "consumes": [
           "application/json"
         ],
@@ -13273,7 +13395,7 @@
         ],
         "summary": "字典排序",
         "description": "字典排序",
-        "operationId": "sortUsingPOST_4",
+        "operationId": "sortUsingPOST_5",
         "consumes": [
           "application/json"
         ],
@@ -13343,6 +13465,61 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/SystemDictVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/admin/system/dict/updateGroup": {
+      "post": {
+        "tags": [
+          "sys-dict-controller"
+        ],
+        "summary": "更新分组",
+        "description": "更新分组",
+        "operationId": "updateGroupUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "systemDictGroupVo",
+            "description": "systemDictGroupVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SystemDictGroupVo"
             }
           }
         ],
@@ -13578,7 +13755,7 @@
         ],
         "summary": "分页查询登陆日志",
         "description": "分页查询登陆日志",
-        "operationId": "listUsingPOST_3",
+        "operationId": "listUsingPOST_4",
         "consumes": [
           "application/json"
         ],
@@ -17325,6 +17502,171 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkItemTransferVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/openapi/unifyTodo/complete": {
+      "post": {
+        "tags": [
+          "unify-todo-open-api"
+        ],
+        "summary": "完成待办",
+        "description": "完成待办",
+        "operationId": "completeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "taskCompleteVo",
+            "description": "taskCompleteVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OpenApiThirdPartyTaskIdVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/openapi/unifyTodo/create": {
+      "post": {
+        "tags": [
+          "unify-todo-open-api"
+        ],
+        "summary": "创建待办",
+        "description": "创建待办",
+        "operationId": "createUsingPOST_19",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "thirdPartyTaskVo",
+            "description": "thirdPartyTaskVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OpenApiThirdPartyTaskVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/openapi/unifyTodo/delete": {
+      "post": {
+        "tags": [
+          "unify-todo-open-api"
+        ],
+        "summary": "删除待办",
+        "description": "删除待办",
+        "operationId": "deleteUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "taskIdVo",
+            "description": "taskIdVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OpenApiThirdPartyTaskIdVo"
             }
           }
         ],
@@ -22284,7 +22626,7 @@
         ],
         "summary": "删除暂存数据",
         "description": "删除暂存数据",
-        "operationId": "deleteUsingPOST_2",
+        "operationId": "deleteUsingPOST_3",
         "consumes": [
           "application/json"
         ],
@@ -22366,6 +22708,60 @@
           },
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/portal/tp/task/getSSOUrl": {
+      "get": {
+        "tags": [
+          "tp-task-sso-controller"
+        ],
+        "summary": "获取单点登录地址",
+        "description": "获取单点登录地址",
+        "operationId": "getSSOUrlUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "sysCode",
+            "in": "query",
+            "description": "sysCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "taskId",
+            "in": "query",
+            "description": "taskId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«string»"
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -23154,6 +23550,61 @@
         "deprecated": false
       }
     },
+    "/portal/view/listShowcaseSiftDatas": {
+      "post": {
+        "tags": [
+          "app-view-controller"
+        ],
+        "summary": "获取橱窗筛选数据",
+        "description": "获取橱窗筛选数据",
+        "operationId": "listShowcaseSiftDatasUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "siftQueryVo",
+            "description": "siftQueryVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShowcaseSiftQueryVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Map«string,List«object»»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
     "/portal/view/listTreeCriteria": {
       "post": {
         "tags": [
@@ -23570,7 +24021,7 @@
         ],
         "summary": "新建委托",
         "description": "新建委托",
-        "operationId": "createUsingPOST_19",
+        "operationId": "createUsingPOST_20",
         "consumes": [
           "application/json"
         ],
@@ -23625,7 +24076,7 @@
         ],
         "summary": "删除委托",
         "description": "删除委托",
-        "operationId": "deleteUsingPOST_4",
+        "operationId": "deleteUsingPOST_6",
         "consumes": [
           "application/json"
         ],
@@ -23683,7 +24134,7 @@
         ],
         "summary": "获取当前用户委托列表",
         "description": "获取当前用户委托列表",
-        "operationId": "listUsingPOST_4",
+        "operationId": "listUsingPOST_5",
         "consumes": [
           "application/json"
         ],
@@ -23742,6 +24193,270 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkflowDelegateVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/system/calendar/delete": {
+      "post": {
+        "tags": [
+          "calendar-controller"
+        ],
+        "summary": "删除日历",
+        "description": "删除日历",
+        "operationId": "deleteUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idVo",
+            "description": "idVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IDVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/system/calendar/list": {
+      "post": {
+        "tags": [
+          "calendar-controller"
+        ],
+        "summary": "查询日历列表",
+        "description": "查询日历列表",
+        "operationId": "listUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«List«SystemCalendarVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/system/calendar/listMonthInfo": {
+      "post": {
+        "tags": [
+          "calendar-controller"
+        ],
+        "summary": "查询月份工作计划",
+        "description": "查询月份工作计划",
+        "operationId": "listMonthInfoUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "calendarMonthQueryVo",
+            "description": "calendarMonthQueryVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalendarMonthQueryVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«List«SystemCalendarDetailVo»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/system/calendar/save": {
+      "post": {
+        "tags": [
+          "calendar-controller"
+        ],
+        "summary": "保存日历",
+        "description": "保存日历",
+        "operationId": "saveUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "systemCalendarVo",
+            "description": "systemCalendarVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SystemCalendarVo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResBody«Void»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "read,write"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/system/calendar/saveDetail": {
+      "post": {
+        "tags": [
+          "calendar-controller"
+        ],
+        "summary": "保存日历详情",
+        "description": "保存日历详情",
+        "operationId": "saveDetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "systemCalendarDetailVo",
+            "description": "systemCalendarDetailVo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SystemCalendarDetailVo"
             }
           }
         ],
@@ -25150,11 +25865,11 @@
           "format": "date-time",
           "description": "创建时间"
         },
-        "documentIdList": {
+        "fileList": {
           "type": "array",
           "description": "附件id列表",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/FileInfoVo"
           }
         },
         "formCode": {
@@ -26702,6 +27417,27 @@
       "title": "CalculateVo",
       "description": "计算参数VO"
     },
+    "CalendarMonthQueryVo": {
+      "type": "object",
+      "properties": {
+        "calendarId": {
+          "type": "string",
+          "description": "日历id"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32",
+          "description": "月"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32",
+          "description": "年"
+        }
+      },
+      "title": "CalendarMonthQueryVo",
+      "description": "查询月工作信息"
+    },
     "ChangeOwnerVo": {
       "type": "object",
       "properties": {
@@ -27032,6 +27768,22 @@
       "title": "DataSourceVo",
       "description": "报表数据源vo"
     },
+    "DepartmentSortVo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "id"
+        },
+        "sortIndex": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序值"
+        }
+      },
+      "title": "DepartmentSortVo",
+      "description": "部门排序vo"
+    },
     "DepartmentVo": {
       "type": "object",
       "properties": {
@@ -27085,6 +27837,11 @@
         "rootOrg": {
           "type": "boolean",
           "description": "是否是组织对应的部门"
+        },
+        "sortIndex": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序值"
         },
         "type": {
           "type": "string",
@@ -27605,6 +28362,34 @@
       "title": "FigureVo",
       "description": "红数字VO"
     },
+    "FileInfoVo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "附件id"
+        },
+        "name": {
+          "type": "string",
+          "description": "附件名称"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "description": "附件大小"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "附件类型"
+        },
+        "type": {
+          "type": "string",
+          "description": "附件类型"
+        }
+      },
+      "title": "FileInfoVo",
+      "description": "附件信息"
+    },
     "FlagVo": {
       "type": "object",
       "properties": {
@@ -27801,6 +28586,29 @@
       },
       "title": "FormRemindVo",
       "description": "表单提醒设置VO"
+    },
+    "FormTemplateCloneVo": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "模板编码"
+        },
+        "newCode": {
+          "type": "string",
+          "description": "新编码"
+        },
+        "newName": {
+          "type": "string",
+          "description": "新名称"
+        },
+        "schemaCode": {
+          "type": "string",
+          "description": "模型编码"
+        }
+      },
+      "title": "FormTemplateCloneVo",
+      "description": "打印模板复制"
     },
     "FunTreeVo": {
       "type": "object",
@@ -28597,6 +29405,13 @@
         "$ref": "#/definitions/List"
       }
     },
+    "Map«string,List«object»»": {
+      "type": "object",
+      "title": "Map«string,List«object»»",
+      "additionalProperties": {
+        "$ref": "#/definitions/List"
+      }
+    },
     "Map«string,object»": {
       "type": "object",
       "title": "Map«string,object»",
@@ -29163,25 +29978,6 @@
           "type": "string",
           "description": "流程实例名称"
         },
-        "instanceStartTime": {
-          "type": "array",
-          "description": "流程发起时间",
-          "items": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "instanceStatus": {
-          "type": "string",
-          "description": "流程实例状态",
-          "enum": [
-            "PROCESSING",
-            "FINISHED",
-            "CANCELED",
-            "EXCEPTION",
-            "TEMPORARY"
-          ]
-        },
         "originator": {
           "description": "发起人",
           "$ref": "#/definitions/UnitVo"
@@ -29195,6 +29991,10 @@
           "type": "integer",
           "format": "int32",
           "description": "分页条数"
+        },
+        "participant": {
+          "description": "处理人",
+          "$ref": "#/definitions/UnitVo"
         },
         "receiveTime": {
           "type": "array",
@@ -29364,6 +30164,82 @@
       },
       "title": "OpenApiTagResponseVo",
       "description": "标签响应vo"
+    },
+    "OpenApiThirdPartyTaskIdVo": {
+      "type": "object",
+      "properties": {
+        "approvalStatus": {
+          "type": "string",
+          "description": "待办审批状态",
+          "enum": [
+            "AGREE",
+            "DISAGREE",
+            "REJECT",
+            "TRANSFERRED"
+          ]
+        },
+        "sysCode": {
+          "type": "string",
+          "description": "第三方系统编码"
+        },
+        "taskId": {
+          "type": "string",
+          "description": "第三方待办id"
+        }
+      },
+      "title": "OpenApiThirdPartyTaskIdVo",
+      "description": "第三方待办唯一标识Vo"
+    },
+    "OpenApiThirdPartyTaskVo": {
+      "type": "object",
+      "properties": {
+        "circulate": {
+          "type": "boolean"
+        },
+        "circulator": {
+          "type": "string",
+          "description": "传阅人，可为空"
+        },
+        "instanceName": {
+          "type": "string",
+          "description": "流程名称"
+        },
+        "linkUrl": {
+          "type": "string",
+          "description": "第三方待办url"
+        },
+        "nodeName": {
+          "type": "string",
+          "description": "节点名称"
+        },
+        "originatorId": {
+          "type": "string",
+          "description": "发起人id"
+        },
+        "receiveTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "接收时间，默认当前时间"
+        },
+        "sequenceNo": {
+          "type": "string",
+          "description": "单据号"
+        },
+        "sysCode": {
+          "type": "string",
+          "description": "第三方系统编码"
+        },
+        "taskId": {
+          "type": "string",
+          "description": "第三方待办id"
+        },
+        "transactor": {
+          "type": "string",
+          "description": "处理人"
+        }
+      },
+      "title": "OpenApiThirdPartyTaskVo",
+      "description": "第三方待办Vo"
     },
     "OpenApiUserGetRequestVo": {
       "type": "object",
@@ -29755,6 +30631,10 @@
         "departmentId": {
           "type": "string",
           "description": "对应的部门ID"
+        },
+        "icon": {
+          "type": "string",
+          "description": "icon"
         },
         "id": {
           "type": "string",
@@ -30532,6 +31412,32 @@
       },
       "title": "QuickLinkVo",
       "description": "快捷链接"
+    },
+    "RejectConfigVo": {
+      "type": "object",
+      "properties": {
+        "rejectActivitys": {
+          "type": "array",
+          "description": "可驳回的节点，当有驳回权限时有值",
+          "items": {
+            "$ref": "#/definitions/ActivityVo"
+          }
+        },
+        "rejectToFixded": {
+          "type": "boolean",
+          "description": "驳回到指定节点"
+        },
+        "rejectToPrev": {
+          "type": "boolean",
+          "description": "驳回到上一节点"
+        },
+        "rejectToStart": {
+          "type": "boolean",
+          "description": "驳回到开始"
+        }
+      },
+      "title": "RejectConfigVo",
+      "description": "驳回配置VO"
     },
     "Relation": {
       "type": "object",
@@ -32861,6 +33767,68 @@
       "title": "ResBody«List«SupportOrgConfigVO»»",
       "description": "通用响应报文"
     },
+    "ResBody«List«SystemCalendarDetailVo»»": {
+      "type": "object",
+      "properties": {
+        "bizKey": {
+          "type": "string",
+          "description": "业务key"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码: 成功：200"
+        },
+        "data": {
+          "type": "array",
+          "description": "数据",
+          "items": {
+            "$ref": "#/definitions/SystemCalendarDetailVo"
+          }
+        },
+        "msg": {
+          "type": "string",
+          "description": "错误信息"
+        },
+        "traceId": {
+          "type": "string",
+          "description": "调用链id"
+        }
+      },
+      "title": "ResBody«List«SystemCalendarDetailVo»»",
+      "description": "通用响应报文"
+    },
+    "ResBody«List«SystemCalendarVo»»": {
+      "type": "object",
+      "properties": {
+        "bizKey": {
+          "type": "string",
+          "description": "业务key"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码: 成功：200"
+        },
+        "data": {
+          "type": "array",
+          "description": "数据",
+          "items": {
+            "$ref": "#/definitions/SystemCalendarVo"
+          }
+        },
+        "msg": {
+          "type": "string",
+          "description": "错误信息"
+        },
+        "traceId": {
+          "type": "string",
+          "description": "调用链id"
+        }
+      },
+      "title": "ResBody«List«SystemCalendarVo»»",
+      "description": "通用响应报文"
+    },
     "ResBody«List«SystemDictConfigVo»»": {
       "type": "object",
       "properties": {
@@ -33454,6 +34422,40 @@
         }
       },
       "title": "ResBody«Map«string,List«Map«string,object»»»»",
+      "description": "通用响应报文"
+    },
+    "ResBody«Map«string,List«object»»»": {
+      "type": "object",
+      "properties": {
+        "bizKey": {
+          "type": "string",
+          "description": "业务key"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码: 成功：200"
+        },
+        "data": {
+          "type": "object",
+          "description": "数据",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "msg": {
+          "type": "string",
+          "description": "错误信息"
+        },
+        "traceId": {
+          "type": "string",
+          "description": "调用链id"
+        }
+      },
+      "title": "ResBody«Map«string,List«object»»»",
       "description": "通用响应报文"
     },
     "ResBody«Map«string,object»»": {
@@ -35342,25 +36344,6 @@
           "type": "string",
           "description": "流程实例名称"
         },
-        "instanceStartTime": {
-          "type": "array",
-          "description": "流程发起时间",
-          "items": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "instanceStatus": {
-          "type": "string",
-          "description": "流程实例状态",
-          "enum": [
-            "PROCESSING",
-            "FINISHED",
-            "CANCELED",
-            "EXCEPTION",
-            "TEMPORARY"
-          ]
-        },
         "originator": {
           "description": "发起人",
           "$ref": "#/definitions/UnitVo"
@@ -35374,6 +36357,10 @@
           "type": "integer",
           "format": "int32",
           "description": "分页条数"
+        },
+        "participant": {
+          "description": "处理人",
+          "$ref": "#/definitions/UnitVo"
         },
         "receiveTime": {
           "type": "array",
@@ -35541,6 +36528,34 @@
       },
       "title": "ShortLink"
     },
+    "ShowcaseSiftQueryVo": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "description": "查询条件",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConditionItem"
+            }
+          }
+        },
+        "fields": {
+          "type": "array",
+          "description": "查询字段",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schemaCode": {
+          "type": "string",
+          "description": "模型编码"
+        }
+      },
+      "title": "ShowcaseSiftQueryVo",
+      "description": "橱窗筛选查询Vo"
+    },
     "SignFileVo": {
       "type": "object",
       "properties": {
@@ -35554,8 +36569,16 @@
         },
         "size": {
           "type": "integer",
-          "format": "int32",
+          "format": "int64",
           "description": "附件大小"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "附件类型"
+        },
+        "type": {
+          "type": "string",
+          "description": "附件类型"
         }
       },
       "title": "SignFileVo",
@@ -35882,6 +36905,118 @@
       },
       "title": "SysJobVo",
       "description": "系统定时任务vo"
+    },
+    "SystemCalendarDetailVo": {
+      "type": "object",
+      "properties": {
+        "amEndTime": {
+          "type": "string",
+          "description": "上午工作结束时间"
+        },
+        "amStartTime": {
+          "type": "string",
+          "description": "上午工作开始时间"
+        },
+        "calendarId": {
+          "type": "string",
+          "description": "日历id"
+        },
+        "detailDate": {
+          "type": "string",
+          "description": "配置日期"
+        },
+        "pmEndTime": {
+          "type": "string",
+          "description": "下午工作结束时间"
+        },
+        "pmStartTime": {
+          "type": "string",
+          "description": "下午工作开始时间"
+        },
+        "remarks": {
+          "type": "string",
+          "description": "备注"
+        },
+        "workDay": {
+          "type": "boolean",
+          "description": "是否工作日"
+        }
+      },
+      "title": "SystemCalendarDetailVo",
+      "description": "工作日历详情vo"
+    },
+    "SystemCalendarVo": {
+      "type": "object",
+      "properties": {
+        "amEndTime": {
+          "type": "string",
+          "description": "上午工作结束时间"
+        },
+        "amStartTime": {
+          "type": "string",
+          "description": "上午工作开始时间"
+        },
+        "beginDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "生效开始时间"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "生效结束时间"
+        },
+        "fridayWork": {
+          "type": "boolean",
+          "description": "周五是否工作日"
+        },
+        "id": {
+          "type": "string",
+          "description": "id"
+        },
+        "mondayWork": {
+          "type": "boolean",
+          "description": "周一是否工作日"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "pmEndTime": {
+          "type": "string",
+          "description": "下午工作结束时间"
+        },
+        "pmStartTime": {
+          "type": "string",
+          "description": "下午工作开始时间"
+        },
+        "remarks": {
+          "type": "string",
+          "description": "备注"
+        },
+        "saturdayWork": {
+          "type": "boolean",
+          "description": "周六是否工作日"
+        },
+        "sundayWork": {
+          "type": "boolean",
+          "description": "周日是否工作日"
+        },
+        "thursdayWork": {
+          "type": "boolean",
+          "description": "周四是否工作日"
+        },
+        "tuesdayWork": {
+          "type": "boolean",
+          "description": "周二是否工作日"
+        },
+        "wednesdayWork": {
+          "type": "boolean",
+          "description": "周三是否工作日"
+        }
+      },
+      "title": "SystemCalendarVo",
+      "description": "工作日历vo"
     },
     "SystemDictConfigVo": {
       "type": "object",
@@ -36965,6 +38100,10 @@
             "$ref": "#/definitions/DepartmentVo"
           }
         },
+        "passwordExpired": {
+          "type": "boolean",
+          "description": "密码是否已过期"
+        },
         "position": {
           "type": "string",
           "description": "职位"
@@ -37174,6 +38313,15 @@
         "comment": {
           "type": "string",
           "description": "驳回意见"
+        },
+        "rejectType": {
+          "type": "string",
+          "description": "驳回类型",
+          "enum": [
+            "START",
+            "PREV",
+            "FIXED"
+          ]
         },
         "signFileVo": {
           "description": "签名附件",
@@ -37395,6 +38543,10 @@
           "format": "int64",
           "description": "停留时间-毫秒"
         },
+        "thirdParty": {
+          "type": "boolean",
+          "description": "是否第三方待办"
+        },
         "timeout": {
           "type": "boolean",
           "description": "是否超时"
@@ -37406,6 +38558,18 @@
             "TIMEOUT",
             "WARNING"
           ]
+        },
+        "tpSysCode": {
+          "type": "string",
+          "description": "第三方系统标识"
+        },
+        "tpTaskId": {
+          "type": "string",
+          "description": "第三方待办id"
+        },
+        "tpTaskUrl": {
+          "type": "string",
+          "description": "第三方待办url"
         },
         "type": {
           "type": "string",
@@ -37678,12 +38842,9 @@
           "type": "string",
           "description": "流程实例id"
         },
-        "rejectActivitys": {
-          "type": "array",
-          "description": "可驳回的节点，当有驳回权限时有值",
-          "items": {
-            "$ref": "#/definitions/ActivityVo"
-          }
+        "rejectConfig": {
+          "description": "驳回配置",
+          "$ref": "#/definitions/RejectConfigVo"
         },
         "runtimeActivitys": {
           "type": "array",

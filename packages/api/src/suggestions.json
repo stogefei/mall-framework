@@ -245,6 +245,10 @@
         "detail": "(schemaCode: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取视图列表，只返回基础信息，不返回配置\n   * @param schemaCode\n   * @param requestConfig\n   * @returns Promise<ResBodyListBizViewVo>\n   */\n"
       },
+      "listShowcaseSiftDatas": {
+        "detail": "(siftQueryVo: ShowcaseSiftQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取橱窗筛选数据\n   * @param siftQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBody>\n   */\n"
+      },
       "listTreeCriteria": {
         "detail": "(bizObjectQueryVo: BizObjectQueryVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 获取树形条件区域数据\n   * @param bizObjectQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListTreeNode>\n   */\n"
@@ -745,6 +749,31 @@
       }
     }
   },
+  "calendarController": {
+    "detail": "工作日历相关接口",
+    "funs": {
+      "delete": {
+        "detail": "(idVo: IDVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除日历\n   * @param idVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "list": {
+        "detail": "(requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 查询日历列表\n\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemCalendarVo>\n   */\n"
+      },
+      "listMonthInfo": {
+        "detail": "(calendarMonthQueryVo: CalendarMonthQueryVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 查询月份工作计划\n   * @param calendarMonthQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyListSystemCalendarDetailVo>\n   */\n"
+      },
+      "save": {
+        "detail": "(systemCalendarVo: SystemCalendarVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 保存日历\n   * @param systemCalendarVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "saveDetail": {
+        "detail": "(systemCalendarDetailVo: SystemCalendarDetailVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 保存日历详情\n   * @param systemCalendarDetailVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      }
+    }
+  },
   "chartController": {
     "detail": "图表接口",
     "funs": {
@@ -833,6 +862,10 @@
       "search": {
         "detail": "(keyword: string, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 根据关键字搜索组织\n   * @param keyword\n   * @param requestConfig\n   * @returns Promise<ResBodyListDepartmentVo>\n   */\n"
+      },
+      "sort": {
+        "detail": "(departmentSortVo: DepartmentSortVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 字典排序\n   * @param departmentSortVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       }
     }
   },
@@ -1113,6 +1146,10 @@
   "formTemplateController": {
     "detail": "表单模板接口",
     "funs": {
+      "clone": {
+        "detail": "(formTemplateCloneVo: FormTemplateCloneVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 复制打印模板\n   * @param formTemplateCloneVo\n   * @param requestConfig\n   * @returns Promise<ResBodyBizFormTemplateVo>\n   */\n"
+      },
       "create": {
         "detail": "(bizFormTemplateVo: BizFormTemplateVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 新建模板\n   * @param bizFormTemplateVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
@@ -1757,6 +1794,10 @@
       "update": {
         "detail": "(systemDictVo: SystemDictVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 分页查询数据字典列表\n   * @param systemDictVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "updateGroup": {
+        "detail": "(systemDictGroupVo: SystemDictGroupVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 更新分组\n   * @param systemDictGroupVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       }
     }
   },
@@ -1857,6 +1898,32 @@
       "pageList": {
         "detail": "(pageQueryVo: PageQueryVo, requestConfig?: BAxiosRequestConfig)",
         "documentation": "  /**\n   * 分页获取用户暂存数据列表\n   * @param pageQueryVo\n   * @param requestConfig\n   * @returns Promise<ResBodyPageVOBizTemporaryVo>\n   */\n"
+      }
+    }
+  },
+  "tpTaskSsoController": {
+    "detail": "第三方待办单点登录接口",
+    "funs": {
+      "getSSOUrl": {
+        "detail": "(taskId: string, sysCode: string, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 获取单点登录地址\n   * @param taskId\n   * @param sysCode\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
+      }
+    }
+  },
+  "unifyTodoOpenApi": {
+    "detail": "openapi:统一待办接口",
+    "funs": {
+      "complete": {
+        "detail": "(taskCompleteVo: OpenApiThirdPartyTaskIdVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 完成待办\n   * @param taskCompleteVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
+      },
+      "create": {
+        "detail": "(thirdPartyTaskVo: OpenApiThirdPartyTaskVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 创建待办\n   * @param thirdPartyTaskVo\n   * @param requestConfig\n   * @returns Promise<ResBodystring>\n   */\n"
+      },
+      "delete": {
+        "detail": "(taskIdVo: OpenApiThirdPartyTaskIdVo, requestConfig?: BAxiosRequestConfig)",
+        "documentation": "  /**\n   * 删除待办\n   * @param taskIdVo\n   * @param requestConfig\n   * @returns Promise<ResBodyVoid>\n   */\n"
       }
     }
   },

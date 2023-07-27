@@ -3,6 +3,8 @@ const { defineConfig } = require('@vue/cli-service');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const proxy = require('../../build/proxy');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const themeVars = require('@amaz/theme/presets/pc');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { getVueConfig } = require('../../@build-helpers');
 const baseConfig = {};
 const vueConfig = getVueConfig('portal', baseConfig, {
@@ -20,7 +22,7 @@ const vueConfig = getVueConfig('portal', baseConfig, {
     loaderOptions: {
       less: {
         lessOptions: {
-          // ...themeVars,
+          ...themeVars,
           javascriptEnabled: true,
         },
       },

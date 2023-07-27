@@ -1,4 +1,3 @@
-@import '~ant-design-vue/lib/style/color/colorPalette.less';
 
 // -------- 功能色 -----------
 @bb-primary-color: #107fff; // 主色
@@ -14,22 +13,6 @@
 @bb-zebra-crossing-color: #fbfcfe; // 斑马线
 @bb-zebra-crossing-bg-color: #fafbfb; // 表格行斑马线
 // -------- 功能辅助色 -----------
-// --- 提示 ---
-@bb-info-bg-color: @bb-blue-1;
-@bb-info-hover-color: @bb-blue-5;
-@bb-info-active-color: @bb-blue-7;
-// --- 错误 ---
-@bb-error-bg-color: @bb-red-1;
-@bb-error-hover-color: @bb-red-5;
-@bb-error-active-color: @bb-red-7;
-// --- 成功 ---
-@bb-success-bg-color: @bb-green-1;
-@bb-success-hover-color: @bb-green-5;
-@bb-success-active-color: @bb-green-7;
-// --- 警告 ---
-@bb-warning-bg-color: @bb-yellow-1;
-@bb-warning-hover-color: @bb-yellow-5;
-@bb-warning-active-color: @bb-yellow-7;
 // -------- 预设六种业务颜色 -----------
 @bb-blue: #107fff; // 蓝色
 @bb-red: #ff4384; // 红色
@@ -73,31 +56,11 @@
   rgb(255, 192, 16) 0%,
   rgb(255, 225, 33) 100%
 ); // 渐变黄色
-@bb-gradual-pink: linear-gradient(
-  45deg,
-  @bb-pink 0%,
-  @bb-pink-4 100%
-); // 渐变粉色
-@bb-gradual-volcano-orange: linear-gradient(
-  45deg,
-  @bb-volcano-orange 0%,
-  @bb-volcano-orange-4 100%
-); // 渐变火山黄
 @bb-gradual-black: linear-gradient(
   45deg,
   @bb-black-7 0%,
   @bb-black-4 100%
 ); // 渐变黑色
-@bb-gradual-cyan: linear-gradient(
-  45deg,
-  @bb-cyan 0%,
-  @bb-cyan-4 100%
-); // 渐变青色
-@bb-gradual-daybreak-blue: linear-gradient(
-  45deg,
-  @bb-daybreak-blue 0%,
-  @bb-daybreak-blue-4 100%
-); // 渐变拂晓蓝
 // -------- 应用图标颜色 -----------
 @bb-app-color-1: @bb-red;
 @bb-app-color-2: @bb-purple;
@@ -138,112 +101,15 @@
 @bb-black-9: #000; // 极致黑
 @bb-black-10: #000; // 极致黑
 
-@bb-blue-1: color(~`colorPalette('@{bb-blue-6}', 1) `);
-@bb-blue-2: color(~`colorPalette('@{bb-blue-6}', 2) `);
-@bb-blue-3: color(~`colorPalette('@{bb-blue-6}', 3) `);
-@bb-blue-4: color(~`colorPalette('@{bb-blue-6}', 4) `);
-@bb-blue-5: color(~`colorPalette('@{bb-blue-6}', 5) `);
 @bb-blue-6: @bb-blue;
-@bb-blue-7: color(~`colorPalette('@{bb-blue-6}', 7) `);
-@bb-blue-8: color(~`colorPalette('@{bb-blue-6}', 8) `);
-@bb-blue-9: color(~`colorPalette('@{bb-blue-6}', 9) `);
-@bb-blue-10: color(~`colorPalette('@{bb-blue-6}', 10) `);
-
-@bb-green-1: color(~`colorPalette('@{bb-green-6}', 1) `);
-@bb-green-2: color(~`colorPalette('@{bb-green-6}', 2) `);
-@bb-green-3: color(~`colorPalette('@{bb-green-6}', 3) `);
-@bb-green-4: color(~`colorPalette('@{bb-green-6}', 4) `);
-@bb-green-5: color(~`colorPalette('@{bb-green-6}', 5) `);
 @bb-green-6: @bb-green;
-@bb-green-7: color(~`colorPalette('@{bb-green-6}', 7) `);
-@bb-green-8: color(~`colorPalette('@{bb-green-6}', 8) `);
-@bb-green-9: color(~`colorPalette('@{bb-green-6}', 9) `);
-@bb-green-10: color(~`colorPalette('@{bb-green-6}', 10) `);
 
-@bb-red-1: color(~`colorPalette('@{bb-red-6}', 1) `);
-@bb-red-2: color(~`colorPalette('@{bb-red-6}', 2) `);
-@bb-red-3: color(~`colorPalette('@{bb-red-6}', 3) `);
-@bb-red-4: color(~`colorPalette('@{bb-red-6}', 4) `);
-@bb-red-5: color(~`colorPalette('@{bb-red-6}', 5) `);
 @bb-red-6: @bb-red;
-@bb-red-7: color(~`colorPalette('@{bb-red-6}', 7) `);
-@bb-red-8: color(~`colorPalette('@{bb-red-6}', 8) `);
-@bb-red-9: color(~`colorPalette('@{bb-red-6}', 9) `);
-@bb-red-10: color(~`colorPalette('@{bb-red-6}', 10) `);
 
-@bb-yellow-1: color(~`colorPalette('@{bb-yellow-6}', 1) `);
-@bb-yellow-2: color(~`colorPalette('@{bb-yellow-6}', 2) `);
-@bb-yellow-3: color(~`colorPalette('@{bb-yellow-6}', 3) `);
-@bb-yellow-4: color(~`colorPalette('@{bb-yellow-6}', 4) `);
-@bb-yellow-5: color(~`colorPalette('@{bb-yellow-6}', 5) `);
 @bb-yellow-6: @bb-yellow;
-@bb-yellow-7: color(~`colorPalette('@{bb-yellow-6}', 7) `);
-@bb-yellow-8: color(~`colorPalette('@{bb-yellow-6}', 8) `);
-@bb-yellow-9: color(~`colorPalette('@{bb-yellow-6}', 9) `);
-@bb-yellow-10: color(~`colorPalette('@{bb-yellow-6}', 10) `);
-
-@bb-purple-1: color(~`colorPalette('@{bb-purple-6}', 1) `);
-@bb-purple-2: color(~`colorPalette('@{bb-purple-6}', 2) `);
-@bb-purple-3: color(~`colorPalette('@{bb-purple-6}', 3) `);
-@bb-purple-4: color(~`colorPalette('@{bb-purple-6}', 4) `);
-@bb-purple-5: color(~`colorPalette('@{bb-purple-6}', 5) `);
 @bb-purple-6: @bb-purple;
-@bb-purple-7: color(~`colorPalette('@{bb-purple-6}', 7) `);
-@bb-purple-8: color(~`colorPalette('@{bb-purple-6}', 8) `);
-@bb-purple-9: color(~`colorPalette('@{bb-purple-6}', 9) `);
-@bb-purple-10: color(~`colorPalette('@{bb-purple-6}', 10) `);
-
-@bb-orange-1: color(~`colorPalette('@{bb-orange-6}', 1) `);
-@bb-orange-2: color(~`colorPalette('@{bb-orange-6}', 2) `);
-@bb-orange-3: color(~`colorPalette('@{bb-orange-6}', 3) `);
-@bb-orange-4: color(~`colorPalette('@{bb-orange-6}', 4) `);
-@bb-orange-5: color(~`colorPalette('@{bb-orange-6}', 5) `);
 @bb-orange-6: @bb-orange;
-@bb-orange-7: color(~`colorPalette('@{bb-orange-6}', 7) `);
-@bb-orange-8: color(~`colorPalette('@{bb-orange-6}', 8) `);
-@bb-orange-9: color(~`colorPalette('@{bb-orange-6}', 9) `);
-@bb-orange-10: color(~`colorPalette('@{bb-orange-6}', 10) `);
-
-@bb-volcano-orange-1: color(~`colorPalette('@{bb-volcano-orange-6}', 1) `);
-@bb-volcano-orange-2: color(~`colorPalette('@{bb-volcano-orange-6}', 2) `);
-@bb-volcano-orange-3: color(~`colorPalette('@{bb-volcano-orange-6}', 3) `);
-@bb-volcano-orange-4: color(~`colorPalette('@{bb-volcano-orange-6}', 4) `);
-@bb-volcano-orange-5: color(~`colorPalette('@{bb-volcano-orange-6}', 5) `);
 @bb-volcano-orange-6: @bb-volcano-orange;
-@bb-volcano-orange-7: color(~`colorPalette('@{bb-volcano-orange-6}', 7) `);
-@bb-volcano-orange-8: color(~`colorPalette('@{bb-volcano-orange-6}', 8) `);
-@bb-volcano-orange-9: color(~`colorPalette('@{bb-volcano-orange-6}', 9) `);
-@bb-volcano-orange-10: color(~`colorPalette('@{bb-volcano-orange-6}', 10) `);
-
-@bb-daybreak-blue-1: color(~`colorPalette('@{bb-daybreak-blue-6}', 1) `);
-@bb-daybreak-blue-2: color(~`colorPalette('@{bb-daybreak-blue-6}', 2) `);
-@bb-daybreak-blue-3: color(~`colorPalette('@{bb-daybreak-blue-6}', 3) `);
-@bb-daybreak-blue-4: color(~`colorPalette('@{bb-daybreak-blue-6}', 4) `);
-@bb-daybreak-blue-5: color(~`colorPalette('@{bb-daybreak-blue-6}', 5) `);
 @bb-daybreak-blue-6: @bb-daybreak-blue;
-@bb-daybreak-blue-7: color(~`colorPalette('@{bb-daybreak-blue-6}', 7) `);
-@bb-daybreak-blue-8: color(~`colorPalette('@{bb-daybreak-blue-6}', 8) `);
-@bb-daybreak-blue-9: color(~`colorPalette('@{bb-daybreak-blue-6}', 9) `);
-@bb-daybreak-blue-10: color(~`colorPalette('@{bb-daybreak-blue-6}', 10) `);
-
-@bb-cyan-1: color(~`colorPalette('@{bb-cyan-6}', 1) `);
-@bb-cyan-2: color(~`colorPalette('@{bb-cyan-6}', 2) `);
-@bb-cyan-3: color(~`colorPalette('@{bb-cyan-6}', 3) `);
-@bb-cyan-4: color(~`colorPalette('@{bb-cyan-6}', 4) `);
-@bb-cyan-5: color(~`colorPalette('@{bb-cyan-6}', 5) `);
 @bb-cyan-6: @bb-cyan;
-@bb-cyan-7: color(~`colorPalette('@{bb-cyan-6}', 7) `);
-@bb-cyan-8: color(~`colorPalette('@{bb-cyan-6}', 8) `);
-@bb-cyan-9: color(~`colorPalette('@{bb-cyan-6}', 9) `);
-@bb-cyan-10: color(~`colorPalette('@{bb-cyan-6}', 10) `);
-
-@bb-pink-1: color(~`colorPalette('@{bb-pink-6}', 1) `);
-@bb-pink-2: color(~`colorPalette('@{bb-pink-6}', 2) `);
-@bb-pink-3: color(~`colorPalette('@{bb-pink-6}', 3) `);
-@bb-pink-4: color(~`colorPalette('@{bb-pink-6}', 4) `);
-@bb-pink-5: color(~`colorPalette('@{bb-pink-6}', 5) `);
 @bb-pink-6: @bb-pink;
-@bb-pink-7: color(~`colorPalette('@{bb-pink-6}', 7) `);
-@bb-pink-8: color(~`colorPalette('@{bb-pink-6}', 8) `);
-@bb-pink-9: color(~`colorPalette('@{bb-pink-6}', 9) `);
-@bb-pink-10: color(~`colorPalette('@{bb-pink-6}', 10) `);

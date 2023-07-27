@@ -20,9 +20,5 @@ module.exports = {
         corejs: 3,
       },
     ],
-    [
-      'import',
-      { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: false },
-    ],
   ],
 };

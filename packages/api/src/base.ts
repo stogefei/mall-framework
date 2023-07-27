@@ -45,11 +45,13 @@ import {
   BizViewVisibleVo,
   BizViewVo,
   CalculateVo,
+  CalendarMonthQueryVo,
   ChangeOwnerVo,
   ChartVo,
   CodeVo,
   DashboardVo,
   DataSourceVo,
+  DepartmentSortVo,
   DepartmentVo,
   DeptManagerUpdateVo,
   DeptUserIdsVO,
@@ -62,6 +64,7 @@ import {
   FormCodesVo,
   FormDataDeleteVo,
   FormRemindVo,
+  FormTemplateCloneVo,
   IDVo,
   IdIndexVo,
   IdNameVo,
@@ -94,6 +97,8 @@ import {
   OpenApiTagGroupGetRequestVo,
   OpenApiTagGroupQueryRequestVo,
   OpenApiTagQueryRequestVo,
+  OpenApiThirdPartyTaskIdVo,
+  OpenApiThirdPartyTaskVo,
   OpenApiUserGetRequestVo,
   OpenApiUserQueryRequestVo,
   OpenApiWorkItemSubmitVo,
@@ -183,6 +188,8 @@ import {
   ResBodyListSchemaPropertyPermissionVo,
   ResBodyListSecurityClientVo,
   ResBodyListSupportOrgConfigVO,
+  ResBodyListSystemCalendarDetailVo,
+  ResBodyListSystemCalendarVo,
   ResBodyListSystemDictConfigVo,
   ResBodyListSystemDictGroupVo,
   ResBodyListTagGroupVo,
@@ -262,10 +269,14 @@ import {
   SearchWorkflowInstanceVo,
   SecurityClientVo,
   ShortLink,
+  ShowcaseSiftQueryVo,
   SignFileVo,
   StartWorkflowVo,
   SyncOrgVo,
   SysJobVo,
+  SystemCalendarDetailVo,
+  SystemCalendarVo,
+  SystemDictGroupVo,
   SystemDictSortVo,
   SystemDictVo,
   TagGroupVo,
@@ -1868,6 +1879,35 @@ export class AppViewController {
       requestConfig
     );
     return fetch<ResBodyListBizViewVo>(req);
+  }
+
+  /**
+   * 获取橱窗筛选数据URL
+   */
+  listShowcaseSiftDatasUrl() {
+    return `${globalConfig.baseURL}/portal/view/listShowcaseSiftDatas`;
+  }
+
+  /**
+   * 获取橱窗筛选数据
+   * @param siftQueryVo
+   * @param requestConfig
+   * @returns Promise<ResBody>
+   */
+  listShowcaseSiftDatas(
+    siftQueryVo: ShowcaseSiftQueryVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBody> {
+    const req = Object.assign(
+      {
+        url: "/portal/view/listShowcaseSiftDatas",
+        method: "post",
+        modelFunName: "appViewController.listShowcaseSiftDatas",
+        data: siftQueryVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBody>(req);
   }
 
   /**
@@ -5096,6 +5136,154 @@ export class BizViewController {
   }
 }
 /**
+ *工作日历相关接口
+ */
+export class CalendarController {
+  /**
+   * 删除日历URL
+   */
+  deleteUrl() {
+    return `${globalConfig.baseURL}/system/calendar/delete`;
+  }
+
+  /**
+   * 删除日历
+   * @param idVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  delete(
+    idVo: IDVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/system/calendar/delete",
+        method: "post",
+        modelFunName: "calendarController.delete",
+        data: idVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 查询日历列表URL
+   */
+  listUrl() {
+    return `${globalConfig.baseURL}/system/calendar/list`;
+  }
+
+  /**
+   * 查询日历列表
+
+   * @param requestConfig
+   * @returns Promise<ResBodyListSystemCalendarVo>
+   */
+  list(
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSystemCalendarVo> {
+    const req = Object.assign(
+      {
+        url: "/system/calendar/list",
+        method: "post",
+        modelFunName: "calendarController.list",
+        data: {},
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSystemCalendarVo>(req);
+  }
+
+  /**
+   * 查询月份工作计划URL
+   */
+  listMonthInfoUrl() {
+    return `${globalConfig.baseURL}/system/calendar/listMonthInfo`;
+  }
+
+  /**
+   * 查询月份工作计划
+   * @param calendarMonthQueryVo
+   * @param requestConfig
+   * @returns Promise<ResBodyListSystemCalendarDetailVo>
+   */
+  listMonthInfo(
+    calendarMonthQueryVo: CalendarMonthQueryVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyListSystemCalendarDetailVo> {
+    const req = Object.assign(
+      {
+        url: "/system/calendar/listMonthInfo",
+        method: "post",
+        modelFunName: "calendarController.listMonthInfo",
+        data: calendarMonthQueryVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyListSystemCalendarDetailVo>(req);
+  }
+
+  /**
+   * 保存日历URL
+   */
+  saveUrl() {
+    return `${globalConfig.baseURL}/system/calendar/save`;
+  }
+
+  /**
+   * 保存日历
+   * @param systemCalendarVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  save(
+    systemCalendarVo: SystemCalendarVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/system/calendar/save",
+        method: "post",
+        modelFunName: "calendarController.save",
+        data: systemCalendarVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 保存日历详情URL
+   */
+  saveDetailUrl() {
+    return `${globalConfig.baseURL}/system/calendar/saveDetail`;
+  }
+
+  /**
+   * 保存日历详情
+   * @param systemCalendarDetailVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  saveDetail(
+    systemCalendarDetailVo: SystemCalendarDetailVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/system/calendar/saveDetail",
+        method: "post",
+        modelFunName: "calendarController.saveDetail",
+        data: systemCalendarDetailVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+}
+/**
  *图表接口
  */
 export class ChartController {
@@ -5663,6 +5851,35 @@ export class DepartmentController {
       requestConfig
     );
     return fetch<ResBodyListDepartmentVo>(req);
+  }
+
+  /**
+   * 字典排序URL
+   */
+  sortUrl() {
+    return `${globalConfig.baseURL}/admin/org/dept/sort`;
+  }
+
+  /**
+   * 字典排序
+   * @param departmentSortVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  sort(
+    departmentSortVo: DepartmentSortVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/org/dept/sort",
+        method: "post",
+        modelFunName: "departmentController.sort",
+        data: departmentSortVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 }
 /**
@@ -7387,6 +7604,35 @@ export class FormRuntimeOpenApi {
  *表单模板接口
  */
 export class FormTemplateController {
+  /**
+   * 复制打印模板URL
+   */
+  cloneUrl() {
+    return `${globalConfig.baseURL}/admin/form/template/clone`;
+  }
+
+  /**
+   * 复制打印模板
+   * @param formTemplateCloneVo
+   * @param requestConfig
+   * @returns Promise<ResBodyBizFormTemplateVo>
+   */
+  clone(
+    formTemplateCloneVo: FormTemplateCloneVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyBizFormTemplateVo> {
+    const req = Object.assign(
+      {
+        url: "/admin/form/template/clone",
+        method: "post",
+        modelFunName: "formTemplateController.clone",
+        data: formTemplateCloneVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyBizFormTemplateVo>(req);
+  }
+
   /**
    * 新建模板URL
    */
@@ -11168,6 +11414,35 @@ export class SysDictController {
     );
     return fetch<ResBodyVoid>(req);
   }
+
+  /**
+   * 更新分组URL
+   */
+  updateGroupUrl() {
+    return `${globalConfig.baseURL}/admin/system/dict/updateGroup`;
+  }
+
+  /**
+   * 更新分组
+   * @param systemDictGroupVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  updateGroup(
+    systemDictGroupVo: SystemDictGroupVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/admin/system/dict/updateGroup",
+        method: "post",
+        modelFunName: "sysDictController.updateGroup",
+        data: systemDictGroupVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
 }
 /**
  *系统管理
@@ -11771,6 +12046,135 @@ export class TemporaryController {
       requestConfig
     );
     return fetch<ResBodyPageVOBizTemporaryVo>(req);
+  }
+}
+/**
+ *第三方待办单点登录接口
+ */
+export class TpTaskSsoController {
+  /**
+   * 获取单点登录地址URL
+   */
+  getSSOUrlUrl() {
+    return `${globalConfig.baseURL}/portal/tp/task/getSSOUrl`;
+  }
+
+  /**
+   * 获取单点登录地址
+   * @param taskId
+   * @param sysCode
+   * @param requestConfig
+   * @returns Promise<ResBodystring>
+   */
+  getSSOUrl(
+    taskId: string,
+    sysCode: string,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
+    const req = Object.assign(
+      {
+        url: "/portal/tp/task/getSSOUrl",
+        method: "get",
+        modelFunName: "tpTaskSsoController.getSSOUrl",
+        data: {
+          taskId,
+          sysCode,
+        },
+      },
+      requestConfig
+    );
+    return fetch<ResBodystring>(req);
+  }
+}
+/**
+ *openapi:统一待办接口
+ */
+export class UnifyTodoOpenApi {
+  /**
+   * 完成待办URL
+   */
+  completeUrl() {
+    return `${globalConfig.baseURL}/openapi/unifyTodo/complete`;
+  }
+
+  /**
+   * 完成待办
+   * @param taskCompleteVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  complete(
+    taskCompleteVo: OpenApiThirdPartyTaskIdVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/openapi/unifyTodo/complete",
+        method: "post",
+        modelFunName: "unifyTodoOpenApi.complete",
+        data: taskCompleteVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
+  }
+
+  /**
+   * 创建待办URL
+   */
+  createUrl() {
+    return `${globalConfig.baseURL}/openapi/unifyTodo/create`;
+  }
+
+  /**
+   * 创建待办
+   * @param thirdPartyTaskVo
+   * @param requestConfig
+   * @returns Promise<ResBodystring>
+   */
+  create(
+    thirdPartyTaskVo: OpenApiThirdPartyTaskVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodystring> {
+    const req = Object.assign(
+      {
+        url: "/openapi/unifyTodo/create",
+        method: "post",
+        modelFunName: "unifyTodoOpenApi.create",
+        data: thirdPartyTaskVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodystring>(req);
+  }
+
+  /**
+   * 删除待办URL
+   */
+  deleteUrl() {
+    return `${globalConfig.baseURL}/openapi/unifyTodo/delete`;
+  }
+
+  /**
+   * 删除待办
+   * @param taskIdVo
+   * @param requestConfig
+   * @returns Promise<ResBodyVoid>
+   */
+  delete(
+    taskIdVo: OpenApiThirdPartyTaskIdVo,
+    requestConfig?: BAxiosRequestConfig
+  ): Promise<ResBodyVoid> {
+    const req = Object.assign(
+      {
+        url: "/openapi/unifyTodo/delete",
+        method: "post",
+        modelFunName: "unifyTodoOpenApi.delete",
+        data: taskIdVo,
+      },
+      requestConfig
+    );
+    return fetch<ResBodyVoid>(req);
   }
 }
 /**
@@ -13958,6 +14362,8 @@ export class BaseApi {
 
   bizViewController = new BizViewController();
 
+  calendarController = new CalendarController();
+
   chartController = new ChartController();
 
   dashboardController = new DashboardController();
@@ -14051,6 +14457,10 @@ export class BaseApi {
   tagController = new TagController();
 
   temporaryController = new TemporaryController();
+
+  tpTaskSsoController = new TpTaskSsoController();
+
+  unifyTodoOpenApi = new UnifyTodoOpenApi();
 
   userBizController = new UserBizController();
 

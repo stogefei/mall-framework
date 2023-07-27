@@ -470,13 +470,6 @@ export enum OlapQueryVoDataSourceType {
   ADVANCED = 'ADVANCED',
   SYSTEM = 'SYSTEM',
 }
-export enum OpenApiSearchWorkItemVoInstanceStatus {
-  PROCESSING = 'PROCESSING',
-  FINISHED = 'FINISHED',
-  CANCELED = 'CANCELED',
-  EXCEPTION = 'EXCEPTION',
-  TEMPORARY = 'TEMPORARY',
-}
 export enum OpenApiSearchWorkItemVoSearchWorkItemType {
   TASK = 'TASK',
   READ = 'READ',
@@ -489,6 +482,12 @@ export enum OpenApiSearchWorkItemVoStatus {
   TRANSFERRED = 'TRANSFERRED',
   REVOKE = 'REVOKE',
   CANCELED = 'CANCELED',
+}
+export enum OpenApiThirdPartyTaskIdVoApprovalStatus {
+  AGREE = 'AGREE',
+  DISAGREE = 'DISAGREE',
+  REJECT = 'REJECT',
+  TRANSFERRED = 'TRANSFERRED',
 }
 export enum OrgAscriptionCheckVoOp {
   EQUAL = 'EQUAL',
@@ -646,13 +645,6 @@ export enum SearchJobVoTriggerStatus {
   RUNNING = 'RUNNING',
   STOP = 'STOP',
 }
-export enum SearchWorkItemVoInstanceStatus {
-  PROCESSING = 'PROCESSING',
-  FINISHED = 'FINISHED',
-  CANCELED = 'CANCELED',
-  EXCEPTION = 'EXCEPTION',
-  TEMPORARY = 'TEMPORARY',
-}
 export enum SearchWorkItemVoSearchWorkItemType {
   TASK = 'TASK',
   READ = 'READ',
@@ -805,6 +797,11 @@ export enum UserVoUnitType {
 export enum ValidateErrorMessageVoErrorLevel {
   WARN = 'WARN',
   ERROR = 'ERROR',
+}
+export enum WorkItemRejectVoRejectType {
+  START = 'START',
+  PREV = 'PREV',
+  FIXED = 'FIXED',
 }
 export enum WorkItemVoInstanceStatus {
   PROCESSING = 'PROCESSING',
@@ -1790,7 +1787,7 @@ export interface BizFormCommentVo {
   /**
    * 附件id列表
    */
-  documentIdList?: string[];
+  fileList?: FileInfoVo[];
   /**
    * 表单编码
    */
@@ -3194,6 +3191,27 @@ export interface CalculateVo {
   [key: string]: any;
 }
 /**
+ *查询月工作信息
+ */
+export interface CalendarMonthQueryVo {
+  /**
+   * 日历id
+   */
+  calendarId?: string;
+  /**
+   * 月
+   */
+  month?: number;
+  /**
+   * 年
+   */
+  year?: number;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *修改拥有者VO
  */
 export interface ChangeOwnerVo {
@@ -3489,6 +3507,23 @@ export interface DataSourceVo {
   [key: string]: any;
 }
 /**
+ *部门排序vo
+ */
+export interface DepartmentSortVo {
+  /**
+   * id
+   */
+  id?: string;
+  /**
+   * 排序值
+   */
+  sortIndex?: number;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *部门对象
  */
 export interface DepartmentVo {
@@ -3540,6 +3575,10 @@ export interface DepartmentVo {
    * 是否是组织对应的部门
    */
   rootOrg?: boolean;
+  /**
+   * 排序值
+   */
+  sortIndex?: number;
   /**
    * 部门类型：ACTUAL:实体部门，QUOTE:引用部门
    */
@@ -3985,6 +4024,35 @@ export interface FigureVo {
   [key: string]: any;
 }
 /**
+ *附件信息
+ */
+export interface FileInfoVo {
+  /**
+   * 附件id
+   */
+  id?: string;
+  /**
+   * 附件名称
+   */
+  name?: string;
+  /**
+   * 附件大小
+   */
+  size?: number;
+  /**
+   * 附件类型
+   */
+  suffix?: string;
+  /**
+   * 附件类型
+   */
+  type?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *bool标志vo
  */
 export interface FlagVo {
@@ -4161,6 +4229,31 @@ export interface FormRemindVo {
    * 任务id
    */
   workItemId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *打印模板复制
+ */
+export interface FormTemplateCloneVo {
+  /**
+   * 模板编码
+   */
+  code?: string;
+  /**
+   * 新编码
+   */
+  newCode?: string;
+  /**
+   * 新名称
+   */
+  newName?: string;
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
   /**
    * 扩展字段
    */
@@ -5333,14 +5426,6 @@ export interface OpenApiSearchWorkItemVo {
    */
   instanceName?: string;
   /**
-   * 流程发起时间
-   */
-  instanceStartTime?: string[];
-  /**
-   * 流程实例状态
-   */
-  instanceStatus?: OpenApiSearchWorkItemVoInstanceStatus;
-  /**
    * 发起人
    */
   originator?: UnitVo;
@@ -5352,6 +5437,10 @@ export interface OpenApiSearchWorkItemVo {
    * 分页条数
    */
   pageSize?: number;
+  /**
+   * 处理人
+   */
+  participant?: UnitVo;
   /**
    * 接收时间
    */
@@ -5511,6 +5600,80 @@ export interface OpenApiTagResponseVo {
    * 标签下用户列表
    */
   tagUnitList?: TagUnitVo[];
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *第三方待办唯一标识Vo
+ */
+export interface OpenApiThirdPartyTaskIdVo {
+  /**
+   * 待办审批状态
+   */
+  approvalStatus?: OpenApiThirdPartyTaskIdVoApprovalStatus;
+  /**
+   * 第三方系统编码
+   */
+  sysCode?: string;
+  /**
+   * 第三方待办id
+   */
+  taskId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *第三方待办Vo
+ */
+export interface OpenApiThirdPartyTaskVo {
+  /**
+   * undefined
+   */
+  circulate?: boolean;
+  /**
+   * 传阅人，可为空
+   */
+  circulator?: string;
+  /**
+   * 流程名称
+   */
+  instanceName?: string;
+  /**
+   * 第三方待办url
+   */
+  linkUrl?: string;
+  /**
+   * 节点名称
+   */
+  nodeName?: string;
+  /**
+   * 发起人id
+   */
+  originatorId?: string;
+  /**
+   * 接收时间，默认当前时间
+   */
+  receiveTime?: string;
+  /**
+   * 单据号
+   */
+  sequenceNo?: string;
+  /**
+   * 第三方系统编码
+   */
+  sysCode?: string;
+  /**
+   * 第三方待办id
+   */
+  taskId?: string;
+  /**
+   * 处理人
+   */
+  transactor?: string;
   /**
    * 扩展字段
    */
@@ -5858,6 +6021,10 @@ export interface OrganizationVo {
    * 对应的部门ID
    */
   departmentId?: string;
+  /**
+   * icon
+   */
+  icon?: string;
   /**
    * 主键
    */
@@ -6561,6 +6728,31 @@ export interface QuickLinkVo {
    * 图标
    */
   icon?: Icon;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *驳回配置VO
+ */
+export interface RejectConfigVo {
+  /**
+   * 可驳回的节点，当有驳回权限时有值
+   */
+  rejectActivitys?: ActivityVo[];
+  /**
+   * 驳回到指定节点
+   */
+  rejectToFixded?: boolean;
+  /**
+   * 驳回到上一节点
+   */
+  rejectToPrev?: boolean;
+  /**
+   * 驳回到开始
+   */
+  rejectToStart?: boolean;
   /**
    * 扩展字段
    */
@@ -8807,6 +8999,64 @@ export interface ResBodyListSupportOrgConfigVO {
    * 数据
    */
   data?: SupportOrgConfigVO[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListSystemCalendarDetailVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: SystemCalendarDetailVo[];
+  /**
+   * 错误信息
+   */
+  msg?: string;
+  /**
+   * 调用链id
+   */
+  traceId?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *通用响应报文
+ */
+export interface ResBodyListSystemCalendarVo {
+  /**
+   * 业务key
+   */
+  bizKey?: string;
+  /**
+   * 状态码: 成功：200
+   */
+  code?: number;
+  /**
+   * 数据
+   */
+  data?: SystemCalendarVo[];
   /**
    * 错误信息
    */
@@ -11196,14 +11446,6 @@ export interface SearchWorkItemVo {
    */
   instanceName?: string;
   /**
-   * 流程发起时间
-   */
-  instanceStartTime?: string[];
-  /**
-   * 流程实例状态
-   */
-  instanceStatus?: SearchWorkItemVoInstanceStatus;
-  /**
    * 发起人
    */
   originator?: UnitVo;
@@ -11215,6 +11457,10 @@ export interface SearchWorkItemVo {
    * 分页条数
    */
   pageSize?: number;
+  /**
+   * 处理人
+   */
+  participant?: UnitVo;
   /**
    * 接收时间
    */
@@ -11356,6 +11602,27 @@ export interface ShortLink {
   [key: string]: any;
 }
 /**
+ *橱窗筛选查询Vo
+ */
+export interface ShowcaseSiftQueryVo {
+  /**
+   * 查询条件
+   */
+  conditions?: ConditionItem[][];
+  /**
+   * 查询字段
+   */
+  fields?: string[];
+  /**
+   * 模型编码
+   */
+  schemaCode?: string;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
  *审批附件
  */
 export interface SignFileVo {
@@ -11371,6 +11638,14 @@ export interface SignFileVo {
    * 附件大小
    */
   size?: number;
+  /**
+   * 附件类型
+   */
+  suffix?: string;
+  /**
+   * 附件类型
+   */
+  type?: string;
   /**
    * 扩展字段
    */
@@ -11615,6 +11890,120 @@ export interface SysJobVo {
    * 触发状态
    */
   triggerStatus?: SysJobVoTriggerStatus;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *工作日历详情vo
+ */
+export interface SystemCalendarDetailVo {
+  /**
+   * 上午工作结束时间
+   */
+  amEndTime?: string;
+  /**
+   * 上午工作开始时间
+   */
+  amStartTime?: string;
+  /**
+   * 日历id
+   */
+  calendarId?: string;
+  /**
+   * 配置日期
+   */
+  detailDate?: string;
+  /**
+   * 下午工作结束时间
+   */
+  pmEndTime?: string;
+  /**
+   * 下午工作开始时间
+   */
+  pmStartTime?: string;
+  /**
+   * 备注
+   */
+  remarks?: string;
+  /**
+   * 是否工作日
+   */
+  workDay?: boolean;
+  /**
+   * 扩展字段
+   */
+  [key: string]: any;
+}
+/**
+ *工作日历vo
+ */
+export interface SystemCalendarVo {
+  /**
+   * 上午工作结束时间
+   */
+  amEndTime?: string;
+  /**
+   * 上午工作开始时间
+   */
+  amStartTime?: string;
+  /**
+   * 生效开始时间
+   */
+  beginDate?: string;
+  /**
+   * 生效结束时间
+   */
+  endDate?: string;
+  /**
+   * 周五是否工作日
+   */
+  fridayWork?: boolean;
+  /**
+   * id
+   */
+  id?: string;
+  /**
+   * 周一是否工作日
+   */
+  mondayWork?: boolean;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 下午工作结束时间
+   */
+  pmEndTime?: string;
+  /**
+   * 下午工作开始时间
+   */
+  pmStartTime?: string;
+  /**
+   * 备注
+   */
+  remarks?: string;
+  /**
+   * 周六是否工作日
+   */
+  saturdayWork?: boolean;
+  /**
+   * 周日是否工作日
+   */
+  sundayWork?: boolean;
+  /**
+   * 周四是否工作日
+   */
+  thursdayWork?: boolean;
+  /**
+   * 周二是否工作日
+   */
+  tuesdayWork?: boolean;
+  /**
+   * 周三是否工作日
+   */
+  wednesdayWork?: boolean;
   /**
    * 扩展字段
    */
@@ -12619,6 +13008,10 @@ export interface UserVo {
    */
   partTimeDepartments?: DepartmentVo[];
   /**
+   * 密码是否已过期
+   */
+  passwordExpired?: boolean;
+  /**
    * 职位
    */
   position?: string;
@@ -12809,6 +13202,10 @@ export interface WorkItemRejectVo {
    * 驳回意见
    */
   comment?: string;
+  /**
+   * 驳回类型
+   */
+  rejectType?: WorkItemRejectVoRejectType;
   /**
    * 签名附件
    */
@@ -13010,6 +13407,10 @@ export interface WorkItemVo {
    */
   stayTime?: number;
   /**
+   * 是否第三方待办
+   */
+  thirdParty?: boolean;
+  /**
    * 是否超时
    */
   timeout?: boolean;
@@ -13017,6 +13418,18 @@ export interface WorkItemVo {
    * 超时状态
    */
   timeoutStatus?: WorkItemVoTimeoutStatus;
+  /**
+   * 第三方系统标识
+   */
+  tpSysCode?: string;
+  /**
+   * 第三方待办id
+   */
+  tpTaskId?: string;
+  /**
+   * 第三方待办url
+   */
+  tpTaskUrl?: string;
   /**
    * 任务类型
    */
@@ -13264,9 +13677,9 @@ export interface WorkflowFormDataVo {
    */
   instanceId?: string;
   /**
-   * 可驳回的节点，当有驳回权限时有值
+   * 驳回配置
    */
-  rejectActivitys?: ActivityVo[];
+  rejectConfig?: RejectConfigVo;
   /**
    * 运行中的节点
    */

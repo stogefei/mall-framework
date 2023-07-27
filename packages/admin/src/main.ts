@@ -1,5 +1,4 @@
 import { createApp } from 'vue';
-import 'ant-design-vue/dist/antd.css';
 import StartUp from '@amaz/shared-utils/src/start-up';
 import router from './router';
 import App from './App';
