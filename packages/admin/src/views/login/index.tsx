@@ -34,11 +34,12 @@ export default defineComponent({
       username: 'zaf1',
       password: '12345678',
     });
-    const path = 'apps/zaf/TKKPCX/model/form?code=biadoad';
+    const path = '/';
     const handleLogin = async () => {
       try {
         // console.log(router, 'router');
         loading.value = true;
+        router.replace({ path });
         const values = await formRef.value.validateFields();
         console.log('Success:', values);
         const res = await login(values.username, values.password);
@@ -49,12 +50,14 @@ export default defineComponent({
           if (fromPath && !fromPath.includes('login')) {
             message.success('登录成功!', 1, () => {
               // window.location.replace(fromPath);
+              UserUtils.setToken('test-token');
               router.replace({ path });
               loading.value = false;
             });
           } else {
             message.success('登录成功!', 1, () => {
               // router.replace({ name: 'Home' });
+              UserUtils.setToken('test-token');
               router.replace({ path });
               loading.value = false;
             });
@@ -68,16 +71,16 @@ export default defineComponent({
       }
     };
     const login = async (name: string, pwd: string) => {
-      const url = '/auth/login';
-      const password: any = pwd;
-      const params = {
-        username: name,
-        password: password,
-        orgId: '600542686021156864',
-      };
-      const res: any = await API.request(url, 'POST', params);
+      const url = '/goods';
+      // const password: any = pwd;
+      // const params = {
+      //   username: name,
+      //   password: password,
+      //   orgId: '600542686021156864',
+      // };
+      const res: any = await API.request(url, 'GET');
       if (res.code === ResponseCode.SUCCESS) {
-        await UserUtils.getUserInfo(res.data);
+        // await UserUtils.getUserInfo(res.data);
       }
       return res;
     };

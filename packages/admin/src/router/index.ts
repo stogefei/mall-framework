@@ -6,6 +6,8 @@ import {
   createWebHistory,
 } from 'vue-router';
 import HomeView from '../views/index';
+import List from '../views/product-list';
+import Detail from '../views/product-detail';
 const titlePrefix = '生鲜';
 
 const routes: RouteRecordRaw[] = [
@@ -13,6 +15,16 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'Home',
     component: HomeView,
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: List,
+  },
+  {
+    path: '/detail/:id',
+    name: 'Detail',
+    component: Detail,
   },
   {
     path: '/login',

@@ -1,22 +1,27 @@
 import { defineComponent } from 'vue';
-import { Button } from 'ant-design-vue';
+import { Button, Affix } from 'ant-design-vue';
+import { VerticalAlignTopOutlined } from '@ant-design/icons-vue';
+import './style/index.less';
+import Header from '../components/header';
+import Nav from '../components/nav';
+import Banner from '../components/banner';
+import Item from '../components/item-list';
+import Footer from '../components/footer';
 // import API, { ResponseCode } from '@amaz/api';
 // import { UserUtils } from '@amaz/shared-utils';
 // import { useRouter } from 'vue-router';
-const prefixCls = 'bb-home';
+const prefixCls = 'bb-mall-home';
 export default defineComponent({
   name: prefixCls,
   components: {
+    Affix: Affix,
     AButton: Button,
-    // AMenu: Menu,
-    // AMenuDivider: Menu.Divider,
-    // AMenuItem: Menu.Item,
-    // ALayout: Layout,
-    // ALayoutHeader: LayoutHeader,
-    // ALayoutContent: LayoutContent,
-    // ADropdown: Dropdown,
-    // ARow: Row,
-    // ACol: Col,
+    BHeader: Header,
+    BNav: Nav,
+    Banner: Banner,
+    Item,
+    BFooter: Footer,
+    VerticalAlignTopOutlined,
   },
   setup () {
     // const router = useRouter();
@@ -58,9 +63,23 @@ export default defineComponent({
       //   </a-menu>
       // );
       return (
-        <div>
-          <a-button type={'primary'}>test</a-button>
-          test
+        <div class={prefixCls}>
+          <b-header />
+          <b-nav />
+          <banner />
+          <item />
+          <item />
+          <item />
+          <item />
+          <b-footer />
+          <a-affix
+            style={{ position: 'fixed', bottom: '100px', right: '50px' }}
+            OffsetBottom={200}
+          >
+            <vertical-align-top-outlined
+              style={{ fontSize: '32px', cursor: 'pointer' }}
+            />
+          </a-affix>
         </div>
       );
     };

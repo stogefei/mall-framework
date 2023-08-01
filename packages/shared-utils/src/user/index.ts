@@ -1,4 +1,4 @@
-import API, { UserVo } from '@amaz/api';
+import { UserVo } from '@amaz/api';
 import AES from 'crypto-js/aes';
 import encUtf8 from 'crypto-js/enc-utf8';
 
@@ -26,9 +26,10 @@ function getUser (): UserVo | undefined {
 async function getUserInfo (token: any): Promise<UserVo> {
   localStorage.setItem('token', token);
   // todo 需要处理登录
-  const res: any = await API.portalUnitController.getCurUserInfo();
-  setUser(res.data);
-  return res.data;
+  // const res: any = await API.portalUnitController.getCurUserInfo();
+  // setUser(res.data);
+  // return res.data;
+  return {};
 }
 function getToken () {
   const token = localStorage.getItem('token');

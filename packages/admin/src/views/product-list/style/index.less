@@ -1,0 +1,140 @@
+@import '../../../styles/variables.less';
+.bb-product-list{
+  &__box{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  &__breadcrumb{
+    padding:10px 0;
+    &-title{
+      color: @base-color;
+      cursor: pointer;
+    }
+  }
+  &__wrapper{
+    display: flex;
+    width: 100%;
+    &-left{
+      width: 200px;
+      border: 1px solid #ededed;
+      border-top: 2px solid @base-color;
+      height: 464px;
+    }
+    &-right{
+      flex:1;
+      padding: 0 16px;
+    }
+  }
+  &__title{
+    line-height: 31px;
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #ededed;
+    font-size: 13px;
+    padding: 0 10px;
+    color: #666;
+  }
+  &__good-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+    cursor: pointer;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+  &__good-img{
+    text-align: center;
+    overflow: hidden;
+    img{
+      width: 150px;
+      max-height: 150px;
+      &:hover{
+        scale: 1.1;
+        transition: transform 0.3s ease-out;
+      }
+    }
+  }
+  &__good-title{
+    color: @text-base-color;
+    font-size: 13px;
+    padding: 4px 0;
+    line-height: 24px;
+  }
+  &__good-price{
+    color: @price-color;
+    font-size: 14px;
+    line-height: 28px;
+  }
+  &__sort-bar{
+      ul{
+        width: 100%;
+        display: flex;
+        background: #f0fdec;
+        li{
+          line-height: 32px;
+          padding: 0 12px;
+          font-size: 13px;
+          cursor: pointer;
+        }
+      }
+    &-active{
+      background: @base-color;
+      color: #fff;
+    }
+  }
+  &_items-img{
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    img{
+      max-width: 100%;
+      max-height: 180px;
+      &:hover{
+        scale: 1.1;
+        transition: transform 0.3s ease-out;
+      }
+    }
+  }
+  &_items-title{
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 32px;
+    color: @text-base-color;
+  }
+  &_items-detail{
+    text-align: center;
+    font-size: 13px;
+    line-height: 32px;
+    display: flex;
+    width: 100%;
+    &-left{
+      flex: 1;
+    }
+  }
+  &_items-price{
+    line-height: 32px;
+    color: @price-color;
+  }
+  &_items-unit{
+    line-height: 32px;
+    color: #999;
+    padding: 0 6px;
+  }
+  &_items-car{
+    width: 30px;
+    line-height: 32px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #F98681;
+  }
+  &__pagination{
+    text-align: center;
+    padding: 16px 0;
+  }
+}
+

@@ -1,0 +1,65 @@
+@import '../../../styles/variables.less';
+.bb-app-header{
+  &__top {
+    padding: 10px 20px;
+    background: #f0f6ff;
+  }
+
+  &__user-center {
+    text-align: right;
+    cursor: pointer;
+    span{
+      &:hover{
+        color: @orange-color;
+        cursor: pointer;
+      }
+    }
+  }
+  &__search{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  &__logo-box{
+    text-align: center;
+  }
+  &__logo{
+    display: inline-block;
+    width: 140px;
+    height: 44px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__shopping-car{
+    justify-content: center;
+    cursor: pointer;
+    &-icon{
+      font-size: 32px;
+      margin-right: 4px;
+    }
+    &-text{
+      line-height: 40px;
+    }
+    p{
+      margin: 0;
+      padding: 0 16px;
+      border: 1px solid #eee;
+      color: @base-color;
+      display: flex;
+      justify-content: center;
+    }
+    display: flex;
+  }
+  &__shopping-count{
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    background: @orange-color;
+    color: #fff;
+    font-weight: 600;
+  }
+}

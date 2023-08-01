@@ -1,11 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+// const { theme } = require('ant-design-vue');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { defineConfig } = require('@vue/cli-service');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const proxy = require('../../build/proxy');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const themeVars = require('@amaz/theme/presets/pc');
+// const themeVars = require('@amaz/theme/presets/pc');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { getVueConfig } = require('../../@build-helpers');
+
+// const { defaultAlgorithm } = theme;
+
+// const mapToken = defaultAlgorithm(themeVars.modifyVars);
+// console.log(mapToken, 'mapToken');
+// console.log(defaultSeed, 'defaultSeed');
 const baseConfig = {};
 const vueConfig = getVueConfig('portal', baseConfig, {
   pages: {
@@ -22,7 +30,7 @@ const vueConfig = getVueConfig('portal', baseConfig, {
     loaderOptions: {
       less: {
         lessOptions: {
-          ...themeVars,
+          // modifyVars: mapToken,
           javascriptEnabled: true,
         },
       },

@@ -1,0 +1,23 @@
+@import '../../../styles/variables.less';
+.bb-app-footer{
+  border-top: 2px solid @base-color;
+  margin-top: 16px;
+  &__wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 13px;
+    color: #999;
+  }
+  &__link{
+    cursor: pointer;
+    line-height: 22px;
+    span {
+      &:hover {
+        color: @base-color;
+      }
+    }
+  }
+}
+

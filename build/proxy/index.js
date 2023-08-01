@@ -1,4 +1,4 @@
-const type = 'dev';
+const type = 'local';
 
 let target;
 switch (type) {
@@ -13,6 +13,9 @@ switch (type) {
     break;
   case 'bpc':
     target = 'http://bpc.babaisz.com';
+    break;
+  case 'local':
+    target = 'http://127.0.0.1:8000';
     break;
 }
 const options = {
