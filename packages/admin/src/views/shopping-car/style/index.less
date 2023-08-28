@@ -1,0 +1,72 @@
+@import '../../../styles/variables.less';
+.bb-shopping-car{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__wrapper{
+    max-width:  1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+  }
+  &__name{
+    display: flex;
+    &-img{
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-detail{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #999;
+    }
+  }
+  &__settlement{
+    background: #fff4e8;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: end;
+    &-count{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &-freight{
+      font-size: 13px;
+      color: #666;
+    }
+    &-price{
+      color: @price-color;
+      em{
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+    &-cunts{
+      text-align: right;
+      font-size: 13px;
+      color: #666;
+      line-height: 20px;
+      em{
+        font-style: normal;
+      }
+    }
+    &-pay{
+      margin-left: 10px;
+      background: #ff3d3d;
+      color: #fff;
+      line-height: 40px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  }
+}
+

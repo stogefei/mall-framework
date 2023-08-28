@@ -37,7 +37,7 @@ export default defineComponent({
               />
               <span>营销中心</span>
             </div>
-            <p>
+            <p class={prefixCls + '__copy'}>
               CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved
             </p>
             <p>电话：010-****888 京ICP备*******8号</p>

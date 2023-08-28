@@ -8,6 +8,7 @@ import {
 import HomeView from '../views/index';
 import List from '../views/product-list';
 import Detail from '../views/product-detail';
+import Car from '../views/shopping-car';
 const titlePrefix = '生鲜';
 
 const routes: RouteRecordRaw[] = [
@@ -25,6 +26,11 @@ const routes: RouteRecordRaw[] = [
     path: '/detail/:id',
     name: 'Detail',
     component: Detail,
+  },
+  {
+    path: '/car',
+    name: 'Car',
+    component: Car,
   },
   {
     path: '/login',

@@ -5,7 +5,7 @@
   display: flex;
   &__menu-box{
     width: 200px;
-    height: 270px;
+    height: 360px;
     border-right: 1px solid #eeee;
     border-left: 1px solid #eeee;
   }
@@ -16,7 +16,7 @@
       line-height: 44px;
       border-bottom: 1px solid #eee;
       color: @text-color;
-      background: url('../../../assets/images/icons.png') 178px -257px no-repeat #fff;
+      background: url('../../../assets/images/icons.png') 146px -257px no-repeat #fff;
       a{
         display: block;
         height: 44px;
@@ -30,29 +30,32 @@
           color: @orange-color;
         }
       }
-      .fruit {
+      .category0 {
         background: url(../../../assets/images/icons.png) 28px 0 no-repeat;
       }
-      .seafood {
+      .category1,.category6 {
         background: url('../../../assets/images/icons.png') 28px -43px no-repeat;
       }
-      .meet {
+      .category2 {
         background: url(../../../assets/images/icons.png) 28px -86px no-repeat;
       }
-      .egg {
+      .category3,.category7 {
         background: url(../../../assets/images/icons.png) 28px -132px no-repeat;
       }
-      .vegetables {
+      .category4 {
         background: url(../../../assets/images/icons.png) 28px -174px no-repeat;
       }
-      .ice {
+      .category5 {
         background: url(../../../assets/images/icons.png) 28px -220px no-repeat;
       }
     }
   }
   &__carousel{
     width: 760px;
-    height: 270px;
+    height: 360px;
+    &-img{
+      height: 360px;
+    }
   }
   &__dots{
     display: flex;
@@ -74,7 +77,7 @@
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    height: 270px;
+    height: 360px;
     span{
       height: 50%;
       img {
@@ -84,4 +87,3 @@
     }
   }
 }
-

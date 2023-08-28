@@ -31,6 +31,12 @@ export default defineComponent({
     const goLogin = () => {
       router.push({ path: '/login' });
     };
+    const goShoppingCar = () => {
+      router.push({ path: '/car' });
+    };
+    const goHome = () => {
+      router.push({ path: '/' });
+    };
     return () => {
       return (
         <div class={prefixCls}>
@@ -51,7 +57,7 @@ export default defineComponent({
                   <a-divider type="vertical" />
                   <span>用户中心</span>
                   <a-divider type="vertical" />
-                  <span>我的购物车</span>
+                  <span onClick={goShoppingCar}>我的购物车</span>
                   <a-divider type="vertical" />
                   <span>我的订单</span>
                 </div>
@@ -62,7 +68,7 @@ export default defineComponent({
             <a-row justify={'center'}>
               <a-col span={6}>
                 <div class={prefixCls + '__logo-box'}>
-                  <span class={prefixCls + '__logo'}>
+                  <span class={prefixCls + '__logo'} onClick={goHome}>
                     <img src={logo} alt="" />
                   </span>
                 </div>

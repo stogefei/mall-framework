@@ -1,16 +1,21 @@
-import { defineComponent } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import {
   Button, Row, Col, Image,
 } from 'ant-design-vue';
 import { DoubleRightOutlined } from '@ant-design/icons-vue';
 import './style/index.less';
 import { useRouter } from 'vue-router';
+import { RequestController } from '@/request/requestController';
+import { ResponseCode } from '@amaz/api/es';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const banner01 = require('../../assets/images/banner01.jpg');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const goods003 = require('../../assets/images/goods/goods003.jpg');
+// const goods003 = require('../../assets/images/goods/goods003.jpg');
 const prefixCls = 'bb-item-list';
-
+export interface DataItem {
+  id: number;
+  name: string;
+}
 export default defineComponent({
   name: prefixCls,
   components: {
@@ -20,17 +25,35 @@ export default defineComponent({
     AImage: Image,
     DoubleRightOutlined,
   },
-  setup () {
+  props: {
+    dataItem: { type: Object as PropType<DataItem>, required: true },
+  },
+  setup (props) {
+    const list = ref([]);
+    RequestController.getGoodList({
+      category__parent_category: props.dataItem.id,
+    }).then((result) => {
+      if (result.code === ResponseCode.SUCCESS) {
+        // console.log(props.dataItem.id, 'id');
+        // 74 108 117
+        // console.log(result.data.results, 'result2');
+        list.value = result.data.results.slice(0, 5);
+      }
+    });
     const router = useRouter();
     const goProList = () => {
       router.push({ path: '/list' });
     };
+    const goDetail = (id) => {
+      router.push({ path: `/detail/${id}` });
+    };
     return () => {
+      const { dataItem } = props;
       return (
         <div class={prefixCls}>
           <div class={prefixCls + '__header'}>
             <div class={prefixCls + '__header-left'}>
-              <h4>新鲜水果</h4>
+              <h4>{dataItem.name}</h4>
               <span>
                 <a-divider
                   style={{ height: '16px', borderColor: '#999' }}
@@ -51,51 +74,32 @@ export default defineComponent({
               <a-col span={4}>
                 <img src={banner01} alt="" />
               </a-col>
-              <a-col span={4}>
-                <div class={prefixCls + '__item'}>
-                  <span class={prefixCls + '__item-title'}>草莓</span>
-                  <span class={prefixCls + '__item-img'}>
-                    <a-image src={goods003} previewMask={false} />
-                  </span>
-                  <span class={prefixCls + '__item-price'}>¥ 9.9</span>
-                </div>
-              </a-col>
-              <a-col span={4}>
-                <div class={prefixCls + '__item'}>
-                  <span class={prefixCls + '__item-title'}>草莓</span>
-                  <span class={prefixCls + '__item-img'}>
-                    <a-image src={goods003} previewMask={false} />
-                  </span>
-                  <span class={prefixCls + '__item-price'}>¥ 9.9</span>
-                </div>
-              </a-col>
-              <a-col span={4}>
-                <div class={prefixCls + '__item'}>
-                  <span class={prefixCls + '__item-title'}>草莓</span>
-                  <span class={prefixCls + '__item-img'}>
-                    <a-image src={goods003} previewMask={false} />
-                  </span>
-                  <span class={prefixCls + '__item-price'}>¥ 9.9</span>
-                </div>
-              </a-col>
-              <a-col span={4}>
-                <div class={prefixCls + '__item'}>
-                  <span class={prefixCls + '__item-title'}>草莓</span>
-                  <span class={prefixCls + '__item-img'}>
-                    <a-image src={goods003} previewMask={false} />
-                  </span>
-                  <span class={prefixCls + '__item-price'}>¥ 9.9</span>
-                </div>
-              </a-col>
-              <a-col span={4}>
-                <div class={prefixCls + '__item'}>
-                  <span class={prefixCls + '__item-title'}>草莓</span>
-                  <span class={prefixCls + '__item-img'}>
-                    <a-image src={goods003} previewMask={false} />
-                  </span>
-                  <span class={prefixCls + '__item-price'}>¥ 9.9</span>
-                </div>
-              </a-col>
+              {list.value.map((item: any) => {
+                return (
+                  <a-col span={4}>
+                    <div class={prefixCls + '__item'}>
+                      <span
+                        class={prefixCls + '__item-title'}
+                        onClick={() => goDetail(item.id)}
+                      >
+                        {item.name}
+                      </span>
+                      <span class={prefixCls + '__item-img'}>
+                        <a-image
+                          src={item.goods_front_image}
+                          previewMask={false}
+                        />
+                      </span>
+                      <span
+                        onClick={() => goDetail(item.id)}
+                        class={prefixCls + '__item-price'}
+                      >
+                        ¥ {item.market_price}
+                      </span>
+                    </div>
+                  </a-col>
+                );
+              })}
             </a-row>
           </div>
         </div>
