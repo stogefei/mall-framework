@@ -79,9 +79,11 @@ module.exports = {
   },
   // 是否允许只有scope
   allowCustomScopes: true,
+  alias: { fd: 'docs: fix typos' },
+  allowEmptyScopes: true,
+  emptyScopesAlias: 'empty',
   // 只允许以下类型提问破坏性更新
-  allowBreakingChanges: ['feat', 'fix', 'improvement', 'refactor', 'perf'],
-  scope: ['body', 'footer'], // 问题的范围
+  allowBreakingChanges: ['feat', 'fix'],
   // 跳过问题
   skipQuestions: [], // 'body'
 
