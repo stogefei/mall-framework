@@ -3,7 +3,7 @@
 module.exports = {
   // type 的枚举
   types: [
-    { value: 'feat', name: 'feat: 一个新功能' }, // (A new feature)
+    { value: 'feat', name: 'feat: 一个新功能1' }, // (A new feature)
     { value: 'improvement', name: 'improvement: 对当前功能的改进' }, // (An improvement to a current feature)
     { value: 'fix', name: 'fix: 一个bug修复' }, // (A bug fix)
     { value: 'docs', name: 'docs: 仅是文档修改' }, // (Documentation only changes)
@@ -68,7 +68,7 @@ module.exports = {
     type: '选择您要提交更改的的类型:',
     scope: '\n选择更改的的范围(可选):',
     // used if allowCustomScopes is true
-    customScope: '请输入更改的的范围(可选)。例如：components:',
+    customScope: '',
     // ticketNumber: '输入关联的需求或缺陷的编号:',
     ticketNumberPattern: '输入关联的需求或缺陷的编号，遵循这种正则 /#\\d+|[A-Za-z0-9]+-\\d+/ 规格：#123或JIRA-1(可选):',
     subject: '请输入更改的简短描述:\n',
@@ -78,7 +78,7 @@ module.exports = {
     confirmCommit: '您确定要继续上面的提交吗？',
   },
   // 是否允许只有scope
-  allowCustomScopes: true,
+  allowCustomScopes: false,
   alias: { fd: 'docs: fix typos' },
   allowEmptyScopes: true,
   emptyScopesAlias: 'empty',
