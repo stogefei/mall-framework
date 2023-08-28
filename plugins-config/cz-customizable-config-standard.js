@@ -1,105 +1,63 @@
-/* eslint-disable max-len */
-
+// cz.config.js
 module.exports = {
-  // type 的枚举
-  types: [
-    { value: 'feat', name: 'feat: 一个新功能1' }, // (A new feature)
-    { value: 'improvement', name: 'improvement: 对当前功能的改进' }, // (An improvement to a current feature)
-    { value: 'fix', name: 'fix: 一个bug修复' }, // (A bug fix)
-    { value: 'docs', name: 'docs: 仅是文档修改' }, // (Documentation only changes)
-    {
-      value: 'style',
-      name: 'style: 不会影响代码含义的更改，例如空格，格式化，缺少分号等等', // (Changes that do not affect the meaning of the code) \n         例如空格，格式化，缺少分号，等等(white-space, formatting, missing semi-colons, etc)
-    },
-    {
-      value: 'refactor',
-      name: 'refactor: 代码重构', // (A code change that neither fixes a bug nor adds a feature)
-    },
-    {
-      value: 'perf',
-      name: 'perf: 更改代码以提高性能', // (A code change that improves performance)
-    },
-    { value: 'test', name: 'test: 添加缺失的测试' }, // (Adding missing tests)
-    {
-      value: 'chore',
-      name: 'chore: 更改构建过程或辅助工具和诸如文档生成之类的库', // (Changes to the build process or auxiliary tools) \n         和诸如文档生成之类的库(and libraries such as documentation generation)
-    },
-    {
-      value: 'build',
-      name: 'build: 影响构建系统或外部依赖项的更改，例如gulp，broccoli，npm', // (Changes that affect the build system or external dependencies) \n         例如gulp，broccoli，npm(example scopes: gulp, broccoli, npm)
-    },
-    {
-      value: 'ci',
-      name: 'ci: 对CI配置文件和脚本的更改，例如Travis, Circle, BrowserStack, SauceLabs', // (Changes to our CI configuration files and scripts) \n      例如Travis, Circle, BrowserStack, SauceLabs(example scopes: Travis, Circle, BrowserStack, SauceLabs)
-    },
-    { value: 'revert', name: 'revert: 撤回之前某个提交' }, // (Revert to a commit)
-    { value: 'WIP', name: 'WIP: 工作正在进行中，还未完成但不影响项目运行' }, // (Work in progress)
-  ],
-  // scopes 的枚举
-  scopes: [],
-
-  // 是否关联编号
-  allowTicketNumber: true,
-
-  // 是否必须关联编号
-  isTicketNumberRequired: false,
-
-  // 关联编号前缀
-  ticketNumberPrefix: '',
-
-  // 关联编号校验
-  ticketNumberRegExp: '#\\d+|[A-Za-z0-9]+-\\d+',
-
-  // it needs to match the value for field type. Eg.: 'fix'
-  // 需要匹配字段类型的值。例如：'fix'
-  /*
-  scopeOverrides: {
-    fix: [
-      {name: 'merge'},
-      {name: 'style'},
-      {name: 'e2eTest'},
-      {name: 'unitTest'}
-    ]
-  },
-  */
-  // override the messages, defaults are as follows
-  // 信息
-  messages: {
-    type: '选择您要提交更改的的类型:',
-    scope: '\n选择更改的的范围(可选):',
-    // used if allowCustomScopes is true
-    customScope: '请输入更改的的范围(可选)。例如：components:',
-    // ticketNumber: '输入关联的需求或缺陷的编号:',
-    ticketNumberPattern: '输入关联的需求或缺陷的编号，遵循这种正则 /#\\d+|[A-Za-z0-9]+-\\d+/ 规格：#123或JIRA-1(可选):',
-    subject: '请输入更改的简短描述:\n',
-    body: '请输入更改的详细描述(可选)。使用"|"换行:\n',
-    breaking: '列出任何破坏性更改(可选):\n',
-    customFooterPrefix: '输入自定义issue前缀 :',
-    footer: '列出更改关闭的所有ISSUES(可选)。规格：Closes #233，Closes #123 #233:\n',
-    confirmCommit: '您确定要继续上面的提交吗？',
-  },
-  // 是否允许只有scope
-  allowCustomScopes: true,
   alias: { fd: 'docs: fix typos' },
+  messages: {
+    type: 'Select the type of change that you\'re committing:',
+    scope: 'Denote the SCOPE of this change (optional):',
+    customScope: 'Denote the SCOPE of this change:',
+    subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
+    body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
+    breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
+    footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
+    customFooterPrefix: 'Input ISSUES prefix:',
+    footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+    generatingByAI: 'Generating your AI commit subject...',
+    generatedSelectByAI: 'Select suitable subject by AI generated:',
+    confirmCommit: 'Are you sure you want to proceed with the commit above?'
+  },
+  types: [
+    { value: 'feat', name: 'feat:     A new feature', emoji: ':sparkles:' },
+    { value: 'fix', name: 'fix:      A bug fix', emoji: ':bug:' },
+    { value: 'docs', name: 'docs:     Documentation only changes', emoji: ':memo:' },
+    { value: 'style', name: 'style:    Changes that do not affect the meaning of the code', emoji: ':lipstick:' },
+    { value: 'refactor', name: 'refactor: A code change that neither fixes a bug nor adds a feature', emoji: ':recycle:' },
+    { value: 'perf', name: 'perf:     A code change that improves performance', emoji: ':zap:' },
+    { value: 'test', name: 'test:     Adding missing tests or correcting existing tests', emoji: ':white_check_mark:' },
+    { value: 'build', name: 'build:    Changes that affect the build system or external dependencies', emoji: ':package:' },
+    { value: 'ci', name: 'ci:       Changes to our CI configuration files and scripts', emoji: ':ferris_wheel:' },
+    { value: 'chore', name: 'chore:    Other changes that don\'t modify src or test files', emoji: ':hammer:' },
+    { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' }
+  ],
+  useEmoji: false,
+  emojiAlign: 'center',
+  useAI: false,
+  aiNumber: 1,
+  themeColorCode: '',
+  scopes: [],
+  allowCustomScopes: true,
   allowEmptyScopes: true,
-  customScopesAlias: 'customZ',
+  customScopesAlign: 'bottom',
+  customScopesAlias: 'custom',
   emptyScopesAlias: 'empty',
-  customIssuePrefixAlias: 'customz',
+  upperCaseSubject: false,
+  markBreakingChangeMode: false,
+  allowBreakingChanges: ['feat', 'fix'],
+  breaklineNumber: 100,
+  breaklineChar: '|',
+  skipQuestions: [],
+  issuePrefixes: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
+  customIssuePrefixAlign: 'top',
+  emptyIssuePrefixAlias: 'skip',
+  customIssuePrefixAlias: 'custom',
   allowCustomIssuePrefix: true,
   allowEmptyIssuePrefix: true,
+  confirmColorize: true,
+  maxHeaderLength: Infinity,
+  maxSubjectLength: Infinity,
+  minSubjectLength: 0,
+  scopeOverrides: undefined,
   defaultBody: '',
   defaultIssues: '',
   defaultScope: '',
   defaultSubject: '',
-  // 只允许以下类型提问破坏性更新
-  allowBreakingChanges: ['feat', 'fix'],
-  // 跳过问题
-  skipQuestions: [], // 'body'
-
-  // limit subject length
-  // 文本描述长度
-  subjectLimit: 100,
-  // breaklineChar: '|', // body 和 footer 换行符号 // It is supported for fields body and footer.
-  // footerPrefix : 'ISSUES CLOSED:' footer前缀
-  // askForBreakingChangeFirst: true, // default is false // 是否先询问是否有破坏性更新
 };
