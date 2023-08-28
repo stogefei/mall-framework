@@ -1,4 +1,11 @@
 // .commitlintrc.js
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
+console.log(__dirname, '__dirname');
+const packages = fs.readdirSync(path.resolve('./', 'packages'));
+
 module.exports = {
   alias: { fd: 'docs: fix typos' },
   messages: {
@@ -52,7 +59,7 @@ module.exports = {
   useAI: false,
   aiNumber: 1,
   themeColorCode: '',
-  scopes: [],
+  scopes: [...packages],
   allowCustomScopes: true,
   allowEmptyScopes: true,
   customScopesAlign: 'bottom',
