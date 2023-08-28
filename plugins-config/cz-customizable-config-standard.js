@@ -82,6 +82,7 @@ module.exports = {
   allowCustomScopes: true,
   alias: { fd: 'docs: fix typos' },
   allowEmptyScopes: true,
+  customScopesAlias: 'customZ',
   emptyScopesAlias: 'empty',
   customIssuePrefixAlias: 'customz',
   allowCustomIssuePrefix: true,
