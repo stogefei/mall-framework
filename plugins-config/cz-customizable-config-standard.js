@@ -78,7 +78,7 @@ module.exports = {
     confirmCommit: '您确定要继续上面的提交吗？',
   },
   // 是否允许只有scope
-  allowCustomScopes: true,
+  allowCustomScopes: false,
   // 只允许以下类型提问破坏性更新
   allowBreakingChanges: ['feat', 'fix', 'improvement', 'refactor', 'perf'],
   // 跳过问题
