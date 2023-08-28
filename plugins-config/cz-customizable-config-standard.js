@@ -70,7 +70,7 @@ module.exports = {
   allowBreakingChanges: ['feat', 'fix'],
   breaklineNumber: 100,
   breaklineChar: '|',
-  skipQuestions: [],
+  skipQuestions: ['scope'],
   issuePrefixes: [
     // 如果使用 gitee 作为开发管理
     { value: 'link', name: 'link:     链接 ISSUES 进行中' },
