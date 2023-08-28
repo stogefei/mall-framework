@@ -79,11 +79,17 @@ module.exports = {
     confirmCommit: '您确定要继续上面的提交吗？',
   },
   // 是否允许只有scope
-  allowCustomScopes: false,
+  allowCustomScopes: true,
   alias: { fd: 'docs: fix typos' },
   allowEmptyScopes: true,
   emptyScopesAlias: 'empty',
   customIssuePrefixAlias: 'customz',
+  allowCustomIssuePrefix: true,
+  allowEmptyIssuePrefix: true,
+  defaultBody: '',
+  defaultIssues: '',
+  defaultScope: '',
+  defaultSubject: '',
   // 只允许以下类型提问破坏性更新
   allowBreakingChanges: ['feat', 'fix'],
   // 跳过问题
