@@ -82,6 +82,7 @@ module.exports = {
   alias: { fd: 'docs: fix typos' },
   allowEmptyScopes: true,
   emptyScopesAlias: 'empty',
+  customIssuePrefixAlias: 'customz',
   // 只允许以下类型提问破坏性更新
   allowBreakingChanges: ['feat', 'fix'],
   // 跳过问题
