@@ -1,6 +1,6 @@
 {
   "name": "mall",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "zaf-from",
   "private": true,
   "main": "index.js",
