@@ -1,15 +1,16 @@
-import { UserVo } from '@amaz/api';
+// Note: 用户信息相关
 import AES from 'crypto-js/aes';
 import encUtf8 from 'crypto-js/enc-utf8';
 
 const key = 'bbsz';
-function setUser (user: UserVo | any) {
+function setUser (user: any) {
   sessionStorage.setItem(
     'user',
     AES.encrypt(JSON.stringify(user), key).toString(),
   );
 }
-function getUser (): UserVo | undefined {
+
+function getUser (): undefined {
   const userStr = sessionStorage.getItem('user');
   if (userStr) {
     try {
@@ -23,7 +24,7 @@ function getUser (): UserVo | undefined {
     return undefined;
   }
 }
-async function getUserInfo (token: any): Promise<UserVo> {
+async function getUserInfo (token: any): Promise<any> {
   localStorage.setItem('token', token);
   // todo 需要处理登录
   // const res: any = await API.portalUnitController.getCurUserInfo();

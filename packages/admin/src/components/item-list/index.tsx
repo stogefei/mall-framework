@@ -5,12 +5,9 @@ import {
 import { DoubleRightOutlined } from '@ant-design/icons-vue';
 import './style/index.less';
 import { useRouter } from 'vue-router';
-import { RequestController } from '@/request/requestController';
-import { ResponseCode } from '@amaz/api/es';
+import API, { ResponseCode } from '@amaz/api';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const banner01 = require('../../assets/images/banner01.jpg');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const goods003 = require('../../assets/images/goods/goods003.jpg');
 const prefixCls = 'bb-item-list';
 export interface DataItem {
   id: number;
@@ -30,16 +27,16 @@ export default defineComponent({
   },
   setup (props) {
     const list = ref([]);
-    RequestController.getGoodList({
-      category__parent_category: props.dataItem.id,
-    }).then((result) => {
-      if (result.code === ResponseCode.SUCCESS) {
-        // console.log(props.dataItem.id, 'id');
-        // 74 108 117
-        // console.log(result.data.results, 'result2');
-        list.value = result.data.results.slice(0, 5);
-      }
-    });
+    API.goodController
+      .getGoodList({
+        category__parent_category: props.dataItem.id,
+      })
+      .then((result) => {
+        if (result.code === ResponseCode.SUCCESS) {
+          console.log(result.data, 'result.data===');
+          list.value = result.data.results.slice(0, 5);
+        }
+      });
     const router = useRouter();
     const goProList = () => {
       router.push({ path: '/list' });

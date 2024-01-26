@@ -2,18 +2,6 @@ const type = 'local';
 
 let target;
 switch (type) {
-  case 'dev':
-    target = 'http://159.75.221.84/';
-    break;
-  case 'test':
-    target = 'http://1.12.252.89/';
-    break;
-  case 'demo':
-    target = 'https://demo.babaisz.com';
-    break;
-  case 'bpc':
-    target = 'http://bpc.babaisz.com';
-    break;
   case 'local':
     target = 'http://127.0.0.1:8000';
     break;

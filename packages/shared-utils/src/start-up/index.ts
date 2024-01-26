@@ -33,10 +33,7 @@ interface ISettingsParams {
 async function settings ({ message, router, cusRouteRule }: ISettingsParams) {
   // 浏览器打开的时候清理一下user缓存信息
   UserUtils.setUser(null);
-  // API全局配置
-  API.config({
-    baseURL: Core.config.baseApi,
-  });
+
   // 设置全局请求错误拦截
   API.on('requsetError', EventType.REQUSETERROR, (error) => {
     if (error.response) {
@@ -46,15 +43,21 @@ async function settings ({ message, router, cusRouteRule }: ISettingsParams) {
     }
     return error;
   });
+
   // 设置全局响应错误拦截
   API.on('responseError', EventType.RESPONSEERROR, (error) => {
-    if (error.response) {
-      message.error('服务器响应异常,请联系管理员处理');
+    if (error.response?.status) {
+      if (error.response?.status === 404) {
+        message.info('服务器正在升级维护中,请稍候重试...');
+      } else {
+        message.error('服务器响应异常,请联系管理员处理');
+      }
     }
     return error;
   });
+
   // API统一异常处理
-  API.on('systemError', EventType.RESPONSEAFTER, (response: any) => {
+  API.on('systemError', EventType.RESPONSEAFTER, (response: any, config) => {
     if (response && response.code !== ResponseCode.SUCCESS) {
       switch (response.code) {
         case ResponseCode.LOGOUT:
@@ -70,11 +73,12 @@ async function settings ({ message, router, cusRouteRule }: ISettingsParams) {
 
     return response;
   });
+
   if (process.env.NODE_ENV === 'development') {
     // 开发模式默认打开dubug console
     (window as any).__BB_DEBUG__ = true;
   }
-  API.setToken(() => UserUtils.getToken());
+  API.setToken(UserUtils.getToken());
   routerHandler(router, cusRouteRule);
 }
 // eslint-disable-next-line @typescript-eslint/ban-types

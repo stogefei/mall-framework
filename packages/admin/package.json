@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@amaz/api": "^9.0.0",
     "@ant-design/icons-vue": "^6.1.0",
     "@surely-vue/table": "^4.0.8",
     "ant-design-vue": "^4.0.0",

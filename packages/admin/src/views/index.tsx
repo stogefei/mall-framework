@@ -7,8 +7,7 @@ import Nav from '../components/nav';
 import Banner from '../components/banner';
 import ItemList from '../components/item-list';
 import Footer from '../components/footer';
-import { RequestController } from '@/request/requestController';
-import { ResponseCode } from '@amaz/api/es';
+import API, { ResponseCode } from '@amaz/api';
 const prefixCls = 'bb-mall-home';
 export default defineComponent({
   name: prefixCls,
@@ -24,8 +23,8 @@ export default defineComponent({
   },
   setup () {
     const categoryList = ref([]);
-    RequestController.getCategoryList().then((result) => {
-      console.log(result, 'result');
+    API.goodController.getCategoryList().then((result) => {
+      console.log(result, 'result===');
       if (result.code === ResponseCode.SUCCESS) {
         categoryList.value = result.data;
       }

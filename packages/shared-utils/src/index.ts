@@ -3,7 +3,6 @@
 // import Amap from './amap';
 // import Directives from './directives';
 // import Rules from './rules';
-import ImageUtils from './image';
 import StartUp from './start-up';
 import UserUtils from './user';
 // export * from './external-form';
@@ -17,7 +16,6 @@ export {
   // Rules,
   StartUp,
   UserUtils,
-  ImageUtils,
 };
 export default {
   // ViewTable,
@@ -27,5 +25,4 @@ export default {
   // Rules,
   StartUp,
   UserUtils,
-  ImageUtils,
 };
